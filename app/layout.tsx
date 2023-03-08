@@ -1,30 +1,16 @@
-"use client";
+import Client from "./client";
 
-import Footer from "@/components/Footer";
-import NavBar from "@/components/NavBar";
-import theme from "@/theme";
-import { CacheProvider } from "@chakra-ui/next-js";
-import { ChakraBaseProvider, VStack } from "@chakra-ui/react";
+export const metadata = {
+  title: "Shelly Liu, Social Media Manager",
+  description:
+    "Shelly Liu is a professional social media manager and digital marketing expert based in southern California.",
+};
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="en">
       <body>
-        <CacheProvider>
-          <ChakraBaseProvider theme={theme} resetCSS>
-            <VStack
-              minH="100vh"
-              w="full"
-              justify="space-between"
-              align="center"
-              spacing={0}
-            >
-              <NavBar />
-              {children}
-              <Footer />
-            </VStack>
-          </ChakraBaseProvider>
-        </CacheProvider>
+        <Client children={children} />
       </body>
     </html>
   );
