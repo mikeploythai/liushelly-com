@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/react";
 import Client from "./client";
 
 export const metadata = {
@@ -11,6 +12,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
     <html lang="en">
       <body>
         <Client children={children} />
+        <Analytics />
       </body>
     </html>
   );
