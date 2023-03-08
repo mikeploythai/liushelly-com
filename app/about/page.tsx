@@ -53,7 +53,7 @@ const About = () => {
         </Box>
       </Hero>
 
-      <Box display={{ base: "initial", sm: "none" }} p={4}>
+      <Box as="section" display={{ base: "initial", sm: "none" }} p={4}>
         <AboutText />
       </Box>
     </>
