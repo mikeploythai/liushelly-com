@@ -42,7 +42,8 @@ const Cards = ({ data }: { data: Array<DataProps> }) => {
               <Image
                 src={service.img}
                 alt=""
-                sizes="(max-width: 480px) 80vw, 40vw"
+                quality={50}
+                sizes="(max-width: 480px) 60vw, 40vw"
                 style={{ objectFit: "cover" }}
                 fill
               />
