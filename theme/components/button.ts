@@ -13,8 +13,8 @@ const Button = {
   },
   variants: {
     primary: {
-      bgColor: "brand.navy",
-      color: "brand.lavender",
+      bgColor: "brand.dark",
+      color: "brand.light",
 
       _hover: {
         bgImage: "linear-gradient(rgb(0 0 0/12.5%) 0 0)",
@@ -26,8 +26,8 @@ const Button = {
       },
     },
     secondary: {
-      bgColor: "brand.lavender",
-      color: "brand.navy",
+      bgColor: "brand.light",
+      color: "brand.dark",
 
       _hover: {
         bgImage: "linear-gradient(rgb(0 0 0/12.5%) 0 0)",
@@ -39,7 +39,7 @@ const Button = {
       },
     },
     ghost: {
-      color: "brand.navy",
+      color: "brand.dark",
 
       _hover: {
         bgImage: "linear-gradient(rgb(0 0 0/12.5%) 0 0)",

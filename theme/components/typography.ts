@@ -8,8 +8,8 @@ export const Heading = {
     xl: { fontSize: "2xl" },
   },
   variants: {
-    primary: { color: "brand.navy" },
-    secondary: { color: "brand.lavender" },
+    primary: { color: "brand.dark" },
+    secondary: { color: "brand.light" },
   },
   defaultProps: { size: "md", variant: "primary" },
 };
@@ -17,7 +17,7 @@ export const Heading = {
 export const Text = {
   baseStyle: { fontWeight: "medium" },
   variants: {
-    primary: { color: "brand.navy" },
-    secondary: { color: "brand.lavender" },
+    primary: { color: "brand.dark" },
+    secondary: { color: "brand.light" },
   },
 };

@@ -32,7 +32,7 @@ const SocialLinks = ({ isDrawer }: { isDrawer: boolean }) => {
               href={link}
               referrerPolicy="strict-origin-when-cross-origin"
               variant="ghost"
-              color={isDrawer ? "brand.lavender" : "brand.navy"}
+              color={isDrawer ? "brand.light" : "brand.dark"}
               p={3.5}
               isExternal
             />

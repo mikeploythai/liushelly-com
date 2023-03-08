@@ -14,7 +14,7 @@ const Footer = () => {
   const year = date.getFullYear();
 
   return (
-    <Flex as="footer" w="full" justifyContent="center" bgColor="brand.lavender">
+    <Flex as="footer" w="full" justifyContent="center" bgColor="brand.light">
       <Container
         as={Flex}
         maxW="container.sm"

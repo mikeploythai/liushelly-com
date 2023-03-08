@@ -26,14 +26,14 @@ const NavDrawer = ({ isOpen, onClose, finalFocusRef }: DrawerProps) => {
     >
       <DrawerOverlay display={{ base: "flex", sm: "none" }} />
 
-      <DrawerContent display={{ base: "flex", sm: "none" }} bg="brand.navy">
+      <DrawerContent display={{ base: "flex", sm: "none" }} bg="brand.dark">
         <DrawerHeader
           as={HStack}
           p={0}
           spacing={0}
           justifyContent="space-between"
           borderBottom="1px solid"
-          borderBottomColor="brand.lavender"
+          borderBottomColor="brand.light"
         >
           <Heading variant="secondary" size="lg" p={4}>
             Navigation
@@ -51,7 +51,7 @@ const NavDrawer = ({ isOpen, onClose, finalFocusRef }: DrawerProps) => {
         </DrawerHeader>
 
         <DrawerBody as={Flex} alignItems="center" px={4} py={0}>
-          <VStack as="ul" align="start">
+          <VStack as="nav" align="start">
             <NavRoutes size="lg" onClose={onClose} />
           </VStack>
         </DrawerBody>
