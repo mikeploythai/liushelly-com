@@ -13,7 +13,7 @@ import servicesData from "./data.json";
 
 const ServicesGrid = () => {
   return (
-    <Flex w="full" justify="center">
+    <Flex as="section" w="full" justify="center">
       <Container
         as={VStack}
         maxW={{ base: "container.md", md: "container.lg" }}

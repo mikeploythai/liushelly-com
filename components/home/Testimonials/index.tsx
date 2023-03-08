@@ -27,13 +27,13 @@ const Testimonials = () => {
   };
 
   return (
-    <Flex w="full" justify="center" bgColor="brand.dark">
+    <Flex as="section" w="full" justify="center" bgColor="brand.dark">
       <Container
         as={VStack}
         maxW={{ base: "container.sm", md: "container.md" }}
         w="full"
         p={4}
-        spacing={4}
+        spacing={{ base: 4, sm: 0 }}
       >
         <HStack w="full" justify="space-between">
           <Heading size={{ base: "md", sm: "lg" }} variant="secondary">

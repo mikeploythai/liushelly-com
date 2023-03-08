@@ -13,7 +13,13 @@ const Marquee = () => {
   const [paused, setPaused] = useState("unset");
 
   return (
-    <Flex w="full" justify="center" overflow="hidden" bgColor="brand.dark">
+    <Flex
+      as="section"
+      w="full"
+      justify="center"
+      overflow="hidden"
+      bgColor="brand.dark"
+    >
       <Container
         pos="relative"
         role={marqueeRole}
@@ -28,7 +34,7 @@ const Marquee = () => {
       >
         <MarqueeText paused={paused} />
         <MarqueeText paused={paused} delay="-3s" />
-        
+
         <Box
           pos="absolute"
           left={0}
