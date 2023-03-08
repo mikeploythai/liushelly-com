@@ -1,8 +1,8 @@
 "use client";
 
-import Hero from "@/components/Hero";
-import Marquee from "@/components/Marquee";
-import ServicesGrid from "@/components/ServicesGrid";
+import Hero from "@/components/general/Hero";
+import Marquee from "@/components/home/Marquee";
+import ServicesGrid from "@/components/home/ServicesGrid";
 import heroImg from "@/public/hero-img.png";
 import { Button, Heading, Link } from "@chakra-ui/react";
 import { FaAngleDoubleRight } from "react-icons/fa";

@@ -1,7 +1,7 @@
 "use client";
 
-import Footer from "@/components/Footer";
-import NavBar from "@/components/NavBar";
+import Footer from "@/components/general/Footer";
+import NavBar from "@/components/general/NavBar";
 import theme from "@/theme";
 import { CacheProvider } from "@chakra-ui/next-js";
 import { ChakraBaseProvider, VStack } from "@chakra-ui/react";
