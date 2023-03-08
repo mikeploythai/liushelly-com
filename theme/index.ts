@@ -4,6 +4,7 @@ import "@fontsource/montserrat/variable.css";
 import "@fontsource/unbounded/700.css";
 import { colors, fonts, styles } from "./basicStyles";
 import Button from "./components/button";
+import { Badge, Card } from "./components/card";
 import { Heading, Text } from "./components/typography";
 
 const { Drawer, Alert, CloseButton } = chakraTheme.components;
@@ -17,6 +18,8 @@ const theme = extendBaseTheme({
     Heading,
     Text,
     Button,
+    Card,
+    Badge,
 
     Drawer,
     Alert,

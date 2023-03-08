@@ -2,6 +2,7 @@
 
 import Hero from "@/components/Hero";
 import Marquee from "@/components/Marquee";
+import ServicesGrid from "@/components/ServicesGrid";
 import heroImg from "@/public/hero-img.png";
 import { Button, Heading, Link } from "@chakra-ui/react";
 import { FaAngleDoubleRight } from "react-icons/fa";
@@ -33,6 +34,7 @@ const Home = () => {
       </Hero>
 
       <Marquee />
+      <ServicesGrid />
     </>
   );
 };
