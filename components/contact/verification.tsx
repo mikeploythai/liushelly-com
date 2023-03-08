@@ -28,8 +28,8 @@ const ContactFormVerification = ({
         <Link
           href="https://hcaptcha.com/privacy"
           referrerPolicy="strict-origin-when-cross-origin"
-          isExternal
           fontWeight="semibold"
+          isExternal
         >
           Privacy Policy
         </Link>{" "}
@@ -37,8 +37,8 @@ const ContactFormVerification = ({
         <Link
           href="https://hcaptcha.com/terms"
           referrerPolicy="strict-origin-when-cross-origin"
-          isExternal
           fontWeight="semibold"
+          isExternal
         >
           Terms of Service
         </Link>{" "}

@@ -52,7 +52,6 @@ const ContactForm = () => {
             e.preventDefault();
             formik.handleSubmit();
           }}
-          spacing={0}
           gap={2}
         >
           {formInputs.map(({ label, name, type }, index) => {

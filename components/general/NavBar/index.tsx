@@ -70,8 +70,9 @@ const NavBar = () => {
         isOpen={isOpen}
         onClose={onClose}
         finalFocusRef={finalFocusRef}
-        children={undefined}
-      />
+      >
+        {undefined}
+      </NavDrawer>
     </Flex>
   );
 };
