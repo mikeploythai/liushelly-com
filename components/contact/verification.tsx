@@ -1,15 +1,7 @@
-import { FormProps } from "@/lib/formTypes";
+import { VerificationProps } from "@/lib/formTypes";
 import SendMessageWrapper from "@/lib/sendMessage";
 import { Link, Text, useToast, VisuallyHidden } from "@chakra-ui/react";
 import HCaptcha from "@hcaptcha/react-hcaptcha";
-import { FormikProps } from "formik";
-
-interface VerificationProps {
-  captchaRef: React.RefObject<HCaptcha>;
-  setLoading: React.Dispatch<React.SetStateAction<any>>;
-  values: FormProps | null;
-  formik: FormikProps<any>;
-}
 
 const ContactFormVerification = ({
   captchaRef,
