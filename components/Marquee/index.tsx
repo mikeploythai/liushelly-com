@@ -28,6 +28,7 @@ const Marquee = () => {
       >
         <MarqueeText paused={paused} />
         <MarqueeText paused={paused} delay="-3s" />
+        
         <Box
           pos="absolute"
           left={0}

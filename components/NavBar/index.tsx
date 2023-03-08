@@ -23,6 +23,7 @@ const NavBar = () => {
       top={0}
       w="full"
       justify="center"
+      bgColor="brand.light"
       borderBottom="1px solid"
       zIndex="sticky"
     >
