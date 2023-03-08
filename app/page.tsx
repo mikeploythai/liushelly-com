@@ -1,8 +1,10 @@
 "use client";
 
 import Hero from "@/components/general/Hero";
+import InstagramSamples from "@/components/home/InstagramSamples";
 import Marquee from "@/components/home/Marquee";
 import ServicesGrid from "@/components/home/ServicesGrid";
+import Testimonials from "@/components/home/Testimonials";
 import heroImg from "@/public/hero-img.png";
 import { Button, Heading, Link } from "@chakra-ui/react";
 import { FaAngleDoubleRight } from "react-icons/fa";
@@ -35,6 +37,8 @@ const Home = () => {
 
       <Marquee />
       <ServicesGrid />
+      <Testimonials />
+      <InstagramSamples />
     </>
   );
 };
