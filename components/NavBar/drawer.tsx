@@ -30,7 +30,6 @@ const NavDrawer = ({ isOpen, onClose, finalFocusRef }: DrawerProps) => {
         <DrawerHeader
           as={HStack}
           p={0}
-          spacing={0}
           justifyContent="space-between"
           borderBottom="1px solid"
           borderBottomColor="brand.light"

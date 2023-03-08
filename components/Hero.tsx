@@ -81,7 +81,7 @@ const Hero = ({ img, imgBlur, imgHeight = "lg", children }: HeroProps) => {
           w="full"
           align="start"
           p={{ base: 4, sm: 0 }}
-          gap={2}
+          spacing={4}
         >
           {children}
         </VStack>
