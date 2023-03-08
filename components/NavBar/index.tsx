@@ -18,7 +18,7 @@ const NavBar = () => {
 
   return (
     <Flex
-      as="nav"
+      as="header"
       pos="sticky"
       top={0}
       w="full"
@@ -45,7 +45,7 @@ const NavBar = () => {
         </Button>
 
         <HStack
-          as="ul"
+          as="nav"
           display={{ base: "none", sm: "inline-flex" }}
           spacing={0}
           pr={2.5}
