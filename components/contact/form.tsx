@@ -64,25 +64,27 @@ const ContactForm = () => {
             );
           })}
 
-          <Button
-            type="submit"
-            size="sm"
-            w="full"
-            spinnerPlacement="end"
-            rightIcon={<FaPaperPlane />}
-            loadingText={loading.text}
-            isLoading={loading.state}
-            isDisabled={loading.state}
-          >
-            Send message
-          </Button>
+          <VStack w="full">
+            <Button
+              type="submit"
+              size="sm"
+              w="full"
+              spinnerPlacement="end"
+              rightIcon={<FaPaperPlane />}
+              loadingText={loading.text}
+              isLoading={loading.state}
+              isDisabled={loading.state}
+            >
+              Send message
+            </Button>
 
-          <ContactFormVerification
-            captchaRef={captchaRef}
-            setLoading={setLoading}
-            values={values}
-            formik={formik}
-          />
+            <ContactFormVerification
+              captchaRef={captchaRef}
+              setLoading={setLoading}
+              values={values}
+              formik={formik}
+            />
+          </VStack>
         </VStack>
       )}
     </Formik>
