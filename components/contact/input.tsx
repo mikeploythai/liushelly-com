@@ -1,4 +1,3 @@
-import { InputProps } from "@/lib/formTypes";
 import {
   FormControl,
   FormErrorMessage,
@@ -8,15 +7,17 @@ import {
 } from "@chakra-ui/react";
 import { Field, useField } from "formik";
 
+interface InputProps {
+  label: string;
+  [x: string]: any;
+  name: string;
+}
+
 const ContactFormInput = ({ label, ...props }: InputProps) => {
   const [field, meta] = useField(props);
 
   return (
-    <FormControl
-      w="full"
-      mt="0 !important"
-      isInvalid={(meta.error && meta.touched) || undefined}
-    >
+    <FormControl w="full" isInvalid={(meta.error && meta.touched) || undefined}>
       <FormLabel>{label}</FormLabel>
 
       {props.name != "message" ? (
@@ -34,7 +35,12 @@ const ContactFormInput = ({ label, ...props }: InputProps) => {
         />
       )}
 
-      <FormErrorMessage fontSize="xs" fontWeight="medium" color="red.500">
+      <FormErrorMessage
+        fontSize="xs"
+        fontWeight="medium"
+        color="red.500"
+        mt={1}
+      >
         {meta.error}
       </FormErrorMessage>
     </FormControl>

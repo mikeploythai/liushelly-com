@@ -1,7 +1,16 @@
-import { VerificationProps } from "@/lib/formTypes";
 import SendMessageWrapper from "@/lib/sendMessage";
 import { Link, Text, useToast, VisuallyHidden } from "@chakra-ui/react";
 import HCaptcha from "@hcaptcha/react-hcaptcha";
+import { FormikProps, FormikValues } from "formik";
+
+interface VerificationProps {
+  captchaRef: React.RefObject<HCaptcha>;
+  setLoading: React.Dispatch<
+    React.SetStateAction<{ state: boolean; text: string }>
+  >;
+  values: FormikValues;
+  formik: FormikProps<any>;
+}
 
 const ContactFormVerification = ({
   captchaRef,
@@ -15,7 +24,7 @@ const ContactFormVerification = ({
 
   return (
     <>
-      <Text fontSize="xs" textAlign="center" mt="0 !important">
+      <Text fontSize="xs" textAlign="center">
         This form is protected by hCaptcha, and its{" "}
         <Link
           href="https://hcaptcha.com/privacy"

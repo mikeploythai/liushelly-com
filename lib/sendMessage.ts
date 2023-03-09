@@ -1,10 +1,9 @@
-import { FormProps } from "@/lib/formTypes";
 import { useToast } from "@chakra-ui/react";
 import { FormikProps, FormikValues } from "formik";
 
 const SendMessageWrapper = (
   setLoading: React.Dispatch<React.SetStateAction<any>>,
-  values: FormProps | null,
+  values: FormikValues,
   formik: FormikProps<FormikValues>
 ) => {
   const toast = useToast();

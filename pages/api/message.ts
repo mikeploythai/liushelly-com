@@ -4,10 +4,7 @@ import { NextApiRequest, NextApiResponse } from "next";
 import nodemailer from "nodemailer";
 import sanitize from "sanitize-html";
 
-export default async function MessageSender(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
+const MessageSender = async (req: NextApiRequest, res: NextApiResponse) => {
   const transporter = nodemailer.createTransport({
     service: process.env.NEXT_PUBLIC_MAIL_SERVICE,
     auth: {
@@ -59,4 +56,6 @@ export default async function MessageSender(
   }
 
   res.end();
-}
+};
+
+export default MessageSender;

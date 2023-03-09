@@ -1,8 +1,7 @@
-import { FormProps } from "@/lib/formTypes";
 import validationSchema from "@/lib/validationSchema";
 import { Button, useToast, VStack } from "@chakra-ui/react";
 import HCaptcha from "@hcaptcha/react-hcaptcha";
-import { Formik } from "formik";
+import { Formik, FormikValues } from "formik";
 import { useRef, useState } from "react";
 import { FaPaperPlane } from "react-icons/fa";
 import ContactFormInput from "./input";
@@ -13,7 +12,7 @@ const ContactForm = () => {
     state: false,
     text: "",
   });
-  const [values, setValues] = useState<FormProps | null>(null);
+  const [values, setValues] = useState<FormikValues>([]);
   const toast = useToast();
   const captchaRef = useRef<HCaptcha>(null);
 
@@ -52,7 +51,7 @@ const ContactForm = () => {
             e.preventDefault();
             formik.handleSubmit();
           }}
-          gap={2}
+          spacing={4}
         >
           {formInputs.map(({ label, name, type }, index) => {
             return (
