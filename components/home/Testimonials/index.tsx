@@ -66,7 +66,7 @@ const Testimonials = () => {
           align={{ base: "start", sm: "center" }}
           justify="center"
           textAlign={{ base: "start", sm: "center" }}
-          spacing={{ base: 4, sm: 8 }}
+          spacing={4}
         >
           <Text fontSize="sm" variant="secondary">
             “{currData.comment}”
