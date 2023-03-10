@@ -1,6 +1,7 @@
 export const Card = {
   baseStyle: {
     container: {
+      w: "full",
       border: "1px solid",
       borderColor: "brand.dark",
 
@@ -23,8 +24,12 @@ export const Card = {
     },
   },
   variants: {
-    form: {
-      container: { shadow: ".5rem .5rem 0 var(--chakra-colors-brand-dark)" },
+    shadow: {
+      container: {
+        transition: "200ms ease-in-out",
+        shadow: ".5rem .5rem 0 var(--chakra-colors-brand-dark)",
+        _hover: { shadow: ".75rem .75rem 0 var(--chakra-colors-brand-dark)" },
+      },
       body: { p: 4 },
     },
   },
