@@ -20,12 +20,17 @@ const Contact = () => {
         maxW="container.sm"
         w="full"
         p={4}
-        spacing={0}
-        gap={4}
+        spacing={{ base: 4, sm: 0 }}
       >
-        <VStack>
+        <VStack
+          display="flex"
+          minH={{ base: "unset", sm: "2xs" }}
+          w="full"
+          justify="center"
+          spacing={{ base: 1, sm: 4 }}
+        >
           <Heading
-            size="xl"
+            size={{ base: "lg", sm: "xl" }}
             w="full"
             textAlign={{ base: "start", sm: "center" }}
           >
@@ -40,7 +45,7 @@ const Contact = () => {
         </VStack>
 
         <Box w="full" pr={2} pb={2}>
-          <Card variant="form">
+          <Card variant="shadow">
             <CardBody>
               <ContactForm />
             </CardBody>
