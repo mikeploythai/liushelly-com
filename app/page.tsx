@@ -26,12 +26,11 @@ const Home = () => {
           size={{ base: "sm", sm: "md" }}
           variant={{ base: "secondary", sm: "primary" }}
           rightIcon={<FaAngleDoubleRight />}
-          aria-label="Book a discovery call with me!"
           href="https://calendly.com/shellyliu/30mindiscoverychat"
           referrerPolicy="strict-origin-when-cross-origin"
           isExternal
         >
-          Book a call
+          Work with me
         </Button>
       </Hero>
 
