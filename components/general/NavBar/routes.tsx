@@ -9,9 +9,9 @@ interface RouteProps {
 
 const NavRoutes = ({ size, onClose }: RouteProps) => {
   const routes = [
+    { name: "about" },
     { name: "services" },
     { name: "shop" },
-    { name: "about" },
     { name: "contact" },
   ];
 
