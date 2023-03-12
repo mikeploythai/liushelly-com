@@ -11,7 +11,7 @@ const NavRoutes = ({ size, onClose }: RouteProps) => {
   const routes = [
     { name: "about" },
     { name: "services" },
-    { name: "shop" },
+    { name: "work" },
     { name: "contact" },
   ];
 
