@@ -3,11 +3,9 @@ export const Card = {
     container: {
       w: "full",
       border: "1px solid",
-      borderColor: "brand.dark",
 
       _hover: { textDecor: "none" },
     },
-    body: { bgColor: "brand.light" },
     footer: {
       display: "flex",
       alignItems: "center",
@@ -24,13 +22,26 @@ export const Card = {
     },
   },
   variants: {
-    shadow: {
+    default: {
+      container: { borderColor: "brand.dark" },
+      body: {
+        bgColor: "brand.light",
+        filter: "auto",
+
+        _hover: { brightness: "87.5%" },
+        _active: { brightness: "75%" },
+        _groupHover: { brightness: "87.5%" },
+        _groupActive: { brightness: "75%" },
+      },
+    },
+    "light-shadow": {
       container: {
-        transition: "200ms ease-in-out",
+        borderColor: "brand.dark",
         shadow: ".5rem .5rem 0 var(--chakra-colors-brand-dark)",
+        transition: "200ms ease-in-out",
         _hover: { shadow: ".75rem .75rem 0 var(--chakra-colors-brand-dark)" },
       },
-      body: { p: 4 },
+      body: { p: 4, bgColor: "brand.light" },
     },
   },
   sizes: {
@@ -38,10 +49,10 @@ export const Card = {
       body: { minH: 28, h: "full" },
     },
     md: {
-      body: { minH: 40, h: "full" },
+      body: { minH: 36, h: "full" },
     },
   },
-  defaultProps: { size: "md" },
+  defaultProps: { size: "md", variant: "default" },
 };
 
 export const Badge = {
