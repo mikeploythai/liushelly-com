@@ -32,13 +32,7 @@ const Cards = ({ data }: { data: Array<DataProps> }) => {
             href="/services"
             aria-label={`Page to Shelly's ${service.title} service`}
           >
-            <CardBody
-              pos="relative"
-              minH={{ base: 28, md: 36 }}
-              filter="auto"
-              _groupHover={{ brightness: "87.5%" }}
-              _groupActive={{ brightness: "75%" }}
-            >
+            <CardBody pos="relative">
               <Image
                 src={service.img}
                 alt=""
