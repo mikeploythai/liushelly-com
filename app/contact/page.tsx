@@ -45,7 +45,7 @@ const Contact = () => {
         </VStack>
 
         <Box w="full" pr={2} pb={2}>
-          <Card variant="light-shadow">
+          <Card variant="shadow">
             <CardBody>
               <ContactForm />
             </CardBody>

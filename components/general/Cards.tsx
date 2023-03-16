@@ -27,6 +27,7 @@ const Cards = ({ data }: { data: Array<DataProps> }) => {
             key={index}
             as={Link}
             role="group"
+            variant="interactive"
             size={cardSize}
             overflow="hidden"
             href="/services"

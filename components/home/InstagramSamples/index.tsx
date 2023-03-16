@@ -31,11 +31,12 @@ const InstagramSamples = () => {
               <Card
                 key={index}
                 as={Link}
+                variant="interactive"
                 href={link}
                 referrerPolicy="strict-origin-when-cross-origin"
                 isExternal
               >
-                <CardBody minH="unset">
+                <CardBody>
                   <Image
                     src={img}
                     alt={title}
