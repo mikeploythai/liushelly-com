@@ -8,7 +8,7 @@ const SendMessageWrapper = (
 ) => {
   const toast = useToast();
 
-  async function sendMessage() {
+  const sendMessage = async () => {
     setLoading((currState: Object) => ({
       ...currState,
       text: "Sending message",
@@ -54,7 +54,7 @@ const SendMessageWrapper = (
     }
 
     setLoading({ state: false, text: "" });
-  }
+  };
 
   return { sendMessage };
 };

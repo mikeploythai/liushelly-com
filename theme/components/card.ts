@@ -39,7 +39,9 @@ export const Card = {
         shadow: ".5rem .5rem 0 var(--chakra-colors-brand-dark)",
         transition: "200ms ease-in-out",
 
-        _hover: { shadow: ".75rem .75rem 0 var(--chakra-colors-brand-dark)" },
+        _groupHover: {
+          shadow: ".75rem .75rem 0 var(--chakra-colors-brand-dark)",
+        },
       },
       body: { p: 4, bgColor: "brand.light" },
     },
