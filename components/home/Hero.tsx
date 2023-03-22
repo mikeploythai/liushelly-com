@@ -33,6 +33,7 @@ const Hero = () => {
       >
         <Box
           as="span"
+          role={cardRole}
           w={{ base: "full", sm: "unset" }}
           pr={{ base: 0, sm: 2 }}
           pb={{ base: 0, sm: 2 }}
@@ -40,7 +41,6 @@ const Hero = () => {
           <Card variant={cardVariant}>
             <CardBody
               as={VStack}
-              role={cardRole}
               w={{ base: "full", sm: "3xs", md: "2xs" }}
               h={{ base: "lg", sm: "xs", md: "sm" }}
               p={0}
