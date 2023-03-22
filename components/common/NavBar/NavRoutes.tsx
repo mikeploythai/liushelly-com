@@ -2,12 +2,12 @@ import { Link } from "@chakra-ui/next-js";
 import { Button } from "@chakra-ui/react";
 import { FaAngleDoubleRight } from "react-icons/fa";
 
-interface RouteProps {
+export interface NavRouteProps {
   size: string;
   onClose?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
-const NavRoutes = ({ size, onClose }: RouteProps) => {
+const NavRoutes = ({ size, onClose }: NavRouteProps) => {
   const routes = [
     { name: "about" },
     { name: "services" },

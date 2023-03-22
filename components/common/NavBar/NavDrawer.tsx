@@ -10,13 +10,16 @@ import {
   Heading,
   HStack,
   IconButton,
-  VStack,
 } from "@chakra-ui/react";
 import { FaTimes } from "react-icons/fa";
 import SocialLinks from "../SocialLinks";
-import NavRoutes from "./routes";
 
-const NavDrawer = ({ isOpen, onClose, finalFocusRef }: DrawerProps) => {
+const NavDrawer = ({
+  isOpen,
+  onClose,
+  finalFocusRef,
+  children,
+}: DrawerProps) => {
   return (
     <Drawer
       isOpen={isOpen}
@@ -29,8 +32,8 @@ const NavDrawer = ({ isOpen, onClose, finalFocusRef }: DrawerProps) => {
       <DrawerContent display={{ base: "flex", sm: "none" }} bg="brand.dark">
         <DrawerHeader
           as={HStack}
-          p={0}
           justifyContent="space-between"
+          p={0}
           borderBottom="1px solid"
           borderBottomColor="brand.light"
         >
@@ -50,9 +53,7 @@ const NavDrawer = ({ isOpen, onClose, finalFocusRef }: DrawerProps) => {
         </DrawerHeader>
 
         <DrawerBody as={Flex} alignItems="center" px={4} py={0}>
-          <VStack as="nav" align="start">
-            <NavRoutes size="lg" onClose={onClose} />
-          </VStack>
+          {children}
         </DrawerBody>
 
         <DrawerFooter as="ul" justifyContent="center" p="0 1rem 1rem">

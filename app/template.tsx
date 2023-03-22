@@ -1,18 +1,18 @@
 "use client";
 
-import Footer from "@/components/general/Footer";
-import NavBar from "@/components/general/NavBar";
+import Footer from "@/components/common/Footer";
+import NavBar from "@/components/common/NavBar";
 import theme from "@/theme";
 import { CacheProvider } from "@chakra-ui/next-js";
 import { ChakraBaseProvider, VStack } from "@chakra-ui/react";
 
-const Client = ({ children }: { children: React.ReactNode }) => {
+const Template = ({ children }: { children: React.ReactNode }) => {
   return (
     <CacheProvider>
       <ChakraBaseProvider theme={theme} resetCSS>
         <VStack
-          minH="100vh"
           w="full"
+          minH="100vh"
           justify="space-between"
           align="center"
           spacing={0}
@@ -26,4 +26,4 @@ const Client = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
-export default Client;
+export default Template;

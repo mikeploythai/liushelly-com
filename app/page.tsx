@@ -1,21 +1,11 @@
-"use client";
-
-import Hero from "@/components/home/Hero";
-import InstagramSamples from "@/components/home/InstagramSamples";
-import Marquee from "@/components/home/Marquee";
-import ServicesGrid from "@/components/home/ServicesGrid";
-import Testimonials from "@/components/home/Testimonials";
+export const metadata = {
+  title: "HOME | Shelly Liu, Social Media Manager",
+  description:
+    "Shelly Liu is a professional social media manager and digital marketing expert based in southern California.",
+};
 
 const Home = () => {
-  return (
-    <>
-      <Hero />
-      <Marquee />
-      <ServicesGrid />
-      <Testimonials />
-      <InstagramSamples />
-    </>
-  );
+  return <h1>Test</h1>;
 };
 
 export default Home;

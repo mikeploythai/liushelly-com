@@ -6,11 +6,12 @@ import {
   HStack,
   IconButton,
   useDisclosure,
+  VStack,
 } from "@chakra-ui/react";
 import { useRef } from "react";
 import { FaEquals } from "react-icons/fa";
-import NavDrawer from "./drawer";
-import NavRoutes from "./routes";
+import NavDrawer from "./NavDrawer";
+import NavRoutes from "./NavRoutes";
 
 const NavBar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -48,8 +49,8 @@ const NavBar = () => {
         <HStack
           as="nav"
           display={{ base: "none", sm: "inline-flex" }}
-          spacing={0}
           pr={2.5}
+          spacing={0}
         >
           <NavRoutes size="sm" />
         </HStack>
@@ -64,15 +65,17 @@ const NavBar = () => {
           onClick={onOpen}
           ref={finalFocusRef}
         />
-      </Container>
 
-      <NavDrawer
-        isOpen={isOpen}
-        onClose={onClose}
-        finalFocusRef={finalFocusRef}
-      >
-        {undefined}
-      </NavDrawer>
+        <NavDrawer
+          isOpen={isOpen}
+          onClose={onClose}
+          finalFocusRef={finalFocusRef}
+        >
+          <VStack as="nav" align="start">
+            <NavRoutes size="lg" onClose={onClose} />
+          </VStack>
+        </NavDrawer>
+      </Container>
     </Flex>
   );
 };

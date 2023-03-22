@@ -27,13 +27,13 @@ const SocialLinks = ({ isDrawer }: { isDrawer: boolean }) => {
           <Box key={index} as="li">
             <IconButton
               as={Link}
-              icon={icon}
-              aria-label={`Link to Shelly's ${name}`}
               href={link}
               referrerPolicy="strict-origin-when-cross-origin"
+              icon={icon}
+              aria-label={`Link to Shelly's ${name}`}
               variant="ghost"
-              color={isDrawer ? "brand.light" : "brand.dark"}
               p={3.5}
+              color={isDrawer ? "brand.light" : "brand.dark"}
               isExternal
             />
           </Box>

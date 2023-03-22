@@ -17,9 +17,9 @@ const Footer = () => {
     <Flex as="footer" w="full" justifyContent="center" bgColor="brand.light">
       <Container
         as={Flex}
+        flexDir={{ base: "column", sm: "row" }}
         maxW="container.sm"
         w="full"
-        flexDir={{ base: "column", sm: "row" }}
         justifyContent="space-between"
         py={16}
         mx={12}
@@ -32,10 +32,10 @@ const Footer = () => {
 
           <Text
             as={Link}
-            fontFamily="mono"
-            fontSize="0.625rem"
             href="https://mikeploythai.com"
             referrerPolicy="strict-origin-when-cross-origin"
+            fontFamily="mono"
+            fontSize="0.625rem"
             isExternal
           >
             design/dev by mike.
