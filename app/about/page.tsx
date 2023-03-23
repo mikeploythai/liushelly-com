@@ -1,30 +1,10 @@
 "use client";
 
-import PhotoHero from "@/components/templates/PhotoHero";
-import { PhotoHeroProps } from "@/lib/types/photoHeroProps";
-import aboutImg from "@/public/about-img.png";
 import { Heading, Link, Text } from "@chakra-ui/react";
 
 const About = () => {
-  const HeroProps: PhotoHeroProps = {
-    container: { flexDir: { base: "column", md: "row" }, p: 4 },
-    card: {
-      cardBox: {
-        w: { base: "full", md: "unset" },
-        pr: 2,
-        pb: { base: 2, sm: 0 },
-      },
-      cardContainer: { variant: "shadow" },
-      cardBody: { w: { base: "full", md: "2xs" }, h: "sm" },
-      cardImg: {
-        src: aboutImg,
-        alt: "Photo of Shelly Liu, Social Media Manager",
-      },
-    },
-  };
-
   return (
-    <PhotoHero props={HeroProps}>
+    <>
       <Heading size={{ base: "lg", md: "xl" }}>About me!</Heading>
 
       <Text fontSize="sm">
@@ -55,7 +35,7 @@ const About = () => {
           Click here to set up a chat!
         </Link>
       </Text>
-    </PhotoHero>
+    </>
   );
 };
 
