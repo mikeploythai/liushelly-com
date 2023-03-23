@@ -1,3 +1,5 @@
+import CardList from "@/components/common/CardList";
+import serviceGridData from "@/lib/data/serviceGridData";
 import { Link } from "@chakra-ui/next-js";
 import {
   Button,
@@ -9,13 +11,7 @@ import {
 } from "@chakra-ui/react";
 import { FaAngleDoubleRight } from "react-icons/fa";
 
-const CardGrid = ({
-  heading,
-  children,
-}: {
-  heading: string;
-  children: React.ReactNode;
-}) => {
+const ServicesGrid = () => {
   return (
     <Flex as="section" w="full" justify="center">
       <Container
@@ -25,13 +21,14 @@ const CardGrid = ({
         p={4}
         spacing={4}
       >
-        <Heading size={{ base: "md", sm: "lg" }}>{heading}</Heading>
+        <Heading size={{ base: "md", sm: "lg" }}>
+          Personalized services to skyrocket your socials.
+        </Heading>
 
         <SimpleGrid columns={[1, 3]} gap={4} w="full">
-          {children}
+          <CardList data={serviceGridData} />
         </SimpleGrid>
 
-        {/* Might make the button reusable (ex. LOAD MORE) */}
         <Button
           as={Link}
           size="sm"
@@ -46,4 +43,4 @@ const CardGrid = ({
   );
 };
 
-export default CardGrid;
+export default ServicesGrid;

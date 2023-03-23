@@ -1,12 +1,10 @@
 "use client";
 
+import PhotoHero from "@/components/common/PhotoHero";
 import InstagramSamples from "@/components/pages/home/InstagramSamples";
 import Marquee from "@/components/pages/home/Marquee";
+import ServicesGrid from "@/components/pages/home/ServicesGrid";
 import Testimonials from "@/components/pages/home/Testimonials";
-import CardGrid from "@/components/templates/CardGrid";
-import CardList from "@/components/templates/CardGrid/CardList";
-import PhotoHero from "@/components/templates/PhotoHero";
-import serviceGridData from "@/lib/data/serviceGridData";
 import { PhotoHeroProps } from "@/lib/types/photoHeroProps";
 import heroImg from "@/public/hero-img.png";
 import { Button, Heading, Link, useBreakpointValue } from "@chakra-ui/react";
@@ -65,13 +63,8 @@ const Home = () => {
       </PhotoHero>
 
       <Marquee />
-
-      <CardGrid heading="Personalized services to skyrocket your socials.">
-        <CardList data={serviceGridData} />
-      </CardGrid>
-
+      <ServicesGrid />
       <Testimonials />
-
       <InstagramSamples />
     </>
   );
