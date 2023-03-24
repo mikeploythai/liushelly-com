@@ -1,5 +1,5 @@
 import expertise from "@/lib/data/marqueeTextData";
-import { Heading, HStack, keyframes } from "@chakra-ui/react";
+import { Heading, keyframes, ListItem, UnorderedList } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 
 const MarqueeText = ({ paused, delay }: { paused: string; delay?: string }) => {
@@ -11,9 +11,12 @@ const MarqueeText = ({ paused, delay }: { paused: string; delay?: string }) => {
   const animation = `${move} 30s linear infinite`;
 
   return (
-    <HStack
+    <UnorderedList
       as={motion.div}
       animation={animation}
+      display="flex"
+      ml={2}
+      gap={2}
       opacity={{ base: 1, sm: "80%" }}
       transition="200ms ease-in-out"
       transitionDelay={delay}
@@ -23,6 +26,7 @@ const MarqueeText = ({ paused, delay }: { paused: string; delay?: string }) => {
         return (
           <Heading
             key={index}
+            as={ListItem}
             size="sm"
             variant="secondary"
             whiteSpace="nowrap"
@@ -31,7 +35,7 @@ const MarqueeText = ({ paused, delay }: { paused: string; delay?: string }) => {
           </Heading>
         );
       })}
-    </HStack>
+    </UnorderedList>
   );
 };
 

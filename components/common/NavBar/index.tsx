@@ -5,6 +5,7 @@ import {
   Flex,
   HStack,
   IconButton,
+  UnorderedList,
   useDisclosure,
   VStack,
 } from "@chakra-ui/react";
@@ -29,7 +30,8 @@ const NavBar = () => {
       zIndex="sticky"
     >
       <Container
-        as={HStack}
+        as="nav"
+        display="flex"
         maxW="container.lg"
         w="full"
         justifyContent="space-between"
@@ -40,14 +42,13 @@ const NavBar = () => {
           variant="ghost"
           size="lg"
           fontFamily="Unbounded"
-          fontWeight="bold"
           textTransform="unset"
         >
           Shelly Liu
         </Button>
 
         <HStack
-          as="nav"
+          as={UnorderedList}
           display={{ base: "none", sm: "inline-flex" }}
           pr={2.5}
           spacing={0}
@@ -56,6 +57,7 @@ const NavBar = () => {
         </HStack>
 
         <IconButton
+          ref={finalFocusRef}
           display={{ base: "inline-flex", sm: "none" }}
           icon={<FaEquals />}
           aria-label="Open navigation menu"
@@ -63,19 +65,18 @@ const NavBar = () => {
           h="full"
           p={4}
           onClick={onOpen}
-          ref={finalFocusRef}
         />
-
-        <NavDrawer
-          isOpen={isOpen}
-          onClose={onClose}
-          finalFocusRef={finalFocusRef}
-        >
-          <VStack as="nav" align="start">
-            <NavRoutes size="lg" onClose={onClose} />
-          </VStack>
-        </NavDrawer>
       </Container>
+
+      <NavDrawer
+        isOpen={isOpen}
+        onClose={onClose}
+        finalFocusRef={finalFocusRef}
+      >
+        <VStack as="nav" align="start">
+          <NavRoutes size="lg" onClose={onClose} />
+        </VStack>
+      </NavDrawer>
     </Flex>
   );
 };

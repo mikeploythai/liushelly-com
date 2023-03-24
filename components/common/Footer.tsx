@@ -14,15 +14,15 @@ const Footer = () => {
   const year = date.getFullYear();
 
   return (
-    <Flex as="footer" w="full" justifyContent="center" bgColor="brand.light">
+    <Flex as="footer" w="full" justify="center" bgColor="brand.light">
       <Container
         as={Flex}
         flexDir={{ base: "column", sm: "row" }}
         maxW="container.sm"
         w="full"
-        justifyContent="space-between"
-        py={16}
+        justify="space-between"
         mx={12}
+        py={16}
         gap={8}
       >
         <VStack align={{ base: "center", sm: "start" }} spacing={1}>
@@ -42,7 +42,7 @@ const Footer = () => {
           </Text>
         </VStack>
 
-        <HStack as="ul" justify="center">
+        <HStack as="nav" justify="center">
           <SocialLinks isDrawer={false} />
         </HStack>
       </Container>

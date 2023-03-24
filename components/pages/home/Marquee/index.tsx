@@ -4,7 +4,7 @@ import MarqueeText from "./MarqueeText";
 
 const Marquee = () => {
   const [paused, setPaused] = useState("unset");
-  const marqueeRole = useBreakpointValue({ base: "marquee", sm: "group" });
+  const marqueeRole = useBreakpointValue({ base: undefined, sm: "group" });
 
   return (
     <Flex
@@ -20,7 +20,6 @@ const Marquee = () => {
         pos="relative"
         maxW="container.lg"
         p={4}
-        gap={2}
         overflow="hidden"
         onMouseEnter={() => setPaused("paused")}
         onMouseLeave={() => setPaused("unset")}
@@ -29,14 +28,18 @@ const Marquee = () => {
         <MarqueeText paused={paused} delay="-3s" />
 
         <Box
+          as="span"
           pos="absolute"
+          top={0}
           left={0}
           h="full"
           w="10%"
           bgGradient="linear(to-r, brand.dark, transparent)"
         />
         <Box
+          as="span"
           pos="absolute"
+          top={0}
           right={0}
           h="full"
           w="10%"

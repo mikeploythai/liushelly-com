@@ -1,6 +1,6 @@
 import routes from "@/lib/data/navRouteData";
 import { Link } from "@chakra-ui/next-js";
-import { Button } from "@chakra-ui/react";
+import { Button, ListItem } from "@chakra-ui/react";
 import { FaAngleDoubleRight } from "react-icons/fa";
 
 const NavRoutes = ({
@@ -13,18 +13,29 @@ const NavRoutes = ({
   return (
     <>
       {routes.map(({ name }, index) => {
-        return (
+        return onClose ? (
           <Button
             key={index}
             as={Link}
             href={`/${name}`}
             aria-label={`Link to the ${name} page`}
             size={size}
-            rightIcon={onClose ? <FaAngleDoubleRight /> : undefined}
+            rightIcon={<FaAngleDoubleRight />}
             onClick={onClose}
           >
             {name}
           </Button>
+        ) : (
+          <ListItem key={index}>
+            <Button
+              as={Link}
+              href={`/${name}`}
+              aria-label={`Link to the ${name} page`}
+              size={size}
+            >
+              {name}
+            </Button>
+          </ListItem>
         );
       })}
     </>

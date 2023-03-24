@@ -10,13 +10,7 @@ const Template = ({ children }: { children: React.ReactNode }) => {
   return (
     <CacheProvider>
       <ChakraBaseProvider theme={theme} resetCSS>
-        <VStack
-          w="full"
-          minH="100vh"
-          justify="space-between"
-          align="center"
-          spacing={0}
-        >
+        <VStack minH="100vh" justify="space-between" spacing={0}>
           <NavBar />
           {children}
           <Footer />

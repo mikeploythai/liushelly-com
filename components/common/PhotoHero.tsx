@@ -17,7 +17,7 @@ const PhotoHero = ({
   props: PhotoHeroProps;
   children: React.ReactNode;
 }) => {
-  const cardRole = useBreakpointValue({ base: "img", md: "group" });
+  const cardRole = useBreakpointValue({ base: undefined, md: "group" });
 
   return (
     <Flex as="section" w="full" justify="center">
@@ -31,9 +31,9 @@ const PhotoHero = ({
         gap={8}
         {...props.container}
       >
-        <Box as="span" role={cardRole} {...props.card.cardBox}>
-          <Card variant={props.card.cardContainer.variant}>
-            <CardBody p={0} {...props.card.cardBody}>
+        <Box as="figure" role={cardRole} {...props.card.box}>
+          <Card {...props.card.container}>
+            <CardBody p={0} {...props.card.body}>
               <Image
                 quality={50}
                 sizes="(max-width: 480px) 80vw, 40vw"
@@ -41,7 +41,7 @@ const PhotoHero = ({
                 style={{ objectFit: "cover" }}
                 fill
                 priority
-                {...props.card.cardImg}
+                {...props.card.image}
               />
 
               <Box

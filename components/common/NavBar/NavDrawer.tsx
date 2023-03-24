@@ -8,7 +8,6 @@ import {
   DrawerProps,
   Flex,
   Heading,
-  HStack,
   IconButton,
 } from "@chakra-ui/react";
 import { FaTimes } from "react-icons/fa";
@@ -27,13 +26,14 @@ const NavDrawer = ({
       finalFocusRef={finalFocusRef}
       placement="right"
     >
-      <DrawerOverlay display={{ base: "flex", sm: "none" }} />
+      <DrawerOverlay />
 
-      <DrawerContent display={{ base: "flex", sm: "none" }} bg="brand.dark">
+      <DrawerContent bg="brand.dark">
         <DrawerHeader
-          as={HStack}
+          display="flex"
           justifyContent="space-between"
           p={0}
+          gap={2}
           borderBottom="1px solid"
           borderBottomColor="brand.light"
         >
@@ -56,7 +56,7 @@ const NavDrawer = ({
           {children}
         </DrawerBody>
 
-        <DrawerFooter as="ul" justifyContent="center" p="0 1rem 1rem">
+        <DrawerFooter justifyContent="center" pt={0} px={4} pb={4}>
           <SocialLinks isDrawer={true} />
         </DrawerFooter>
       </DrawerContent>

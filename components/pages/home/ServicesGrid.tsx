@@ -31,10 +31,10 @@ const ServicesGrid = () => {
 
         <Button
           as={Link}
+          href="/services"
           size="sm"
           w="full"
           rightIcon={<FaAngleDoubleRight />}
-          href="/services"
         >
           Explore all services
         </Button>
