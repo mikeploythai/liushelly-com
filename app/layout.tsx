@@ -1,7 +1,7 @@
 import { Analytics } from "@vercel/analytics/react";
 
 export const metadata = {
-  title: "Shelly Liu, Social Media Manager",
+  title: "HOME | Shelly Liu, Social Media Manager",
   description:
     "Shelly Liu is a professional social media manager and digital marketing expert based in southern California.",
 };
