@@ -35,7 +35,7 @@ const Testimonials = () => {
         p={4}
         spacing={{ base: 4, sm: 0 }}
       >
-        <HStack w="full" justify="space-between">
+        <HStack as="header" w="full" justify="space-between">
           <Heading size={{ base: "md", sm: "lg" }} variant="secondary">
             What others are saying.
           </Heading>
