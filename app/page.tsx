@@ -16,17 +16,17 @@ const Home = () => {
   const HeroProps: PhotoHeroProps = {
     container: { flexDir: "row-reverse", p: { base: 0, sm: 4 } },
     card: {
-      cardBox: {
+      box: {
         w: { base: "full", sm: "unset" },
         pr: { base: 0, sm: 2 },
         pb: { base: 0, sm: 2 },
       },
-      cardContainer: { variant: cardVariant },
-      cardBody: {
+      container: { variant: cardVariant },
+      body: {
         w: { base: "full", sm: "3xs", md: "2xs" },
         h: { base: "lg", sm: "xs", md: "sm" },
       },
-      cardImg: {
+      image: {
         src: heroImg,
         alt: "Photo of Shelly Liu, Social Media Manager",
       },
@@ -42,6 +42,7 @@ const Home = () => {
     <>
       <PhotoHero props={HeroProps}>
         <Heading
+          as="h1"
           size={{ base: "lg", md: "xl" }}
           variant={{ base: "secondary", sm: "primary" }}
         >

@@ -10,10 +10,10 @@ import { ImageProps } from "next/image";
 export interface PhotoHeroProps {
   container: ContainerProps;
   card: {
-    cardBox: BoxProps;
-    cardContainer: CardProps;
-    cardBody: CardBodyProps;
-    cardImg: ImageProps;
+    box: BoxProps;
+    container: CardProps;
+    body: CardBodyProps;
+    image: ImageProps;
   };
   vStack?: StackProps;
 }
