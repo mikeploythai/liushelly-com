@@ -59,7 +59,7 @@ const Home = () => {
           rightIcon={<FaAngleDoubleRight />}
           isExternal
         >
-          Work with me
+          Book a call
         </Button>
       </PhotoHero>
 

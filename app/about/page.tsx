@@ -32,7 +32,7 @@ const About = () => {
           fontWeight="semibold"
           isExternal
         >
-          Click here to set up a chat!
+          Click here to book a call!
         </Link>
       </Text>
     </>
