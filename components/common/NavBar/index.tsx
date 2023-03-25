@@ -9,7 +9,8 @@ import {
   useDisclosure,
   VStack,
 } from "@chakra-ui/react";
-import { useRef } from "react";
+import { usePathname } from "next/navigation";
+import { useRef, useState } from "react";
 import { FaEquals } from "react-icons/fa";
 import NavDrawer from "./NavDrawer";
 import NavRoutes from "./NavRoutes";
@@ -17,6 +18,8 @@ import NavRoutes from "./NavRoutes";
 const NavBar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const finalFocusRef = useRef<HTMLButtonElement>(null);
+  const [loading, setLoading] = useState(false);
+  const path = usePathname();
 
   return (
     <Flex
@@ -43,6 +46,12 @@ const NavBar = () => {
           size="lg"
           fontFamily="Unbounded"
           textTransform="unset"
+          loadingText="Shelly Liu"
+          isLoading={loading}
+          spinnerPlacement="end"
+          onClick={() =>
+            path !== "/" ? setLoading(true) : window.scrollTo(0, 0)
+          }
         >
           Shelly Liu
         </Button>
