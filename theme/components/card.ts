@@ -1,8 +1,7 @@
 export const Card = {
   baseStyle: {
     container: {
-      border: "1px solid",
-      borderColor: "brand.dark",
+      w: "full",
 
       _hover: { textDecor: "none" },
     },
@@ -18,14 +17,49 @@ export const Card = {
       fontWeight: "semibold",
       textTransform: "uppercase",
 
-      _groupHover: { bgImage: "linear-gradient(rgb(0 0 0/15%) 0 0)" },
-      _groupActive: { bgImage: "linear-gradient(rgb(0 0 0/30%) 0 0)" },
+      _groupHover: {
+        bgImage: "linear-gradient(var(--chakra-colors-blackAlpha-200) 0 0)",
+      },
+      _groupActive: {
+        bgImage: "linear-gradient(var(--chakra-colors-blackAlpha-300) 0 0)",
+      },
     },
   },
   variants: {
-    form: {
-      container: { shadow: ".5rem .5rem 0 var(--chakra-colors-brand-dark)" },
-      body: { p: 4 },
+    interactive: {
+      container: { border: "1px solid" },
+      body: {
+        filter: "auto",
+
+        _hover: { brightness: "92%" },
+        _active: { brightness: "84%" },
+        _groupHover: { brightness: "92%" },
+        _groupActive: { brightness: "84%" },
+      },
+    },
+    "interactive-secondary": {
+      container: { border: "1px solid", borderColor: "brand.light" },
+      body: {
+        filter: "auto",
+
+        _hover: { brightness: "92%" },
+        _active: { brightness: "84%" },
+        _groupHover: { brightness: "92%" },
+        _groupActive: { brightness: "84%" },
+      },
+      footer: { bgColor: "brand.light", color: "brand.dark" },
+    },
+    shadow: {
+      container: {
+        border: "1px solid",
+        shadow: ".5rem .5rem 0 var(--chakra-colors-brand-dark)",
+        transition: "200ms ease-in-out",
+
+        _groupHover: {
+          shadow: ".75rem .75rem 0 var(--chakra-colors-brand-dark)",
+        },
+      },
+      body: { p: 4, bgColor: "brand.light" },
     },
   },
   sizes: {
@@ -33,18 +67,7 @@ export const Card = {
       body: { minH: 28, h: "full" },
     },
     md: {
-      body: { minH: 40, h: "full" },
+      body: { minH: 36, h: "full" },
     },
-  },
-  defaultProps: { size: "md" },
-};
-
-export const Badge = {
-  baseStyle: {
-    ml: 2.5,
-    p: "0.1875rem 0.375rem",
-    fontSize: "0.5rem",
-    color: "brand.dark",
-    bgColor: "brand.light",
   },
 };

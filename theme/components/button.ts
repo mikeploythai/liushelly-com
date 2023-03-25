@@ -17,11 +17,11 @@ const Button = {
       color: "brand.light",
 
       _hover: {
-        bgImage: "linear-gradient(rgb(0 0 0/12.5%) 0 0)",
+        bgImage: "linear-gradient(var(--chakra-colors-blackAlpha-200) 0 0)",
         textDecor: "unset",
       },
       _active: {
-        bgImage: "linear-gradient(rgb(0 0 0/25%) 0 0)",
+        bgImage: "linear-gradient(var(--chakra-colors-blackAlpha-300) 0 0)",
         textDecor: "unset",
       },
     },
@@ -30,11 +30,11 @@ const Button = {
       color: "brand.dark",
 
       _hover: {
-        bgImage: "linear-gradient(rgb(0 0 0/12.5%) 0 0)",
+        bgImage: "linear-gradient(var(--chakra-colors-blackAlpha-200) 0 0)",
         textDecor: "unset",
       },
       _active: {
-        bgImage: "linear-gradient(rgb(0 0 0/25%) 0 0)",
+        bgImage: "linear-gradient(var(--chakra-colors-blackAlpha-300) 0 0)",
         textDecor: "unset",
       },
     },
@@ -42,11 +42,11 @@ const Button = {
       color: "brand.dark",
 
       _hover: {
-        bgImage: "linear-gradient(rgb(0 0 0/12.5%) 0 0)",
+        bgImage: "linear-gradient(var(--chakra-colors-blackAlpha-200) 0 0)",
         textDecor: "unset",
       },
       _active: {
-        bgImage: "linear-gradient(rgb(0 0 0/25%) 0 0)",
+        bgImage: "linear-gradient(var(--chakra-colors-blackAlpha-300) 0 0)",
         textDecor: "unset",
       },
     },
