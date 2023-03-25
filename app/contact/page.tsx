@@ -1,6 +1,6 @@
 "use client";
 
-import ContactForm from "@/components/pages/contact/ContactForm";
+import ContactForm from "@/components/pages/contact/Form";
 import {
   Box,
   Card,
