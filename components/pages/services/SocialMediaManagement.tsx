@@ -88,9 +88,9 @@ const SocialMediaManagement = () => {
                     fontSize="sm"
                     fontWeight="medium"
                   >
-                    {inclusionList?.map((text) => {
+                    {inclusionList?.map((text, index) => {
                       return (
-                        <ListItem>
+                        <ListItem key={index}>
                           <ListIcon as={FaCheckCircle} />
                           {text}
                         </ListItem>
