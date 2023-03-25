@@ -4,8 +4,8 @@ import HCaptcha from "@hcaptcha/react-hcaptcha";
 import { Formik, FormikValues } from "formik";
 import { useRef, useState } from "react";
 import { FaPaperPlane } from "react-icons/fa";
-import ContactFormInput from "./ContactFormInput";
-import ContactFormVerification from "./ContactFormVerification";
+import ContactFormInput from "./FormInput";
+import ContactFormVerification from "./FormVerification";
 
 const ContactForm = () => {
   const [loading, setLoading] = useState({
