@@ -33,7 +33,7 @@ const PhotoHero = ({
       >
         <Box as="figure" role={cardRole} {...props.card.box}>
           <Card {...props.card.container}>
-            <CardBody p={0} {...props.card.body}>
+            <CardBody pos="relative" p={0} {...props.card.body}>
               <Image
                 src={props.card.image.src}
                 alt={props.card.image.alt}
