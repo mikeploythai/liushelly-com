@@ -59,6 +59,9 @@ const SocialMediaManagement = () => {
                   budget and specific needs. Each tier offers different levels
                   of account management, post creation, and audience engagement,
                   ensuring maximum flexibility and customization.
+                  <br></br>
+                  <br></br>
+                  Packages start at $1200/month :)
                 </Text>
               </VStack>
 
