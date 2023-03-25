@@ -35,7 +35,6 @@ const SocialMediaManagement = () => {
         <Heading
           size={{ base: "lg", sm: "xl" }}
           textAlign={{ base: "start", sm: "center" }}
-          // py={{ base: 0, sm: 24 }}
         >
           Take your brand&apos;s social media presence to the next level.
         </Heading>
