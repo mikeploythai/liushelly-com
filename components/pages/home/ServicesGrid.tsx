@@ -1,14 +1,6 @@
 import CardList from "@/components/common/CardList";
-import serviceGridData from "@/lib/data/serviceGridData";
 import { Link } from "@chakra-ui/next-js";
-import {
-  Button,
-  Container,
-  Flex,
-  Heading,
-  SimpleGrid,
-  VStack,
-} from "@chakra-ui/react";
+import { Button, Container, Flex, Heading, VStack } from "@chakra-ui/react";
 import { FaAngleDoubleRight } from "react-icons/fa";
 
 const ServicesGrid = () => {
@@ -25,9 +17,7 @@ const ServicesGrid = () => {
           Personalized services to skyrocket your socials.
         </Heading>
 
-        <SimpleGrid columns={[1, 3]} gap={4} w="full">
-          <CardList data={serviceGridData} />
-        </SimpleGrid>
+        <CardList maxColumns={3} />
 
         <Button
           as={Link}

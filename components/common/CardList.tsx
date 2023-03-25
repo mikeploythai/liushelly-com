@@ -1,37 +1,38 @@
-import { Link } from "@chakra-ui/next-js";
+import servicesData from "@/lib/data/servicesData";
 import {
-  Badge,
   Card,
   CardBody,
   CardFooter,
+  SimpleGrid,
   Text,
   useBreakpointValue,
 } from "@chakra-ui/react";
 import Image from "next/image";
 
-interface DataProps {
-  title: string;
-  slug: string;
-  img: string;
-  badge?: string;
-}
-
-const CardList = ({ data }: { data: Array<DataProps> }) => {
+const CardList = ({
+  maxColumns,
+  servicesPage,
+}: {
+  maxColumns: number;
+  servicesPage?: Boolean;
+}) => {
   const cardSize = useBreakpointValue({ base: "sm", md: "md" });
+  const cardData = servicesPage
+    ? servicesData.filter((data) => data.title !== "social media management")
+    : servicesData.filter((data, index) => index <= 2);
 
   return (
-    <>
-      {data.map((service, index) => {
+    <SimpleGrid columns={{ base: 1, md: maxColumns }} gap={4} w="full">
+      {cardData.map((service, index) => {
         return (
           <Card
             key={index}
-            as={Link}
             role="group"
-            href="/services"
             aria-label={`Page to Shelly's ${service.title} service`}
             size={cardSize}
-            variant="interactive"
+            variant={servicesPage ? "interactive-secondary" : "interactive"}
             overflow="hidden"
+            _hover={{ cursor: "pointer" }}
           >
             <CardBody pos="relative">
               <Image
@@ -48,13 +49,11 @@ const CardList = ({ data }: { data: Array<DataProps> }) => {
               <Text noOfLines={1} fontWeight="inherit">
                 {service.title}
               </Text>
-
-              {service.badge ? <Badge>{service.badge}</Badge> : null}
             </CardFooter>
           </Card>
         );
       })}
-    </>
+    </SimpleGrid>
   );
 };
 
