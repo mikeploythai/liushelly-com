@@ -1,8 +1,3 @@
-const routes = [
-  { name: "about" },
-  { name: "services" },
-  { name: "work" },
-  { name: "contact" },
-];
+const routes = [{ name: "about" }, { name: "services" }, { name: "contact" }];
 
 export default routes;
