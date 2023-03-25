@@ -7,13 +7,7 @@ const Marquee = () => {
   const marqueeRole = useBreakpointValue({ base: undefined, sm: "group" });
 
   return (
-    <Flex
-      as="section"
-      w="full"
-      justify="center"
-      overflow="hidden"
-      bgColor="brand.dark"
-    >
+    <Flex as="section" w="full" justify="center" bgColor="brand.dark">
       <Container
         as={Flex}
         role={marqueeRole}
