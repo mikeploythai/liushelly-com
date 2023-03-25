@@ -35,13 +35,14 @@ const PhotoHero = ({
           <Card {...props.card.container}>
             <CardBody p={0} {...props.card.body}>
               <Image
+                src={props.card.image.src}
+                alt={props.card.image.alt}
                 quality={50}
                 sizes="(max-width: 480px) 80vw, 40vw"
                 placeholder="blur"
                 style={{ objectFit: "cover" }}
                 fill
                 priority
-                {...props.card.image}
               />
 
               <Box
