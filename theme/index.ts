@@ -4,11 +4,11 @@ import "@fontsource/montserrat/variable.css";
 import "@fontsource/unbounded/700.css";
 import { colors, fonts, styles } from "./basicStyles";
 import Button from "./components/button";
-import { Badge, Card } from "./components/card";
+import { Card } from "./components/card";
 import { FormLabel, Input, Textarea } from "./components/form";
 import { Heading, Text } from "./components/typography";
 
-const { Drawer, Alert, CloseButton, Spinner } = chakraTheme.components;
+const { Drawer, Accordion, List, Alert, CloseButton } = chakraTheme.components;
 
 const theme = extendBaseTheme({
   styles,
@@ -20,15 +20,15 @@ const theme = extendBaseTheme({
     Text,
     Button,
     Card,
-    Badge,
     FormLabel,
     Input,
     Textarea,
 
     Drawer,
+    Accordion,
+    List,
     Alert,
     CloseButton,
-    Spinner,
   },
 });
 

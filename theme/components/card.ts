@@ -17,8 +17,12 @@ export const Card = {
       fontWeight: "semibold",
       textTransform: "uppercase",
 
-      _groupHover: { bgImage: "linear-gradient(rgb(0 0 0/15%) 0 0)" },
-      _groupActive: { bgImage: "linear-gradient(rgb(0 0 0/30%) 0 0)" },
+      _groupHover: {
+        bgImage: "linear-gradient(var(--chakra-colors-blackAlpha-200) 0 0)",
+      },
+      _groupActive: {
+        bgImage: "linear-gradient(var(--chakra-colors-blackAlpha-300) 0 0)",
+      },
     },
   },
   variants: {
@@ -27,11 +31,23 @@ export const Card = {
       body: {
         filter: "auto",
 
-        _hover: { brightness: "87.5%" },
-        _active: { brightness: "75%" },
-        _groupHover: { brightness: "87.5%" },
-        _groupActive: { brightness: "75%" },
+        _hover: { brightness: "92%" },
+        _active: { brightness: "84%" },
+        _groupHover: { brightness: "92%" },
+        _groupActive: { brightness: "84%" },
       },
+    },
+    "interactive-secondary": {
+      container: { border: "1px solid", borderColor: "brand.light" },
+      body: {
+        filter: "auto",
+
+        _hover: { brightness: "92%" },
+        _active: { brightness: "84%" },
+        _groupHover: { brightness: "92%" },
+        _groupActive: { brightness: "84%" },
+      },
+      footer: { bgColor: "brand.light", color: "brand.dark" },
     },
     shadow: {
       container: {
@@ -53,15 +69,5 @@ export const Card = {
     md: {
       body: { minH: 36, h: "full" },
     },
-  },
-};
-
-export const Badge = {
-  baseStyle: {
-    ml: 2.5,
-    p: "0.1875rem 0.375rem",
-    fontSize: "0.5rem",
-    color: "brand.dark",
-    bgColor: "brand.light",
   },
 };

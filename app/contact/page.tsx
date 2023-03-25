@@ -1,12 +1,11 @@
 "use client";
 
-import ContactForm from "@/components/contact/form";
+import ContactForm from "@/components/pages/contact/Form";
 import {
   Box,
   Card,
   CardBody,
   Container,
-  Flex,
   Heading,
   Text,
   VStack,
@@ -14,28 +13,16 @@ import {
 
 const Contact = () => {
   return (
-    <Flex as="section" w="full" justify="center">
+    <VStack as="section" w="full" justify="center" spacing={0}>
       <Container
         as={VStack}
         maxW="container.sm"
         w="full"
-        p={4}
-        spacing={{ base: 4, sm: 0 }}
+        p={{ base: 4, sm: "4rem 1rem" }}
+        spacing={{ base: 4, sm: 16 }}
       >
-        <VStack
-          display="flex"
-          minH={{ base: "unset", sm: "2xs" }}
-          w="full"
-          justify="center"
-          spacing={{ base: 1, sm: 4 }}
-        >
-          <Heading
-            size={{ base: "lg", sm: "xl" }}
-            w="full"
-            textAlign={{ base: "start", sm: "center" }}
-          >
-            Let&apos;s chat!
-          </Heading>
+        <VStack align={{ base: "start", sm: "center" }}>
+          <Heading size={{ base: "lg", sm: "xl" }}>Let&apos;s chat!</Heading>
 
           <Text fontSize="sm" textAlign={{ base: "start", sm: "center" }}>
             Feel free to reach out to me anytime via the form below or via
@@ -44,7 +31,7 @@ const Contact = () => {
           </Text>
         </VStack>
 
-        <Box w="full" pr={2} pb={2}>
+        <Box pr={2} pb={2}>
           <Card variant="shadow">
             <CardBody>
               <ContactForm />
@@ -52,7 +39,7 @@ const Contact = () => {
           </Card>
         </Box>
       </Container>
-    </Flex>
+    </VStack>
   );
 };
 
