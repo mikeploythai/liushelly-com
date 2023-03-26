@@ -13,17 +13,79 @@ import { useState } from "react";
 import { FaAngleDoubleLeft, FaAngleDoubleRight } from "react-icons/fa";
 
 const Testimonials = () => {
-  const [currIndex, setIndex] = useState(0);
-  const currData = testimonialData[currIndex];
+  const [currIndex, setIndex] = useState({ odd: 0, even: 0 });
+  const oddData = testimonialData.filter(({}, index) => index % 2 === 0);
+  const evenData = testimonialData.filter(({}, index) => index % 2 !== 0);
+
+  const [visible, setVisible] = useState({ odd: 1, even: 0 });
+  const transitionTime = 200;
 
   const handlePrev = () => {
-    if (currData === testimonialData[0]) setIndex(testimonialData.length - 1);
-    else setIndex(currIndex - 1);
+    if (visible.odd === 1) {
+      setVisible({ odd: 0, even: 1 });
+
+      if (evenData[currIndex.even] === evenData[0]) {
+        setIndex((prevState) => ({
+          ...prevState,
+          even: evenData.length - 1,
+        }));
+      } else {
+        setIndex((prevState) => ({
+          ...prevState,
+          even: currIndex.even - 1,
+        }));
+      }
+    } else {
+      setVisible({ odd: 1, even: 0 });
+
+      if (oddData[currIndex.odd] === oddData[0]) {
+        setIndex((prevState) => ({
+          ...prevState,
+          odd: oddData.length - 1,
+        }));
+      } else {
+        setIndex((prevState) => ({
+          ...prevState,
+          odd: currIndex.odd - 1,
+        }));
+      }
+    }
   };
 
   const handleNext = () => {
-    if (currData === testimonialData[testimonialData.length - 1]) setIndex(0);
-    else setIndex(currIndex + 1);
+    if (visible.odd === 1) {
+      setVisible({ odd: 0, even: 1 });
+
+      setTimeout(() => {
+        if (oddData[currIndex.odd] === oddData[oddData.length - 1]) {
+          setIndex((prevState) => ({
+            ...prevState,
+            odd: 0,
+          }));
+        } else {
+          setIndex((prevState) => ({
+            ...prevState,
+            odd: currIndex.odd + 1,
+          }));
+        }
+      }, transitionTime);
+    } else {
+      setVisible({ odd: 1, even: 0 });
+
+      setTimeout(() => {
+        if (evenData[currIndex.even] === evenData[evenData.length - 1]) {
+          setIndex((prevState) => ({
+            ...prevState,
+            even: 0,
+          }));
+        } else {
+          setIndex((prevState) => ({
+            ...prevState,
+            even: currIndex.even + 1,
+          }));
+        }
+      }, transitionTime);
+    }
   };
 
   return (
@@ -61,21 +123,42 @@ const Testimonials = () => {
           </ButtonGroup>
         </HStack>
 
-        <VStack
+        <Flex
+          pos="relative"
           minH={{ base: "unset", sm: 72 }}
           justify="center"
           align={{ base: "start", sm: "center" }}
           textAlign={{ base: "start", sm: "center" }}
-          spacing={4}
         >
-          <Text fontSize="sm" variant="secondary">
-            “{currData.comment}”
-          </Text>
+          <VStack
+            spacing={4}
+            opacity={visible.odd}
+            transition={`${transitionTime}ms ease-in-out`}
+          >
+            <Text fontSize="sm" variant="secondary">
+              “{oddData[currIndex.odd].comment}”
+            </Text>
 
-          <Text fontSize="sm" variant="secondary" fontWeight="semibold">
-            {currData.name}, {currData.role}
-          </Text>
-        </VStack>
+            <Text fontSize="sm" variant="secondary" fontWeight="semibold">
+              {oddData[currIndex.odd].name}, {oddData[currIndex.odd].role}
+            </Text>
+          </VStack>
+
+          <VStack
+            pos="absolute"
+            spacing={4}
+            opacity={visible.even}
+            transition={`${transitionTime}ms ease-in-out`}
+          >
+            <Text fontSize="sm" variant="secondary">
+              “{evenData[currIndex.even].comment}”
+            </Text>
+
+            <Text fontSize="sm" variant="secondary" fontWeight="semibold">
+              {evenData[currIndex.even].name}, {evenData[currIndex.even].role}
+            </Text>
+          </VStack>
+        </Flex>
       </Container>
     </Flex>
   );
