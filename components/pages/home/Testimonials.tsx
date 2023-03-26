@@ -1,3 +1,4 @@
+import testimonialData from "@/lib/data/testimonialData";
 import {
   ButtonGroup,
   Container,
@@ -5,15 +6,25 @@ import {
   Heading,
   HStack,
   IconButton,
+  Text,
   VStack,
 } from "@chakra-ui/react";
+import { useState } from "react";
 import { FaAngleDoubleLeft, FaAngleDoubleRight } from "react-icons/fa";
-import TestimonialContent from "./TestimonialContent";
-import TestimonialLogic from "./TestimonialLogic";
 
 const Testimonials = () => {
-  const { testimonials, transitionTime, handlePrev, handleNext } =
-    TestimonialLogic();
+  const [currIndex, setIndex] = useState(0);
+  const currData = testimonialData[currIndex];
+
+  const handlePrev = () => {
+    if (currData === testimonialData[0]) setIndex(testimonialData.length - 1);
+    else setIndex(currIndex - 1);
+  };
+
+  const handleNext = () => {
+    if (currData === testimonialData[testimonialData.length - 1]) setIndex(0);
+    else setIndex(currIndex + 1);
+  };
 
   return (
     <Flex as="section" w="full" justify="center" bgColor="brand.dark">
@@ -50,24 +61,21 @@ const Testimonials = () => {
           </ButtonGroup>
         </HStack>
 
-        <Flex
-          pos="relative"
+        <VStack
           minH={{ base: "unset", sm: 72 }}
-          w="full"
           justify="center"
           align={{ base: "start", sm: "center" }}
           textAlign={{ base: "start", sm: "center" }}
+          spacing={4}
         >
-          <TestimonialContent
-            testimonial={testimonials.odd}
-            transitionTime={transitionTime}
-          />
+          <Text fontSize="sm" variant="secondary">
+            “{currData.comment}”
+          </Text>
 
-          <TestimonialContent
-            testimonial={testimonials.even}
-            transitionTime={transitionTime}
-          />
-        </Flex>
+          <Text fontSize="sm" variant="secondary" fontWeight="semibold">
+            {currData.name}, {currData.role}
+          </Text>
+        </VStack>
       </Container>
     </Flex>
   );
