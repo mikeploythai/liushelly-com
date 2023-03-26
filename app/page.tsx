@@ -14,7 +14,10 @@ const Home = () => {
   const cardVariant = useBreakpointValue({ base: "unset", sm: "shadow" });
 
   const HeroProps: PhotoHeroProps = {
-    container: { flexDir: "row-reverse", p: { base: 0, sm: 4 } },
+    container: {
+      flexDir: "row-reverse",
+      p: { base: 0, sm: 4 },
+    },
     card: {
       box: {
         w: { base: "full", sm: "unset" },

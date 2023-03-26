@@ -16,6 +16,7 @@ export const Input = {
       border: "1px solid",
       borderColor: "brand.navy",
       borderRadius: 0,
+
       _focusVisible: {
         outlineStyle: "solid",
         outlineOffset: "-4px",
@@ -43,6 +44,7 @@ export const Textarea = {
     border: "1px solid",
     borderColor: "brand.navy",
     borderRadius: 0,
+
     _focusVisible: {
       outlineStyle: "solid",
       outlineOffset: "-4px",

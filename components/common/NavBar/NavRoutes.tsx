@@ -39,13 +39,14 @@ const NavRoutes = ({
         href={`/${name}`}
         aria-label={`Link to the ${name} page`}
         size={size}
-        rightIcon={isDrawer ? <FaAngleDoubleRight /> : undefined}
-        loadingText={isDrawer ? name : undefined}
+        rightIcon={isDrawer && <FaAngleDoubleRight />}
+        loadingText={isDrawer && name}
         isLoading={loading[index]}
         spinnerPlacement="end"
         onClick={(e) => {
-          if (path !== `/${name}`) handleLoading(index);
-          else {
+          if (path !== `/${name}`) {
+            handleLoading(index);
+          } else {
             onClose?.(e);
             window.scrollTo(0, 0);
           }

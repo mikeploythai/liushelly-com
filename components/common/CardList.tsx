@@ -19,7 +19,7 @@ const CardList = ({
   const cardSize = useBreakpointValue({ base: "sm", md: "md" });
   const cardData = servicesPage
     ? servicesData.filter((data) => data.title !== "social media management")
-    : servicesData.filter((data, index) => index <= 2);
+    : servicesData.filter(({}, index) => index <= 2);
 
   return (
     <SimpleGrid columns={{ base: 1, md: maxColumns }} gap={4} w="full">
