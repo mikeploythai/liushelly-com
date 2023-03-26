@@ -18,7 +18,6 @@ const MarqueeText = ({ paused, delay }: { paused: string; delay?: string }) => {
       ml={2}
       gap={2}
       opacity={{ base: 1, sm: "80%" }}
-      transition="200ms ease-in-out"
       transitionDelay={delay}
       _groupHover={{ animationPlayState: paused, opacity: 1 }}
     >
