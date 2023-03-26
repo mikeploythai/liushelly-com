@@ -11,18 +11,20 @@ const Template = ({ children }: { children: React.ReactNode }) => {
   return (
     <CacheProvider>
       <ChakraBaseProvider theme={theme} resetCSS>
-        <VStack minH="100vh" justify="space-between" spacing={0}>
-          <NavBar />
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 16 }}
-            style={{ width: "100%" }}
-          >
-            {children}
-          </motion.div>
-          <Footer />
+        <NavBar />
+        <VStack
+          as={motion.div}
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 16 }}
+          flex={1}
+          w="full"
+          justify="center"
+          spacing={0}
+        >
+          {children}
         </VStack>
+        <Footer />
       </ChakraBaseProvider>
     </CacheProvider>
   );
