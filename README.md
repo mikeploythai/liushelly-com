@@ -4,9 +4,9 @@ WIP. Powered by Next.js and Chakra UI.
 
 ###### TO DO
 
-- [] Write a privacy policy (we use Vercel for analytics)
-- [] Integrate Sanity CDN
-- [] Add a work portfolio page
+- [ ] Write a privacy policy (we use Vercel for analytics)
+- [ ] Integrate Sanity CDN
+- [ ] Add a work portfolio page
 
 ###### CURRENT BUGS
 
