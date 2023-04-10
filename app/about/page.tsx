@@ -5,7 +5,9 @@ import { Heading, Link, Text } from "@chakra-ui/react";
 const About = () => {
   return (
     <>
-      <Heading size={{ base: "lg", md: "xl" }}>About me!</Heading>
+      <Heading as="h1" size={{ base: "lg", md: "xl" }}>
+        About me!
+      </Heading>
 
       <Text fontSize="sm">
         Hi, I&apos;m Shelly! I&apos;m a senior at California State University,

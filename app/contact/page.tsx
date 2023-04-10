@@ -13,7 +13,9 @@ const Contact = () => {
       spacing={{ base: 4, sm: 16 }}
     >
       <VStack align={{ base: "start", sm: "center" }}>
-        <Heading size={{ base: "lg", sm: "xl" }}>Let&apos;s chat!</Heading>
+        <Heading as="h1" size={{ base: "lg", sm: "xl" }}>
+          Let&apos;s chat!
+        </Heading>
 
         <Text fontSize="sm" textAlign={{ base: "start", sm: "center" }}>
           Feel free to reach out to me anytime via the form below or via
