@@ -34,8 +34,7 @@ const NavDrawer = ({
           justifyContent="space-between"
           p={0}
           gap={2}
-          borderBottom="1px solid"
-          borderBottomColor="brand.light"
+          borderBottom="1px solid var(--chakra-colors-brand-light)"
         >
           <Heading variant="secondary" size="lg" p={4}>
             Navigation
