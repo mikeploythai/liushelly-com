@@ -5,6 +5,7 @@ import InstagramSamples from "@/components/pages/home/InstagramSamples";
 import Marquee from "@/components/pages/home/Marquee";
 import ServicesGrid from "@/components/pages/home/ServicesGrid";
 import Testimonials from "@/components/pages/home/Testimonials";
+import servicesData from "@/lib/data/servicesData";
 import { PhotoHeroProps } from "@/lib/types/photoHeroProps";
 import heroImg from "@/public/hero-img.png";
 import { Button, Heading, Link, useBreakpointValue } from "@chakra-ui/react";
@@ -12,7 +13,6 @@ import { FaAngleDoubleRight } from "react-icons/fa";
 
 const Home = () => {
   const cardVariant = useBreakpointValue({ base: "unset", sm: "shadow" });
-
   const HeroProps: PhotoHeroProps = {
     container: {
       flexDir: "row-reverse",
@@ -55,14 +55,14 @@ const Home = () => {
 
         <Button
           as={Link}
-          href="https://calendly.com/shellyliu/30mindiscoverychat"
+          href={servicesData[0].url}
           referrerPolicy="strict-origin-when-cross-origin"
           size={{ base: "sm", sm: "md" }}
           variant={{ base: "secondary", sm: "primary" }}
           rightIcon={<FaAngleDoubleRight />}
           isExternal
         >
-          Book a call
+          {servicesData[0].cta}
         </Button>
       </PhotoHero>
 
