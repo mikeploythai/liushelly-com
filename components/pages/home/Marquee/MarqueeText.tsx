@@ -29,6 +29,7 @@ const MarqueeText = ({ paused, delay }: { paused: string; delay?: string }) => {
             size="sm"
             variant="secondary"
             whiteSpace="nowrap"
+            textTransform="capitalize"
           >
             {title}
           </Heading>
