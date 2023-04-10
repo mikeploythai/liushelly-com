@@ -6,8 +6,11 @@ import {
   SimpleGrid,
   Text,
   useBreakpointValue,
+  useDisclosure,
 } from "@chakra-ui/react";
 import Image from "next/image";
+import { useState } from "react";
+import InfoModal from "../pages/services/InfoModal";
 
 const CardList = ({
   maxColumns,
@@ -16,6 +19,8 @@ const CardList = ({
   maxColumns: number;
   servicesPage?: Boolean;
 }) => {
+  const [id, setId] = useState(0);
+  const { isOpen, onOpen, onClose } = useDisclosure();
   const cardSize = useBreakpointValue({ base: "sm", md: "md" });
   const cardData = servicesPage
     ? servicesData.filter((data) => data.title !== "social media management")
@@ -32,6 +37,10 @@ const CardList = ({
             size={cardSize}
             variant={servicesPage ? "interactive-secondary" : "interactive"}
             overflow="hidden"
+            onClick={() => {
+              setId(index);
+              onOpen();
+            }}
             _hover={{ cursor: "pointer" }}
           >
             <CardBody pos="relative">
@@ -50,6 +59,10 @@ const CardList = ({
                 {service.title}
               </Text>
             </CardFooter>
+
+            {index === id && (
+              <InfoModal service={service} isOpen={isOpen} onClose={onClose} />
+            )}
           </Card>
         );
       })}

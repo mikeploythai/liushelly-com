@@ -8,7 +8,8 @@ import { Card } from "./components/card";
 import { FormLabel, Input, Textarea } from "./components/form";
 import { Heading, Text } from "./components/typography";
 
-const { Drawer, Accordion, List, Alert, CloseButton } = chakraTheme.components;
+const { Drawer, Accordion, List, Alert, CloseButton, Modal } =
+  chakraTheme.components;
 
 const theme = extendBaseTheme({
   styles,
@@ -29,6 +30,7 @@ const theme = extendBaseTheme({
     List,
     Alert,
     CloseButton,
+    Modal,
   },
 });
 
