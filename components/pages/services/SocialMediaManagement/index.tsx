@@ -41,6 +41,7 @@ const SocialMediaManagement = () => {
                 sizes="(max-width: 480px) 60vw, 40vw"
                 style={{ objectFit: "cover" }}
                 fill
+                priority
               />
             </Box>
 
