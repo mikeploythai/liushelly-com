@@ -5,9 +5,7 @@ import { FormikProps, FormikValues } from "formik";
 
 interface VerificationProps {
   captchaRef: React.RefObject<HCaptcha>;
-  setLoading: React.Dispatch<
-    React.SetStateAction<{ state: boolean; text: string }>
-  >;
+  setLoading: ({ state, text }: { state: boolean; text: string }) => void;
   values: FormikValues;
   formik: FormikProps<any>;
 }

@@ -2,7 +2,6 @@ import routes from "@/lib/data/navRouteData";
 import { Link } from "@chakra-ui/next-js";
 import { Button, ListItem } from "@chakra-ui/react";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
 import { FaAngleDoubleRight } from "react-icons/fa";
 
 const NavRoutes = ({
@@ -10,26 +9,14 @@ const NavRoutes = ({
   onClose,
 }: {
   size: string;
-  onClose?: React.MouseEventHandler<HTMLButtonElement>;
+  onClose?: () => void;
 }) => {
-  const [loading, setLoading] = useState(Array(routes.length).fill(false));
   const path = usePathname();
 
-  const handleLoading = (index: number) => {
-    const updatedArray = loading.map((v, i) => {
-      if (i === index) return !v;
-      else return v;
-    });
-
-    setLoading(updatedArray);
-  };
-
   const RouteButton = ({
-    index,
     name,
     isDrawer,
   }: {
-    index: number;
     name: string;
     isDrawer?: Boolean;
   }) => {
@@ -40,14 +27,9 @@ const NavRoutes = ({
         aria-label={`Link to the ${name} page`}
         size={size}
         rightIcon={isDrawer && <FaAngleDoubleRight />}
-        loadingText={isDrawer && name}
-        isLoading={loading[index]}
-        spinnerPlacement="end"
-        onClick={(e) => {
-          if (path !== `/${name}`) {
-            handleLoading(index);
-          } else {
-            onClose?.(e);
+        onClick={() => {
+          if (path === `/${name}`) {
+            onClose?.();
             window.scrollTo(0, 0);
           }
         }}
@@ -61,10 +43,10 @@ const NavRoutes = ({
     <>
       {routes.map(({ name }, index) => {
         return onClose ? (
-          <RouteButton key={index} index={index} name={name} isDrawer={true} />
+          <RouteButton key={index} name={name} isDrawer={true} />
         ) : (
           <ListItem key={index}>
-            <RouteButton index={index} name={name} />
+            <RouteButton name={name} />
           </ListItem>
         );
       })}
