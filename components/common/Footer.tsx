@@ -3,10 +3,11 @@ import {
   Flex,
   Heading,
   HStack,
-  Link,
+  Link as ChakraLink,
   Text,
   VStack,
 } from "@chakra-ui/react";
+import Link from "next/link";
 import SocialLinks from "./SocialLinks";
 
 const Footer = () => {
@@ -30,16 +31,23 @@ const Footer = () => {
             &copy; Shelly Liu {year}
           </Heading>
 
-          <Text
-            as={Link}
-            href="https://mikeploythai.com"
-            referrerPolicy="strict-origin-when-cross-origin"
-            fontFamily="mono"
-            fontSize="0.625rem"
-            isExternal
-          >
-            design/dev by mike.
-          </Text>
+          <HStack spacing={1}>
+            <Text as={Link} href="/privacy" fontSize="0.625rem">
+              Privacy Policy
+            </Text>
+
+            <Text fontSize="0.625rem">&middot;</Text>
+
+            <Text
+              as={ChakraLink}
+              href="https://mikeploythai.com"
+              referrerPolicy="strict-origin-when-cross-origin"
+              fontSize="0.625rem"
+              isExternal
+            >
+              Built by Mike
+            </Text>
+          </HStack>
         </VStack>
 
         <HStack as="nav" justify="center">
