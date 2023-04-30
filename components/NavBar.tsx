@@ -10,7 +10,7 @@ export default function NavBar() {
   const pathname = usePathname();
 
   return (
-    <header className="flex sticky top-0 justify-center bg-brand-light border-b border-b-brand-dark z-20 dark:bg-brand-dark dark:border-b-brand-light">
+    <header className="flex sticky top-0 justify-center bg-brand-light border-b border-b-brand-dark z-10 dark:bg-brand-dark dark:border-b-brand-light">
       <div className="flex max-w-screen-lg w-full justify-between items-center">
         <Link
           href="/"

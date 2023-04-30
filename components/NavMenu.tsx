@@ -23,7 +23,7 @@ export default function NavMenu() {
       <Transition appear show={isOpen} as={Fragment}>
         <Dialog
           onClose={() => setIsOpen(false)}
-          className="relative z-30 sm:hidden"
+          className="relative z-20 sm:hidden"
         >
           <Transition.Child
             as={Fragment}
@@ -37,7 +37,7 @@ export default function NavMenu() {
             <div className="fixed inset-0 bg-black/50" aria-hidden="true" />
           </Transition.Child>
 
-          <div className="flex fixed inset-0 justify-end">
+           <div className="flex fixed inset-0 justify-end">
             <Transition.Child
               as={Fragment}
               enter="ease-in-out duration-150"
