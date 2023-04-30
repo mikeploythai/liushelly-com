@@ -1,17 +1,30 @@
 "use client";
 
-import { motion } from "framer-motion";
+import Footer from "@/components/Footer";
+import NavBar from "@/components/NavBar";
+import { Transition } from "@headlessui/react";
 import "./globals.css";
 
 export default function Template({ children }: { children: React.ReactNode }) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 16 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: 16 }}
-      className="flex flex-1 flex-col w-full justify-center items-center"
-    >
-      {children}
-    </motion.div>
+    <>
+      <NavBar />
+
+      <Transition
+        appear
+        show={children !== null}
+        enter="ease-in-out duration-150"
+        enterFrom="opacity-0 translate-y-8"
+        enterTo="opacity-100 translate-y-0"
+        leave="ease-in-out duration-150"
+        leaveFrom="opacity-100 translate-y-0"
+        leaveTo="opacity-0 translate-y-8"
+        className="flex flex-1 flex-col w-full justify-center items-center"
+      >
+        {children}
+      </Transition>
+
+      <Footer />
+    </>
   );
 }
