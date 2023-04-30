@@ -1,9 +1,5 @@
-import Footer from "@/components/Footer";
-import NavBar from "@/components/NavBar";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
-
-const bodyFont = Montserrat({ subsets: ["latin"], weight: "500" });
 
 export const metadata = {
   title: {
@@ -14,6 +10,8 @@ export const metadata = {
     "Shelly Liu is a social media manager based in southern California.",
 };
 
+const bodyFont = Montserrat({ subsets: ["latin"] });
+
 export default function RootLayout({
   children,
 }: {
@@ -21,10 +19,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={bodyFont.className}>
-        <NavBar />
+      <body className={`${bodyFont.className} flex flex-col min-h-screen`}>
         {children}
-        <Footer />
       </body>
     </html>
   );
