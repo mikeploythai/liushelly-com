@@ -1,15 +1,12 @@
 import { Unbounded } from "next/font/google";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
-import { FaEquals } from "react-icons/fa";
 import NavMenu from "./NavMenu";
 import NavRoutes from "./NavRoutes";
 
 const logoFont = Unbounded({ subsets: ["latin"] });
 
 export default function NavBar() {
-  const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
 
   return (
@@ -27,15 +24,7 @@ export default function NavBar() {
           <NavRoutes />
         </nav>
 
-        <button
-          type="button"
-          className="h-full p-4 bg-brand-dark text-brand-light transition ease-in-out hover:bg-brand-dark/90 active:bg-brand-dark/80 sm:hidden dark:text-brand-dark dark:bg-brand-light dark:hover:bg-brand-light/90 dark:active:bg-brand-light/80"
-          onClick={() => setIsOpen(true)}
-        >
-          <FaEquals />
-        </button>
-
-        <NavMenu isOpen={isOpen} setIsOpen={setIsOpen} />
+        <NavMenu />
       </div>
     </header>
   );
