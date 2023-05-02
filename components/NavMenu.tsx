@@ -23,7 +23,7 @@ export default function NavMenu() {
       <Dialog
         open={isOpen}
         onClose={() => setIsOpen(false)}
-        className="relative z-10 sm:hidden"
+        className="relative z-20 sm:hidden"
       >
         <div className="fixed inset-0 bg-black/50" aria-hidden="true" />
 
