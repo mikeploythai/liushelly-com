@@ -2,7 +2,13 @@ import { sanity } from "@/lib/sanity.client";
 import { Transition } from "@headlessui/react";
 import { groq } from "next-sanity";
 import { useEffect, useState } from "react";
-import { FaInstagram, FaLinkedin, FaShareAlt, FaTiktok } from "react-icons/fa";
+import {
+  FaInstagram,
+  FaLinkedin,
+  FaShareAlt,
+  FaSpinner,
+  FaTiktok,
+} from "react-icons/fa";
 
 const query = groq`
   *[_type == "socials"] {
@@ -45,7 +51,7 @@ export default function Socials() {
 
   return (
     <>
-      {data && (
+      {data ? (
         <Transition
           appear
           as="ul"
@@ -73,6 +79,10 @@ export default function Socials() {
             );
           })}
         </Transition>
+      ) : (
+        <div className="p-3.5 text-lg animate-spin">
+          <FaSpinner />
+        </div>
       )}
     </>
   );
