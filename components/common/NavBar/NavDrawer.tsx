@@ -1,13 +1,18 @@
+import { SocialProps } from "@/lib/socialProps";
 import { Dialog } from "@headlessui/react";
 import { Unbounded } from "next/font/google";
 import { useState } from "react";
 import { FaEquals, FaTimes } from "react-icons/fa";
+import Socials from "../Socials";
 import NavRoutes from "./NavRoutes";
-import Socials from "./Socials";
 
 const logoFont = Unbounded({ subsets: ["latin"] });
 
-export default function NavMenu() {
+export default function NavDrawer({
+  socialData,
+}: {
+  socialData: SocialProps[];
+}) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -28,8 +33,8 @@ export default function NavMenu() {
         <div className="fixed inset-0 bg-black/50" aria-hidden="true" />
 
         <div className="flex fixed inset-0 justify-end">
-          <Dialog.Panel className="flex flex-col w-full justify-between bg-brand-dark">
-            <header className="flex max-w-screen-lg w-full justify-between border-b border-b-brand-light">
+          <Dialog.Panel className="flex flex-col w-5/6 justify-between bg-brand-dark">
+            <header className="flex max-w-screen-lg justify-between border-b border-b-brand-light">
               <Dialog.Title
                 className={`${logoFont.className} p-4 font-semibold text-lg text-brand-light`}
               >
@@ -50,7 +55,7 @@ export default function NavMenu() {
             </nav>
 
             <footer className="mx-auto px-4 pb-4">
-              <Socials />
+              <Socials data={socialData} isDrawer={true} />
             </footer>
           </Dialog.Panel>
         </div>

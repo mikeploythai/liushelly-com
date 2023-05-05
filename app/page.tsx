@@ -1,4 +1,10 @@
-import PhotoCard from "@/components/PhotoCard";
+"use client";
+
+import PhotoCardLayout from "@/components/common/PhotoCardLayout";
+import InstagramPreview from "@/components/home/InstagramPreview";
+import ScrollingText from "@/components/home/ScrollingText";
+import ServicePreview from "@/components/home/ServicePreview";
+import Testimonials from "@/components/home/Testimonials";
 import { groq } from "next-sanity";
 
 const query = groq`
@@ -15,11 +21,20 @@ const query = groq`
   }
 `;
 
-export default function Home() {
+export default async function Home() {
+  const photoCardLayout: JSX.Element = await PhotoCardLayout({ query });
+  const scrollingText: JSX.Element = await ScrollingText();
+  const servicePreview: JSX.Element = await ServicePreview();
+  const testimonials: JSX.Element = await Testimonials();
+  const igPreview: JSX.Element = await InstagramPreview();
+
   return (
     <>
-      {/* @ts-expect-error Server Component */}
-      <PhotoCard query={query} />
+      {photoCardLayout}
+      {scrollingText}
+      {servicePreview}
+      {testimonials}
+      {igPreview}
     </>
   );
 }

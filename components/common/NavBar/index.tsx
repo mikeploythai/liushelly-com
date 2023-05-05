@@ -1,13 +1,22 @@
+import sanity from "@/lib/sanityClient";
+import { SocialProps } from "@/lib/socialProps";
+import { groq } from "next-sanity";
 import { Unbounded } from "next/font/google";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import NavMenu from "./NavMenu";
+import NavDrawer from "./NavDrawer";
 import NavRoutes from "./NavRoutes";
 
 const logoFont = Unbounded({ subsets: ["latin"] });
 
-export default function NavBar() {
-  const pathname = usePathname();
+const query = groq`
+  *[_type == "socials"] | order(orderRank) {
+    platform,
+    link
+  }
+`;
+
+export default async function NavBar() {
+  const data: SocialProps[] = await sanity.fetch(query);
 
   return (
     <header className="flex sticky top-0 justify-center bg-brand-light border-b border-b-brand-dark z-10 dark:bg-brand-dark dark:border-b-brand-light">
@@ -15,7 +24,6 @@ export default function NavBar() {
         <Link
           href="/"
           className={`${logoFont.className} p-4 font-semibold text-lg transition ease-in-out hover:bg-brand-dark/10 active:bg-brand-dark/20 dark:hover:bg-brand-light/10 dark:active:bg-brand-light/20`}
-          onClick={() => pathname === "/" && window.scrollTo(0, 0)}
         >
           Shelly Liu
         </Link>
@@ -24,7 +32,7 @@ export default function NavBar() {
           <NavRoutes />
         </nav>
 
-        <NavMenu />
+        <NavDrawer socialData={data} />
       </div>
     </header>
   );

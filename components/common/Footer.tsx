@@ -1,10 +1,21 @@
+import sanity from "@/lib/sanityClient";
+import { SocialProps } from "@/lib/socialProps";
+import { groq } from "next-sanity";
 import { Unbounded } from "next/font/google";
 import Link from "next/link";
 import Socials from "./Socials";
 
 const logoFont = Unbounded({ subsets: ["latin"] });
 
-export default function Footer() {
+const query = groq`
+  *[_type == "socials"] | order(orderRank) {
+    platform,
+    link
+  }
+`;
+
+export default async function Footer() {
+  const data: SocialProps[] = await sanity.fetch(query);
   const date = new Date();
   const year = date.getFullYear();
 
@@ -18,7 +29,7 @@ export default function Footer() {
             &copy; Shelly Liu {year}
           </p>
 
-          <small className="text-[10px]">
+          <small className="text-[10px] font-medium">
             <Link href="/privacy" className="hover:underline">
               Privacy Policy
             </Link>{" "}
@@ -34,7 +45,7 @@ export default function Footer() {
           </small>
         </div>
 
-        <Socials />
+        <Socials data={data} />
       </div>
     </footer>
   );

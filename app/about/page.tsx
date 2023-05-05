@@ -1,4 +1,4 @@
-import PhotoCard from "@/components/PhotoCard";
+import PhotoCardLayout from "@/components/common/PhotoCardLayout";
 import { groq } from "next-sanity";
 
 export const metadata = {
@@ -9,16 +9,18 @@ const query = groq`
   *[_type == "photoCard" && title == "About Page"][0] {
     title,
     heading,
-    img { asset-> },
+    img {
+      asset -> {
+        url,
+        metadata
+      }
+    },
     bio
   }
 `;
 
-export default function About() {
-  return (
-    <>
-      {/* @ts-expect-error Server Component */}
-      <PhotoCard query={query} />
-    </>
-  );
+export default async function About() {
+  const photoCardLayout: JSX.Element = await PhotoCardLayout({ query });
+
+  return <>{photoCardLayout}</>;
 }
