@@ -33,7 +33,7 @@ export default function NavDrawer({
         <div className="fixed inset-0 bg-black/50" aria-hidden="true" />
 
         <div className="flex fixed inset-0 justify-end">
-          <Dialog.Panel className="flex flex-col w-5/6 justify-between bg-brand-dark">
+          <Dialog.Panel className="flex flex-col w-full justify-between bg-brand-dark">
             <header className="flex max-w-screen-lg justify-between border-b border-b-brand-light">
               <Dialog.Title
                 className={`${logoFont.className} p-4 font-semibold text-lg text-brand-light`}
