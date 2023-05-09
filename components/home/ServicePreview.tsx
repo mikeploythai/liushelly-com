@@ -18,6 +18,7 @@ const query = groq`
         metadata
       }
     },
+    inclusions
   }
 `;
 
