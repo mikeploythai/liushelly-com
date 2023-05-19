@@ -46,7 +46,7 @@ export default async function InstagramPreview() {
           return (
             <figure
               key={index}
-              className="border border-brand-dark dark:border-brand-light"
+              className="border border-brand-dark"
             >
               <a
                 href={link}
@@ -54,7 +54,7 @@ export default async function InstagramPreview() {
                 referrerPolicy="strict-origin-when-cross-origin"
                 className="relative"
               >
-                <span className="absolute left-0 w-full h-full transition ease-in-out hover:bg-brand-light/10 active:bg-brand-light/20 dark:hover:bg-brand-dark/10 dark:active:bg-brand-dark/20" />
+                <span className="absolute left-0 w-full h-full transition ease-in-out hover:bg-brand-light/10 active:bg-brand-light/20" />
 
                 <Image
                   src={img.asset.url}

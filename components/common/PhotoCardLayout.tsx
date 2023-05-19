@@ -32,8 +32,8 @@ export default async function PhotoCardLayout({ query }: { query: string }) {
         <h1
           className={`${logoFont.className} text-lg font-semibold md:text-2xl ${
             data?.title !== "About Page"
-              ? "text-brand-light sm:text-brand-dark dark:sm:text-brand-light"
-              : "text-brand-dark dark:text-brand-light"
+              ? "text-brand-light sm:text-brand-dark"
+              : "text-brand-dark"
           }`}
         >
           {children}
@@ -71,10 +71,10 @@ export default async function PhotoCardLayout({ query }: { query: string }) {
       }`}
     >
       <figure
-        className={`group flex flex-shrink-0 relative transition duration-500 ease-in-out sm:mr-2 sm:mb-2 sm:border sm:border-brand-dark sm:shadow-normal sm:shadow-brand-dark md:h-96 md:w-64 md:hover:shadow-hover md:hover:shadow-brand-dark dark:sm:border-brand-light dark:sm:shadow-brand-light dark:md:hover:shadow-brand-light ${
+        className={`group flex flex-shrink-0 relative transition duration-500 ease-in-out sm:mr-2 sm:mb-2 sm:border sm:border-brand-dark sm:shadow-normal sm:shadow-brand-dark md:h-96 md:w-64 md:hover:shadow-hover md:hover:shadow-brand-dark ${
           data?.title !== "About Page"
-            ? "h-[32rem] w-full sm:h-80 sm:w-56 sm:hover:shadow-hover sm:hover:shadow-brand-dark dark:sm:hover:shadow-brand-light"
-            : "h-96 w-full mr-2 mb-2 border border-brand-dark shadow-normal shadow-brand-dark dark:shadow-brand-light dark:border-brand-light"
+            ? "h-[32rem] w-full sm:h-80 sm:w-56 sm:hover:shadow-hover sm:hover:shadow-brand-dark"
+            : "h-96 w-full mr-2 mb-2 border border-brand-dark shadow-normal shadow-brand-dark"
         }`}
       >
         <Image
@@ -110,7 +110,7 @@ export default async function PhotoCardLayout({ query }: { query: string }) {
             href={data.cta.link}
             target="_blank"
             referrerPolicy="strict-origin-when-cross-origin"
-            className="flex max-w-fit items-center gap-2 p-2.5 text-xs font-medium uppercase bg-brand-light text-brand-dark transition ease-in-out hover:bg-brand-light/90 active:bg-brand-light/80 sm:bg-brand-dark sm:text-brand-light sm:hover:bg-brand-dark/90 sm:active:bg-brand-dark/80 md:p-3.5 md:text-base dark:sm:text-brand-dark dark:sm:bg-brand-light dark:sm:hover:bg-brand-light/90 dark:sm:active:bg-brand-light/80"
+            className="flex max-w-fit items-center gap-2 p-2.5 text-xs font-medium uppercase bg-brand-light transition ease-in-out hover:bg-brand-light/90 active:bg-brand-light/80 sm:bg-brand-dark sm:text-brand-light sm:hover:bg-brand-dark/90 sm:active:bg-brand-dark/80 md:p-3.5 md:text-base"
           >
             {data.cta.hook}
 

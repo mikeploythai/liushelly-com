@@ -1,9 +1,10 @@
 import sanity from "@/lib/sanityClient";
+import { ServicesProps } from "@/lib/serviceProps";
 import { groq } from "next-sanity";
 import { Unbounded } from "next/font/google";
 import Link from "next/link";
 import { FaAngleDoubleRight } from "react-icons/fa";
-import ServiceCards, { ServicesProps } from "../common/ServiceCards";
+import ServiceCards from "../common/ServiceCards";
 
 const logoFont = Unbounded({ subsets: ["latin"] });
 
@@ -37,7 +38,7 @@ export default async function ServicePreview() {
 
       <Link
         href="/services"
-        className="flex w-full justify-center items-center gap-2 p-2.5 text-xs text-brand-light font-medium uppercase bg-brand-dark transition ease-in-out hover:bg-brand-dark/90 active:bg-brand-dark/80 dark:bg-brand-light dark:text-brand-dark dark:hover:bg-brand-light/90 dark:active:bg-brand-light/80"
+        className="flex w-full justify-center items-center gap-2 p-2.5 text-xs text-brand-light font-medium uppercase bg-brand-dark transition ease-in-out hover:bg-brand-dark/90 active:bg-brand-dark/80"
       >
         Explore all services
         <FaAngleDoubleRight />
