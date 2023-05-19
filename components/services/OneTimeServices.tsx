@@ -1,7 +1,8 @@
 import sanity from "@/lib/sanityClient";
 import { groq } from "next-sanity";
 import { Unbounded } from "next/font/google";
-import ServiceCards, { ServicesProps } from "../common/ServiceCards";
+import ServiceCards from "../common/ServiceCards";
+import { ServicesProps } from "@/lib/serviceProps";
 
 const logoFont = Unbounded({ subsets: ["latin"] });
 
@@ -24,9 +25,9 @@ export default async function OneTimeServices() {
   const data: ServicesProps[] = await sanity.fetch(query);
 
   return (
-    <section className="flex w-full justify-center bg-brand-dark dark:border-t dark:border-b dark:border-brand-light">
+    <section className="flex w-full justify-center bg-brand-dark">
       <div className="flex flex-col max-w-screen-lg w-full items-center p-4 gap-4 md:px-4 md:py-8 md:gap-8">
-        <div className="flex flex-col max-w-screen-md gap-2 md:items-center">
+        <hgroup className="flex flex-col max-w-screen-md gap-2 md:items-center">
           <h2
             className={`${logoFont.className} text-base font-semibold text-brand-light sm:text-lg`}
           >
@@ -39,7 +40,7 @@ export default async function OneTimeServices() {
             make the best decisions for your business without the long-term
             commitment.
           </p>
-        </div>
+        </hgroup>
 
         <ServiceCards data={data} />
       </div>

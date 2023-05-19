@@ -9,7 +9,7 @@ const logoFont = Unbounded({ subsets: ["latin"] });
 const quoteComponent: PortableTextComponents = {
   block: {
     normal: ({ children }) => (
-      <p className="text-sm text-brand-light">{children}</p>
+      <blockquote className="text-sm text-brand-light">{children}</blockquote>
     ),
   },
 };
@@ -44,6 +44,7 @@ export default function TestimonialQuotes({
         <div className="flex gap-2">
           <button
             type="button"
+            aria-label="Previous quote"
             className="flex p-2.5 text-base text-brand-light transition ease-in-out hover:bg-brand-light/10 active:bg-brand-light/20"
             onClick={prevQuote}
           >
@@ -52,6 +53,7 @@ export default function TestimonialQuotes({
 
           <button
             type="button"
+            aria-label="Next quote"
             className="flex p-2.5 text-base text-brand-light transition ease-in-out hover:bg-brand-light/10 active:bg-brand-light/20"
             onClick={nextQuote}
           >
@@ -61,9 +63,7 @@ export default function TestimonialQuotes({
       </header>
 
       <figure className="flex flex-col gap-4 sm:h-72 sm:justify-center sm:items-center sm:text-center">
-        <blockquote>
-          <PortableText value={current.quote} components={quoteComponent} />
-        </blockquote>
+        <PortableText value={current.quote} components={quoteComponent} />
 
         <figcaption className="text-sm text-brand-light font-medium">
           {current.name}, {current.occupation}

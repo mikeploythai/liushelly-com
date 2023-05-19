@@ -27,16 +27,16 @@ export default function ScrollingTextList({
     <motion.ul
       variants={variants}
       animate="scroll"
-      className="flex gap-2 whitespace-nowrap text-brand-light dark:text-brand-dark"
+      className="flex gap-2 whitespace-nowrap text-brand-light"
     >
       {data?.map(({ text }, index) => {
         return (
-          <p
+          <li
             key={index}
             className={`${logoFont.className} font-semibold text-xs`}
           >
             {text}
-          </p>
+          </li>
         );
       })}
     </motion.ul>
