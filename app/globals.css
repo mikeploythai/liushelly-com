@@ -2,18 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-color: #242f78;
-  --background-color: #d2cbff;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-color: #d2cbff;
-    --background-color: #242f78;
-  }
-}
-
 * {
   box-sizing: border-box;
   margin: 0;
@@ -21,6 +9,6 @@
 }
 
 body {
-  color: var(--foreground-color);
-  background-color: var(--background-color);
+  color: #242f78;
+  background-color: #d2cbff;
 }
