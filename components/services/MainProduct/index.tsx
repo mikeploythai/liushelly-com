@@ -1,12 +1,12 @@
-import { ServicesProps } from "@/components/common/ServiceCards";
 import sanity from "@/lib/sanityClient";
+import { ServicesProps } from "@/lib/serviceProps";
 import { PortableText, PortableTextComponents } from "@portabletext/react";
 import { groq } from "next-sanity";
 import { Unbounded } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
 import { FaAngleDoubleRight } from "react-icons/fa";
-import Inclusions from "./Inclusions";
+import Details from "./Details";
 
 const logoFont = Unbounded({ subsets: ["latin"] });
 
@@ -21,7 +21,8 @@ const query = groq`
         metadata
       }
     },
-    inclusions
+    packages,
+    contents
   }
 `;
 
@@ -42,8 +43,8 @@ export default async function MainProduct() {
         Take your brand&apos;s social media presence to the next level.
       </h1>
 
-      <article className="flex flex-col gap-4 bg-brand-light p-4 border border-brand-dark shadow-normal shadow-brand-dark dark:border-brand-light  dark:bg-brand-dark dark:shadow-brand-light">
-        <figure className="relative h-56 border border-brand-dark dark:border-brand-light">
+      <article className="flex flex-col gap-4 bg-brand-light p-4 border border-brand-dark shadow-normal shadow-brand-dark">
+        <figure className="relative h-48 border border-brand-dark sm:h-56">
           <Image
             src={data?.img.asset.url}
             alt=""
@@ -68,15 +69,13 @@ export default async function MainProduct() {
           components={descriptionComponent}
         />
 
-        {data?.inclusions && (
-          <span>
-            <Inclusions inclusions={data.inclusions} />
-          </span>
+        {data?.contents && data?.packages && (
+          <Details packages={data.packages} contents={data.contents} />
         )}
 
         <Link
           href={data?.cta.link}
-          className="flex w-full justify-center items-center gap-2 p-2.5 text-xs text-brand-light font-medium uppercase bg-brand-dark transition ease-in-out hover:bg-brand-dark/90 active:bg-brand-dark/80 dark:bg-brand-light dark:text-brand-dark dark:hover:bg-brand-light/90 dark:active:bg-brand-light/80"
+          className="flex w-full justify-center items-center gap-2 p-2.5 text-xs text-brand-light font-medium uppercase bg-brand-dark transition ease-in-out hover:bg-brand-dark/90 active:bg-brand-dark/80"
         >
           {data?.cta.hook}
           <FaAngleDoubleRight />
