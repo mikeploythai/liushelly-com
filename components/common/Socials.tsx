@@ -25,9 +25,10 @@ export default function Socials({
           <li key={index}>
             <a
               href={value.link}
+              aria-label={`Shelly's ${value.platform}`}
               target="_blank"
               referrerPolicy="strict-origin-when-cross-origin"
-              className={`flex p-3.5 text-lg transition ease-in-out dark:hover:bg-brand-light/10 dark:active:bg-brand-light/20 ${
+              className={`flex p-3.5 text-lg transition ease-in-out ${
                 isDrawer
                   ? "text-brand-light hover:bg-brand-light/10 active:bg-brand-light/20"
                   : "hover:bg-brand-dark/10 active:bg-brand-dark/20"

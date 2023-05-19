@@ -19,7 +19,8 @@ export default function NavDrawer({
     <>
       <button
         type="button"
-        className="h-full p-4 bg-brand-dark text-brand-light transition ease-in-out hover:bg-brand-dark/90 active:bg-brand-dark/80 sm:hidden dark:text-brand-dark dark:bg-brand-light dark:hover:bg-brand-light/90 dark:active:bg-brand-light/80"
+        aria-label="Navigation drawer button"
+        className="h-full p-4 bg-brand-dark text-brand-light transition ease-in-out hover:bg-brand-dark/90 active:bg-brand-dark/80 sm:hidden"
         onClick={() => setIsOpen(true)}
       >
         <FaEquals />
@@ -30,8 +31,6 @@ export default function NavDrawer({
         onClose={() => setIsOpen(false)}
         className="relative z-20 sm:hidden"
       >
-        <div className="fixed inset-0 bg-black/50" aria-hidden="true" />
-
         <div className="flex fixed inset-0 justify-end">
           <Dialog.Panel className="flex flex-col w-full justify-between bg-brand-dark">
             <header className="flex max-w-screen-lg justify-between border-b border-b-brand-light">
@@ -43,7 +42,7 @@ export default function NavDrawer({
 
               <button
                 type="button"
-                className="p-4 text-brand-dark bg-brand-light transition ease-in-out sm:hidden hover:bg-brand-light/90 active:bg-brand-light/80"
+                className="p-4 bg-brand-light transition ease-in-out sm:hidden hover:bg-brand-light/90 active:bg-brand-light/80"
                 onClick={() => setIsOpen(false)}
               >
                 <FaTimes />
