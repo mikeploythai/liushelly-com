@@ -1,8 +1,20 @@
-import { ServicesProps } from "@/lib/serviceProps";
+import { ServicesProps } from "@/lib/servicesProps";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { useState } from "react";
+import ServiceDetails from "./ServiceDetails";
+import ServiceModal from "./ServiceModal";
+
+export interface ModalStateProps {
+  state: boolean;
+  index: number | null;
+}
 
 export default function ServiceCards({ data }: { data: ServicesProps[] }) {
+  const [isOpen, setIsOpen] = useState<ModalStateProps>({
+    state: false,
+    index: null,
+  });
   const pathname = usePathname();
   const shownData =
     pathname === "/services"
@@ -10,12 +22,12 @@ export default function ServiceCards({ data }: { data: ServicesProps[] }) {
       : data?.filter(({}, index) => index <= 2);
 
   return (
-    <div
+    <article
       className={`grid w-full gap-4 ${
         pathname === "/services" ? "md:grid-cols-2" : "md:grid-cols-3"
       }`}
     >
-      {shownData?.map(({ name, img }, index) => {
+      {shownData?.map((data, index) => {
         return (
           <article
             key={index}
@@ -24,14 +36,15 @@ export default function ServiceCards({ data }: { data: ServicesProps[] }) {
                 ? "border-brand-light"
                 : "border-brand-dark"
             }`}
+            onClick={() => setIsOpen({ state: true, index: index })}
           >
             <figure>
               <div className="relative h-28 md:h-36">
                 <Image
-                  src={img.asset.url}
+                  src={data.img.asset.url}
                   alt=""
                   placeholder="blur"
-                  blurDataURL={img.asset.metadata.lqip}
+                  blurDataURL={data.img.asset.metadata.lqip}
                   style={{ objectFit: "cover" }}
                   sizes="(max-width: 480px) 60vw, 40vw"
                   fill
@@ -52,13 +65,17 @@ export default function ServiceCards({ data }: { data: ServicesProps[] }) {
                     pathname !== "/services" && "text-brand-light"
                   }`}
                 >
-                  {name}
+                  {data.name}
                 </p>
               </figcaption>
             </figure>
+
+            <ServiceModal index={index} isOpen={isOpen} setIsOpen={setIsOpen}>
+              <ServiceDetails data={data} modal={true} />
+            </ServiceModal>
           </article>
         );
       })}
-    </div>
+    </article>
   );
 }
