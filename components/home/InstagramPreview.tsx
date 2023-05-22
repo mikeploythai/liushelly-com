@@ -44,10 +44,7 @@ export default async function InstagramPreview() {
       <div className="grid w-full gap-4 grid-cols-2 sm:grid-cols-4">
         {data?.map(({ title, img, link }, index) => {
           return (
-            <figure
-              key={index}
-              className="border border-brand-dark"
-            >
+            <figure key={index} className="border border-brand-dark">
               <a
                 href={link}
                 target="_blank"

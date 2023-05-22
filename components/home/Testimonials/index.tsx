@@ -23,7 +23,7 @@ export default async function Testimonials() {
   return (
     <section className="flex w-full justify-center bg-brand-dark">
       <div className="flex flex-col max-w-screen-md w-full p-4 gap-4 sm:gap-0">
-        <TestimonialQuotes data={data}/>
+        <TestimonialQuotes data={data} />
       </div>
     </section>
   );
