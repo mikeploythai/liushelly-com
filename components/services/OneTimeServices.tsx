@@ -1,28 +1,13 @@
 import sanity from "@/lib/sanityClient";
-import { groq } from "next-sanity";
+import { ServicesProps } from "@/lib/servicesProps";
+import { servicesQuery } from "@/lib/servicesQuery";
 import { Unbounded } from "next/font/google";
 import ServiceCards from "../common/ServiceCards";
-import { ServicesProps } from "@/lib/serviceProps";
 
 const logoFont = Unbounded({ subsets: ["latin"] });
 
-const query = groq`
-  *[_type == "services"] | order(orderRank) {
-    name,
-    description,
-    cta,
-    img {
-      asset -> {
-        url,
-        metadata
-      }
-    },
-    inclusions
-  }
-`;
-
 export default async function OneTimeServices() {
-  const data: ServicesProps[] = await sanity.fetch(query);
+  const data: ServicesProps[] = await sanity.fetch(servicesQuery);
 
   return (
     <section className="flex w-full justify-center bg-brand-dark">

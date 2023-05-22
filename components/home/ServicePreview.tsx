@@ -1,6 +1,6 @@
 import sanity from "@/lib/sanityClient";
-import { ServicesProps } from "@/lib/serviceProps";
-import { groq } from "next-sanity";
+import { ServicesProps } from "@/lib/servicesProps";
+import { servicesQuery } from "@/lib/servicesQuery";
 import { Unbounded } from "next/font/google";
 import Link from "next/link";
 import { FaAngleDoubleRight } from "react-icons/fa";
@@ -8,23 +8,8 @@ import ServiceCards from "../common/ServiceCards";
 
 const logoFont = Unbounded({ subsets: ["latin"] });
 
-const query = groq`
-  *[_type == "services"] | order(orderRank) {
-    name,
-    description,
-    cta,
-    img {
-      asset -> {
-        url,
-        metadata
-      }
-    },
-    inclusions
-  }
-`;
-
 export default async function ServicePreview() {
-  const data: ServicesProps[] = await sanity.fetch(query);
+  const data: ServicesProps[] = await sanity.fetch(servicesQuery);
 
   return (
     <section className="flex flex-col max-w-screen-lg w-full items-center p-4 gap-4">
