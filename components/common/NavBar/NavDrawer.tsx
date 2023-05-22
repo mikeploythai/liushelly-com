@@ -31,10 +31,13 @@ export default function NavDrawer({
         onClose={() => setIsOpen(false)}
         className="relative z-20 sm:hidden"
       >
+        <div className="fixed inset-0 bg-black/50" aria-hidden="true" />
+
         <div className="flex fixed inset-0 justify-end">
-          <Dialog.Panel className="flex flex-col w-full justify-between bg-brand-dark">
-            <header className="flex max-w-screen-lg justify-between border-b border-b-brand-light">
+          <Dialog.Panel className="flex flex-col w-5/6 justify-between bg-brand-dark">
+            <header className="flex justify-between border-b border-b-brand-light">
               <Dialog.Title
+                as="h1"
                 className={`${logoFont.className} p-4 font-semibold text-lg text-brand-light`}
               >
                 Navigation
@@ -42,7 +45,7 @@ export default function NavDrawer({
 
               <button
                 type="button"
-                className="p-4 bg-brand-light transition ease-in-out sm:hidden hover:bg-brand-light/90 active:bg-brand-light/80"
+                className="p-4 bg-brand-light transition ease-in-out hover:bg-brand-light/90 active:bg-brand-light/80 sm:hidden"
                 onClick={() => setIsOpen(false)}
               >
                 <FaTimes />
@@ -50,7 +53,7 @@ export default function NavDrawer({
             </header>
 
             <nav className="flex flex-col justify-center p-4">
-              <NavRoutes isDrawer={true} setIsOpen={setIsOpen} />
+              <NavRoutes isDrawer={true} />
             </nav>
 
             <footer className="mx-auto px-4 pb-4">
