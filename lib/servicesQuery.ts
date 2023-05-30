@@ -4,7 +4,7 @@ export const servicesQuery = groq`
   *[_type == "services"] | order(orderRank) {
     name,
     description,
-    cta,
+    button,
     img {
       asset -> {
         url,
