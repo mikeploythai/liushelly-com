@@ -26,9 +26,9 @@ export default async function Portfolio() {
 
   return (
     <section className="flex w-full justify-center">
-      <div className="flex flex-col max-w-screen-lg w-full items-center p-4 gap-4 md:px-4 md:py-8 md:gap-8">
+      <div className="flex flex-col max-w-screen-lg w-full items-start p-4 gap-4 md:items-center md:px-4 md:py-8 md:gap-8">
         <h1
-          className={`${logoFont.className} text-lg font-semibold sm:text-2xl sm:text-center`}
+          className={`${logoFont.className} text-lg font-semibold sm:text-2xl`}
         >
           My portfolio!
         </h1>
