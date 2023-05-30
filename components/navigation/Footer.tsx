@@ -3,7 +3,7 @@ import { SocialProps } from "@/lib/socialProps";
 import { groq } from "next-sanity";
 import { Unbounded } from "next/font/google";
 import Link from "next/link";
-import Socials from "./Socials";
+import Socials from "../shared/Socials";
 
 const logoFont = Unbounded({ subsets: ["latin"] });
 

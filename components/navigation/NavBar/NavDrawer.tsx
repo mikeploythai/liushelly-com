@@ -1,9 +1,9 @@
+import Socials from "@/components/shared/Socials";
 import { SocialProps } from "@/lib/socialProps";
 import { Dialog } from "@headlessui/react";
 import { Unbounded } from "next/font/google";
 import { useState } from "react";
 import { FaEquals, FaTimes } from "react-icons/fa";
-import Socials from "../Socials";
 import NavRoutes from "./NavRoutes";
 
 const logoFont = Unbounded({ subsets: ["latin"] });

@@ -1,4 +1,4 @@
-import ServiceDetails from "@/components/common/ServiceCards/ServiceDetails";
+import CardDetails from "@/components/shared/Cards/CardDetails";
 import sanity from "@/lib/sanityClient";
 import { ServicesProps } from "@/lib/servicesProps";
 import { servicesQuery } from "@/lib/servicesQuery";
@@ -18,7 +18,7 @@ export default async function MainProduct() {
       </h1>
 
       <article className="flex flex-col gap-4 bg-brand-light p-4 border border-brand-dark shadow-normal shadow-brand-dark">
-        <ServiceDetails data={data[0]} />
+        <CardDetails data={data[0]} />
       </article>
     </section>
   );

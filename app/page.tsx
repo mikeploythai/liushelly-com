@@ -1,11 +1,11 @@
 "use client";
 
-import PhotoCardLayout from "@/components/common/PhotoCardLayout";
-import InstagramPreview from "@/components/home/InstagramPreview";
-import ScrollingText from "@/components/home/ScrollingText";
-import ServicePreview from "@/components/home/ServicePreview";
-import Testimonials from "@/components/home/Testimonials";
+import ScrollingText from "@/app/(components)/ScrollingText";
 import { groq } from "next-sanity";
+import InstagramPreview from "./(components)/InstagramPreview";
+import ServicePreview from "./(components)/ServicePreview";
+import Testimonials from "./(components)/Testimonials";
+import PhotoCardLayout from "@/components/layouts/PhotoCardLayout";
 
 const query = groq`
   *[_type == "photoCard" && title == "Home Page"][0] {

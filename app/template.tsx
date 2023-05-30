@@ -1,7 +1,7 @@
 "use client";
 
-import Footer from "@/components/common/Footer";
-import NavBar from "@/components/common/NavBar";
+import Footer from "@/components/navigation/Footer";
+import NavBar from "@/components/navigation/NavBar";
 
 export default async function Template({
   children,

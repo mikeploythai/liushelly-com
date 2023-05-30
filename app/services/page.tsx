@@ -1,8 +1,8 @@
 "use client";
 
-import FAQ from "@/components/services/FAQ";
-import MainProduct from "@/components/services/MainProduct";
-import OneTimeServices from "@/components/services/OneTimeServices";
+import FAQ from "@/app/services/(components)/FAQ";
+import MainProduct from "./(components)/MainProduct";
+import OneTimeServices from "./(components)/OneTimeServices";
 
 export default async function Services() {
   const mainProduct: JSX.Element = await MainProduct();

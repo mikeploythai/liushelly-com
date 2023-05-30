@@ -1,10 +1,10 @@
+import Cards from "@/components/shared/Cards";
 import sanity from "@/lib/sanityClient";
 import { ServicesProps } from "@/lib/servicesProps";
 import { servicesQuery } from "@/lib/servicesQuery";
 import { Unbounded } from "next/font/google";
 import Link from "next/link";
 import { FaAngleDoubleRight } from "react-icons/fa";
-import ServiceCards from "../common/ServiceCards";
 
 const logoFont = Unbounded({ subsets: ["latin"] });
 
@@ -19,7 +19,7 @@ export default async function ServicePreview() {
         Personalized services to skyrocket your socials.
       </h2>
 
-      <ServiceCards data={data} />
+      <Cards data={data} />
 
       <Link
         href="/services"

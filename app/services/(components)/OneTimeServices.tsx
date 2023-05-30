@@ -1,8 +1,8 @@
+import ServiceCards from "@/components/shared/Cards";
 import sanity from "@/lib/sanityClient";
 import { ServicesProps } from "@/lib/servicesProps";
 import { servicesQuery } from "@/lib/servicesQuery";
 import { Unbounded } from "next/font/google";
-import ServiceCards from "../common/ServiceCards";
 
 const logoFont = Unbounded({ subsets: ["latin"] });
 

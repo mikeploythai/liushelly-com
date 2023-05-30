@@ -1,4 +1,4 @@
-import PhotoCardLayout from "@/components/common/PhotoCardLayout";
+import PhotoCardLayout from "@/components/layouts/PhotoCardLayout";
 import { groq } from "next-sanity";
 
 export const metadata = {
