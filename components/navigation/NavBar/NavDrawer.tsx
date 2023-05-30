@@ -53,7 +53,7 @@ export default function NavDrawer({
             </header>
 
             <nav className="flex flex-col justify-center p-4">
-              <NavRoutes isDrawer={true} />
+              <NavRoutes isDrawer={true} setIsOpen={setIsOpen} />
             </nav>
 
             <footer className="mx-auto px-4 pb-4">

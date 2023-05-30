@@ -1,7 +1,13 @@
 import Link from "next/link";
 import { FaAngleDoubleRight } from "react-icons/fa";
 
-export default function NavRoutes({ isDrawer }: { isDrawer?: boolean }) {
+export default function NavRoutes({
+  isDrawer,
+  setIsOpen,
+}: {
+  isDrawer?: boolean;
+  setIsOpen?: (state: boolean) => void;
+}) {
   const routes = ["about", "services", "portfolio", "contact"];
 
   return (
@@ -16,6 +22,7 @@ export default function NavRoutes({ isDrawer }: { isDrawer?: boolean }) {
                 ? "flex items-center gap-2 text-lg p-4 hover:bg-brand-light/10 active:bg-brand-light/20"
                 : "text-xs p-2.5 bg-brand-dark hover:bg-brand-dark/90 active:bg-brand-dark/80"
             }`}
+            onClick={() => setIsOpen?.(false)}
           >
             {route}
 
