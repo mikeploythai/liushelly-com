@@ -1,18 +1,7 @@
-import { ImageMetadata, TypedObject } from "@sanity/types";
+import { TypedObject } from "@sanity/types";
+import { CardDataProps } from "./portfolioProps";
 
-export interface ServicesProps {
-  name: string;
-  description: TypedObject[];
-  cta: {
-    hook: string;
-    link: string;
-  };
-  img: {
-    asset: {
-      url: string;
-      metadata: ImageMetadata;
-    };
-  };
+export interface ServicesProps extends CardDataProps {
   packages?: ServicePackages[];
   contents?: TypedObject[];
 }
