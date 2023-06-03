@@ -8,6 +8,8 @@ import PreviewHome from "./_components/PreviewHome";
 import ServiceSamples from "./_components/ServiceSamples";
 import Testimonials from "./_components/Testimonials";
 
+export const revalidate = 60;
+
 export default async function Home() {
   const { hero, marquee, service, testimonial, instagram } =
     await fetchHomeQueries();

@@ -15,6 +15,8 @@ const query = groq`
 }
 `;
 
+export const revalidate = 60;
+
 export const metadata = {
   title: "ABOUT",
 };

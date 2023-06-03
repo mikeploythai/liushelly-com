@@ -10,6 +10,8 @@ import PreviewServices from "./_components/PreviewServices";
 
 const faqQuery = groq`*[_type=="faq"] | order(orderRank)`;
 
+export const revalidate = 60;
+
 export const metadata = {
   title: "SERVICES",
 };
