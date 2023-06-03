@@ -49,6 +49,14 @@ export default async function BrandPage({ params: { slug } }: BrandPageProps) {
   const query = groq`
   *[_type=="portfolio" && slug.current == $slug][0] {
     ...,
+    description[] {
+      ...select(
+        _type=="image" => {
+          ...,
+          'blur': asset->metadata.lqip,
+        }
+      )
+    },
     image {
       ...,
       'blur': asset->metadata.lqip,

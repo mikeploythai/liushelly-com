@@ -58,6 +58,8 @@ export const blockTextComponents: PortableTextComponents = {
           <Image
             src={sanityImage(value).url()}
             alt=""
+            placeholder="blur"
+            blurDataURL={value.blur}
             width={width}
             height={height}
             sizes="(max-width:640px) 70vw, 55vw"
