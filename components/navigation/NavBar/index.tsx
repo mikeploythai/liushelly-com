@@ -1,39 +1,28 @@
-import sanity from "@/lib/sanityClient";
-import { SocialProps } from "@/lib/socialProps";
-import { groq } from "next-sanity";
-import { Unbounded } from "next/font/google";
+import { primaryFont } from "@/lib/primaryFont";
 import Link from "next/link";
-import NavDrawer from "./NavDrawer";
+import ExitDraftButton from "./ExitDraftButton";
 import NavRoutes from "./NavRoutes";
 
-const logoFont = Unbounded({ subsets: ["latin"] });
-
-const query = groq`
-  *[_type == "socials"] | order(orderRank) {
-    platform,
-    link
-  }
-`;
-
-export default async function NavBar() {
-  const data: SocialProps[] = await sanity.fetch(query);
-
+export default function NavBar({ children }: { children: React.ReactNode }) {
   return (
-    <header className="flex sticky top-0 justify-center bg-brand-light border-b border-b-brand-dark z-10">
-      <div className="flex max-w-screen-lg w-full justify-between items-center">
-        <Link
-          href="/"
-          className={`${logoFont.className} p-4 font-semibold text-lg transition ease-in-out hover:bg-brand-dark/10 active:bg-brand-dark/20`}
-        >
-          Shelly Liu
-        </Link>
+    <>
+      <ExitDraftButton />
+      <header className="sticky flex top-0 justify-center bg-brand-light border-b border-b-brand-dark z-10">
+        <div className="flex max-w-screen-lg w-full justify-between items-center">
+          <Link
+            href="/"
+            className={`${primaryFont.className} p-4 font-semibold text-lg transition ease-in-out hover:bg-brand-dark/10 active:bg-brand-dark/20`}
+          >
+            Shelly Liu
+          </Link>
 
-        <nav className="hidden pr-2.5 sm:flex">
-          <NavRoutes />
-        </nav>
+          <nav className="hidden pr-2.5 sm:flex">
+            <NavRoutes />
+          </nav>
 
-        <NavDrawer socialData={data} />
-      </div>
-    </header>
+          {children}
+        </div>
+      </header>
+    </>
   );
 }
