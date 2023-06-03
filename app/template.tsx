@@ -1,23 +1,20 @@
 "use client";
 
-import Footer from "@/components/navigation/Footer";
-import NavBar from "@/components/navigation/NavBar";
+import { motion } from "framer-motion";
 
-export default async function Template({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  const navBar: JSX.Element = await NavBar();
-  const footer: JSX.Element = await Footer();
-
+export default function Template({ children }: { children: React.ReactNode }) {
   return (
-    <>
-      {navBar}
-      <main className="flex flex-1 flex-col w-full justify-center items-center">
-        {children}
-      </main>
-      {footer}
-    </>
+    <motion.main
+      initial={{ opacity: 0, y: 16 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{
+        type: "spring",
+        ease: "easeInOut",
+        duration: 0.5,
+      }}
+      className="flex flex-col flex-1 justify-center"
+    >
+      {children}
+    </motion.main>
   );
 }
