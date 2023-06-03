@@ -12,7 +12,7 @@ export default function Template({ children }: { children: React.ReactNode }) {
         ease: "easeInOut",
         duration: 0.5,
       }}
-      className="flex flex-col flex-1 justify-center mt-[60px]"
+      className="flex flex-col flex-1 justify-center"
     >
       {children}
     </motion.main>
