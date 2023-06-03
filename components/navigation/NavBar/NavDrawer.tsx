@@ -17,7 +17,7 @@ export default function NavDrawer({ socialData }: { socialData?: Social[] }) {
       <button
         type="button"
         aria-label="Navigation drawer button"
-        className="h-full p-4 text-brand-light bg-brand-dark transition ease-in-out hover:bg-brand-dark/90 active:bg-brand-dark/80 sm:hidden"
+        className="p-4 text-brand-light bg-brand-dark transition ease-in-out hover:bg-brand-dark/90 active:bg-brand-dark/80 sm:hidden"
         onClick={() => setIsOpen(true)}
       >
         <FaEquals />
