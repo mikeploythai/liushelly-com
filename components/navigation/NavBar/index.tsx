@@ -7,7 +7,7 @@ export default function NavBar({ children }: { children: React.ReactNode }) {
   return (
     <>
       <ExitDraftButton />
-      <header className="sticky flex top-0 justify-center bg-brand-light border-b border-b-brand-dark z-10">
+      <header className="fixed flex top-0 w-full justify-center bg-brand-light border-b border-b-brand-dark z-10">
         <div className="flex max-w-screen-lg w-full justify-between items-center">
           <Link
             href="/"
