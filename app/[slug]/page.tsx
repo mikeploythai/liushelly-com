@@ -50,6 +50,7 @@ export default async function BrandPage({ params: { slug } }: BrandPageProps) {
   *[_type=="portfolio" && slug.current == $slug][0] {
     ...,
     description[] {
+      ...,
       ...select(
         _type=="image" => {
           ...,
