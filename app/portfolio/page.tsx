@@ -1,40 +1,33 @@
-"use client";
-
-import Cards from "@/components/shared/Cards";
-import { PortfolioProps } from "@/lib/portfolioProps";
-import sanity from "@/lib/sanityClient";
+import PreviewSuspense, { Loading } from "@/components/shared/PreviewSuspense";
+import sanity from "@/lib/sanity/client";
 import { groq } from "next-sanity";
-import { Unbounded } from "next/font/google";
-
-const logoFont = Unbounded({ subsets: ["latin"] });
+import { draftMode } from "next/headers";
+import PortfolioCards from "./_components/PortfolioCards";
+import PreviewPortfolio from "./_components/PreviewPortfolio";
 
 const query = groq`
-  *[_type == "portfolio"] | order(orderRank) {
-    name,
-    slug,
-    img {
-      asset -> {
-        url,
-        metadata
-      }
-    },
+*[_type=="portfolio"] | order(orderRank) {
+  ...,
+  image {
+    ...,
+    'blur': asset->metadata.lqip,
   }
+}
 `;
 
+export const metadata = {
+  title: "PORTFOLIO",
+};
+
 export default async function Portfolio() {
-  const data: PortfolioProps[] = await sanity.fetch(query);
+  const data = await sanity.fetch(query);
 
-  return (
-    <section className="flex w-full justify-center">
-      <div className="flex flex-col max-w-screen-lg w-full items-start p-4 gap-4 md:items-center md:px-4 md:py-8 md:gap-8">
-        <h1
-          className={`${logoFont.className} text-lg font-semibold sm:text-2xl`}
-        >
-          My portfolio!
-        </h1>
+  if (draftMode().isEnabled)
+    return (
+      <PreviewSuspense fallback={<Loading />}>
+        <PreviewPortfolio query={query} />
+      </PreviewSuspense>
+    );
 
-        <Cards data={data} />
-      </div>
-    </section>
-  );
+  return <PortfolioCards data={data} />;
 }
