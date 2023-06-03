@@ -18,7 +18,9 @@ export const defaultDocumentNode: DefaultDocumentNodeResolver = (
       S.view
         .component(Iframe)
         .options({
-          url: `http://${window.location.host}/api/draft${slug || ""}`,
+          url: `${window.location.protocol}//${window.location.host}/api/draft${
+            slug || ""
+          }`,
           loader: true,
           reload: {
             button: true,
