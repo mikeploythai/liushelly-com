@@ -1,17 +1,17 @@
 import HCaptcha from "@hcaptcha/react-hcaptcha";
 import { FormikValues, useFormikContext } from "formik";
 
-interface ContactFormVerificationProps {
+type ContactVerificationProps = {
   captchaRef: React.RefObject<HCaptcha>;
   values: FormikValues;
   setLoading: (state: boolean) => void;
-}
+};
 
-export default function ContactFormVerification({
+export default function ContactVerification({
   captchaRef,
   values,
   setLoading,
-}: ContactFormVerificationProps) {
+}: ContactVerificationProps) {
   const { resetForm } = useFormikContext();
 
   async function sendMessage() {
@@ -32,7 +32,7 @@ export default function ContactFormVerification({
 
   return (
     <>
-      <p className="text-xs text-center">
+      <p className="text-xs text-center -mb-2">
         This form is protected by hCaptcha, and its{" "}
         <a
           href="https://hcaptcha.com/privacy"

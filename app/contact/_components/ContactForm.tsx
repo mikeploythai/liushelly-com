@@ -1,10 +1,12 @@
+"use client";
+
 import validationSchema from "@/lib/validationSchema";
 import HCaptcha from "@hcaptcha/react-hcaptcha";
 import { Form, Formik, FormikValues } from "formik";
 import { useRef, useState } from "react";
 import { FaAngleDoubleRight, FaSpinner } from "react-icons/fa";
-import ContactFormInput from "./ContactFormInput";
-import ContactFormVerification from "./ContactFormVerification";
+import ContactInput from "./ContactInput";
+import ContactVerification from "./ContactVerification";
 
 export default function ContactForm() {
   const [loading, setLoading] = useState(false);
@@ -39,22 +41,15 @@ export default function ContactForm() {
       }}
     >
       <Form className="flex flex-col gap-4">
-        {formInputs.map(({ label, name, type }, index) => {
-          return (
-            <ContactFormInput
-              key={index}
-              label={label}
-              name={name}
-              type={type}
-            />
-          );
-        })}
+        {formInputs.map(({ label, name, type }, index) => (
+          <ContactInput key={index} label={label} name={name} type={type} />
+        ))}
 
         <div className="flex flex-col gap-2">
           <button
             type="submit"
             disabled={loading}
-            className="flex w-full justify-center items-center mt-auto gap-2 p-2.5 text-xs font-medium uppercase transition ease-in-out text-brand-light bg-brand-dark hover:bg-brand-dark/90 active:bg-brand-dark/80 disabled:opacity-50"
+            className="flex items-center justify-center p-2.5 gap-2 uppercase font-medium text-start text-xs text-brand-light bg-brand-dark transition ease-in-out hover:bg-brand-dark/90 active:bg-brand-dark/80 disabled:opacity-50"
           >
             {loading ? (
               <>
@@ -69,7 +64,7 @@ export default function ContactForm() {
             )}
           </button>
 
-          <ContactFormVerification
+          <ContactVerification
             captchaRef={captchaRef}
             setLoading={setLoading}
             values={values}

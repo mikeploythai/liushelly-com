@@ -1,12 +1,12 @@
 import { Field, useField } from "formik";
 
-interface InputProps {
-  label: string;
+type ContactInputProps = {
   [x: string]: any;
+  label: string;
   name: string;
-}
+};
 
-export default function ContactFormInput({ label, ...props }: InputProps) {
+export default function ContactInput({ label, ...props }: ContactInputProps) {
   const [field, meta] = useField(props);
 
   return (
@@ -19,14 +19,14 @@ export default function ContactFormInput({ label, ...props }: InputProps) {
         <Field
           {...field}
           {...props}
-          className="text-sm p-2.5 border border-brand-dark"
+          className="p-2.5 text-sm border border-brand-dark rounded-none focus:outline-none"
         />
       ) : (
         <Field
           as="textarea"
           {...field}
           {...props}
-          className="h-32 text-sm p-2.5 border border-brand-dark"
+          className="h-32 p-2.5 text-sm border border-brand-dark rounded-none focus:outline-none"
         />
       )}
 

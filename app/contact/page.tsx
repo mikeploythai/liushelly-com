@@ -1,16 +1,17 @@
-"use client";
+import Frame from "@/components/shared/Frame";
+import { primaryFont } from "@/lib/primaryFont";
+import ContactForm from "./_components/ContactForm";
 
-import { Unbounded } from "next/font/google";
-import ContactForm from "./(components)/ContactForm";
-
-const logoFont = Unbounded({ subsets: ["latin"] });
+export const metadata = {
+  title: "CONTACT",
+};
 
 export default function Contact() {
   return (
-    <section className="flex flex-col gap-4 max-w-[640px] p-4 sm:gap-16 sm:px-4 sm:py-16">
+    <section className="flex flex-col max-w-screen-sm w-full mx-auto p-4 gap-4 sm:gap-16 sm:px-4 sm:py-16">
       <hgroup className="flex flex-col gap-2 md:items-center">
         <h1
-          className={`${logoFont.className} text-lg font-semibold sm:text-2xl sm:text-center`}
+          className={`${primaryFont.className} font-semibold text-xl sm:text-2xl`}
         >
           Let&apos;s chat!
         </h1>
@@ -22,9 +23,9 @@ export default function Contact() {
         </p>
       </hgroup>
 
-      <div className="flex flex-col gap-4 bg-brand-light mr-2 mb-2 p-4 border border-brand-dark shadow-normal shadow-brand-dark">
+      <Frame isPadded>
         <ContactForm />
-      </div>
+      </Frame>
     </section>
   );
 }
