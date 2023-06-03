@@ -25,7 +25,7 @@ export default function Card({
   return (
     <>
       <article
-        className={`group h-full border border-brand-${colorTheme} hover:cursor-pointer`}
+        className={`group relative border border-brand-${colorTheme} hover:cursor-pointer`}
         onClick={() => isService && setIsOpen(true)}
       >
         <figure>
