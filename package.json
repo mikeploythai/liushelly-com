@@ -31,9 +31,15 @@
     "react-dom": "18.2.0",
     "react-icons": "^4.9.0",
     "sanitize-html": "^2.10.0",
+    "sanity": "^3.11.5",
     "tailwindcss": "3.3.2",
     "typescript": "5.0.4",
-    "yup": "^1.2.0"
+    "yup": "^1.2.0",
+    "sanity-plugin-asset-source-pexels": "^3.0.2",
+    "sanity-plugin-iframe-pane": "^2.3.1",
+    "styled-components": "^5.3.9",
+    "@sanity/orderable-document-list": "^1.0.4",
+    "@sanity/vision": "^3.11.3"
   },
   "devDependencies": {
     "@types/nodemailer": "^6.4.8",
