@@ -1,40 +1,31 @@
-"use client";
-
-import ScrollingText from "@/app/(components)/ScrollingText";
-import { groq } from "next-sanity";
-import InstagramPreview from "./(components)/InstagramPreview";
-import ServicePreview from "./(components)/ServicePreview";
-import Testimonials from "./(components)/Testimonials";
-import PhotoCardLayout from "@/components/layouts/PhotoCardLayout";
-
-const query = groq`
-  *[_type == "photoCard" && title == "Home Page"][0] {
-    title,
-    heading,
-    img {
-      asset -> {
-        url,
-        metadata
-      }
-    },
-    cta
-  }
-`;
+import PreviewSuspense, { Loading } from "@/components/shared/PreviewSuspense";
+import fetchHomeQueries from "@/lib/fetchHomeData";
+import { draftMode } from "next/headers";
+import Hero from "./_components/Hero";
+import InstagramSamples from "./_components/InstagramSamples";
+import Marquee from "./_components/Marquee";
+import PreviewHome from "./_components/PreviewHome";
+import ServiceSamples from "./_components/ServiceSamples";
+import Testimonials from "./_components/Testimonials";
 
 export default async function Home() {
-  const photoCardLayout: JSX.Element = await PhotoCardLayout({ query });
-  const scrollingText: JSX.Element = await ScrollingText();
-  const servicePreview: JSX.Element = await ServicePreview();
-  const testimonials: JSX.Element = await Testimonials();
-  const igPreview: JSX.Element = await InstagramPreview();
+  const { hero, marquee, service, testimonial, instagram } =
+    await fetchHomeQueries();
+
+  if (draftMode().isEnabled)
+    return (
+      <PreviewSuspense fallback={<Loading />}>
+        <PreviewHome />
+      </PreviewSuspense>
+    );
 
   return (
     <>
-      {photoCardLayout}
-      {scrollingText}
-      {servicePreview}
-      {testimonials}
-      {igPreview}
+      <Hero data={hero} />
+      <Marquee data={marquee} />
+      <ServiceSamples data={service} />
+      <Testimonials data={testimonial} />
+      <InstagramSamples data={instagram} />
     </>
   );
 }
