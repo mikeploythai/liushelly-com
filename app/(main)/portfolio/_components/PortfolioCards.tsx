@@ -16,7 +16,7 @@ export default function PortfolioCards({ data }: { data: Portfolio[] }) {
         {data.map(
           (data) =>
             data.slug && (
-              <Link key={data._id} href={`/${data.slug.current}`}>
+              <Link key={data._id} href={`/portfolio/${data.slug.current}`}>
                 <Card data={data} colorTheme="dark" />
               </Link>
             )
