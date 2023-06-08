@@ -10,9 +10,9 @@ export default function Footer({ socialData }: { socialData: Social[] }) {
   return (
     <footer className="flex flex-col max-w-screen-md w-full items-center justify-between mx-auto p-16 gap-4 sm:flex-row">
       <div className="flex flex-col items-center gap-1.5 sm:items-start">
-        <h3 className={`${primaryFont.className} font-semibold text-base`}>
+        <p className={`${primaryFont.className} font-semibold text-base`}>
           &copy; Shelly Liu {year}
-        </h3>
+        </p>
 
         <small className="text-[10px] text-center font-medium">
           <Link href="/privacy" className="hover:underline">
