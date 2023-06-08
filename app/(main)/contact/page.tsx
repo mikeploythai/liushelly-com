@@ -11,7 +11,7 @@ export default function Contact() {
     <section className="flex flex-col max-w-screen-sm w-full mx-auto p-4 gap-4 sm:gap-16 sm:px-4 sm:py-16">
       <hgroup className="flex flex-col gap-2 md:items-center">
         <h1
-          className={`${primaryFont.className} font-semibold text-xl sm:text-2xl`}
+          className={`${primaryFont.className} font-semibold text-xl sm:text-2xl sm:text-center`}
         >
           Let&apos;s chat!
         </h1>
