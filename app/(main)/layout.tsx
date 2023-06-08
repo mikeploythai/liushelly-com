@@ -2,6 +2,7 @@ import Footer from "@/components/navigation/Footer";
 import NavBar from "@/components/navigation/NavBar";
 import NavDrawer from "@/components/navigation/NavBar/NavDrawer";
 import sanity from "@/lib/sanity/client";
+import { Analytics } from "@vercel/analytics/react";
 import { groq } from "next-sanity";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
@@ -34,6 +35,7 @@ export default async function RootLayout({
         {children}
         <Footer socialData={socialData} />
       </body>
+      <Analytics />
     </html>
   );
 }
