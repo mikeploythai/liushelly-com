@@ -34,6 +34,7 @@ export const defaultDocumentNode: DefaultDocumentNodeResolver = (
   else if (about.includes(schemaType)) return getPreview("?goTo=about");
   else if (services.includes(schemaType)) return getPreview("?goTo=services");
   else if (portfolio.includes(schemaType)) return getPreview("?goTo=portfolio");
+  else if (schemaType === "privacy") return getPreview("?goTo=privacy");
   else return S.document().views([S.view.form()]);
 };
 
@@ -42,12 +43,14 @@ export const structure: StructureResolver = (S, context) => {
     .title("Content")
     .items([
       ...schemaTypes.map(({ name, title }) =>
-        orderableDocumentListDeskItem({
-          type: name,
-          title: title,
-          S,
-          context,
-        })
+        name !== "privacy"
+          ? orderableDocumentListDeskItem({
+              type: name,
+              title: title,
+              S,
+              context,
+            })
+          : S.documentTypeListItem("privacy")
       ),
     ]);
 };

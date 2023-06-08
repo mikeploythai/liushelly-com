@@ -15,10 +15,6 @@ export default function Footer({ socialData }: { socialData: Social[] }) {
         </p>
 
         <small className="text-[10px] text-center font-medium">
-          <Link href="/privacy" className="hover:underline">
-            Privacy Policy
-          </Link>{" "}
-          &middot;{" "}
           <a
             href="https://mikeploythai.com"
             target="_blank"
