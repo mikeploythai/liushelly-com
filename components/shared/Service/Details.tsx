@@ -29,6 +29,7 @@ export default function ServiceDetails({
             blurDataURL={data.image.blur}
             sizes="(max-width:640px) 60vw, 40vw"
             className={`object-cover border border-${brandColor}`}
+            priority
             fill
           />
         </figure>
@@ -59,7 +60,7 @@ export default function ServiceDetails({
                   `w-full px-4 py-2 text-xs font-medium uppercase text-${brandColor} border border-${brandColor} bg-${brandColor} transition ease-in-out focus:outline-none ${
                     selected
                       ? "bg-opacity-10"
-                      : "text-opacity-50 border-opacity-50 bg-opacity-0 hover:text-opacity-100 hover:bg-opacity-10 active:bg-opacity-20"
+                      : "bg-opacity-0 hover:bg-opacity-10 active:bg-opacity-20"
                   }`
                 }
               >
@@ -85,11 +86,7 @@ export default function ServiceDetails({
       )}
 
       {data.cta?.hook && (
-        <LinkButton
-          href={data.cta.link!}
-          colorTheme={colorTheme}
-          isExternal
-        >
+        <LinkButton href={data.cta.link!} colorTheme={colorTheme} isExternal>
           {data.cta.hook}
         </LinkButton>
       )}
