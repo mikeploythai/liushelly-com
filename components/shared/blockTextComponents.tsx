@@ -3,6 +3,7 @@ import sanityImage from "@/lib/sanity/image";
 import { PortableTextComponents } from "@portabletext/react";
 import { getImageDimensions } from "@sanity/asset-utils";
 import Image from "next/image";
+import Link from "next/link";
 
 export const blockTextComponents: PortableTextComponents = {
   block: {
@@ -13,8 +14,8 @@ export const blockTextComponents: PortableTextComponents = {
         {children}
       </h1>
     ),
-    h1: ({ children }) => <h1 className="font-semibold text-xl">{children}</h1>,
-    h2: ({ children }) => <h2 className="font-semibold text-lg">{children}</h2>,
+    h1: ({ children }) => <h1 className="font-bold text-xl">{children}</h1>,
+    h2: ({ children }) => <h2 className="font-bold text-lg">{children}</h2>,
     h3: ({ children }) => (
       <h3 className="font-semibold text-base">{children}</h3>
     ),
@@ -71,5 +72,22 @@ export const blockTextComponents: PortableTextComponents = {
 
       return <></>;
     },
+  },
+  marks: {
+    link: ({ children, value }) =>
+      value.url.startsWith("/") ? (
+        <Link href={value.url} className="font-medium hover:underline">
+          {children}
+        </Link>
+      ) : (
+        <a
+          href={value.url}
+          target="_blank"
+          referrerPolicy="strict-origin-when-cross-origin"
+          className="font-medium hover:underline"
+        >
+          {children}
+        </a>
+      ),
   },
 };

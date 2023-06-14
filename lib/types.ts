@@ -67,3 +67,7 @@ export interface Portfolio extends SanityDocument {
   };
   image?: SanityImage;
 }
+
+export interface PrivacyPolicy extends SanityDocument {
+  policy: TypedObject[];
+}
