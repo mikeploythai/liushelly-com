@@ -31,7 +31,7 @@ export default function ContactInput({ label, ...props }: ContactInputProps) {
       </label>
 
       {meta.touched && meta.error && (
-        <small className="text-red-700 text-xs">{meta.error}</small>
+        <small className="text-red-700 text-xs -mt-2">{meta.error}</small>
       )}
     </>
   );

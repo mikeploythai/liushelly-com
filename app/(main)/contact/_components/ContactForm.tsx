@@ -33,10 +33,10 @@ export default function ContactForm() {
         try {
           setLoading(true);
           setValues(values);
+
+          captchaRef.current?.execute();
         } catch (error) {
           if (error instanceof Error) alert(error.message);
-        } finally {
-          captchaRef.current?.execute();
         }
       }}
     >

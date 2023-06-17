@@ -1,17 +1,13 @@
+import CustomEmail from "@/components/CustomEmail";
 import validationSchema from "@/lib/validationSchema";
-import { FormikErrors, FormikValues } from "formik";
-import nodemailer from "nodemailer";
+import { Resend } from "resend";
 import sanitize from "sanitize-html";
+import { ValidationError } from "yup";
+
+const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_KEY);
 
 export async function POST(req: Request) {
   const body = await req.json();
-  const transporter = nodemailer.createTransport({
-    service: process.env.NEXT_PUBLIC_MAIL_SERVICE,
-    auth: {
-      user: process.env.NEXT_PUBLIC_MAIL_USER,
-      pass: process.env.NEXT_PUBLIC_MAIL_PASS,
-    },
-  });
 
   function escapedText() {
     Object.keys(body).forEach((key) => {
@@ -30,31 +26,21 @@ export async function POST(req: Request) {
     await validationSchema.validate({ name, email, subject, message });
 
     if (await validationSchema.isValid({ name, email, subject, message })) {
-      await transporter.sendMail({
-        from: `"${name}" <${email}>`,
-        to: `${process.env.NEXT_PUBLIC_MAIL_USER}`,
-        subject: `${subject}`,
-        text: `${message}`,
-        html: `
-          <p>
-            From ${name},
-            <br><br>
-            "${message}"
-            <br><br>
-            <a href="mailto:${email}?subject=RE:${subject}">
-              Click here to reply back to them! (${email})
-            </a>
-          </p>
-        `,
+      await resend.emails.send({
+        from: process.env.NEXT_PUBLIC_RESEND_FROM as string,
+        to: process.env.NEXT_PUBLIC_RESEND_TO as string,
+        subject: subject,
+        react: CustomEmail({ name, email, subject, message }),
       });
 
       return new Response("OK", { status: 200 });
     }
   } catch (error) {
-    const e = error as FormikErrors<FormikValues>;
-    return new Response("FAIL", {
-      status: 400,
-      statusText: JSON.stringify(e.errors),
-    });
+    if (error instanceof ValidationError) {
+      return new Response("FAIL", {
+        status: 400,
+        statusText: JSON.stringify(error.errors),
+      });
+    }
   }
 }

@@ -1,5 +1,6 @@
 import Frame from "@/components/shared/Frame";
 import { primaryFont } from "@/lib/primaryFont";
+import { Toaster } from "react-hot-toast";
 import ContactForm from "./_components/ContactForm";
 
 export const metadata = {
@@ -26,6 +27,37 @@ export default function Contact() {
       <Frame isPadded>
         <ContactForm />
       </Frame>
+
+      <Toaster
+        position="bottom-center"
+        toastOptions={{
+          duration: 10000,
+          style: {
+            border: "1px solid #242f78",
+            borderRadius: 0,
+            maxWidth: "unset",
+            color: "#242f78",
+          },
+          success: {
+            style: {
+              borderColor: "#10b981",
+            },
+            iconTheme: {
+              primary: "#10b981",
+              secondary: "#fff",
+            },
+          },
+          error: {
+            style: {
+              borderColor: "#ef4444",
+            },
+            iconTheme: {
+              primary: "#ef4444",
+              secondary: "#fff",
+            },
+          },
+        }}
+      />
     </section>
   );
 }

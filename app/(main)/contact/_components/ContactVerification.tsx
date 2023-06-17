@@ -1,5 +1,6 @@
 import HCaptcha from "@hcaptcha/react-hcaptcha";
 import { FormikValues, useFormikContext } from "formik";
+import { toast } from "react-hot-toast";
 
 type ContactVerificationProps = {
   captchaRef: React.RefObject<HCaptcha>;
@@ -23,10 +24,10 @@ export default function ContactVerification({
     if (res.status === 200) {
       resetForm();
       setLoading(false);
-      alert("Message sent!");
+      toast.success("Message sent!");
     } else if (res.status === 400) {
       setLoading(false);
-      alert("Couldn't send message!");
+      toast.error("Couldn't send message!");
     }
   }
 
@@ -61,11 +62,11 @@ export default function ContactVerification({
         onVerify={sendMessage}
         onError={() => {
           setLoading(false);
-          alert("Error occured!");
+          toast.error("Error occured!");
         }}
         onChalExpired={() => {
           setLoading(false);
-          alert("Challenge expired!");
+          toast("Challenge expired!");
         }}
         onClose={() => setLoading(false)}
       />
