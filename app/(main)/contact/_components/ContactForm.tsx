@@ -53,7 +53,7 @@ export default function ContactForm() {
           >
             {loading ? (
               <>
-                Loading...
+                Sending...
                 <FaSpinner className="animate-spin" />
               </>
             ) : (

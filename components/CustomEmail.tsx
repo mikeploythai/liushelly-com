@@ -53,7 +53,7 @@ export default function CustomEmail({
 
             <Section>
               <Text className="text-brand-dark">From {name},</Text>
-              <Text className="p-2.5 bg-brand-dark text-brand-light">
+              <Text className="text-brand-dark">
                 {message}
               </Text>
             </Section>
