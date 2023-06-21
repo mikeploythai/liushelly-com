@@ -3,23 +3,23 @@ import { MetadataRoute } from "next";
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
-      url: `https://${process.env.VERCEL_URL}`,
+      url: "https://liushelly.com",
       lastModified: new Date(),
     },
     {
-      url: `https://${process.env.VERCEL_URL}/about`,
+      url: "https://liushelly.com/about",
       lastModified: new Date(),
     },
     {
-      url: `https://${process.env.VERCEL_URL}/services`,
+      url: "https://liushelly.com/services",
       lastModified: new Date(),
     },
     {
-      url: `https://${process.env.VERCEL_URL}/portfolio`,
+      url: "https://liushelly.com/portfolio",
       lastModified: new Date(),
     },
     {
-      url: `https://${process.env.VERCEL_URL}/contact`,
+      url: "https://liushelly.com/contact",
       lastModified: new Date(),
     },
   ];
