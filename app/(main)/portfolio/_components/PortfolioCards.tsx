@@ -5,9 +5,9 @@ import Link from "next/link";
 
 export default function PortfolioCards({ data }: { data: Portfolio[] }) {
   return (
-    <section className="flex flex-col max-w-screen-lg w-full mx-auto p-4 gap-4">
+    <section className="flex flex-col max-w-screen-lg w-full items-center mx-auto p-4 gap-4 sm:gap-16 sm:px-4 sm:py-16">
       <h1
-        className={`${primaryFont.className} font-semibold text-lg sm:text-xl sm:text-center`}
+        className={`${primaryFont.className} font-semibold text-xl sm:text-2xl sm:text-center`}
       >
         Some brands and businesses I&apos;ve worked with!
       </h1>
