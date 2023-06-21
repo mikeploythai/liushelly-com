@@ -19,6 +19,9 @@ export const revalidate = 60;
 
 export const metadata = {
   title: "ABOUT",
+  alternates: {
+    canonical: "/about",
+  },
 };
 
 export default async function About() {

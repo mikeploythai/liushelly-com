@@ -14,6 +14,9 @@ export const revalidate = 60;
 
 export const metadata = {
   title: "SERVICES",
+  alternates: {
+    canonical: "/services",
+  },
 };
 
 export default async function Services() {
