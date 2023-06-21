@@ -27,7 +27,7 @@ export async function POST(req: Request) {
 
     if (await validationSchema.isValid({ name, email, subject, message })) {
       await resend.emails.send({
-        from: process.env.NEXT_PUBLIC_RESEND_FROM as string,
+        from: `Shelly Liu Form <${process.env.NEXT_PUBLIC_RESEND_FROM}>`,
         to: process.env.NEXT_PUBLIC_RESEND_TO as string,
         subject: subject,
         react: CustomEmail({ name, email, subject, message }),

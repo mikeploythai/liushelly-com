@@ -59,8 +59,8 @@ export default function CustomEmail({
             </Section>
 
             <Button
-              href={`mailto:${email}?subject=RE:${subject}`}
-              className="flex text-sm uppercase bg-brand-dark text-brand-light font-medium justify-center p-2"
+              href={`mailto:${email}?subject=RE:%20${subject}`}
+              className="flex text-sm uppercase bg-brand-dark text-brand-light font-medium justify-center text-center p-2"
             >
               Click here to reply
             </Button>
