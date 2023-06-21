@@ -54,8 +54,8 @@ export default function ServiceModal({
             >
               <header className="flex justify-between -mx-4 -mt-4 mb-1 border-b border-b-brand-light">
                 <Dialog.Title
-                  as="h2"
-                  className={`${primaryFont.className} p-4 font-semibold text-lg`}
+                  as="h1"
+                  className={`${primaryFont.className} p-4 font-semibold text-xl`}
                 >
                   Service Details
                 </Dialog.Title>

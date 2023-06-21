@@ -37,10 +37,10 @@ export default function ServiceDetails({
 
       <hgroup className="flex flex-col">
         {data?.name && (
-          <h1 className={`${primaryFont.className} font-semibold text-xl mb-1`}>
+          <h2 className={`${primaryFont.className} font-semibold text-lg mb-1`}>
             {data?.name === "Social Media Management" && <u>DONE FOR YOU</u>}{" "}
             {data?.name}
-          </h1>
+          </h2>
         )}
         {data?.description && (
           <PortableText
