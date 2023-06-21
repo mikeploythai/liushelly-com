@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: "/studio/",
     },
-    sitemap: "https://liushelly.com/sitemap.xml",
+    sitemap: `https://${process.env.VERCEL_URL}/sitemap.xml`,
   };
 }
