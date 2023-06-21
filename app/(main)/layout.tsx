@@ -16,7 +16,7 @@ export const metadata = {
     default: "Shelly Liu, Social Media Manager",
   },
   description:
-    "Shelly Liu is a social media manager based in southern California.",
+    "Shelly Liu is a freelance social media manager, strategist, and content writer based in Southern California.",
 };
 
 export default async function RootLayout({
