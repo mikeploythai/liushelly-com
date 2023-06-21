@@ -53,14 +53,14 @@ export default function CustomEmail({
 
             <Section>
               <Text className="text-brand-dark">From {name},</Text>
-              <Text className="p-4 bg-brand-dark text-brand-light">
+              <Text className="p-2.5 bg-brand-dark text-brand-light">
                 {message}
               </Text>
             </Section>
 
             <Button
               href={`mailto:${email}?subject=RE:%20${subject}`}
-              className="flex text-sm uppercase bg-brand-dark text-brand-light font-medium justify-center text-center p-2"
+              className="flex text-sm uppercase bg-brand-dark text-brand-light font-medium p-2.5"
             >
               Click here to reply
             </Button>
