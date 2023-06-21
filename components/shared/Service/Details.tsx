@@ -24,7 +24,7 @@ export default function ServiceDetails({
         <figure className="relative w-full h-48 sm:h-64">
           <Image
             src={sanityImage(data.image).url()}
-            alt=""
+            alt={data.name || ""}
             placeholder="blur"
             blurDataURL={data.image.blur}
             sizes="(max-width:640px) 60vw, 40vw"
