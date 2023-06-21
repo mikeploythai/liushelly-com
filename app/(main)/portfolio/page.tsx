@@ -19,6 +19,9 @@ export const revalidate = 60;
 
 export const metadata = {
   title: "PORTFOLIO",
+  alternates: {
+    canonical: "https://liushelly.com/portfolio",
+  },
 };
 
 export default async function Portfolio() {

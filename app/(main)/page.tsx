@@ -10,6 +10,12 @@ import Testimonials from "./_components/Testimonials";
 
 export const revalidate = 60;
 
+export const metadata = {
+  alternates: {
+    canonical: "https://liushelly.com",
+  },
+};
+
 export default async function Home() {
   const { hero, marquee, service, testimonial, instagram } =
     await fetchHomeQueries();
