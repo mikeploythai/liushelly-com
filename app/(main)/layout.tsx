@@ -12,8 +12,8 @@ const query = groq`*[_type=="socials"] | order(orderRank)`;
 
 export const metadata = {
   title: {
-    template: "%s | Shelly Liu, Social Media Manager",
-    default: "Shelly Liu, Social Media Manager",
+    template: "%s | Shelly Liu",
+    default: "Shelly Liu",
   },
   description:
     "Shelly Liu is a freelance social media manager, strategist, and content writer based in Southern California.",
