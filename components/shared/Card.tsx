@@ -33,7 +33,7 @@ export default function Card({
             <div className="relative h-28 md:h-36">
               <Image
                 src={sanityImage(data.image).format("webp").url()}
-                alt=""
+                alt={data.name || ""}
                 placeholder="blur"
                 blurDataURL={data.image.blur}
                 sizes="(max-width:640px) 70vw, 30vw"
