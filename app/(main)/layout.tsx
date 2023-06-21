@@ -17,6 +17,15 @@ export const metadata = {
   },
   description:
     "Shelly Liu is a freelance social media manager, strategist, and content writer based in Southern California.",
+  metadataBase: new URL("https://liushelly.com"),
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "Shelly Liu, Social Media Manager",
+    description:
+      "Shelly Liu is a freelance social media manager, strategist, and content writer based in Southern California.",
+  },
 };
 
 export default async function RootLayout({

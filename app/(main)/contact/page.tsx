@@ -5,9 +5,6 @@ import ContactForm from "./_components/ContactForm";
 
 export const metadata = {
   title: "CONTACT",
-  alternates: {
-    canonical: "https://liushelly.com/contact",
-  },
 };
 
 export default function Contact() {
