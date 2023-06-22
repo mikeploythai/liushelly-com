@@ -2,7 +2,7 @@
 
 > The official website of Shelly Liu, a freelance social media manager, strategist, and content writer.
 
-#### 📲 If you're looking for social media and digital marketing expert...
+#### 📲 If you're looking for a freelance social media and digital marketing expert...
 
 Then look no further! Check out [Shelly's website](https://liushelly.com) to learn more about how she can help skyrocket your business' online presence through organic social media growth.
 
