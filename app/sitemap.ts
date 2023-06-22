@@ -22,5 +22,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: "https://liushelly.com/contact",
       lastModified: new Date(),
     },
+    {
+      url: "https://liushelly.com/privacy",
+      lastModified: new Date(),
+    },
   ];
 }

@@ -37,11 +37,14 @@ export async function generateMetadata({
 
   if (draftMode().isEnabled)
     return {
-      title: "📝 PORTFOLIO | Shelly Liu, Social Media Manager",
+      title: `${data.name?.toUpperCase() || "📝 PORTFOLIO"}| Shelly Liu`,
     };
 
   return {
-    title: `${data.name?.toUpperCase()} | Shelly Liu, Social Media Manager`,
+    title: `${data.name?.toUpperCase()} | Shelly Liu`,
+    alternates: {
+      canonical: `/portfolio/${slug}`,
+    },
   };
 }
 
