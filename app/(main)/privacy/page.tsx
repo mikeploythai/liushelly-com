@@ -11,6 +11,9 @@ export const revalidate = 60;
 
 export const metadata = {
   title: "PRIVACY",
+  alternates: {
+    canonical: "/privacy",
+  },
 };
 
 export default async function Privacy() {

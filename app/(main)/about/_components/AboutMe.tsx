@@ -8,7 +8,7 @@ import Image from "next/image";
 
 export default function AboutMe({ data }: { data: Hero }) {
   return (
-    <section className="flex flex-col max-w-screen-md w-full items-center mx-auto p-4 gap-4 md:flex-row md:gap-8">
+    <section className="flex flex-col max-w-screen-md w-full items-center mx-auto p-4 gap-4 md:flex-row md:gap-8 md:py-16">
       {data.image && (
         <Frame isHoverable>
           <figure className="group relative flex w-full h-72 md:w-64 md:h-96">
@@ -18,7 +18,7 @@ export default function AboutMe({ data }: { data: Hero }) {
               placeholder="blur"
               blurDataURL={data.image.blur}
               sizes="(max-width:768px) 70vw, 30vw"
-              className="object-cover object-center"
+              className="object-cover object-center sm:object-[center_40%] md:object-center"
               fill
               priority
             />
