@@ -75,7 +75,9 @@ export const blockTextComponents: PortableTextComponents = {
   },
   marks: {
     link: ({ children, value }) =>
-      value.url.startsWith("/") ? (
+      !value.url ? (
+        <p className="font-medium">{children}</p>
+      ) : value.url.startsWith("/") ? (
         <Link href={value.url} className="font-medium hover:underline">
           {children}
         </Link>
