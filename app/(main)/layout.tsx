@@ -13,7 +13,7 @@ const query = groq`*[_type=="socials"] | order(orderRank)`;
 export const metadata = {
   title: {
     template: "%s | Shelly Liu",
-    default: "Shelly Liu",
+    default: "Shelly Liu | Social Media Manager, Strategist, and Content Writer",
   },
   description:
     "Shelly Liu is a freelance social media manager, strategist, and content writer based in Southern California.",
@@ -22,7 +22,7 @@ export const metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "Shelly Liu, Social Media Manager",
+    title: "Shelly Liu | Social Media Manager, Strategist, and Content Writer",
     description:
       "Shelly Liu is a freelance social media manager, strategist, and content writer based in Southern California.",
   },
