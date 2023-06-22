@@ -37,11 +37,11 @@ export async function generateMetadata({
 
   if (draftMode().isEnabled)
     return {
-      title: `${data.name?.toUpperCase() || "📝 PORTFOLIO"}| Shelly Liu`,
+      title: `${data.name?.toUpperCase() || "📝 PORTFOLIO"}`,
     };
 
   return {
-    title: `${data.name?.toUpperCase()} | Shelly Liu`,
+    title: `${data.name?.toUpperCase()}`,
     alternates: {
       canonical: `/portfolio/${slug}`,
     },
