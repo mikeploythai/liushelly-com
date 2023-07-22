@@ -7,7 +7,7 @@ export default function InstagramSamples({ data }: { data: InstagramCard[] }) {
   return (
     <section className="flex flex-col max-w-screen-lg w-full mx-auto p-4 gap-4">
       <h2
-        className={`${primaryFont.className} font-semibold text-lg sm:text-xl lg:text-center`}
+        className={`${primaryFont.className} font-semibold text-lg sm:text-xl md:text-center`}
       >
         Follow me on Instagram for <u>FREE</u> social media tips and advice.
       </h2>
