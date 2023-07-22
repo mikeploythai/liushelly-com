@@ -13,7 +13,7 @@ export default function AboutMe({ data }: { data: Hero }) {
         <Frame isHoverable>
           <figure className="group relative flex w-full h-72 md:w-64 md:h-96">
             <Image
-              src={sanityImage(data.image).format("webp").url()}
+              src={sanityImage(data.image).format("webp").sharpen(75).url()}
               alt="Photo of Shelly Liu, Social Media Manager"
               placeholder="blur"
               blurDataURL={data.image.blur}

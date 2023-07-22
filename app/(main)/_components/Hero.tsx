@@ -11,7 +11,7 @@ export default function Hero({ data }: { data: Hero }) {
       {data.image && (
         <figure className="group relative flex flex-shrink-0 h-[32rem] w-full sm:h-80 sm:w-56 sm:mr-2 sm:mb-2 sm:border sm:border-brand-dark sm:shadow-normal sm:shadow-brand-dark sm:transition sm:duration-500 sm:ease-in-out sm:hover:shadow-hover sm:hover:shadow-brand-dark md:h-96 md:w-64">
           <Image
-            src={sanityImage(data.image).format("webp").url()}
+            src={sanityImage(data.image).format("webp").sharpen(75).url()}
             alt="Photo of Shelly Liu"
             placeholder="blur"
             blurDataURL={data.image.blur}
