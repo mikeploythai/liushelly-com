@@ -1,10 +1,16 @@
 import "~/styles/globals.css";
 
-import { Inter } from "next/font/google";
+import { Montserrat, Unbounded } from "next/font/google";
+import { cn } from "~/lib/cn";
 
-const inter = Inter({
+const unbounded = Unbounded({
   subsets: ["latin"],
-  variable: "--font-sans",
+  variable: "--font-heading",
+});
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  variable: "--font-body",
 });
 
 export const metadata = {
@@ -19,8 +25,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={`font-sans ${inter.variable}`}>{children}</body>
+    <html lang="en" className={cn(unbounded.variable, montserrat.variable)}>
+      <body className="min-h-screen bg-violet-200 font-body text-indigo-950 antialiased">
+        {children}
+      </body>
     </html>
   );
 }
