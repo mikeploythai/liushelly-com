@@ -24,7 +24,7 @@ export default function HomePage() {
           </a>
         </div>
 
-        <div className="max-w-fit border border-current shadow-boxy shadow-current">
+        <div className="mb-2 mr-2 max-w-fit border border-indigo-950 shadow-boxy shadow-indigo-950 transition duration-300 hover:shadow-boxy-hover hover:shadow-indigo-950">
           <Image
             src=""
             alt=""
