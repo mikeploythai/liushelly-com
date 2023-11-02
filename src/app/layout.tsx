@@ -1,7 +1,10 @@
 import "~/styles/globals.css";
 
 import { Montserrat, Unbounded } from "next/font/google";
+import Link from "next/link";
 import { cn } from "~/lib/cn";
+import NavbarItems from "./_components/navbar-items";
+import { buttonVariants } from "./_components/ui/button";
 
 const unbounded = Unbounded({
   subsets: ["latin"],
@@ -27,8 +30,30 @@ export default function RootLayout({
   return (
     <html lang="en" className={cn(unbounded.variable, montserrat.variable)}>
       <body className="min-h-screen bg-violet-200 font-body text-indigo-950 antialiased">
+        <Navbar />
         {children}
       </body>
     </html>
+  );
+}
+
+function Navbar() {
+  return (
+    <header className="sticky top-0 z-10 border-b border-b-indigo-950 bg-violet-200">
+      <div className="mx-auto flex max-w-screen-2xl justify-between">
+        <Link
+          href="/"
+          className={buttonVariants({
+            size: "lg",
+            variant: "ghost",
+            class: "font-heading capitalize",
+          })}
+        >
+          Shelly Liu
+        </Link>
+
+        <NavbarItems />
+      </div>
+    </header>
   );
 }
