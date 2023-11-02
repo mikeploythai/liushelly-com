@@ -10,6 +10,7 @@
     "ui:add": "pnpm dlx shadcn-ui@latest add"
   },
   "dependencies": {
+    "@radix-ui/react-slot": "^1.0.2",
     "@t3-oss/env-nextjs": "^0.7.1",
     "@tabler/icons-react": "^2.40.0",
     "class-variance-authority": "^0.7.0",
