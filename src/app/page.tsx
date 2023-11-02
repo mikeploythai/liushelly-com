@@ -60,7 +60,7 @@ export default function HomePage() {
         </div>
 
         <div className="grid grid-cols-3 gap-3">
-          {services.slice(0, 3).map(({ name }) => (
+          {services.slice(0, 3).map(({ name, slug }) => (
             <Card key={name}>
               <CardContent className="relative h-40">
                 <Image
@@ -72,7 +72,10 @@ export default function HomePage() {
               </CardContent>
 
               <CardFooter>
-                <Link href="/" className={buttonVariants({ class: "w-full" })}>
+                <Link
+                  href={`/${slug}`}
+                  className={buttonVariants({ class: "w-full" })}
+                >
                   {name}
                   <IconChevronRight size={18} />
                 </Link>
