@@ -108,7 +108,7 @@ export default function HomePage() {
           </div>
 
           <div className="space-y-6 px-6 py-12 italic">
-            <blockquote>"{testimonials[0]?.quote}"</blockquote>
+            <blockquote>&quot;{testimonials[0]?.quote}&quot;</blockquote>
             <p className="font-medium">
               {testimonials[0]?.author}, {testimonials[0]?.role}
             </p>
