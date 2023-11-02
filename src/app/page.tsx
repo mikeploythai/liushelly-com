@@ -1,10 +1,14 @@
-import { IconArrowUpRight, IconChevronRight } from "@tabler/icons-react";
+import {
+  IconArrowUpRight,
+  IconChevronLeft,
+  IconChevronRight,
+} from "@tabler/icons-react";
 import Image from "next/image";
 import Link from "next/link";
 import { cn } from "~/lib/cn";
-import { services } from "~/lib/fake-db";
+import { services, testimonials } from "~/lib/fake-db";
 import Marquee from "./_components/marquee";
-import { buttonVariants } from "./_components/ui/button";
+import { Button, buttonVariants } from "./_components/ui/button";
 import { Card, CardContent, CardFooter } from "./_components/ui/card";
 
 export default function HomePage() {
@@ -77,11 +81,38 @@ export default function HomePage() {
                   className={buttonVariants({ class: "w-full" })}
                 >
                   {name}
-                  <IconChevronRight size={18} />
+                  <IconChevronRight size={18} className="ml-auto" />
                 </Link>
               </CardFooter>
             </Card>
           ))}
+        </div>
+      </section>
+
+      <section className="bg-indigo-950">
+        <div className="mx-auto max-w-screen-lg space-y-6 p-6 text-violet-200">
+          <div className="flex items-center justify-between">
+            <h2 className="font-heading text-2xl font-medium">
+              What clients have to say...
+            </h2>
+
+            <div>
+              <Button size="icon">
+                <IconChevronLeft />
+              </Button>
+
+              <Button size="icon">
+                <IconChevronRight />
+              </Button>
+            </div>
+          </div>
+
+          <div className="space-y-6 px-6 py-12 italic">
+            <blockquote>"{testimonials[0]?.quote}"</blockquote>
+            <p className="font-medium">
+              {testimonials[0]?.author}, {testimonials[0]?.role}
+            </p>
+          </div>
         </div>
       </section>
     </main>
