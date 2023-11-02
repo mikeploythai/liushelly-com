@@ -31,8 +31,8 @@ export default {
         body: ["var(--font-body)"],
       },
       boxShadow: {
-        boxy: "0.5rem 0.5rem 0 rgb(0, 0, 0)",
-        "boxy-hover": "0.75rem 0.75rem 0 rgb(0, 0, 0)",
+        boxy: "0.5rem 0.5rem 0",
+        "boxy-hover": "0.75rem 0.75rem 0",
       },
       animationDuration: {
         "60s": "60s",
