@@ -24,7 +24,7 @@ export default function HomePage() {
           </a>
         </div>
 
-        <div className="mb-2 mr-2 max-w-fit border border-indigo-950 shadow-boxy shadow-indigo-950 transition duration-300 hover:shadow-boxy-hover hover:shadow-indigo-950">
+        <figure className="mb-2 mr-2 max-w-fit border border-indigo-950 shadow-boxy shadow-indigo-950 transition duration-300 hover:border-indigo-900 hover:shadow-boxy-hover hover:shadow-indigo-900">
           <Image
             src=""
             alt=""
@@ -32,7 +32,7 @@ export default function HomePage() {
             height={432}
             className="h-full bg-violet-50"
           />
-        </div>
+        </figure>
       </section>
 
       <Marquee />
