@@ -1,14 +1,11 @@
-import {
-  IconArrowUpRight,
-  IconChevronLeft,
-  IconChevronRight,
-} from "@tabler/icons-react";
+import { IconArrowUpRight, IconChevronRight } from "@tabler/icons-react";
 import Image from "next/image";
 import Link from "next/link";
 import { cn } from "~/lib/cn";
-import { services, testimonials } from "~/lib/fake-db";
+import { services } from "~/lib/fake-db";
 import Marquee from "./_components/marquee";
-import { Button, buttonVariants } from "./_components/ui/button";
+import Testimonials from "./_components/testimonials";
+import { buttonVariants } from "./_components/ui/button";
 import { Card, CardContent, CardFooter } from "./_components/ui/card";
 
 export default function HomePage() {
@@ -90,30 +87,7 @@ export default function HomePage() {
       </section>
 
       <section className="bg-indigo-950">
-        <div className="mx-auto max-w-screen-lg space-y-6 p-6 text-violet-200">
-          <div className="flex items-center justify-between">
-            <h2 className="font-heading text-2xl font-medium">
-              What clients have to say...
-            </h2>
-
-            <div>
-              <Button size="icon">
-                <IconChevronLeft />
-              </Button>
-
-              <Button size="icon">
-                <IconChevronRight />
-              </Button>
-            </div>
-          </div>
-
-          <div className="space-y-6 px-6 py-12 italic">
-            <blockquote>&quot;{testimonials[0]?.quote}&quot;</blockquote>
-            <p className="font-medium">
-              {testimonials[0]?.author}, {testimonials[0]?.role}
-            </p>
-          </div>
-        </div>
+        <Testimonials />
       </section>
     </main>
   );
