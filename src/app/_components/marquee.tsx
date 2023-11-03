@@ -12,7 +12,7 @@ export default function Marquee() {
     <section
       role="marquee"
       aria-label="Scrolling banner"
-      className="group bg-indigo-950 py-3 hover:bg-indigo-900"
+      className="group bg-indigo-950 py-3 md:hover:bg-indigo-900"
     >
       <div className="relative mx-auto flex max-w-screen-2xl overflow-x-hidden font-heading font-medium uppercase text-violet-200">
         <MarqueeText text={text} type="primary" />
@@ -35,7 +35,7 @@ function MarqueeText({
   return (
     <div
       className={cn(
-        "whitespace-nowrap ease-linear duration-60s repeat-infinite group-hover:paused",
+        "whitespace-nowrap ease-linear duration-60s repeat-infinite md:group-hover:paused",
         type === "primary" && "animate-out slide-out-to-left",
         type === "secondary" && "absolute animate-in slide-in-from-right",
       )}
@@ -56,7 +56,7 @@ function MarqueeBound({ side }: { side: "left" | "right" }) {
   return (
     <span
       className={cn(
-        "absolute hidden h-full w-1/6 from-indigo-950 to-transparent group-hover:from-indigo-900 2xl:block",
+        "absolute hidden h-full w-1/6 from-indigo-950 to-transparent 2xl:block 2xl:group-hover:from-indigo-900",
         side === "left" && "left-0 bg-gradient-to-r",
         side === "right" && "right-0 bg-gradient-to-l",
       )}

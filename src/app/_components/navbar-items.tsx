@@ -10,7 +10,7 @@ export default function NavbarItems() {
   const routes: string[] = ["about", "services", "portfolio", "contact"];
 
   return (
-    <nav className="my-auto pr-1.5">
+    <nav className="my-auto hidden pr-1.5 sm:block">
       {routes.map((route) => (
         <Link
           key={route}
