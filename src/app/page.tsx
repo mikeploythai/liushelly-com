@@ -9,6 +9,8 @@ import { buttonVariants } from "./_components/ui/button";
 import { Card, CardContent, CardFooter } from "./_components/ui/card";
 
 export default function HomePage() {
+  const servicesList = services.slice(0, 3);
+
   return (
     <main className="flex-1 duration-500 ease-in-out animate-in fade-in-0 slide-in-from-bottom-6">
       <section className="relative mx-auto flex max-w-screen-lg flex-col items-center gap-6 sm:flex-row sm:p-6">
@@ -65,10 +67,17 @@ export default function HomePage() {
           </Link>
         </div>
 
-        <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-          {services.slice(0, 3).map(({ name, slug }) => (
-            <Card key={name} className="flex-1 basis-1/4">
-              <CardContent className="relative h-40">
+        <div className="grid gap-3 sm:grid-cols-2 md:grid-cols-3">
+          {servicesList.map(({ name, slug }, i) => (
+            <Card
+              key={name}
+              className={cn(
+                servicesList.length % 2 &&
+                  i === servicesList.length - 1 &&
+                  "sm:col-span-2 md:col-span-1",
+              )}
+            >
+              <CardContent className="relative h-32 sm:h-40">
                 <Image
                   src=""
                   alt=""
