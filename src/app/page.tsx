@@ -77,7 +77,7 @@ export default function HomePage() {
                   href={`/${slug}`}
                   className={buttonVariants({ class: "w-full" })}
                 >
-                  {name}
+                  <span className="truncate">{name}</span>
                   <IconChevronRight size={18} className="ml-auto" />
                 </Link>
               </CardFooter>
@@ -88,6 +88,47 @@ export default function HomePage() {
 
       <section className="bg-indigo-950">
         <Testimonials />
+      </section>
+
+      <section className="mx-auto max-w-screen-xl space-y-6 p-6">
+        <div className="space-y-3 text-center">
+          <h2 className="font-heading text-2xl font-medium">
+            Follow my Instagram for free social media growth advice!
+          </h2>
+
+          <a
+            href="/"
+            target="_blank"
+            rel="noreferrer"
+            className={cn(
+              buttonVariants({ variant: "link" }),
+              "p-0 font-semibold",
+            )}
+          >
+            Visit my Instagram
+            <IconArrowUpRight size={18} />
+          </a>
+        </div>
+
+        <div className="grid grid-cols-4 gap-3">
+          {Array(4)
+            .fill(null)
+            .map((_, key) => (
+              <a key={key} href="/" target="_blank" rel="noreferrer">
+                <Card className="p-0 hover:shadow-boxy-hover hover:!shadow-indigo-900">
+                  <CardContent>
+                    <Image
+                      src=""
+                      alt=""
+                      width={1080}
+                      height={1350}
+                      className="h-full bg-violet-50"
+                    />
+                  </CardContent>
+                </Card>
+              </a>
+            ))}
+        </div>
       </section>
     </main>
   );
