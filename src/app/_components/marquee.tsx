@@ -1,6 +1,10 @@
 import { Fragment } from "react";
 import { cn } from "~/lib/cn";
 
+/*
+  TODO
+  - Modify for prefers-reduced-motion later
+*/
 export default function Marquee() {
   const text = "Bookings for winter 2023 are now open";
 
