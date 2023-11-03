@@ -29,7 +29,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={cn(unbounded.variable, montserrat.variable)}>
-      <body className="min-h-screen bg-violet-200 font-body text-indigo-950 antialiased">
+      <body className="min-h-screen bg-violet-200 font-body text-indigo-950 antialiased [text-wrap:pretty]">
         <Navbar />
         {children}
       </body>
