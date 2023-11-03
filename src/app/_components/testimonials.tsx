@@ -25,7 +25,7 @@ export default function Testimonials() {
           What clients have to say...
         </h2>
 
-        <div>
+        <div className="space-x-1.5">
           <Button size="icon" onClick={getPrevQuote}>
             <IconChevronLeft />
           </Button>
