@@ -1,12 +1,20 @@
 import "~/styles/globals.css";
 
-import { IconArrowUpRight, IconLink } from "@tabler/icons-react";
+import { IconArrowUpRight, IconLink, IconMenu } from "@tabler/icons-react";
 import { Montserrat, Unbounded } from "next/font/google";
 import Link from "next/link";
 import { cn } from "~/lib/cn";
 import { socials } from "~/lib/fake-db";
 import NavbarItems from "./_components/navbar-items";
-import { buttonVariants } from "./_components/ui/button";
+import { Button, buttonVariants } from "./_components/ui/button";
+import {
+  Sheet,
+  SheetContent,
+  SheetFooter,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "./_components/ui/sheet";
 
 const unbounded = Unbounded({
   subsets: ["latin"],
@@ -55,7 +63,44 @@ function Navbar() {
           Shelly Liu
         </Link>
 
-        <NavbarItems />
+        <NavbarItems isDrawer={false} />
+
+        <Sheet>
+          <SheetTrigger className="block sm:hidden" asChild>
+            <Button>
+              <IconMenu />
+              <span className="sr-only">Navigation menu</span>
+            </Button>
+          </SheetTrigger>
+
+          <SheetContent>
+            <SheetHeader>
+              <SheetTitle>Navigation</SheetTitle>
+            </SheetHeader>
+
+            <NavbarItems isDrawer={true} />
+
+            <SheetFooter>
+              {socials.map(({ name, href }) => (
+                <a
+                  key={name}
+                  href={href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className={buttonVariants({
+                    variant: "secondary",
+                    size: "icon",
+                  })}
+                >
+                  <IconLink size={20} />
+                  <span className="sr-only">
+                    Link to Shelly&apos;s {name} page
+                  </span>
+                </a>
+              ))}
+            </SheetFooter>
+          </SheetContent>
+        </Sheet>
       </div>
     </header>
   );
@@ -105,6 +150,7 @@ function Footer() {
               className={buttonVariants({ size: "icon" })}
             >
               <IconLink size={20} />
+              <span className="sr-only">Link to Shelly&apos;s {name} page</span>
             </a>
           ))}
         </div>
