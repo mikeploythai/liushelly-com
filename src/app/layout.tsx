@@ -1,10 +1,11 @@
 import "~/styles/globals.css";
 
 import { IconArrowUpRight, IconLink, IconMenu } from "@tabler/icons-react";
-import { Montserrat, Unbounded } from "next/font/google";
+import { Unbounded, Work_Sans } from "next/font/google";
 import Link from "next/link";
 import { cn } from "~/lib/cn";
 import { socials } from "~/lib/fake-db";
+import ExternalLink from "./_components/external-link";
 import NavbarItems from "./_components/navbar-items";
 import { Button, buttonVariants } from "./_components/ui/button";
 import {
@@ -21,7 +22,7 @@ const unbounded = Unbounded({
   variable: "--font-heading",
 });
 
-const montserrat = Montserrat({
+const workSans = Work_Sans({
   subsets: ["latin"],
   variable: "--font-body",
 });
@@ -38,8 +39,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={cn(unbounded.variable, montserrat.variable)}>
-      <body className="min-h-screen bg-violet-200 font-body text-indigo-950 antialiased [text-wrap:pretty]">
+    <html lang="en" className={cn(unbounded.variable, workSans.variable)}>
+      <body className="flex min-h-screen flex-col bg-violet-200 font-body text-indigo-950 antialiased [text-wrap:pretty]">
         <Navbar />
         {children}
         <Footer />
@@ -82,11 +83,9 @@ function Navbar() {
 
             <SheetFooter>
               {socials.map(({ name, href }) => (
-                <a
+                <ExternalLink
                   key={name}
                   href={href}
-                  target="_blank"
-                  rel="noreferrer"
                   className={buttonVariants({
                     variant: "secondary",
                     size: "icon",
@@ -96,7 +95,7 @@ function Navbar() {
                   <span className="sr-only">
                     Link to Shelly&apos;s {name} page
                   </span>
-                </a>
+                </ExternalLink>
               ))}
             </SheetFooter>
           </SheetContent>
@@ -118,40 +117,33 @@ function Footer() {
             &copy; Shelly Liu {year}
           </p>
 
-          <div className="flex flex-col items-start gap-1.5 sm:flex-row sm:items-center">
+          <div className="flex flex-col items-start gap-1.5 text-xs sm:flex-row sm:items-center">
             <Link
               href="/"
-              className={cn(buttonVariants({ variant: "link" }), "p-0 text-xs")}
+              className={cn(buttonVariants({ variant: "link" }), "p-0")}
             >
               Privacy
             </Link>
 
             <span className="hidden sm:block">&middot;</span>
 
-            <a
-              href="/"
-              target="_blank"
-              rel="noreferrer"
-              className={cn(buttonVariants({ variant: "link" }), "p-0 text-xs")}
-            >
+            <ExternalLink href="/" className="gap-0.5">
               Built by Mike
               <IconArrowUpRight size={14} />
-            </a>
+            </ExternalLink>
           </div>
         </div>
 
         <div className="flex gap-1.5">
           {socials.map(({ name, href }) => (
-            <a
+            <ExternalLink
               key={name}
               href={href}
-              target="_blank"
-              rel="noreferrer"
               className={buttonVariants({ size: "icon" })}
             >
               <IconLink size={20} />
               <span className="sr-only">Link to Shelly&apos;s {name} page</span>
-            </a>
+            </ExternalLink>
           ))}
         </div>
       </div>
