@@ -26,3 +26,9 @@ export const testimonials = [
     role: "CEO of Beep",
   },
 ];
+
+export const socials = [
+  { name: "instagram", href: "/" },
+  { name: "tiktok", href: "/" },
+  { name: "linkedin", href: "/" },
+];

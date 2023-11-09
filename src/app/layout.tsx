@@ -1,8 +1,10 @@
 import "~/styles/globals.css";
 
+import { IconArrowUpRight, IconLink } from "@tabler/icons-react";
 import { Montserrat, Unbounded } from "next/font/google";
 import Link from "next/link";
 import { cn } from "~/lib/cn";
+import { socials } from "~/lib/fake-db";
 import NavbarItems from "./_components/navbar-items";
 import { buttonVariants } from "./_components/ui/button";
 
@@ -32,6 +34,7 @@ export default function RootLayout({
       <body className="min-h-screen bg-violet-200 font-body text-indigo-950 antialiased [text-wrap:pretty]">
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );
@@ -55,5 +58,57 @@ function Navbar() {
         <NavbarItems />
       </div>
     </header>
+  );
+}
+
+function Footer() {
+  const date = new Date();
+  const year = date.getFullYear();
+
+  return (
+    <footer className="border-b-8 border-b-indigo-950">
+      <div className="mx-auto flex max-w-screen-md flex-col justify-between gap-6 p-6 sm:flex-row sm:items-center md:py-12">
+        <div className="space-y-1.5">
+          <p className="font-heading text-lg font-medium">
+            &copy; Shelly Liu {year}
+          </p>
+
+          <div className="flex flex-col items-start gap-1.5 sm:flex-row sm:items-center">
+            <Link
+              href="/"
+              className={cn(buttonVariants({ variant: "link" }), "p-0 text-xs")}
+            >
+              Privacy
+            </Link>
+
+            <span className="hidden sm:block">&middot;</span>
+
+            <a
+              href="/"
+              target="_blank"
+              rel="noreferrer"
+              className={cn(buttonVariants({ variant: "link" }), "p-0 text-xs")}
+            >
+              Built by Mike
+              <IconArrowUpRight size={14} />
+            </a>
+          </div>
+        </div>
+
+        <div className="flex gap-1.5">
+          {socials.map(({ name, href }) => (
+            <a
+              key={name}
+              href={href}
+              target="_blank"
+              rel="noreferrer"
+              className={buttonVariants({ size: "icon" })}
+            >
+              <IconLink size={20} />
+            </a>
+          ))}
+        </div>
+      </div>
+    </footer>
   );
 }
