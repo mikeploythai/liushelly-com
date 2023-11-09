@@ -31,7 +31,7 @@ export default function NavbarItems({ isDrawer }: { isDrawer: boolean }) {
             className={cn(
               buttonVariants({ size: !isDrawer ? "default" : "lg" }),
               pathname === `/${route}` && "bg-indigo-900",
-              isDrawer && "justify-start",
+              isDrawer && "justify-start text-xl",
             )}
           >
             {route}
