@@ -9,6 +9,7 @@ export default function AboutPage() {
     <PageWrapper className="mx-auto flex w-full max-w-screen-lg flex-col justify-center gap-6 p-6 md:gap-12 md:p-12">
       <div className="prose prose-sm max-w-none text-indigo-950 md:prose-base prose-headings:font-heading prose-headings:font-medium prose-headings:text-indigo-950 prose-a:text-indigo-950">
         <h1>Hi, I&apos;m Shelly!</h1>
+
         <p>
           I&apos;m a social media manager and digital marketing expert with{" "}
           <span className="font-semibold">4+ years</span> of experience.
@@ -21,14 +22,16 @@ export default function AboutPage() {
           </ExternalLink>{" "}
           as an Administrative/Marketing Assistant.
         </p>
+
         <p>
           I also work as a freelance social media manager, strategist, and
           content writer, prioritizing women-owned, BIPOC-owned, and LGBTQ-owned
           businesses. I&apos;m super passionate about storytelling through
           digital marketing, and helping businesses owned by marginalized
-          individuals grow their online presence organically to help them spend
+          individuals grow their online presence organically so they can spend
           more time on their craft rather than on marketing.
         </p>
+        
         <p>
           Outside of marketing, I enjoy listening to K-pop and R&B music, going
           to concerts, reading books and webtoons, thrifting, scrolling through
