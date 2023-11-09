@@ -57,10 +57,7 @@ export default function HomePage() {
 
           <Link
             href="/services"
-            className={cn(
-              buttonVariants({ variant: "link" }),
-              "p-0 font-semibold",
-            )}
+            className={cn(buttonVariants({ variant: "link" }), "p-0")}
           >
             Explore services
             <IconChevronRight size={18} />
@@ -114,10 +111,7 @@ export default function HomePage() {
             href="/"
             target="_blank"
             rel="noreferrer"
-            className={cn(
-              buttonVariants({ variant: "link" }),
-              "p-0 font-semibold",
-            )}
+            className={cn(buttonVariants({ variant: "link" }), "p-0")}
           >
             Visit my Instagram
             <IconArrowUpRight size={18} />
