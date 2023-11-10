@@ -1,13 +1,14 @@
 import { IconArrowUpRight } from "@tabler/icons-react";
 import Image from "next/image";
 import ExternalLink from "../_components/external-link";
+import MarkdownWrapper from "../_components/markdown-wrapper";
 import PageWrapper from "../_components/page-wrapper";
 import { Card, CardContent } from "../_components/ui/card";
 
 export default function AboutPage() {
   return (
     <PageWrapper className="mx-auto flex w-full max-w-screen-lg flex-col justify-center gap-6 p-6 md:gap-12 md:p-12">
-      <div className="prose prose-sm max-w-none text-indigo-950 md:prose-base prose-headings:font-heading prose-headings:font-medium prose-headings:text-indigo-950 prose-a:text-indigo-950">
+      <MarkdownWrapper>
         <h1>Hi, I&apos;m Shelly!</h1>
 
         <p>
@@ -31,13 +32,13 @@ export default function AboutPage() {
           individuals grow their online presence organically so they can spend
           more time on their craft rather than on marketing.
         </p>
-        
+
         <p>
           Outside of marketing, I enjoy listening to K-pop and R&B music, going
           to concerts, reading books and webtoons, thrifting, scrolling through
           Pinterest, and obsessing over all things Sanrio!
         </p>
-      </div>
+      </MarkdownWrapper>
 
       <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
         {Array(4)
@@ -45,7 +46,7 @@ export default function AboutPage() {
           .map((_, key) => (
             <Card
               key={key}
-              className="p-0 hover:shadow-boxy-hover hover:!shadow-indigo-900"
+              className="p-0 md:hover:border-indigo-900 md:hover:shadow-boxy-hover md:hover:!shadow-indigo-900"
             >
               <CardContent>
                 <Image

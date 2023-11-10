@@ -3,6 +3,7 @@
 import { IconChevronLeft, IconChevronRight } from "@tabler/icons-react";
 import { useState } from "react";
 import { testimonials } from "~/lib/fake-db";
+import MarkdownWrapper from "./markdown-wrapper";
 import { Button } from "./ui/button";
 
 export default function Testimonials() {
@@ -38,12 +39,15 @@ export default function Testimonials() {
         </div>
       </div>
 
-      <div className="flex flex-col justify-center gap-6 italic md:min-h-[288px] md:p-6">
+      <MarkdownWrapper
+        theme="secondary"
+        className="flex flex-col justify-center prose-p:m-0 md:min-h-[288px] md:p-6"
+      >
         <blockquote>&quot;{testimonials[index]?.quote}&quot;</blockquote>
         <p className="font-medium">
           {testimonials[index]?.author}, {testimonials[index]?.role}
         </p>
-      </div>
+      </MarkdownWrapper>
     </div>
   );
 }
