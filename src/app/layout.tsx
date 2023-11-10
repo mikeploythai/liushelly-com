@@ -35,8 +35,10 @@ export const metadata = {
 
 export default function RootLayout({
   children,
+  modal,
 }: {
   children: React.ReactNode;
+  modal: React.ReactNode;
 }) {
   return (
     <html lang="en" className={cn(unbounded.variable, montserrat.variable)}>
@@ -47,6 +49,7 @@ export default function RootLayout({
         <Navbar />
         {children}
         <Footer />
+        {modal}
       </body>
     </html>
   );
