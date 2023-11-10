@@ -1,7 +1,7 @@
 import "~/styles/globals.css";
 
 import { IconArrowUpRight, IconLink, IconMenu } from "@tabler/icons-react";
-import { Unbounded, Work_Sans } from "next/font/google";
+import { Montserrat, Unbounded } from "next/font/google";
 import Link from "next/link";
 import { cn } from "~/lib/cn";
 import { socials } from "~/lib/fake-db";
@@ -22,7 +22,7 @@ const unbounded = Unbounded({
   variable: "--font-heading",
 });
 
-const workSans = Work_Sans({
+const montserrat = Montserrat({
   subsets: ["latin"],
   variable: "--font-body",
 });
@@ -39,8 +39,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={cn(unbounded.variable, workSans.variable)}>
+    <html lang="en" className={cn(unbounded.variable, montserrat.variable)}>
       <body className="flex min-h-screen flex-col bg-violet-200 font-body text-indigo-950 antialiased [text-wrap:pretty]">
+        <noscript className="bg-indigo-950 p-2 text-center text-sm font-medium text-violet-200">
+          Please enable JavaScript for the best experience.
+        </noscript>
         <Navbar />
         {children}
         <Footer />
@@ -124,8 +127,6 @@ function Footer() {
             >
               Privacy
             </Link>
-
-            <span className="hidden sm:block">&middot;</span>
 
             <ExternalLink href="/" className="gap-0.5">
               Built by Mike
