@@ -79,7 +79,7 @@ export default function ServicesPage() {
 
           <p>
             My one-time services are the perfect solution! Whether you need an
-            expert opinion or just a little guidance, I'm here to help you make
+            expert opinion or just a little guidance, I&apos;m here to help you make
             the best decisions for your business without the long-term
             commitment.
           </p>
