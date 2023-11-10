@@ -86,7 +86,7 @@ export default function HomePage() {
 
               <CardFooter>
                 <Link
-                  href={`/${slug}`}
+                  href={`/services/${slug}`}
                   className={buttonVariants({ class: "w-full" })}
                 >
                   <span className="truncate">{name}</span>
@@ -118,8 +118,12 @@ export default function HomePage() {
           {Array(4)
             .fill(null)
             .map((_, key) => (
-              <ExternalLink key={key} href="/">
-                <Card className="p-0 hover:shadow-boxy-hover hover:!shadow-indigo-900">
+              <ExternalLink
+                key={key}
+                href="/"
+                className="group hover:text-current md:hover:text-indigo-900"
+              >
+                <Card className="p-0 md:hover:border-indigo-900 md:hover:shadow-boxy-hover md:group-focus-visible:border-indigo-900 md:group-focus-visible:shadow-boxy-hover">
                   <CardContent>
                     <Image
                       src=""
