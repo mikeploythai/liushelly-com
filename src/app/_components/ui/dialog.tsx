@@ -1,9 +1,11 @@
 "use client";
 
 import * as DialogPrimitive from "@radix-ui/react-dialog";
+import { IconX } from "@tabler/icons-react";
 import * as React from "react";
 
 import { cn } from "src/lib/cn";
+import { buttonVariants } from "./button";
 
 const Dialog = DialogPrimitive.Root;
 
@@ -20,7 +22,7 @@ const DialogOverlay = React.forwardRef<
   <DialogPrimitive.Overlay
     ref={ref}
     className={cn(
-      "fixed inset-0 z-50 bg-indigo-950/80 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 dark:bg-gray-950/80",
+      "fixed inset-0 z-50 overflow-y-auto bg-indigo-950/80 ease-in-out data-[state=closed]:duration-300 data-[state=open]:duration-500 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 dark:bg-gray-950/80 md:p-3",
       className,
     )}
     {...props}
@@ -31,38 +33,40 @@ DialogOverlay.displayName = DialogPrimitive.Overlay.displayName;
 const DialogContent = React.forwardRef<
   React.ElementRef<typeof DialogPrimitive.Content>,
   React.ComponentPropsWithoutRef<typeof DialogPrimitive.Content>
->(({ className, children, ...props }, ref) => (
+>(({ className, ...props }, ref) => (
   <DialogPortal>
-    <DialogOverlay />
-    <DialogPrimitive.Content
-      ref={ref}
-      className={cn(
-        "fixed left-[50%] top-[50%] z-50 grid w-full max-w-screen-md translate-x-[-50%] translate-y-[-50%] gap-4 border border-violet-200 bg-indigo-950 p-6 text-violet-200 shadow-lg data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%] dark:border-gray-800 dark:bg-gray-950 md:w-full",
-        className,
-      )}
-      {...props}
-    >
-      {children}
-      {/* <DialogPrimitive.Close className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-white transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-gray-950 focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-gray-100 data-[state=open]:text-gray-500 dark:ring-offset-gray-950 dark:focus:ring-gray-300 dark:data-[state=open]:bg-gray-800 dark:data-[state=open]:text-gray-400">
-        <IconX className="h-4 w-4" />
-        <span className="sr-only">Close</span>
-      </DialogPrimitive.Close> */}
-    </DialogPrimitive.Content>
+    <DialogOverlay>
+      <DialogPrimitive.Content
+        ref={ref}
+        className={cn(
+          "mx-auto flex h-fit min-h-full max-w-screen-md flex-col gap-3 border-violet-200 bg-indigo-950 text-violet-200 ease-in-out data-[state=closed]:duration-300 data-[state=open]:duration-500 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:slide-out-to-bottom-6 data-[state=open]:slide-in-from-bottom-6 md:min-h-fit md:border",
+          className,
+        )}
+        {...props}
+      />
+    </DialogOverlay>
   </DialogPortal>
 ));
 DialogContent.displayName = DialogPrimitive.Content.displayName;
 
 const DialogHeader = ({
+  children,
   className,
   ...props
 }: React.HTMLAttributes<HTMLDivElement>) => (
   <div
     className={cn(
-      "flex flex-col space-y-1.5 text-center sm:text-left",
+      "flex justify-between border-b border-b-violet-200 bg-indigo-950",
       className,
     )}
     {...props}
-  />
+  >
+    {children}
+    <DialogPrimitive.Close className={buttonVariants({ variant: "secondary" })}>
+      <IconX />
+      <span className="sr-only">Close</span>
+    </DialogPrimitive.Close>
+  </div>
 );
 DialogHeader.displayName = "DialogHeader";
 
@@ -70,13 +74,7 @@ const DialogFooter = ({
   className,
   ...props
 }: React.HTMLAttributes<HTMLDivElement>) => (
-  <div
-    className={cn(
-      "flex flex-col-reverse sm:flex-row sm:justify-end sm:space-x-2",
-      className,
-    )}
-    {...props}
-  />
+  <div className={cn("mt-auto flex px-3 pb-3", className)} {...props} />
 );
 DialogFooter.displayName = "DialogFooter";
 
@@ -87,7 +85,7 @@ const DialogTitle = React.forwardRef<
   <DialogPrimitive.Title
     ref={ref}
     className={cn(
-      "text-lg font-semibold leading-none tracking-tight",
+      "px-6 py-3 font-heading text-lg font-medium capitalize",
       className,
     )}
     {...props}
@@ -95,23 +93,23 @@ const DialogTitle = React.forwardRef<
 ));
 DialogTitle.displayName = DialogPrimitive.Title.displayName;
 
-const DialogDescription = React.forwardRef<
-  React.ElementRef<typeof DialogPrimitive.Description>,
-  React.ComponentPropsWithoutRef<typeof DialogPrimitive.Description>
->(({ className, ...props }, ref) => (
-  <DialogPrimitive.Description
-    ref={ref}
-    className={cn("text-sm text-gray-500 dark:text-gray-400", className)}
-    {...props}
-  />
-));
-DialogDescription.displayName = DialogPrimitive.Description.displayName;
+// const DialogDescription = React.forwardRef<
+//   React.ElementRef<typeof DialogPrimitive.Description>,
+//   React.ComponentPropsWithoutRef<typeof DialogPrimitive.Description>
+// >(({ className, ...props }, ref) => (
+//   <DialogPrimitive.Description
+//     ref={ref}
+//     className={cn("text-sm text-gray-500 dark:text-gray-400", className)}
+//     {...props}
+//   />
+// ));
+// DialogDescription.displayName = DialogPrimitive.Description.displayName;
 
 export {
   Dialog,
   DialogClose,
   DialogContent,
-  DialogDescription,
+  // DialogDescription,
   DialogFooter,
   DialogHeader,
   DialogOverlay,
