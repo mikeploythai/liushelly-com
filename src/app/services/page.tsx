@@ -20,7 +20,7 @@ export default function ServicesPage() {
   return (
     <PageWrapper>
       <section className="mx-auto flex max-w-screen-md flex-col items-center gap-6 p-6">
-        <h1 className="font-heading text-3xl font-medium md:py-12 md:text-center md:text-4xl">
+        <h1 className="font-heading text-3xl font-medium md:py-6 md:text-center md:text-4xl">
           Take your brand&apos;s social media presence to the next level.
         </h1>
 
