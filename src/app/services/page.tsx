@@ -77,10 +77,10 @@ export default function ServicesPage() {
             Not ready for social media management?
           </h2>
 
-          <p>
+          <p className="text-sm md:text-base">
             My one-time services are the perfect solution! Whether you need an
-            expert opinion or just a little guidance, I&apos;m here to help you make
-            the best decisions for your business without the long-term
+            expert opinion or just a little guidance, I&apos;m here to help you
+            make the best decisions for your business without the long-term
             commitment.
           </p>
         </hgroup>
