@@ -1,7 +1,7 @@
 "use server";
 
+import ContactFormEmail from "react-email/contact-form-email";
 import { Resend } from "resend";
-import ContactFormEmail from "~/app/_components/contact-form-email";
 import { env } from "~/env.mjs";
 import { contactFormSchema } from "./schema";
 
