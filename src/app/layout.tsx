@@ -41,7 +41,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={cn(unbounded.variable, montserrat.variable)}>
-      <body className="flex min-h-screen flex-col bg-violet-200 font-body text-indigo-950 antialiased [text-wrap:pretty]">
+      <body className="flex min-h-screen flex-col bg-violet-200 font-body text-indigo-950 antialiased [text-wrap:pretty] selection:bg-indigo-600 selection:text-violet-100">
         <noscript className="bg-indigo-950 p-2 text-center text-sm font-medium text-violet-200">
           Please enable JavaScript for the best experience.
         </noscript>
@@ -115,7 +115,7 @@ function Footer() {
   const year = date.getFullYear();
 
   return (
-    <footer className="border-b-8 border-b-indigo-950">
+    <footer>
       <div className="mx-auto flex max-w-screen-md flex-col justify-between gap-6 p-6 sm:flex-row sm:items-center md:py-12">
         <div className="space-y-1.5">
           <p className="font-heading text-lg font-medium">
