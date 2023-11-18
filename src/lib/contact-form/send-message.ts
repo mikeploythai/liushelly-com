@@ -2,10 +2,10 @@
 
 import ContactFormEmail from "react-email/contact-form-email";
 import { Resend } from "resend";
-import { env } from "~/env.mjs";
+import { serverEnv } from "~/env/server.mjs";
 import { contactFormSchema } from "./schema";
 
-const resend = new Resend(env.RESEND_API_KEY);
+const resend = new Resend(serverEnv.RESEND_API_KEY);
 
 // eslint-disable-next-line @typescript-eslint/require-await
 export default async function sendMessage(form: unknown) {
@@ -21,8 +21,8 @@ export default async function sendMessage(form: unknown) {
 
   try {
     const { error } = await resend.emails.send({
-      from: `${name} <${env.RESEND_FROM}>`,
-      to: [env.RESEND_TO],
+      from: `${name} <${serverEnv.RESEND_FROM}>`,
+      to: [serverEnv.RESEND_TO],
       subject,
       text: `
         Socials by Shelly\n
