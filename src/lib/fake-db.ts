@@ -1,9 +1,15 @@
 export const services = [
-  { name: "social media management", slug: "social-media-management" },
-  { name: "1:1 strategy session", slug: "strategy-session" },
-  { name: "instagram audit", slug: "instagram-audit" },
-  { name: "custom instagram templates", slug: "custom-instagram-templates" },
-  { name: "blog writing", slug: "blog-writing" },
+  {
+    name: "social media management",
+    link: "/services/social-media-management",
+  },
+  { name: "1:1 strategy session", link: "/services/strategy-session" },
+  { name: "instagram audit", link: "/services/instagram-audit" },
+  {
+    name: "custom instagram templates",
+    link: "/services/custom-instagram-templates",
+  },
+  { name: "blog writing", link: "/services/blog-writing" },
 ];
 
 export const testimonials = [
@@ -31,4 +37,13 @@ export const socials = [
   { name: "instagram", href: "/" },
   { name: "tiktok", href: "/" },
   { name: "linkedin", href: "/" },
+];
+
+export const portfolio = [
+  { name: "brand 1", link: "/portfolio/brand-1" },
+  { name: "brand 2", link: "/portfolio/brand-2" },
+  { name: "brand 3", link: "/portfolio/brand-3" },
+  { name: "brand 4", link: "/portfolio/brand-4" },
+  { name: "brand 5", link: "/portfolio/brand-5" },
+  { name: "brand 6", link: "/portfolio/brand-6" },
 ];
