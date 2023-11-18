@@ -19,14 +19,22 @@ export default function ContactForm() {
 
     if (!parsedEntries.success) {
       parsedEntries.error.issues.map((issue) =>
-        toast({ title: "Error!", description: issue.message }),
+        toast({
+          title: "Error!",
+          description: issue.message,
+          variant: "destructive",
+        }),
       );
       return;
     }
 
     const res = await sendMessage(parsedEntries.data);
     if (res?.error) {
-      toast({ title: "Error!", description: res.error });
+      toast({
+        title: "Error!",
+        description: res.error,
+        variant: "destructive",
+      });
       return;
     }
 
