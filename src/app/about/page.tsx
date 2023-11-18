@@ -54,7 +54,7 @@ export default function AboutPage() {
                   alt=""
                   width={320}
                   height={480}
-                  className="h-full bg-violet-50"
+                  className="h-full bg-white"
                 />
               </CardContent>
             </Card>

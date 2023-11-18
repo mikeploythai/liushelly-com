@@ -99,7 +99,7 @@ export default function ServicesPage() {
                 <Image
                   src=""
                   alt=""
-                  className="border border-indigo-950 bg-violet-50"
+                  className="border border-indigo-950 bg-white"
                   fill
                 />
               </CardContent>

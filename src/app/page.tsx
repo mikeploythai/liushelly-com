@@ -41,7 +41,7 @@ export default function HomePage() {
             alt=""
             width={288}
             height={432}
-            className="h-full w-full bg-violet-50 sm:w-72"
+            className="h-full w-full bg-white sm:w-72"
           />
 
           <span className="absolute inset-0 bg-gradient-to-tr from-indigo-950 from-15% to-transparent sm:hidden" />
@@ -79,7 +79,7 @@ export default function HomePage() {
                 <Image
                   src=""
                   alt=""
-                  className="border border-indigo-950 bg-violet-50"
+                  className="border border-indigo-950 bg-white"
                   fill
                 />
               </CardContent>
@@ -130,7 +130,7 @@ export default function HomePage() {
                       alt=""
                       width={1080}
                       height={1350}
-                      className="h-full bg-violet-50"
+                      className="h-full bg-white"
                     />
                   </CardContent>
                 </Card>
