@@ -22,7 +22,7 @@ export default function ContactFormEmail({
       <Head />
       <Tailwind>
         <Body className="bg-white font-sans text-indigo-900">
-          <Container className="mx-auto my-12 border border-solid border-indigo-900 bg-violet-100 p-12">
+          <Container className="mx-auto my-12 border border-solid border-indigo-900 bg-violet-100 p-12 shadow-xl">
             <Heading className="">Socials by Shelly</Heading>
 
             <Text className="text-lg font-medium uppercase">
