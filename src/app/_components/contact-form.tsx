@@ -1,10 +1,11 @@
 "use client";
 
 import { IconSend } from "@tabler/icons-react";
-import { useRef } from "react";
-import { sendMessage } from "~/lib/actions";
+import { useRef, type InputHTMLAttributes } from "react";
+import { useFormStatus } from "react-dom";
 import { cn } from "~/lib/cn";
-import { sendMessageSchema } from "~/lib/zod-schemas";
+import { contactFormSchema } from "~/lib/contact-form/schema";
+import sendMessage from "~/lib/contact-form/send-message";
 import { Button } from "./ui/button";
 import { useToast } from "./ui/use-toast";
 
@@ -14,7 +15,7 @@ export default function ContactForm() {
 
   async function action(form: FormData) {
     const entries = Object.fromEntries(form.entries());
-    const parsedEntries = sendMessageSchema.safeParse(entries);
+    const parsedEntries = contactFormSchema.safeParse(entries);
 
     if (!parsedEntries.success) {
       parsedEntries.error.issues.map((issue) =>
@@ -24,45 +25,99 @@ export default function ContactForm() {
     }
 
     const res = await sendMessage(parsedEntries.data);
-    if (res?.error) toast({ title: "Error!", description: res.error });
+    if (res?.error) {
+      toast({ title: "Error!", description: res.error });
+      return;
+    }
 
     toast({ title: "Success!", description: "Your message has been sent." });
     formRef.current?.reset();
   }
 
-  const inputs = [
-    { name: "name", label: "What's your name?" },
-    { name: "email", label: "What's your email address?" },
-    { name: "subject", label: "What would you like to talk about?" },
-    { name: "message", label: "Tell me more!" },
-  ];
-
   return (
     <form ref={formRef} action={action} className="grid gap-3">
-      {inputs.map(({ name, label }) => {
-        const styles = cn(
-          "border-current transition focus:ring-2 focus:ring-current",
-          name === "message" && "min-h-[160px]",
-        );
+      {formFields.map((field) => (
+        <ContactFormFields key={field.name} field={field} />
+      ))}
 
-        return (
-          <div key={name} className="grid gap-1.5">
-            <label htmlFor={name} className="text-sm font-medium">
-              {label} *
-            </label>
-            {name !== "message" ? (
-              <input name={name} id={name} className={styles} />
-            ) : (
-              <textarea name={name} id={name} className={styles} />
-            )}
-          </div>
-        );
-      })}
-
-      <Button type="submit" className="w-full">
-        Send message
-        <IconSend size={18} className="ml-auto" />
-      </Button>
+      <ContactFormSubmit />
     </form>
   );
 }
+
+function ContactFormFields({ field }: { field: FormField }) {
+  const { pending } = useFormStatus();
+
+  const styles = cn(
+    "border-current transition focus:ring-2 focus:ring-current",
+    field.name === "message" && "min-h-[160px]",
+  );
+
+  return (
+    <div className="grid gap-1.5">
+      <label htmlFor={field.name} className="text-sm font-medium">
+        {field.labelText} *
+      </label>
+
+      {field.name !== "message" ? (
+        <input
+          name={field.name}
+          id={field.name}
+          type={field.type}
+          placeholder={field.placeholder}
+          disabled={pending}
+          className={styles}
+        />
+      ) : (
+        <textarea
+          name={field.name}
+          id={field.name}
+          placeholder={field.placeholder}
+          disabled={pending}
+          className={styles}
+        />
+      )}
+    </div>
+  );
+}
+
+function ContactFormSubmit() {
+  const { pending } = useFormStatus();
+
+  return (
+    <Button type="submit" disabled={pending} className="w-full">
+      {!pending ? "Send message" : "Sending message"}
+      <IconSend size={18} className="ml-auto" />
+    </Button>
+  );
+}
+
+interface FormField extends InputHTMLAttributes<HTMLInputElement> {
+  labelText: string;
+}
+
+const formFields: FormField[] = [
+  {
+    name: "name",
+    labelText: "What's your name?",
+    type: "text",
+    placeholder: "John",
+  },
+  {
+    name: "email",
+    labelText: "What's your email address?",
+    type: "email",
+    placeholder: "john@doe.com",
+  },
+  {
+    name: "subject",
+    labelText: "What would you like to talk about?",
+    type: "text",
+    placeholder: "I'd like to...",
+  },
+  {
+    name: "message",
+    labelText: "Tell me more!",
+    placeholder: "Hello! I wanted to inquire about...",
+  },
+];
