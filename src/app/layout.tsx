@@ -16,6 +16,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "./_components/ui/sheet";
+import { Toaster } from "./_components/ui/toaster";
 
 const unbounded = Unbounded({
   subsets: ["latin"],
@@ -47,6 +48,7 @@ export default function RootLayout({
         <Navbar />
         {children}
         <Footer />
+        <Toaster />
       </body>
     </html>
   );
