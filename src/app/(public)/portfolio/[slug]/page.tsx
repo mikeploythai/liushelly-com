@@ -1,4 +1,4 @@
-import PageWrapper from "~/app/_components/page-wrapper";
+import PageWrapper from "~/app/(public)/_components/page-wrapper";
 
 export default function BrandPage({
   params: { slug },

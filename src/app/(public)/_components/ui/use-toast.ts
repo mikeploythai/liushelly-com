@@ -4,7 +4,7 @@ import * as React from "react";
 import type {
   ToastActionElement,
   ToastProps,
-} from "src/app/_components/ui/toast";
+} from "~/app/(public)/_components/ui/toast";
 
 const TOAST_LIMIT = 4;
 const TOAST_REMOVE_DELAY = 1000000;
