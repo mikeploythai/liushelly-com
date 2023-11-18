@@ -1,9 +1,8 @@
 import { IconArrowUpRight } from "@tabler/icons-react";
-import Image from "next/image";
 import ExternalLink from "../_components/external-link";
 import MarkdownWrapper from "../_components/markdown-wrapper";
 import PageWrapper from "../_components/page-wrapper";
-import { Card, CardContent } from "../_components/ui/card";
+import PhotoGrid from "../_components/photo-grid";
 
 export default function AboutPage() {
   return (
@@ -40,26 +39,7 @@ export default function AboutPage() {
         </p>
       </MarkdownWrapper>
 
-      <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
-        {Array(4)
-          .fill(null)
-          .map((_, key) => (
-            <Card
-              key={key}
-              className="p-0 md:hover:border-indigo-900 md:hover:shadow-boxy-hover md:hover:!shadow-indigo-900"
-            >
-              <CardContent>
-                <Image
-                  src=""
-                  alt=""
-                  width={320}
-                  height={480}
-                  className="h-full bg-white"
-                />
-              </CardContent>
-            </Card>
-          ))}
-      </div>
+      <PhotoGrid width={320} height={480} />
     </PageWrapper>
   );
 }

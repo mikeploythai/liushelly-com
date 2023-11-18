@@ -3,12 +3,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { cn } from "~/lib/cn";
 import { services } from "~/lib/fake-db";
+import CardGrid from "./_components/card-grid";
 import ExternalLink from "./_components/external-link";
 import Marquee from "./_components/marquee";
 import PageWrapper from "./_components/page-wrapper";
+import PhotoGrid from "./_components/photo-grid";
 import Testimonials from "./_components/testimonials";
 import { buttonVariants } from "./_components/ui/button";
-import { Card, CardContent, CardFooter } from "./_components/ui/card";
 
 export default function HomePage() {
   const servicesList = services.slice(0, 3);
@@ -65,37 +66,7 @@ export default function HomePage() {
           </Link>
         </div>
 
-        <div className="grid gap-3 sm:grid-cols-2 md:grid-cols-3">
-          {servicesList.map(({ name, slug }, i) => (
-            <Card
-              key={name}
-              className={cn(
-                servicesList.length % 2 &&
-                  i === servicesList.length - 1 &&
-                  "sm:col-span-2 md:col-span-1",
-              )}
-            >
-              <CardContent className="relative h-32 sm:h-40">
-                <Image
-                  src=""
-                  alt=""
-                  className="border border-indigo-950 bg-white"
-                  fill
-                />
-              </CardContent>
-
-              <CardFooter>
-                <Link
-                  href={`/services/${slug}`}
-                  className={buttonVariants({ class: "w-full" })}
-                >
-                  <span className="truncate">{name}</span>
-                  <IconChevronRight size={18} className="ml-auto" />
-                </Link>
-              </CardFooter>
-            </Card>
-          ))}
-        </div>
+        <CardGrid list={servicesList} className="md:grid-cols-3" />
       </section>
 
       <section className="bg-indigo-950">
@@ -114,29 +85,7 @@ export default function HomePage() {
           </ExternalLink>
         </div>
 
-        <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
-          {Array(4)
-            .fill(null)
-            .map((_, key) => (
-              <ExternalLink
-                key={key}
-                href="/"
-                className="group hover:text-current md:hover:text-indigo-900"
-              >
-                <Card className="p-0 md:hover:border-indigo-900 md:hover:shadow-boxy-hover md:group-focus-visible:border-indigo-900 md:group-focus-visible:shadow-boxy-hover">
-                  <CardContent>
-                    <Image
-                      src=""
-                      alt=""
-                      width={1080}
-                      height={1350}
-                      className="h-full bg-white"
-                    />
-                  </CardContent>
-                </Card>
-              </ExternalLink>
-            ))}
-        </div>
+        <PhotoGrid width={1080} height={1350} />
       </section>
     </PageWrapper>
   );

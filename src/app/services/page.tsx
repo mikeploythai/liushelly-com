@@ -1,8 +1,8 @@
 import { IconChevronRight } from "@tabler/icons-react";
 import Image from "next/image";
 import Link from "next/link";
-import { cn } from "~/lib/cn";
 import { services } from "~/lib/fake-db";
+import CardGrid from "../_components/card-grid";
 import MarkdownWrapper from "../_components/markdown-wrapper";
 import Marquee from "../_components/marquee";
 import PageWrapper from "../_components/page-wrapper";
@@ -59,7 +59,7 @@ export default function ServicesPage() {
 
           <CardFooter>
             <Link
-              href={`/services/${services[0]?.slug}`}
+              href={services[0]?.link ?? ""}
               className={buttonVariants({ class: "w-full" })}
             >
               View details
@@ -85,37 +85,7 @@ export default function ServicesPage() {
           </p>
         </hgroup>
 
-        <div className="grid gap-3 sm:grid-cols-2">
-          {servicesList.map(({ name, slug }, i) => (
-            <Card
-              key={name}
-              className={cn(
-                servicesList.length % 2 &&
-                  i === servicesList.length - 1 &&
-                  "sm:col-span-2",
-              )}
-            >
-              <CardContent className="relative h-32 sm:h-40">
-                <Image
-                  src=""
-                  alt=""
-                  className="border border-indigo-950 bg-white"
-                  fill
-                />
-              </CardContent>
-
-              <CardFooter>
-                <Link
-                  href={`/services/${slug}`}
-                  className={buttonVariants({ class: "w-full" })}
-                >
-                  <span className="truncate">{name}</span>
-                  <IconChevronRight size={18} className="ml-auto" />
-                </Link>
-              </CardFooter>
-            </Card>
-          ))}
-        </div>
+        <CardGrid list={servicesList} />
       </section>
     </PageWrapper>
   );
