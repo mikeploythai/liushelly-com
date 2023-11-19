@@ -1,7 +1,13 @@
+import type { ListItem } from "sanity-studio/types";
+
+import { PortableText } from "@portabletext/react";
 import { IconChevronRight } from "@tabler/icons-react";
+import { groq } from "next-sanity";
 import Image from "next/image";
 import Link from "next/link";
-import { services } from "~/lib/fake-db";
+import { client } from "sanity-studio/lib/client";
+import { sanityImage } from "sanity-studio/lib/image";
+import { BlockImage, BlockLink } from "sanity-studio/portable-text/components";
 import CardGrid from "../_components/card-grid";
 import MarkdownWrapper from "../_components/markdown-wrapper";
 import Marquee from "../_components/marquee";
@@ -14,7 +20,14 @@ import {
   CardHeader,
 } from "../_components/ui/card";
 
-export default function ServicesPage() {
+export default async function ServicesPage() {
+  const services: ListItem[] = await client.fetch(query, {
+    next: {
+      cache: "no-store",
+    },
+  });
+
+  if (!services) return;
   const servicesList = services.slice(1, services.length);
 
   return (
@@ -26,40 +39,47 @@ export default function ServicesPage() {
 
         <Card className="w-full">
           <CardHeader className="relative min-h-[208px] sm:aspect-[16/6] sm:min-h-0">
-            <Image
-              src=""
-              alt=""
-              className="border border-indigo-950 bg-white"
-              fill
-            />
+            {services[0]?.image && (
+              <Image
+                src={sanityImage(services[0].image).format("webp").url()}
+                alt={services[0].name ?? ""}
+                placeholder="blur"
+                blurDataURL={services[0].image.lqip}
+                className="border border-indigo-950 bg-white object-cover"
+                fill
+              />
+            )}
           </CardHeader>
 
           <CardContent className="border border-dashed border-indigo-950 p-3">
             <MarkdownWrapper className="prose-headings:capitalize">
               <h2>
-                <b>DONE FOR YOU</b>
-                <br></br>
-                social media management
+                {services[0]?.name.toLowerCase() ===
+                "social media management" ? (
+                  <>
+                    <b className="uppercase underline">Done for you</b>{" "}
+                    {services[0].name}
+                  </>
+                ) : (
+                  services[0]?.name
+                )}
               </h2>
 
-              <p>
-                This is my flagship service, where I get hands-on and take
-                charge of your social media platforms!
-              </p>
-
-              <p>
-                With four different tiers to choose from, you can select the one
-                that&apos;s best suited for your business&apos; budget and
-                specific needs. Each tier offers different levels of account
-                management, post creation, and audience engagement, ensuring
-                maximum flexibility and customization.
-              </p>
+              {services[0]?.content && (
+                <PortableText
+                  value={services[0].content}
+                  components={{
+                    types: { image: BlockImage },
+                    marks: { link: BlockLink },
+                  }}
+                />
+              )}
             </MarkdownWrapper>
           </CardContent>
 
           <CardFooter>
             <Link
-              href={services[0]?.link ?? ""}
+              href={`/${services[0]?._type}/${services[0]?.slug.current}`}
               className={buttonVariants({ class: "w-full" })}
             >
               View details
@@ -90,3 +110,13 @@ export default function ServicesPage() {
     </PageWrapper>
   );
 }
+
+const query = groq`
+*[_type == "services"][] {
+  ...,
+  image {
+    ...,
+    'lqip': asset->metadata.lqip,
+  },
+}
+`;
