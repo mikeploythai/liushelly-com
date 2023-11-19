@@ -1,16 +1,16 @@
+import type { ListItem } from "sanity-studio/types";
+
 import { IconChevronRight } from "@tabler/icons-react";
 import Image from "next/image";
 import Link from "next/link";
 import { forwardRef, type HTMLAttributes } from "react";
+import { sanityImage } from "sanity-studio/lib/image";
 import { cn } from "~/lib/cn";
 import { buttonVariants } from "./ui/button";
 import { Card, CardContent, CardFooter } from "./ui/card";
 
 interface CardGridProps extends HTMLAttributes<HTMLDivElement> {
-  list: {
-    name: string;
-    link: string;
-  }[];
+  list: ListItem[];
 }
 
 const CardGrid = forwardRef<HTMLDivElement, CardGridProps>(
@@ -20,7 +20,7 @@ const CardGrid = forwardRef<HTMLDivElement, CardGridProps>(
       className={cn("grid gap-3 sm:grid-cols-2", className)}
       {...props}
     >
-      {list.map(({ name, link }, i) => (
+      {list.map(({ name, image, slug, _type }, i) => (
         <Card
           key={i}
           className={cn(
@@ -31,15 +31,18 @@ const CardGrid = forwardRef<HTMLDivElement, CardGridProps>(
         >
           <CardContent className="relative h-32 sm:h-40">
             <Image
-              src=""
-              alt=""
-              className="border border-indigo-950 bg-white"
+              src={sanityImage(image).format("webp").url()}
+              alt={name}
+              className="border border-indigo-950 bg-white object-cover"
               fill
             />
           </CardContent>
 
           <CardFooter>
-            <Link href={link} className={buttonVariants({ class: "w-full" })}>
+            <Link
+              href={`/${_type}/${slug.current}`}
+              className={buttonVariants({ class: "w-full" })}
+            >
               <span className="truncate">{name}</span>
               <IconChevronRight size={18} className="ml-auto" />
             </Link>
