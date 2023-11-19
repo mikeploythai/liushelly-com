@@ -1,9 +1,11 @@
+import type { ListItem } from "sanity-studio/types";
+
 import { client } from "sanity-studio/lib/client";
 import CardGrid from "../_components/card-grid";
 import PageWrapper from "../_components/page-wrapper";
 
 export default async function PortfolioPage() {
-  const portfolio = await client.fetch(`*[_type == "portfolio"]`, {
+  const portfolio: ListItem[] = await client.fetch(`*[_type == "portfolio"]`, {
     next: {
       cache: "no-store",
     },
