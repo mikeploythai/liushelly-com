@@ -6,6 +6,15 @@ await import("./src/env/client.mjs");
 await import("./src/env/server.mjs");
 
 /** @type {import("next").NextConfig} */
-const config = {};
+const config = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "cdn.sanity.io",
+      },
+    ],
+  },
+};
 
 export default config;
