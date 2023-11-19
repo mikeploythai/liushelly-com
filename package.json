@@ -10,6 +10,7 @@
     "ui:add": "pnpm dlx shadcn-ui@latest add"
   },
   "dependencies": {
+    "@portabletext/react": "^3.0.11",
     "@radix-ui/react-dialog": "^1.0.5",
     "@radix-ui/react-slot": "^1.0.2",
     "@radix-ui/react-toast": "^1.1.5",
@@ -23,6 +24,7 @@
     "@react-email/section": "^0.0.10",
     "@react-email/tailwind": "^0.0.12",
     "@react-email/text": "^0.0.6",
+    "@sanity/asset-utils": "^1.3.0",
     "@sanity/image-url": "^1.0.2",
     "@sanity/vision": "^3.20.0",
     "@t3-oss/env-nextjs": "^0.7.1",
