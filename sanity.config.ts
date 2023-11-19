@@ -8,7 +8,7 @@ import { deskTool } from "sanity/desk";
 
 // Go to https://www.sanity.io/docs/api-versioning to learn how API versioning works
 import { clientEnv } from "~/env/client.mjs";
-import { schema } from "./sanity/schema";
+import { schema } from "./sanity-studio/schema";
 
 export default defineConfig({
   basePath: "/studio",

@@ -7,6 +7,6 @@ const imageBuilder = createImageUrlBuilder({
   dataset: clientEnv.NEXT_PUBLIC_SANITY_DATASET,
 });
 
-export const urlForImage = (source: Image) => {
+export const sanityImage = (source: Image) => {
   return imageBuilder?.image(source).auto("format").fit("max");
 };
