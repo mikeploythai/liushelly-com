@@ -4,7 +4,6 @@ import PageWrapper from "../_components/page-wrapper";
 
 export default async function PortfolioPage() {
   const portfolio = await client.fetch(`*[_type == "portfolio"]`, {
-    type: "portfolio",
     next: {
       cache: "no-store",
     },
