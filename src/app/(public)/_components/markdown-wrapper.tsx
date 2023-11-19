@@ -10,11 +10,11 @@ const MarkdownWrapper = forwardRef<HTMLDivElement, MarkdownHTMLAttributes>(
     <div
       ref={ref}
       className={cn(
-        "prose prose-sm max-w-none space-y-3 md:prose-base prose-headings:font-heading prose-headings:font-medium prose-blockquote:border-none prose-blockquote:p-0 prose-blockquote:font-normal",
+        "prose prose-sm max-w-none md:prose-base prose-headings:font-heading prose-headings:font-medium prose-a:normal-case prose-blockquote:border-none prose-blockquote:p-0 prose-blockquote:font-normal",
         theme === "default" &&
-          "text-indigo-950 prose-headings:text-indigo-950 prose-a:text-indigo-950 prose-blockquote:text-indigo-950",
+          "text-indigo-950 marker:text-indigo-950 prose-headings:text-indigo-950 prose-a:text-indigo-950 prose-blockquote:text-indigo-950",
         theme === "secondary" &&
-          "text-violet-200 prose-headings:text-violet-200 prose-a:text-violet-200 prose-blockquote:text-violet-200",
+          "text-violet-200 marker:text-violet-200 prose-headings:text-violet-200 prose-a:text-violet-200 prose-blockquote:text-violet-200",
         className,
       )}
       {...props}
