@@ -18,9 +18,7 @@ export default async function BrandPage({
 }) {
   const brand: ListItem = await client.fetch(query, {
     slug,
-    next: {
-      cache: "no-store",
-    },
+    next: { cache: "no-store" },
   });
 
   if (!brand) return;
@@ -36,7 +34,7 @@ export default async function BrandPage({
       </Link>
 
       <MarkdownWrapper>
-        <article>
+        <article className="w-full">
           <PortableText
             value={brand.content}
             components={{
