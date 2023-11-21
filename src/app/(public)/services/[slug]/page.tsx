@@ -1,11 +1,11 @@
-import Link from "next/link";
-import { client } from "sanity-studio/lib/client";
 import type { ListItem } from "sanity-studio/types";
 
 import { PortableText } from "@portabletext/react";
 import { IconArrowUpRight, IconChevronLeft } from "@tabler/icons-react";
 import { groq } from "next-sanity";
 import Image from "next/image";
+import Link from "next/link";
+import { client } from "sanity-studio/lib/client";
 import { sanityImage } from "sanity-studio/lib/image";
 import { BlockImage, BlockLink } from "sanity-studio/portable-text/components";
 import PageWrapper from "~/app/(public)/_components/page-wrapper";
@@ -32,9 +32,7 @@ export default async function ServicePage({
 }) {
   const service: ListItem = await client.fetch(query, {
     slug,
-    next: {
-      cache: "no-store",
-    },
+    next: { cache: "no-store" },
   });
 
   if (!service) return;
@@ -62,13 +60,6 @@ export default async function ServicePage({
             fill
           />
         </figure>
-
-        <h2>
-          {service.name.toLowerCase() === "social media management" && (
-            <b className="uppercase underline">Done for you</b>
-          )}{" "}
-          {service.name}
-        </h2>
 
         <PortableText
           value={service.content}

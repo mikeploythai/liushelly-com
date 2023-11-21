@@ -2,12 +2,12 @@ import type { ListItem } from "sanity-studio/types";
 
 import { PortableText } from "@portabletext/react";
 import { IconChevronRight } from "@tabler/icons-react";
-import { groq } from "next-sanity";
 import Image from "next/image";
 import Link from "next/link";
 import { client } from "sanity-studio/lib/client";
 import { sanityImage } from "sanity-studio/lib/image";
 import { BlockImage, BlockLink } from "sanity-studio/portable-text/components";
+import { orderableQuery } from "sanity-studio/queries";
 import CardGrid from "../_components/card-grid";
 import MarkdownWrapper from "../_components/markdown-wrapper";
 import Marquee from "../_components/marquee";
@@ -21,10 +21,9 @@ import {
 } from "../_components/ui/card";
 
 export default async function ServicesPage() {
-  const services: ListItem[] = await client.fetch(query, {
-    next: {
-      cache: "no-store",
-    },
+  const services: ListItem[] = await client.fetch(orderableQuery, {
+    type: "services",
+    next: { cache: "no-store" },
   });
 
   if (!services) return;
@@ -53,18 +52,6 @@ export default async function ServicesPage() {
 
           <CardContent className="border border-dashed border-indigo-950 p-3">
             <MarkdownWrapper className="prose-headings:capitalize">
-              <h2>
-                {services[0]?.name.toLowerCase() ===
-                "social media management" ? (
-                  <>
-                    <b className="uppercase underline">Done for you</b>{" "}
-                    {services[0].name}
-                  </>
-                ) : (
-                  services[0]?.name
-                )}
-              </h2>
-
               {services[0]?.content && (
                 <PortableText
                   value={services[0].content}
@@ -110,13 +97,3 @@ export default async function ServicesPage() {
     </PageWrapper>
   );
 }
-
-const query = groq`
-*[_type == "services"][] {
-  ...,
-  image {
-    ...,
-    'lqip': asset->metadata.lqip,
-  },
-}
-`;
