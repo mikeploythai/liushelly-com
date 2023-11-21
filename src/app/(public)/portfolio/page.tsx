@@ -1,14 +1,15 @@
 import type { ListItem } from "sanity-studio/types";
 
-import { client } from "sanity-studio/lib/client";
+import { sanityFetch } from "sanity-studio/lib/fetch";
 import { orderableQuery } from "sanity-studio/queries";
 import CardGrid from "../_components/card-grid";
 import PageWrapper from "../_components/page-wrapper";
 
 export default async function PortfolioPage() {
-  const portfolio: ListItem[] = await client.fetch(orderableQuery, {
-    type: "portfolio",
-    next: { tags: ["portfolio"] },
+  const portfolio = await sanityFetch<ListItem[]>({
+    query: orderableQuery,
+    params: { type: "portfolio" },
+    tags: ["portfolio"],
   });
 
   if (!portfolio) return;

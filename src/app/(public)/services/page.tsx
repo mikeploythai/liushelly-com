@@ -4,7 +4,7 @@ import { PortableText } from "@portabletext/react";
 import { IconChevronRight } from "@tabler/icons-react";
 import Image from "next/image";
 import Link from "next/link";
-import { client } from "sanity-studio/lib/client";
+import { sanityFetch } from "sanity-studio/lib/fetch";
 import { sanityImage } from "sanity-studio/lib/image";
 import { BlockImage, BlockLink } from "sanity-studio/portable-text/components";
 import { orderableQuery } from "sanity-studio/queries";
@@ -21,9 +21,10 @@ import {
 } from "../_components/ui/card";
 
 export default async function ServicesPage() {
-  const services: ListItem[] = await client.fetch(orderableQuery, {
-    type: "services",
-    next: { tags: ["services"] },
+  const services = await sanityFetch<ListItem[]>({
+    query: orderableQuery,
+    params: { type: "services" },
+    tags: ["services"],
   });
 
   if (!services) return;

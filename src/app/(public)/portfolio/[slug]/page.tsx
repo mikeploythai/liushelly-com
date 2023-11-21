@@ -4,7 +4,7 @@ import { PortableText } from "@portabletext/react";
 import { IconChevronLeft } from "@tabler/icons-react";
 import { groq } from "next-sanity";
 import Link from "next/link";
-import { client } from "sanity-studio/lib/client";
+import { sanityFetch } from "sanity-studio/lib/fetch";
 import { BlockImage, BlockLink } from "sanity-studio/portable-text/components";
 import { cn } from "~/lib/cn";
 import MarkdownWrapper from "../../_components/markdown-wrapper";
@@ -16,9 +16,10 @@ export default async function BrandPage({
 }: {
   params: { slug: string };
 }) {
-  const brand: ListItem = await client.fetch(query, {
-    slug,
-    next: { tags: ["portfolio"] },
+  const brand: ListItem = await sanityFetch({
+    query,
+    params: { slug },
+    tags: ["portfolio"],
   });
 
   if (!brand) return;

@@ -3,7 +3,7 @@ import type { ListItem } from "sanity-studio/types";
 import { IconArrowUpRight, IconChevronRight } from "@tabler/icons-react";
 import Image from "next/image";
 import Link from "next/link";
-import { client } from "sanity-studio/lib/client";
+import { sanityFetch } from "sanity-studio/lib/fetch";
 import { orderableQuery } from "sanity-studio/queries";
 import { cn } from "~/lib/cn";
 import CardGrid from "./_components/card-grid";
@@ -15,9 +15,10 @@ import Testimonials from "./_components/testimonials";
 import { buttonVariants } from "./_components/ui/button";
 
 export default async function HomePage() {
-  const services: ListItem[] = await client.fetch(orderableQuery, {
-    type: "services",
-    next: { tags: ["services"] },
+  const services = await sanityFetch<ListItem[]>({
+    query: orderableQuery,
+    params: { type: "services" },
+    tags: ["services"],
   });
 
   if (!services) return;

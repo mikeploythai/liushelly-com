@@ -5,7 +5,7 @@ import { IconArrowUpRight, IconChevronLeft } from "@tabler/icons-react";
 import { groq } from "next-sanity";
 import Image from "next/image";
 import Link from "next/link";
-import { client } from "sanity-studio/lib/client";
+import { sanityFetch } from "sanity-studio/lib/fetch";
 import { sanityImage } from "sanity-studio/lib/image";
 import { BlockImage, BlockLink } from "sanity-studio/portable-text/components";
 import PageWrapper from "~/app/(public)/_components/page-wrapper";
@@ -30,9 +30,10 @@ export default async function ServicePage({
 }: {
   params: { slug: string };
 }) {
-  const service: ListItem = await client.fetch(query, {
-    slug,
-    next: { tags: ["services"] },
+  const service: ListItem = await sanityFetch({
+    query,
+    params: { slug },
+    tags: ["services"],
   });
 
   if (!service) return;
