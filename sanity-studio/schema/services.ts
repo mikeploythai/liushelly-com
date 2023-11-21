@@ -1,7 +1,11 @@
+import { orderRankField } from "@sanity/orderable-document-list";
+import { IconBuildingStore } from "@tabler/icons-react";
 import { defineType } from "sanity";
 
 export default defineType({
   name: "services",
+  title: "Services",
+  icon: IconBuildingStore,
   type: "document",
   fields: [
     {
@@ -26,5 +30,6 @@ export default defineType({
         storeOriginalFilename: false,
       },
     },
+    orderRankField({ type: "name" }),
   ],
 });
