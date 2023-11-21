@@ -17,7 +17,7 @@ import { buttonVariants } from "./_components/ui/button";
 export default async function HomePage() {
   const services: ListItem[] = await client.fetch(orderableQuery, {
     type: "services",
-    next: { cache: "no-store" },
+    next: { tags: ["services"] },
   });
 
   if (!services) return;

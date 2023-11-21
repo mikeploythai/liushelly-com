@@ -8,9 +8,7 @@ import PageWrapper from "../_components/page-wrapper";
 export default async function PortfolioPage() {
   const portfolio: ListItem[] = await client.fetch(orderableQuery, {
     type: "portfolio",
-    next: {
-      cache: "no-store",
-    },
+    next: { tags: ["portfolio"] },
   });
 
   if (!portfolio) return;

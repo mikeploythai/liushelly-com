@@ -18,7 +18,7 @@ export default async function BrandPage({
 }) {
   const brand: ListItem = await client.fetch(query, {
     slug,
-    next: { cache: "no-store" },
+    next: { tags: ["portfolio"] },
   });
 
   if (!brand) return;

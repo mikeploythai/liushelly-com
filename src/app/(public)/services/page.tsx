@@ -23,7 +23,7 @@ import {
 export default async function ServicesPage() {
   const services: ListItem[] = await client.fetch(orderableQuery, {
     type: "services",
-    next: { cache: "no-store" },
+    next: { tags: ["services"] },
   });
 
   if (!services) return;

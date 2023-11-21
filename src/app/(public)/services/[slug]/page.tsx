@@ -32,7 +32,7 @@ export default async function ServicePage({
 }) {
   const service: ListItem = await client.fetch(query, {
     slug,
-    next: { cache: "no-store" },
+    next: { tags: ["services"] },
   });
 
   if (!service) return;
