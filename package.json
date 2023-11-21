@@ -41,6 +41,7 @@
     "react-email": "^1.9.5",
     "resend": "^2.0.0",
     "sanity": "^3.20.1",
+    "server-only": "^0.0.1",
     "styled-components": "^6.1.1",
     "tailwind-merge": "^2.0.0",
     "tailwindcss-animate": "^1.0.7",
