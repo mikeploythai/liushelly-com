@@ -11,6 +11,8 @@ export const serverEnv = createEnv({
     RESEND_API_KEY: z.string().min(1),
     RESEND_FROM: z.string().email(),
     RESEND_TO: z.string().email(),
+    SANITY_STUDIO_PREVIEW_URL: z.string().min(1),
+    SANITY_REVALIDATE_SECRET: z.string().min(1),
   },
 
   /**
@@ -22,6 +24,8 @@ export const serverEnv = createEnv({
     RESEND_API_KEY: process.env.RESEND_API_KEY,
     RESEND_FROM: process.env.RESEND_FROM,
     RESEND_TO: process.env.RESEND_TO,
+    SANITY_STUDIO_PREVIEW_URL: process.env.SANITY_STUDIO_PREVIEW_URL,
+    SANITY_REVALIDATE_SECRET: process.env.SANITY_REVALIDATE_SECRET,
   },
   /**
    * Run `build` or `dev` with `SKIP_ENV_VALIDATION` to skip env validation.
