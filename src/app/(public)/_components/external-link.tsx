@@ -10,11 +10,7 @@ const ExternalLink = forwardRef<
     target="_blank"
     rel="noreferrer"
     ref={ref}
-    className={cn(
-      buttonVariants({ variant: "link" }),
-      "max-w-full p-0",
-      className,
-    )}
+    className={cn(buttonVariants({ variant: "link" }), "p-0", className)}
     {...props}
   />
 ));
