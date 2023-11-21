@@ -1,8 +1,11 @@
+import type { ListItem } from "sanity-studio/types";
+
 import { IconArrowUpRight, IconChevronRight } from "@tabler/icons-react";
 import Image from "next/image";
 import Link from "next/link";
+import { client } from "sanity-studio/lib/client";
+import { orderableQuery } from "sanity-studio/queries";
 import { cn } from "~/lib/cn";
-import { services } from "~/lib/fake-db";
 import CardGrid from "./_components/card-grid";
 import ExternalLink from "./_components/external-link";
 import Marquee from "./_components/marquee";
@@ -11,7 +14,13 @@ import PhotoGrid from "./_components/photo-grid";
 import Testimonials from "./_components/testimonials";
 import { buttonVariants } from "./_components/ui/button";
 
-export default function HomePage() {
+export default async function HomePage() {
+  const services: ListItem[] = await client.fetch(orderableQuery, {
+    type: "services",
+    next: { cache: "no-store" },
+  });
+
+  if (!services) return;
   const servicesList = services.slice(0, 3);
 
   return (
