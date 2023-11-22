@@ -1,11 +1,17 @@
-import type { About } from "sanity-studio/types";
+import type { TypedObject } from "sanity";
+import type { SanityImage } from "sanity-studio/types";
 
-import { groq } from "next-sanity";
+import { groq, type SanityDocument } from "next-sanity";
 import { sanityFetch } from "sanity-studio/lib/fetch";
 import ContentBlock from "../_components/content-block";
 import MarkdownWrapper from "../_components/markdown-wrapper";
 import PageWrapper from "../_components/page-wrapper";
 import PhotoGrid from "../_components/photo-grid";
+
+interface About extends SanityDocument {
+  content: TypedObject[];
+  images: SanityImage[];
+}
 
 export default async function AboutPage() {
   const about = await sanityFetch<About>({ query, tags: ["aboutMe"] });
