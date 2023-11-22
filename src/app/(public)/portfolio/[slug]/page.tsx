@@ -1,12 +1,11 @@
 import type { ListItem } from "sanity-studio/types";
 
-import { PortableText } from "@portabletext/react";
 import { IconChevronLeft } from "@tabler/icons-react";
 import { groq } from "next-sanity";
 import Link from "next/link";
 import { sanityFetch } from "sanity-studio/lib/fetch";
-import { BlockImage, BlockLink } from "sanity-studio/portable-text/components";
 import { cn } from "~/lib/cn";
+import ContentBlock from "../../_components/content-block";
 import MarkdownWrapper from "../../_components/markdown-wrapper";
 import PageWrapper from "../../_components/page-wrapper";
 import { buttonVariants } from "../../_components/ui/button";
@@ -36,13 +35,7 @@ export default async function BrandPage({
 
       <MarkdownWrapper>
         <article className="w-full">
-          <PortableText
-            value={brand.content}
-            components={{
-              types: { image: BlockImage },
-              marks: { link: BlockLink },
-            }}
-          />
+          <ContentBlock content={brand.content} />
         </article>
       </MarkdownWrapper>
     </PageWrapper>

@@ -1,13 +1,11 @@
 import type { ListItem } from "sanity-studio/types";
 
-import { PortableText } from "@portabletext/react";
 import { IconArrowUpRight, IconChevronLeft } from "@tabler/icons-react";
 import { groq } from "next-sanity";
 import Image from "next/image";
 import Link from "next/link";
 import { sanityFetch } from "sanity-studio/lib/fetch";
 import { sanityImage } from "sanity-studio/lib/image";
-import { BlockImage, BlockLink } from "sanity-studio/portable-text/components";
 import PageWrapper from "~/app/(public)/_components/page-wrapper";
 import {
   Tabs,
@@ -16,6 +14,7 @@ import {
   TabsTrigger,
 } from "~/app/(public)/_components/ui/tabs";
 import { cn } from "~/lib/cn";
+import ContentBlock from "../../_components/content-block";
 import MarkdownWrapper from "../../_components/markdown-wrapper";
 import {
   Accordion,
@@ -62,13 +61,7 @@ export default async function ServicePage({
           />
         </figure>
 
-        <PortableText
-          value={service.content}
-          components={{
-            types: { image: BlockImage },
-            marks: { link: BlockLink },
-          }}
-        />
+        <ContentBlock content={service.content} />
       </MarkdownWrapper>
 
       <Link href={`/`} className={buttonVariants({ class: "w-full" })}>

@@ -1,14 +1,13 @@
 import type { ListItem } from "sanity-studio/types";
 
-import { PortableText } from "@portabletext/react";
 import { IconChevronRight } from "@tabler/icons-react";
 import Image from "next/image";
 import Link from "next/link";
 import { sanityFetch } from "sanity-studio/lib/fetch";
 import { sanityImage } from "sanity-studio/lib/image";
-import { BlockImage, BlockLink } from "sanity-studio/portable-text/components";
 import { orderableQuery } from "sanity-studio/queries";
 import CardGrid from "../_components/card-grid";
+import ContentBlock from "../_components/content-block";
 import MarkdownWrapper from "../_components/markdown-wrapper";
 import Marquee from "../_components/marquee";
 import PageWrapper from "../_components/page-wrapper";
@@ -54,13 +53,7 @@ export default async function ServicesPage() {
           <CardContent className="border border-dashed border-indigo-950 p-3">
             <MarkdownWrapper className="prose-headings:capitalize">
               {services[0]?.content && (
-                <PortableText
-                  value={services[0].content}
-                  components={{
-                    types: { image: BlockImage },
-                    marks: { link: BlockLink },
-                  }}
-                />
+                <ContentBlock content={services[0].content} />
               )}
             </MarkdownWrapper>
           </CardContent>
