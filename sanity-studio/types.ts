@@ -12,3 +12,8 @@ export interface ListItem extends SanityDocument {
     current: string;
   };
 }
+
+export interface About extends SanityDocument {
+  content: TypedObject[];
+  images: SanityImage[];
+}
