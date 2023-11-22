@@ -6,10 +6,10 @@ import Link from "next/link";
 import { sanityFetch } from "sanity-studio/lib/fetch";
 import { sanityImage } from "sanity-studio/lib/image";
 import { orderableQuery } from "sanity-studio/queries";
+import Announcement from "../_components/announcement";
 import CardGrid from "../_components/card-grid";
 import ContentBlock from "../_components/content-block";
 import MarkdownWrapper from "../_components/markdown-wrapper";
-import Marquee from "../_components/marquee";
 import PageWrapper from "../_components/page-wrapper";
 import { buttonVariants } from "../_components/ui/button";
 import {
@@ -70,7 +70,7 @@ export default async function ServicesPage() {
         </Card>
       </section>
 
-      <Marquee />
+      <Announcement />
 
       <section className="mx-auto max-w-screen-lg space-y-6 p-6">
         <hgroup className="space-y-3 md:text-center">

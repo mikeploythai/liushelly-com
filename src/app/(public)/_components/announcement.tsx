@@ -1,12 +1,24 @@
+import type { SanityDocument } from "next-sanity";
+
 import { Fragment } from "react";
+import { sanityFetch } from "sanity-studio/lib/fetch";
 import { cn } from "~/lib/cn";
+
+interface Announcement extends SanityDocument {
+  text: string;
+}
 
 /*
   TODO
   - Modify for prefers-reduced-motion later
 */
-export default function Marquee() {
-  const text = "Bookings for winter 2023 are now open";
+export default async function Announcement() {
+  const announcement = await sanityFetch<Announcement>({
+    query: `*[_type == "announcement"][0]`,
+    tags: ["announcement"],
+  });
+
+  if (!announcement) return;
 
   return (
     <section
@@ -15,17 +27,17 @@ export default function Marquee() {
       className="group bg-indigo-950 py-3 md:hover:bg-indigo-900"
     >
       <div className="relative mx-auto flex max-w-screen-2xl overflow-x-hidden font-heading font-medium uppercase text-violet-200">
-        <MarqueeText text={text} type="primary" />
-        <MarqueeText text={text} type="secondary" />
+        <AnnouncementText text={announcement.text} type="primary" />
+        <AnnouncementText text={announcement.text} type="secondary" />
 
-        <MarqueeBound side="left" />
-        <MarqueeBound side="right" />
+        <BannerBound side="left" />
+        <BannerBound side="right" />
       </div>
     </section>
   );
 }
 
-function MarqueeText({
+function AnnouncementText({
   text,
   type,
 }: {
@@ -52,7 +64,7 @@ function MarqueeText({
   );
 }
 
-function MarqueeBound({ side }: { side: "left" | "right" }) {
+function BannerBound({ side }: { side: "left" | "right" }) {
   return (
     <span
       className={cn(

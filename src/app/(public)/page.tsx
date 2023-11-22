@@ -6,9 +6,9 @@ import Link from "next/link";
 import { sanityFetch } from "sanity-studio/lib/fetch";
 import { orderableQuery } from "sanity-studio/queries";
 import { cn } from "~/lib/cn";
+import Announcement from "./_components/announcement";
 import CardGrid from "./_components/card-grid";
 import ExternalLink from "./_components/external-link";
-import Marquee from "./_components/marquee";
 import PageWrapper from "./_components/page-wrapper";
 import PhotoGrid from "./_components/photo-grid";
 import Testimonials from "./_components/testimonials";
@@ -59,7 +59,7 @@ export default async function HomePage() {
         </figure>
       </section>
 
-      <Marquee />
+      <Announcement />
 
       <section className="mx-auto max-w-screen-xl space-y-6 p-6">
         <div className="space-y-3 md:text-center">
