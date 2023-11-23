@@ -19,16 +19,24 @@ export const BlockImage = ({
 }: PortableTextTypeComponentProps<SanityImage>) => {
   const { width, height } = getImageDimensions(value as SanityImageSource);
 
+  function ImageWrapper({ children }: { children: React.ReactNode }) {
+    if (value.href)
+      return <ExternalLink href={value.href}>{children}</ExternalLink>;
+    else return children;
+  }
+
   return (
-    <Image
-      src={sanityImage(value).format("webp").url()}
-      alt=""
-      placeholder="blur"
-      blurDataURL={value.lqip}
-      width={width}
-      height={height}
-      className="border border-indigo-950"
-    />
+    <ImageWrapper>
+      <Image
+        src={sanityImage(value).format("webp").url()}
+        alt={value.alt}
+        placeholder="blur"
+        blurDataURL={value.lqip}
+        width={width}
+        height={height}
+        className="border border-indigo-950"
+      />
+    </ImageWrapper>
   );
 };
 
