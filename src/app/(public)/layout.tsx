@@ -1,10 +1,11 @@
 import "~/styles/globals.css";
 
-import { IconArrowUpRight, IconLink, IconMenu } from "@tabler/icons-react";
+import { IconArrowUpRight, IconMenu } from "@tabler/icons-react";
 import { Montserrat, Unbounded } from "next/font/google";
 import Link from "next/link";
 import ExternalLink from "~/components/external-link";
 import NavbarItems from "~/components/navbar-items";
+import SocialLinks from "~/components/social-links";
 import { Button, buttonVariants } from "~/components/ui/button";
 import {
   Sheet,
@@ -16,7 +17,6 @@ import {
 } from "~/components/ui/sheet";
 import { Toaster } from "~/components/ui/toaster";
 import { cn } from "~/lib/cn";
-import { socials } from "~/lib/fake-db";
 
 const unbounded = Unbounded({
   subsets: ["latin"],
@@ -87,21 +87,7 @@ function Navbar() {
             <NavbarItems isDrawer={true} />
 
             <SheetFooter>
-              {socials.map(({ name, href }) => (
-                <ExternalLink
-                  key={name}
-                  href={href}
-                  className={buttonVariants({
-                    variant: "secondary",
-                    size: "icon",
-                  })}
-                >
-                  <IconLink size={20} />
-                  <span className="sr-only">
-                    Link to Shelly&apos;s {name} page
-                  </span>
-                </ExternalLink>
-              ))}
+              <SocialLinks />
             </SheetFooter>
           </SheetContent>
         </Sheet>
@@ -132,16 +118,7 @@ function Footer() {
         </div>
 
         <div className="flex gap-1.5">
-          {socials.map(({ name, href }) => (
-            <ExternalLink
-              key={name}
-              href={href}
-              className={buttonVariants({ size: "icon" })}
-            >
-              <IconLink size={20} />
-              <span className="sr-only">Link to Shelly&apos;s {name} page</span>
-            </ExternalLink>
-          ))}
+          <SocialLinks />
         </div>
       </div>
     </footer>
