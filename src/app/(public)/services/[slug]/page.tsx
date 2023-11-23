@@ -47,7 +47,7 @@ export default async function ServicePage({
       <MarkdownWrapper>
         <figure className="relative min-h-[208px] sm:aspect-[16/6] sm:min-h-0">
           <Image
-            src={sanityImage(service.image).format("webp").url()}
+            src={sanityImage(service.image).url()}
             alt={service.name}
             placeholder="blur"
             blurDataURL={service.image.lqip}

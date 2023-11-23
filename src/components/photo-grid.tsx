@@ -35,7 +35,7 @@ const PhotoGrid = forwardRef<HTMLDivElement, CardGridProps>(
               <Card className="group p-0 md:hover:border-indigo-900 md:hover:shadow-boxy-hover md:hover:!shadow-indigo-900">
                 <CardContent className="h-full overflow-hidden">
                   <Image
-                    src={sanityImage(image).format("webp").url()}
+                    src={sanityImage(image).url()}
                     alt={image.alt}
                     placeholder="blur"
                     blurDataURL={image.lqip}

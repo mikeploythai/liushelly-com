@@ -28,7 +28,7 @@ export const BlockImage = ({
   return (
     <ImageWrapper>
       <Image
-        src={sanityImage(value).format("webp").url()}
+        src={sanityImage(value).url()}
         alt={value.alt}
         placeholder="blur"
         blurDataURL={value.lqip}

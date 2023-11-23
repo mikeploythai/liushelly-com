@@ -40,7 +40,7 @@ export default async function ServicesPage() {
           <CardHeader className="relative min-h-[208px] sm:aspect-[16/6] sm:min-h-0">
             {services[0]?.image && (
               <Image
-                src={sanityImage(services[0].image).format("webp").url()}
+                src={sanityImage(services[0].image).url()}
                 alt={services[0].name ?? ""}
                 placeholder="blur"
                 blurDataURL={services[0].image.lqip}

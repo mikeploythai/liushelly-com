@@ -31,7 +31,7 @@ const CardGrid = forwardRef<HTMLDivElement, CardGridProps>(
         >
           <CardContent className="relative h-32 sm:h-40">
             <Image
-              src={sanityImage(image).format("webp").url()}
+              src={sanityImage(image).url()}
               alt={name}
               placeholder="blur"
               blurDataURL={image.lqip}
