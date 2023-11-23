@@ -5,9 +5,10 @@ import announcement from "./announcement";
 import home from "./home";
 import portfolio from "./portfolio";
 import services from "./services";
+import socials from "./socials";
 
 const singletons = [home, aboutMe, announcement];
-const orderables = [services, portfolio];
+const orderables = [services, portfolio, socials];
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [...singletons, ...orderables],

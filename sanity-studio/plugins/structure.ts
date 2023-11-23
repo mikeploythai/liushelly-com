@@ -5,17 +5,19 @@ import announcement from "sanity-studio/schema/announcement";
 import home from "sanity-studio/schema/home";
 import portfolio from "sanity-studio/schema/portfolio";
 import services from "sanity-studio/schema/services";
+import socials from "sanity-studio/schema/socials";
 import buildOrderables from "./build-orderables";
 import buildSingletons from "./build-singletons";
 
 const singletons = [home, aboutMe, announcement];
-const orderables = [services, portfolio];
+const orderables = [services, portfolio, socials];
 const hidden = [
   home.name,
   aboutMe.name,
   announcement.name,
   services.name,
   portfolio.name,
+  socials.name,
 ];
 
 const structure: StructureResolver = (S, context) => {
