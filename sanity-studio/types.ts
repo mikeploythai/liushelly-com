@@ -15,6 +15,13 @@ export interface ListItem extends SanityDocument {
   };
 }
 
+export interface Service extends ListItem {
+  faq: {
+    question: string;
+    answer: TypedObject[];
+  }[];
+}
+
 export type Testimonial = {
   author: string;
   quote: TypedObject[];
