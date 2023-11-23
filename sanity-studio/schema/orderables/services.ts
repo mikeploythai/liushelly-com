@@ -27,6 +27,22 @@ export default defineType({
       of: [{ type: "block" }],
     },
     {
+      name: "cta",
+      title: "Call to Action",
+      type: "object",
+      fields: [
+        {
+          name: "reference",
+          type: "reference",
+          to: [{ type: "links" }],
+        },
+        {
+          name: "text",
+          type: "string",
+        },
+      ],
+    },
+    {
       name: "image",
       type: "image",
       options: {

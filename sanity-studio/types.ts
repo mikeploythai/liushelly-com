@@ -16,6 +16,10 @@ export interface ListItem extends SanityDocument {
 }
 
 export interface Service extends ListItem {
+  cta: {
+    text: string;
+    href: string;
+  };
   tabs: {
     name: string;
     content: TypedObject[];
