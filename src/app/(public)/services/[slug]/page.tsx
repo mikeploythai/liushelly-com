@@ -1,4 +1,4 @@
-import type { ListItem } from "sanity-studio/types";
+import type { Service } from "sanity-studio/types";
 
 import { IconArrowUpRight, IconChevronLeft } from "@tabler/icons-react";
 import { groq } from "next-sanity";
@@ -24,13 +24,14 @@ export default async function ServicePage({
 }: {
   params: { slug: string };
 }) {
-  const service: ListItem = await sanityFetch({
+  const service: Service = await sanityFetch({
     query,
     params: { slug },
     tags: ["services"],
   });
 
   if (!service) return;
+  const { name, image, content, faq } = service;
 
   return (
     <PageWrapper className="mx-auto max-w-screen-md space-y-6 p-6 md:p-12">
@@ -47,16 +48,16 @@ export default async function ServicePage({
       <MarkdownWrapper>
         <figure className="relative min-h-[208px] sm:aspect-[16/6] sm:min-h-0">
           <Image
-            src={sanityImage(service.image).url()}
-            alt={service.name}
+            src={sanityImage(image).url()}
+            alt={name}
             placeholder="blur"
-            blurDataURL={service.image.lqip}
+            blurDataURL={image.lqip}
             className="border border-indigo-950 bg-white object-cover"
             fill
           />
         </figure>
 
-        <ContentBlock content={service.content} />
+        <ContentBlock content={content} />
       </MarkdownWrapper>
 
       <Link href={`/`} className={buttonVariants({ class: "w-full" })}>
@@ -76,30 +77,25 @@ export default async function ServicePage({
         <TabsContent value="contents">Change your password here.</TabsContent>
       </Tabs>
 
-      <h3 className="font-heading text-lg font-medium md:text-xl">FAQ</h3>
+      {faq && (
+        <>
+          <h3 className="font-heading text-lg font-medium md:text-xl">FAQ</h3>
 
-      <Accordion type="single" className="!mt-1.5" collapsible>
-        <AccordionItem value="item-1">
-          <AccordionTrigger>Is it accessible?</AccordionTrigger>
-          <AccordionContent>
-            Yes. It adheres to the WAI-ARIA design pattern.
-          </AccordionContent>
-        </AccordionItem>
+          <Accordion type="single" className="!mt-1.5" collapsible>
+            {faq.map(({ question, answer }) => (
+              <AccordionItem key={question} value={question}>
+                <AccordionTrigger>{question}</AccordionTrigger>
 
-        <AccordionItem value="item-2">
-          <AccordionTrigger>Is it accessible?</AccordionTrigger>
-          <AccordionContent>
-            Yes. It adheres to the WAI-ARIA design pattern.
-          </AccordionContent>
-        </AccordionItem>
-
-        <AccordionItem value="item-3">
-          <AccordionTrigger>Is it accessible?</AccordionTrigger>
-          <AccordionContent>
-            Yes. It adheres to the WAI-ARIA design pattern.
-          </AccordionContent>
-        </AccordionItem>
-      </Accordion>
+                <AccordionContent>
+                  <MarkdownWrapper>
+                    <ContentBlock content={answer} />
+                  </MarkdownWrapper>
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </>
+      )}
     </PageWrapper>
   );
 }
