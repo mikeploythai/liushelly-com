@@ -1,4 +1,4 @@
-import { IconBlockquote, IconHome, IconQuote } from "@tabler/icons-react";
+import { IconBlockquote, IconHome } from "@tabler/icons-react";
 import { defineType } from "sanity";
 
 export default defineType({
@@ -27,13 +27,13 @@ export default defineType({
           type: "object",
           fields: [
             {
-              name: "text",
-              type: "string",
+              name: "reference",
+              type: "reference",
+              to: [{ type: "links" }],
             },
             {
-              name: "href",
-              title: "Link",
-              type: "url",
+              name: "text",
+              type: "string",
             },
           ],
         },

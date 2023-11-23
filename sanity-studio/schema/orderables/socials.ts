@@ -13,9 +13,9 @@ export default defineType({
       type: "string",
     },
     {
-      name: "href",
-      title: "Link",
-      type: "url",
+      name: "reference",
+      type: "reference",
+      to: [{ type: "links" }],
     },
     orderRankField({ type: "name" }),
   ],

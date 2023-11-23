@@ -126,11 +126,15 @@ const homeQuery = groq`
       ...,
       'lqip': asset->metadata.lqip,
     },
+    cta {
+      text,
+      'href': reference->href
+    },
   },
   featuredInstagramPosts[] {
     ...,
     'lqip': asset->metadata.lqip,
-  }
+  },
 }`;
 
 const slicedServicesQuery = groq`

@@ -1,4 +1,4 @@
-import type { SanityDocument } from "next-sanity";
+import { groq, type SanityDocument } from "next-sanity";
 
 import {
   IconBrandInstagram,
@@ -22,7 +22,7 @@ interface SocialLink extends SanityDocument {
 
 export default async function SocialLinks() {
   const socialLinks = await sanityFetch<SocialLink[]>({
-    query: `*[_type == "socials"] | order(orderRank)`,
+    query,
     tags: ["socials"],
   });
 
@@ -50,6 +50,12 @@ export default async function SocialLinks() {
     </>
   );
 }
+
+const query = groq`
+*[_type == "socials"] | order(orderRank) {
+  ...,
+  'href': reference->href
+}`;
 
 type Icons = Record<string, (props: TablerIconsProps) => JSX.Element>;
 
