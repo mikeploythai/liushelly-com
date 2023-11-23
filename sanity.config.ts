@@ -12,6 +12,7 @@ import { clientEnv } from "~/env/client.mjs";
 import { schema } from "./sanity-studio/schema";
 
 export default defineConfig({
+  title: "SL Studio",
   basePath: "/studio",
   projectId: clientEnv.NEXT_PUBLIC_SANITY_PROJECT_ID,
   dataset: clientEnv.NEXT_PUBLIC_SANITY_DATASET,
