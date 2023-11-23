@@ -5,6 +5,13 @@ import { orderableQuery } from "sanity-studio/queries";
 import CardGrid from "~/components/card-grid";
 import PageWrapper from "~/components/page-wrapper";
 
+export const metadata = {
+  title: "PORTFOLIO",
+  alternates: {
+    canonical: "/portfolio",
+  },
+};
+
 export default async function PortfolioPage() {
   const portfolio = await sanityFetch<ListItem[]>({
     query: orderableQuery,

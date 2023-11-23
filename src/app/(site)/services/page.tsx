@@ -19,6 +19,13 @@ import {
   CardHeader,
 } from "~/components/ui/card";
 
+export const metadata = {
+  title: "SERVICES",
+  alternates: {
+    canonical: "/services",
+  },
+};
+
 export default async function ServicesPage() {
   const services = await sanityFetch<ListItem[]>({
     query: orderableQuery,

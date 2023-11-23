@@ -3,12 +3,31 @@ import type { ListItem } from "sanity-studio/types";
 import { IconChevronLeft } from "@tabler/icons-react";
 import { groq } from "next-sanity";
 import Link from "next/link";
+import { client } from "sanity-studio/lib/client";
 import { sanityFetch } from "sanity-studio/lib/fetch";
 import ContentBlock from "~/components/content-block";
 import MarkdownWrapper from "~/components/markdown-wrapper";
 import PageWrapper from "~/components/page-wrapper";
 import { buttonVariants } from "~/components/ui/button";
 import { cn } from "~/lib/cn";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}) {
+  const query = groq`
+  *[_type == "portfolio" && slug.current == $slug][0] {
+    name
+  }`;
+
+  const page = await client.fetch<{ name: string }>(query, params);
+  if (!page) return;
+
+  return {
+    title: page.name.toUpperCase(),
+  };
+}
 
 export default async function BrandPage({
   params: { slug },

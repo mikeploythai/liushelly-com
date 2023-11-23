@@ -4,6 +4,7 @@ import { IconArrowUpRight, IconChevronLeft } from "@tabler/icons-react";
 import { groq } from "next-sanity";
 import Image from "next/image";
 import Link from "next/link";
+import { client } from "sanity-studio/lib/client";
 import { sanityFetch } from "sanity-studio/lib/fetch";
 import { sanityImage } from "sanity-studio/lib/image";
 import ContentBlock from "~/components/content-block";
@@ -19,6 +20,24 @@ import { buttonVariants } from "~/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "~/components/ui/tabs";
 import { cn } from "~/lib/cn";
 
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}) {
+  const query = groq`
+  *[_type == "services" && slug.current == $slug][0] {
+    name
+  }`;
+
+  const page = await client.fetch<{ name: string }>(query, params);
+  if (!page) return;
+
+  return {
+    title: page.name.toUpperCase(),
+  };
+}
+
 export default async function ServicePage({
   params: { slug },
 }: {
@@ -31,7 +50,7 @@ export default async function ServicePage({
   });
 
   if (!service) return;
-  const { name, image, content, tabs, faq } = service;
+  const { name, image, cta, content, tabs, faq } = service;
 
   return (
     <PageWrapper className="mx-auto max-w-screen-md space-y-6 p-6 md:p-12">
@@ -60,8 +79,8 @@ export default async function ServicePage({
         <ContentBlock content={content} />
       </MarkdownWrapper>
 
-      <Link href={`/`} className={buttonVariants({ class: "w-full" })}>
-        Book a discovery call
+      <Link href={cta.href} className={buttonVariants({ class: "w-full" })}>
+        {cta.text}
         <IconArrowUpRight size={18} className="ml-auto" />
       </Link>
 
@@ -114,5 +133,9 @@ const query = groq`
   image {
     ...,
     'lqip': asset->metadata.lqip,
+  },
+  cta {
+    text,
+    'href': reference->href
   },
 }`;

@@ -8,6 +8,13 @@ import MarkdownWrapper from "~/components/markdown-wrapper";
 import PageWrapper from "~/components/page-wrapper";
 import PhotoGrid from "~/components/photo-grid";
 
+export const metadata = {
+  title: "ABOUT",
+  alternates: {
+    canonical: "/about",
+  },
+};
+
 interface About extends SanityDocument {
   content: TypedObject[];
   images: SanityImage[];

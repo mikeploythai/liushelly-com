@@ -2,6 +2,13 @@ import ContactForm from "~/components/contact-form";
 import PageWrapper from "~/components/page-wrapper";
 import { Card, CardContent } from "~/components/ui/card";
 
+export const metadata = {
+  title: "CONTACT",
+  alternates: {
+    canonical: "/contact",
+  },
+};
+
 export default function ContactPage() {
   return (
     <PageWrapper className="mx-auto flex w-full max-w-screen-sm flex-col items-center gap-6 p-6">
