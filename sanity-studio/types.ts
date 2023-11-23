@@ -16,6 +16,10 @@ export interface ListItem extends SanityDocument {
 }
 
 export interface Service extends ListItem {
+  tabs: {
+    name: string;
+    content: TypedObject[];
+  }[];
   faq: {
     question: string;
     answer: TypedObject[];

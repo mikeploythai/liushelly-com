@@ -31,7 +31,7 @@ export default async function ServicePage({
   });
 
   if (!service) return;
-  const { name, image, content, faq } = service;
+  const { name, image, content, tabs, faq } = service;
 
   return (
     <PageWrapper className="mx-auto max-w-screen-md space-y-6 p-6 md:p-12">
@@ -65,17 +65,25 @@ export default async function ServicePage({
         <IconArrowUpRight size={18} className="ml-auto" />
       </Link>
 
-      <Tabs defaultValue="packages">
-        <TabsList className="grid grid-cols-2">
-          <TabsTrigger value="packages">Packages</TabsTrigger>
-          <TabsTrigger value="contents">Contents</TabsTrigger>
-        </TabsList>
+      {tabs && (
+        <Tabs defaultValue={tabs[0]?.name}>
+          <TabsList className="flex">
+            {tabs.map(({ name }) => (
+              <TabsTrigger key={name} value={name} className="flex-1 uppercase">
+                {name}
+              </TabsTrigger>
+            ))}
+          </TabsList>
 
-        <TabsContent value="packages">
-          Make changes to your account here.
-        </TabsContent>
-        <TabsContent value="contents">Change your password here.</TabsContent>
-      </Tabs>
+          {tabs.map(({ name, content }) => (
+            <TabsContent key={name} value={name} asChild>
+              <MarkdownWrapper>
+                <ContentBlock content={content} />
+              </MarkdownWrapper>
+            </TabsContent>
+          ))}
+        </Tabs>
+      )}
 
       {faq && (
         <>

@@ -31,6 +31,19 @@ export default defineType({
       },
     },
     {
+      name: "tabs",
+      type: "array",
+      of: [
+        {
+          type: "object",
+          fields: [
+            { name: "name", type: "string" },
+            { name: "content", type: "array", of: [{ type: "block" }] },
+          ],
+        },
+      ],
+    },
+    {
       name: "faq",
       title: "FAQ",
       type: "array",
