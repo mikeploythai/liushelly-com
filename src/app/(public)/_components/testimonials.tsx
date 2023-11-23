@@ -1,13 +1,21 @@
 "use client";
 
+import type { Testimonial } from "sanity-studio/types";
+
 import { IconChevronLeft, IconChevronRight } from "@tabler/icons-react";
 import { useState } from "react";
-import { testimonials } from "~/lib/fake-db";
+import ContentBlock from "./content-block";
 import MarkdownWrapper from "./markdown-wrapper";
 import { Button } from "./ui/button";
 
-export default function Testimonials() {
+export default function Testimonials({
+  testimonials,
+}: {
+  testimonials: Testimonial[];
+}) {
   const [index, setIndex] = useState(0);
+
+  if (!testimonials) return;
 
   function getPrevQuote() {
     if (index === 0) setIndex(testimonials.length - 1);
@@ -43,10 +51,7 @@ export default function Testimonials() {
         theme="secondary"
         className="flex flex-col justify-center prose-p:m-0 md:min-h-[288px] md:p-6"
       >
-        <blockquote>&quot;{testimonials[index]?.quote}&quot;</blockquote>
-        <p className="font-medium">
-          {testimonials[index]?.author}, {testimonials[index]?.role}
-        </p>
+        <ContentBlock content={testimonials[index]!.quote} />
       </MarkdownWrapper>
     </div>
   );
