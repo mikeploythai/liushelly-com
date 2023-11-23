@@ -5,7 +5,7 @@ import * as React from "react";
 import { cn } from "src/lib/cn";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center font-medium uppercase ring-offset-transparent transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 focus-visible:ring-offset-1 disabled:pointer-events-none disabled:opacity-50 dark:focus-visible:ring-gray-300",
+  "inline-flex items-center justify-center font-medium uppercase ring-offset-transparent transition ease-in-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 focus-visible:ring-offset-1 disabled:pointer-events-none disabled:opacity-50 dark:focus-visible:ring-gray-300",
   {
     variants: {
       variant: {
@@ -16,7 +16,7 @@ const buttonVariants = cva(
         outline:
           "border border-indigo-950 bg-transparent hover:bg-violet-100 focus-visible:bg-violet-100 dark:border-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-50",
         secondary:
-          "bg-violet-200 text-indigo-950 hover:bg-indigo-100 hover:text-indigo-950 focus-visible:bg-indigo-100 focus-visible:text-indigo-950 dark:bg-gray-800 dark:text-gray-50 dark:hover:bg-gray-800/80",
+          "bg-violet-200 text-indigo-950 hover:bg-violet-100 hover:text-indigo-950 focus-visible:bg-violet-100 focus-visible:text-indigo-950 dark:bg-gray-800 dark:text-gray-50 dark:hover:bg-gray-800/80",
         ghost:
           "hover:bg-violet-100 hover:text-indigo-900 focus-visible:bg-violet-100 focus-visible:text-indigo-900 dark:hover:bg-gray-800 dark:hover:text-gray-50",
         link: "font-semibold underline underline-offset-4 hover:text-indigo-800 focus-visible:text-indigo-800 dark:text-gray-50",
