@@ -1,5 +1,9 @@
 import { orderRankField } from "@sanity/orderable-document-list";
-import { IconBuildingStore } from "@tabler/icons-react";
+import {
+  IconBuildingStore,
+  IconLayoutGridAdd,
+  IconQuestionMark,
+} from "@tabler/icons-react";
 import { defineType } from "sanity";
 
 export default defineType({
@@ -36,6 +40,7 @@ export default defineType({
       of: [
         {
           type: "object",
+          icon: IconLayoutGridAdd,
           fields: [
             { name: "name", type: "string" },
             { name: "content", type: "array", of: [{ type: "block" }] },
@@ -50,6 +55,7 @@ export default defineType({
       of: [
         {
           type: "object",
+          icon: IconQuestionMark,
           fields: [
             { name: "question", type: "string" },
             { name: "answer", type: "array", of: [{ type: "block" }] },

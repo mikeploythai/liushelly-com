@@ -1,14 +1,14 @@
 import type { SchemaTypeDefinition } from "sanity";
 
-import aboutMe from "./about-me";
-import announcement from "./announcement";
-import home from "./home";
-import portfolio from "./portfolio";
-import services from "./services";
-import socials from "./socials";
+import aboutMe from "./singletons/about-me";
+import announcement from "./singletons/announcement";
+import home from "./singletons/home";
+import portfolio from "./orderables/portfolio";
+import services from "./orderables/services";
+import socials from "./orderables/socials";
 
-const singletons = [home, aboutMe, announcement];
-const orderables = [services, portfolio, socials];
+export const singletons = [home, aboutMe, announcement];
+export const orderables = [services, portfolio, socials];
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [...singletons, ...orderables],
