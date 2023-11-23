@@ -3,11 +3,9 @@ import "~/styles/globals.css";
 import { IconArrowUpRight, IconLink, IconMenu } from "@tabler/icons-react";
 import { Montserrat, Unbounded } from "next/font/google";
 import Link from "next/link";
-import { cn } from "~/lib/cn";
-import { socials } from "~/lib/fake-db";
-import ExternalLink from "./_components/external-link";
-import NavbarItems from "./_components/navbar-items";
-import { Button, buttonVariants } from "./_components/ui/button";
+import ExternalLink from "~/components/external-link";
+import NavbarItems from "~/components/navbar-items";
+import { Button, buttonVariants } from "~/components/ui/button";
 import {
   Sheet,
   SheetContent,
@@ -15,8 +13,10 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from "./_components/ui/sheet";
-import { Toaster } from "./_components/ui/toaster";
+} from "~/components/ui/sheet";
+import { Toaster } from "~/components/ui/toaster";
+import { cn } from "~/lib/cn";
+import { socials } from "~/lib/fake-db";
 
 const unbounded = Unbounded({
   subsets: ["latin"],

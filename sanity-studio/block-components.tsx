@@ -12,7 +12,7 @@ import {
 import { IconArrowUpRight } from "@tabler/icons-react";
 import Image from "next/image";
 import { sanityImage } from "sanity-studio/lib/image";
-import ExternalLink from "~/app/(public)/_components/external-link";
+import ExternalLink from "~/components/external-link";
 
 export const BlockImage = ({
   value,

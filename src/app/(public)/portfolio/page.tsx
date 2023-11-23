@@ -2,8 +2,8 @@ import type { ListItem } from "sanity-studio/types";
 
 import { sanityFetch } from "sanity-studio/lib/fetch";
 import { orderableQuery } from "sanity-studio/queries";
-import CardGrid from "../_components/card-grid";
-import PageWrapper from "../_components/page-wrapper";
+import CardGrid from "~/components/card-grid";
+import PageWrapper from "~/components/page-wrapper";
 
 export default async function PortfolioPage() {
   const portfolio = await sanityFetch<ListItem[]>({

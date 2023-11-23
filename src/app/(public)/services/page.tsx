@@ -6,18 +6,18 @@ import Link from "next/link";
 import { sanityFetch } from "sanity-studio/lib/fetch";
 import { sanityImage } from "sanity-studio/lib/image";
 import { orderableQuery } from "sanity-studio/queries";
-import Announcement from "../_components/announcement";
-import CardGrid from "../_components/card-grid";
-import ContentBlock from "../_components/content-block";
-import MarkdownWrapper from "../_components/markdown-wrapper";
-import PageWrapper from "../_components/page-wrapper";
-import { buttonVariants } from "../_components/ui/button";
+import Announcement from "~/components/announcement";
+import CardGrid from "~/components/card-grid";
+import ContentBlock from "~/components/content-block";
+import MarkdownWrapper from "~/components/markdown-wrapper";
+import PageWrapper from "~/components/page-wrapper";
+import { buttonVariants } from "~/components/ui/button";
 import {
   Card,
   CardContent,
   CardFooter,
   CardHeader,
-} from "../_components/ui/card";
+} from "~/components/ui/card";
 
 export default async function ServicesPage() {
   const services = await sanityFetch<ListItem[]>({

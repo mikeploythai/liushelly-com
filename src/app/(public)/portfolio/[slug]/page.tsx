@@ -4,11 +4,11 @@ import { IconChevronLeft } from "@tabler/icons-react";
 import { groq } from "next-sanity";
 import Link from "next/link";
 import { sanityFetch } from "sanity-studio/lib/fetch";
+import ContentBlock from "~/components/content-block";
+import MarkdownWrapper from "~/components/markdown-wrapper";
+import PageWrapper from "~/components/page-wrapper";
+import { buttonVariants } from "~/components/ui/button";
 import { cn } from "~/lib/cn";
-import ContentBlock from "../../_components/content-block";
-import MarkdownWrapper from "../../_components/markdown-wrapper";
-import PageWrapper from "../../_components/page-wrapper";
-import { buttonVariants } from "../../_components/ui/button";
 
 export default async function BrandPage({
   params: { slug },

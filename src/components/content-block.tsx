@@ -1,7 +1,7 @@
 import type { TypedObject } from "sanity";
 
 import { PortableText } from "@portabletext/react";
-import { BlockImage, BlockLink } from "sanity-studio/portable-text/components";
+import { BlockImage, BlockLink } from "sanity-studio/block-components";
 
 export default function ContentBlock({ content }: { content: TypedObject[] }) {
   return (

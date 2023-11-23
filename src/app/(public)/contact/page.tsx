@@ -1,6 +1,6 @@
-import ContactForm from "../_components/contact-form";
-import PageWrapper from "../_components/page-wrapper";
-import { Card, CardContent } from "../_components/ui/card";
+import ContactForm from "~/components/contact-form";
+import PageWrapper from "~/components/page-wrapper";
+import { Card, CardContent } from "~/components/ui/card";
 
 export default function ContactPage() {
   return (

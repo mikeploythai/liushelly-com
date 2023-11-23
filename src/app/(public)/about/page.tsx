@@ -3,10 +3,10 @@ import type { SanityImage } from "sanity-studio/types";
 
 import { groq, type SanityDocument } from "next-sanity";
 import { sanityFetch } from "sanity-studio/lib/fetch";
-import ContentBlock from "../_components/content-block";
-import MarkdownWrapper from "../_components/markdown-wrapper";
-import PageWrapper from "../_components/page-wrapper";
-import PhotoGrid from "../_components/photo-grid";
+import ContentBlock from "~/components/content-block";
+import MarkdownWrapper from "~/components/markdown-wrapper";
+import PageWrapper from "~/components/page-wrapper";
+import PhotoGrid from "~/components/photo-grid";
 
 interface About extends SanityDocument {
   content: TypedObject[];

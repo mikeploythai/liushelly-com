@@ -7,14 +7,14 @@ import Link from "next/link";
 import { sanityFetch } from "sanity-studio/lib/fetch";
 import { sanityImage } from "sanity-studio/lib/image";
 import { orderableQuery } from "sanity-studio/queries";
+import Announcement from "~/components/announcement";
+import CardGrid from "~/components/card-grid";
+import ExternalLink from "~/components/external-link";
+import PageWrapper from "~/components/page-wrapper";
+import PhotoGrid from "~/components/photo-grid";
+import Testimonials from "~/components/testimonials";
+import { buttonVariants } from "~/components/ui/button";
 import { cn } from "~/lib/cn";
-import Announcement from "./_components/announcement";
-import CardGrid from "./_components/card-grid";
-import ExternalLink from "./_components/external-link";
-import PageWrapper from "./_components/page-wrapper";
-import PhotoGrid from "./_components/photo-grid";
-import Testimonials from "./_components/testimonials";
-import { buttonVariants } from "./_components/ui/button";
 
 interface Home extends SanityDocument {
   hero: {

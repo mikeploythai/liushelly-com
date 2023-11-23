@@ -6,23 +6,18 @@ import Image from "next/image";
 import Link from "next/link";
 import { sanityFetch } from "sanity-studio/lib/fetch";
 import { sanityImage } from "sanity-studio/lib/image";
-import PageWrapper from "~/app/(public)/_components/page-wrapper";
-import {
-  Tabs,
-  TabsContent,
-  TabsList,
-  TabsTrigger,
-} from "~/app/(public)/_components/ui/tabs";
-import { cn } from "~/lib/cn";
-import ContentBlock from "../../_components/content-block";
-import MarkdownWrapper from "../../_components/markdown-wrapper";
+import ContentBlock from "~/components/content-block";
+import MarkdownWrapper from "~/components/markdown-wrapper";
+import PageWrapper from "~/components/page-wrapper";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "../../_components/ui/accordion";
-import { buttonVariants } from "../../_components/ui/button";
+} from "~/components/ui/accordion";
+import { buttonVariants } from "~/components/ui/button";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "~/components/ui/tabs";
+import { cn } from "~/lib/cn";
 
 export default async function ServicePage({
   params: { slug },
@@ -116,5 +111,4 @@ const query = groq`
     ...,
     'lqip': asset->metadata.lqip,
   },
-}
-`;
+}`;
