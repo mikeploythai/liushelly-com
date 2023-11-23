@@ -45,7 +45,6 @@ export const metadata = {
     description:
       "Shelly Liu is a freelance social media manager, strategist, and content writer based in Southern California.",
   },
-  icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
 
 export default function RootLayout({
