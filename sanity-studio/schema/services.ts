@@ -30,6 +30,20 @@ export default defineType({
         storeOriginalFilename: false,
       },
     },
+    {
+      name: "faq",
+      title: "FAQ",
+      type: "array",
+      of: [
+        {
+          type: "object",
+          fields: [
+            { name: "question", type: "string" },
+            { name: "answer", type: "array", of: [{ type: "block" }] },
+          ],
+        },
+      ],
+    },
     orderRankField({ type: "name" }),
   ],
 });
