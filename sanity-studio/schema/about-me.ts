@@ -16,7 +16,7 @@ export default defineType({
     {
       name: "content",
       type: "array",
-      of: [{ type: "block" }, { type: "image" }],
+      of: [{ type: "block" }],
     },
     {
       name: "images",
@@ -28,6 +28,7 @@ export default defineType({
             hotspot: true,
             storeOriginalFilename: false,
           },
+          fields: [{ name: "alt", type: "string" }],
         },
       ],
     },

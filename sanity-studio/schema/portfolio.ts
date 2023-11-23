@@ -20,7 +20,16 @@ export default defineType({
     {
       name: "content",
       type: "array",
-      of: [{ type: "block" }, { type: "image" }],
+      of: [
+        { type: "block" },
+        {
+          type: "image",
+          fields: [
+            { name: "alt", type: "string" },
+            { name: "href", title: "Link", type: "url" },
+          ],
+        },
+      ],
     },
     {
       name: "image",

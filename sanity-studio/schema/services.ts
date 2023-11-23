@@ -20,7 +20,7 @@ export default defineType({
     {
       name: "content",
       type: "array",
-      of: [{ type: "block" }, { type: "image" }],
+      of: [{ type: "block" }],
     },
     {
       name: "image",
