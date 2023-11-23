@@ -6,7 +6,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { sanityFetch } from "sanity-studio/lib/fetch";
 import { sanityImage } from "sanity-studio/lib/image";
-import { orderableQuery } from "sanity-studio/queries";
 import Announcement from "~/components/announcement";
 import CardGrid from "~/components/card-grid";
 import ExternalLink from "~/components/external-link";
@@ -30,16 +29,15 @@ interface Home extends SanityDocument {
 }
 
 export default async function HomePage() {
-  const home = await sanityFetch<Home>({ query, tags: ["home"] });
+  const home = await sanityFetch<Home>({ query: homeQuery, tags: ["home"] });
   const services = await sanityFetch<ListItem[]>({
-    query: orderableQuery,
+    query: slicedServicesQuery,
     params: { type: "services" },
     tags: ["services"],
   });
 
   if (!home || !services) return;
   const { hero, testimonials, featuredInstagramPosts } = home;
-  const servicesList = services.slice(0, 3);
 
   return (
     <PageWrapper>
@@ -64,7 +62,7 @@ export default async function HomePage() {
 
         <figure className="group relative -z-10 w-full overflow-hidden border-indigo-950 transition duration-300 ease-in-out sm:z-0 sm:mb-2 sm:mr-2 sm:max-w-fit sm:border sm:shadow-boxy md:hover:border-indigo-900 md:hover:shadow-boxy-hover md:hover:shadow-indigo-900">
           <Image
-            src={sanityImage(hero.image).format("webp").url()}
+            src={sanityImage(hero.image).url()}
             alt={hero.image.alt}
             placeholder="blur"
             blurDataURL={hero.image.lqip}
@@ -94,7 +92,7 @@ export default async function HomePage() {
           </Link>
         </div>
 
-        <CardGrid list={servicesList} className="md:grid-cols-3" />
+        <CardGrid list={services} className="md:grid-cols-3" />
       </section>
 
       <section className="bg-indigo-950">
@@ -119,7 +117,7 @@ export default async function HomePage() {
   );
 }
 
-const query = groq`
+const homeQuery = groq`
 *[_type == "home"][0] {
   ...,
   hero {
@@ -133,4 +131,13 @@ const query = groq`
     ...,
     'lqip': asset->metadata.lqip,
   }
+}`;
+
+const slicedServicesQuery = groq`
+*[_type == $type] | order(orderRank) [0..2] {
+  ...,
+  image {
+    ...,
+    'lqip': asset->metadata.lqip,
+  },
 }`;
