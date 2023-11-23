@@ -122,19 +122,13 @@ function Footer() {
             &copy; Shelly Liu {year}
           </p>
 
-          <div className="flex flex-col items-start gap-1.5 text-xs sm:flex-row sm:items-center">
-            <Link
-              href="/"
-              className={cn(buttonVariants({ variant: "link" }), "p-0")}
-            >
-              Privacy
-            </Link>
-
-            <ExternalLink href="/" className="gap-0.5">
-              Built by Mike
-              <IconArrowUpRight size={14} />
-            </ExternalLink>
-          </div>
+          <ExternalLink
+            href="https://mikeploythai.com"
+            className="gap-0.5 text-xs"
+          >
+            Built by Mike
+            <IconArrowUpRight size={14} />
+          </ExternalLink>
         </div>
 
         <div className="flex gap-1.5">
