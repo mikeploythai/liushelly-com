@@ -24,6 +24,15 @@ export const metadata: Metadata = {
     default:
       "Shelly Liu | Social Media Manager, Strategist, and Content Writer",
   },
+  description:
+    "Helping your business flourish through organic social media growth.",
+  openGraph: {
+    title: "Shelly Liu | Social Media Manager, Strategist, and Content Writer",
+    description:
+      "Helping your business flourish through organic social media growth.",
+    url: "https://liushelly.com",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
