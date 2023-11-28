@@ -1,11 +1,17 @@
+import type { Metadata } from "next";
+
 import ContactForm from "~/components/contact-form";
 import PageWrapper from "~/components/page-wrapper";
 import { Card, CardContent } from "~/components/ui/card";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "CONTACT",
-  alternates: {
-    canonical: "/contact",
+  description: "Get in touch with Shelly Liu to inquire about her services.",
+  openGraph: {
+    title: "CONTACT | Shelly Liu",
+    description: "Get in touch with Shelly Liu to inquire about her services.",
+    url: "https://liushelly.com/contact",
+    type: "website",
   },
 };
 

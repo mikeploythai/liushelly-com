@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import type { ListItem } from "sanity-studio/types";
 
 import { IconChevronRight } from "@tabler/icons-react";
@@ -19,10 +20,16 @@ import {
   CardHeader,
 } from "~/components/ui/card";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "SERVICES",
-  alternates: {
-    canonical: "/services",
+  description:
+    "Shelly Liu provides digital marketing services focused on organic growth. Get in touch to learn how Shelly can help your business flourish online.",
+  openGraph: {
+    title: "SERVICES | Shelly Liu",
+    description:
+      "Shelly Liu provides digital marketing services focused on organic growth. Get in touch to learn how Shelly can help your business flourish online.",
+    url: "https://liushelly.com/services",
+    type: "website",
   },
 };
 
