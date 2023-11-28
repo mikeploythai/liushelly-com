@@ -110,7 +110,7 @@ export default async function HomePage() {
             Follow my Instagram for free social media growth advice!
           </h2>
 
-          <ExternalLink href={instagramLink.href ?? "/"}>
+          <ExternalLink href={instagramLink.href}>
             Visit my Instagram
             <IconArrowUpRight size={18} />
           </ExternalLink>
