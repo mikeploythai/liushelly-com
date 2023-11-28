@@ -1,10 +1,16 @@
 import { IconArrowUpRight } from "@tabler/icons-react";
+import { sanityFetch } from "sanity-studio/lib/fetch";
 import ExternalLink from "./external-link";
 import SocialLinks from "./social-links";
 
-export default function Footer() {
+export default async function Footer() {
   const date = new Date();
   const year = date.getFullYear();
+
+  const mikeLink = await sanityFetch<{ href: string }>({
+    query: `*[_type == "links" && name == "Mike's website"][0]`,
+    tags: ["links"],
+  });
 
   return (
     <footer>
@@ -14,10 +20,7 @@ export default function Footer() {
             &copy; Shelly Liu {year}
           </p>
 
-          <ExternalLink
-            href="https://mikeploythai.com"
-            className="gap-0.5 text-xs"
-          >
+          <ExternalLink href={mikeLink.href} className="gap-0.5 text-xs">
             Built by Mike
             <IconArrowUpRight size={14} />
           </ExternalLink>
