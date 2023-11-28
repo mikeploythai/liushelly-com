@@ -1,5 +1,7 @@
 import "~/styles/globals.css";
 
+import type { Metadata } from "next";
+
 import { IconArrowUpRight, IconMenu } from "@tabler/icons-react";
 import { Montserrat, Unbounded } from "next/font/google";
 import Link from "next/link";
@@ -28,22 +30,11 @@ const montserrat = Montserrat({
   variable: "--font-body",
 });
 
-export const metadata = {
+export const metadata: Metadata = {
   title: {
     template: "%s | Shelly Liu",
     default:
       "Shelly Liu | Social Media Manager, Strategist, and Content Writer",
-  },
-  description:
-    "Shelly Liu is a freelance social media manager, strategist, and content writer based in Southern California.",
-  metadataBase: new URL("https://liushelly.com"),
-  alternates: {
-    canonical: "/",
-  },
-  openGraph: {
-    title: "Shelly Liu | Social Media Manager, Strategist, and Content Writer",
-    description:
-      "Shelly Liu is a freelance social media manager, strategist, and content writer based in Southern California.",
   },
 };
 

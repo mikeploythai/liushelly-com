@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import type { TypedObject } from "sanity";
 import type { SanityImage } from "sanity-studio/types";
 
@@ -8,10 +9,16 @@ import MarkdownWrapper from "~/components/markdown-wrapper";
 import PageWrapper from "~/components/page-wrapper";
 import PhotoGrid from "~/components/photo-grid";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "ABOUT",
-  alternates: {
-    canonical: "/about",
+  description:
+    "Shelly Liu is a freelance social media manager, strategist, and content writer based in Southern California.",
+  openGraph: {
+    title: "ABOUT | Shelly Liu",
+    description:
+      "Shelly Liu is a freelance social media manager, strategist, and content writer based in Southern California.",
+    url: "https://liushelly.com/about",
+    type: "website",
   },
 };
 

@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import type { ListItem } from "sanity-studio/types";
 
 import { IconChevronLeft } from "@tabler/icons-react";
@@ -26,7 +27,14 @@ export async function generateMetadata({
 
   return {
     title: page.name.toUpperCase(),
-  };
+    description: `Works by Shelly Liu for ${page.name.toUpperCase()}.`,
+    openGraph: {
+      title: `${page.name.toUpperCase()} | Shelly Liu`,
+      description: `Works by Shelly Liu for ${page.name.toUpperCase()}.`,
+      url: `https://liushelly.com/portfolio/${params.slug}`,
+      type: "article",
+    },
+  } satisfies Metadata;
 }
 
 export default async function BrandPage({

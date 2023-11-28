@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import type { ListItem } from "sanity-studio/types";
 
 import { sanityFetch } from "sanity-studio/lib/fetch";
@@ -5,10 +6,14 @@ import { orderableQuery } from "sanity-studio/queries";
 import CardGrid from "~/components/card-grid";
 import PageWrapper from "~/components/page-wrapper";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "PORTFOLIO",
-  alternates: {
-    canonical: "/portfolio",
+  description: "A showcase of the various brands Shelly Liu has worked with.",
+  openGraph: {
+    title: "PORTFOLIO | Shelly Liu",
+    description: "A showcase of the various brands Shelly Liu has worked with.",
+    url: "https://liushelly.com/portfolio",
+    type: "website",
   },
 };
 
