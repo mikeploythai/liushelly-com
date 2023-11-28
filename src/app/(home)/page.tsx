@@ -69,6 +69,7 @@ export default async function HomePage() {
             width={288}
             height={432}
             className="h-full w-full bg-white object-cover transition duration-300 ease-in-out sm:w-72 md:group-hover:scale-105"
+            priority
           />
 
           <span className="absolute inset-0 bg-gradient-to-tr from-indigo-950 from-15% to-transparent sm:hidden" />
