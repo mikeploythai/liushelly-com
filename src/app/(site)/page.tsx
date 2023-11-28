@@ -35,6 +35,10 @@ export default async function HomePage() {
     params: { type: "services" },
     tags: ["services"],
   });
+  const instagramLink = await sanityFetch<{ href: string }>({
+    query: `*[_type == "links" && name == "Instagram"][0]`,
+    tags: ["links"],
+  });
 
   if (!home || !services) return;
   const { hero, testimonials, featuredInstagramPosts } = home;
@@ -106,7 +110,7 @@ export default async function HomePage() {
             Follow my Instagram for free social media growth advice!
           </h2>
 
-          <ExternalLink href="/">
+          <ExternalLink href={instagramLink.href ?? "/"}>
             Visit my Instagram
             <IconArrowUpRight size={18} />
           </ExternalLink>
