@@ -6,10 +6,12 @@ import { Card, CardContent } from "~/components/ui/card";
 
 export const metadata: Metadata = {
   title: "CONTACT",
-  description: "Get in touch with Shelly Liu to inquire about her services.",
+  description:
+    "Get in touch with Shelly Liu to inquire about her digital marketing services.",
   openGraph: {
     title: "CONTACT | Shelly Liu",
-    description: "Get in touch with Shelly Liu to inquire about her services.",
+    description:
+      "Get in touch with Shelly Liu to inquire about her digital marketing services.",
     url: "https://liushelly.com/contact",
     type: "website",
   },
