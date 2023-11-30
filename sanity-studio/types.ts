@@ -4,6 +4,7 @@ export interface SanityImage extends Image {
   alt: string;
   lqip: string;
   href?: string;
+  _key?: string;
 }
 
 export interface ListItem extends SanityDocument {

@@ -20,9 +20,9 @@ const CardGrid = forwardRef<HTMLDivElement, CardGridProps>(
       className={cn("grid gap-3 sm:grid-cols-2", className)}
       {...props}
     >
-      {list.map(({ name, image, slug, _type }, i) => (
+      {list.map(({ name, image, slug, _type, _id }, i) => (
         <Card
-          key={i}
+          key={_id}
           className={cn(
             list.length % 2 &&
               i === list.length - 1 &&

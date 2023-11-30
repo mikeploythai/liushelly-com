@@ -23,7 +23,7 @@ const PhotoGrid = forwardRef<HTMLDivElement, CardGridProps>(
         className={cn("grid grid-cols-2 gap-3 md:grid-cols-4", className)}
         {...props}
       >
-        {images.map((image, key) => {
+        {images.map((image) => {
           function ImageWrapper({ children }: { children: React.ReactNode }) {
             if (image.href)
               return <ExternalLink href={image.href}>{children}</ExternalLink>;
@@ -31,7 +31,7 @@ const PhotoGrid = forwardRef<HTMLDivElement, CardGridProps>(
           }
 
           return (
-            <ImageWrapper key={key}>
+            <ImageWrapper key={image._key}>
               <Card className="group p-0 md:hover:border-indigo-900 md:hover:shadow-boxy-hover md:hover:!shadow-indigo-900">
                 <CardContent className="h-full overflow-hidden">
                   <Image
