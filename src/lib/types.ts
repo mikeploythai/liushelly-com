@@ -27,6 +27,27 @@ export type Testimonial = {
   quote: TypedObject[];
 };
 
+// Home
+export interface Home extends SanityDocument {
+  hero: {
+    heading: string;
+    cta: {
+      text: string;
+      href: string;
+    };
+    image: SanityImage;
+  };
+  testimonials: Testimonial[];
+  featuredInstagramPosts: SanityImage[];
+}
+
+export type HomeData = {
+  home: Home;
+  announcement: Announcement;
+  services: ListItem[];
+  instagram: { href: string };
+};
+
 // About
 export interface AboutData extends SanityDocument {
   content: TypedObject[];

@@ -10,6 +10,29 @@ export const orderableQuery = groq`
   },
 }`;
 
+// Home
+export const homeQuery = groq`
+{
+  "home": *[_type == "home"][0] {
+    ...,
+    hero {
+      ...,
+      image { ..., 'lqip': asset->metadata.lqip },
+      cta { text, 'href': reference->href },
+    },
+    featuredInstagramPosts[] {
+      ...,
+      'lqip': asset->metadata.lqip
+    },
+  },
+  "announcement": *[_type == "announcement"][0],
+  "services": *[_type == "services"] | order(orderRank) [0..2] {
+    ...,
+    image { ..., 'lqip': asset->metadata.lqip },
+  },
+  "instagram": *[_type == "links" && name == "Instagram"][0],
+}`;
+
 // About
 export const aboutQuery = groq`
 *[_type == "aboutMe"][0] {
