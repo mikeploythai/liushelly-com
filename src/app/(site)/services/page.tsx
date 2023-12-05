@@ -5,7 +5,7 @@ import { sanityFetch } from "sanity-studio/lib/fetch";
 import { announcementQuery, orderableQuery } from "sanity-studio/queries";
 import PreviewProvider from "~/components/providers/preview";
 import ServicesLayout from "~/components/services/layout";
-import ServicesPreview from "~/components/services/preview";
+import ServicesLayoutPreview from "~/components/services/preview";
 import { serverEnv } from "~/env/server.mjs";
 import { isPreviewMode } from "~/lib/is-preview-mode";
 
@@ -38,7 +38,7 @@ export default async function ServicesPage() {
   if (isPreviewMode()) {
     return (
       <PreviewProvider token={serverEnv.SANITY_READ_TOKEN}>
-        <ServicesPreview
+        <ServicesLayoutPreview
           initServices={services}
           initAnnouncement={announcement}
         />
