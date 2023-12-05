@@ -6,8 +6,8 @@ import { useFormStatus } from "react-dom";
 import { cn } from "~/lib/cn";
 import { contactFormSchema } from "~/lib/contact-form/schema";
 import sendMessage from "~/lib/contact-form/send-message";
-import { Button } from "./ui/button";
-import { useToast } from "./ui/use-toast";
+import { Button } from "../ui/button";
+import { useToast } from "../ui/use-toast";
 
 export default function ContactForm() {
   const { toast } = useToast();

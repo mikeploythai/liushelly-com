@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import ContactForm from "~/components/contact-form";
+import ContactForm from "~/components/contact/form";
 import PageWrapper from "~/components/page-wrapper";
 import { Card, CardContent } from "~/components/ui/card";
 
