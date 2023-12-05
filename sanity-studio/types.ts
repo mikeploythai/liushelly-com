@@ -67,3 +67,9 @@ export interface AboutData extends SanityDocument {
   content: TypedObject[];
   images: SanityImage[];
 }
+
+export type ServicesData = {
+  mainService: ListItem;
+  otherServices: ListItem[];
+  announcement: Announcement;
+};

@@ -39,7 +39,21 @@ export const aboutQuery = groq`
   images[] { ..., 'lqip': asset->metadata.lqip },
 }`;
 
-export const portfolioSpotlightQuery = groq`
+export const servicesQuery = groq`
+{
+  "mainService": ${orderableQuery}[0],
+  "otherServices": ${orderableQuery}[1..-1],
+  "announcement": *[_type == "announcement"][0],
+}`;
+
+export const serviceQuery = groq`
+*[_type == "services" && slug.current == $slug][0] {
+  ...,
+  image { ..., 'lqip': asset->metadata.lqip },
+  cta { text, 'href': reference->href },
+}`;
+
+export const spotlightQuery = groq`
 *[_type == "portfolio" && slug.current == $slug][0] {
   ...,
   image {
