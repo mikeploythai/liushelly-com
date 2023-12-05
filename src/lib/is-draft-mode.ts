@@ -3,6 +3,6 @@ import "server-only";
 import { draftMode } from "next/headers";
 import { cache } from "react";
 
-export const getPreviewStatus = cache(() => {
+export const isDraftMode = cache(() => {
   return draftMode().isEnabled;
 });
