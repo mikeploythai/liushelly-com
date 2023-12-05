@@ -21,7 +21,7 @@ export default function PreviewProvider({
   );
 
   return (
-    <LiveQueryProvider client={client} token={token} logger={console}>
+    <LiveQueryProvider client={client} token={token}>
       {children}
     </LiveQueryProvider>
   );
