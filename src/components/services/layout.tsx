@@ -7,8 +7,8 @@ import { sanityImage } from "sanity-studio/lib/image";
 import AnnouncementBanner from "../announcement-banner";
 import BlockContent from "../block-content";
 import CardGrid from "../card-grid";
-import MarkdownProvider from "../markdown-provider";
 import PageWrapper from "../page-wrapper";
+import MarkdownProvider from "../providers/markdown";
 import { buttonVariants } from "../ui/button";
 import { Card, CardContent, CardFooter, CardHeader } from "../ui/card";
 

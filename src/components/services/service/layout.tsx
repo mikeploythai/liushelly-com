@@ -5,8 +5,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { sanityImage } from "sanity-studio/lib/image";
 import BlockContent from "~/components/block-content";
-import MarkdownProvider from "~/components/markdown-provider";
 import PageWrapper from "~/components/page-wrapper";
+import MarkdownProvider from "~/components/providers/markdown";
 import {
   Accordion,
   AccordionContent,

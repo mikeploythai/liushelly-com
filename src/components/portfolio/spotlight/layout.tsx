@@ -3,8 +3,8 @@ import type { ListItem } from "~/lib/types";
 import { IconChevronLeft } from "@tabler/icons-react";
 import Link from "next/link";
 import BlockContent from "~/components/block-content";
-import MarkdownProvider from "~/components/markdown-provider";
 import PageWrapper from "~/components/page-wrapper";
+import MarkdownProvider from "~/components/providers/markdown";
 import { buttonVariants } from "~/components/ui/button";
 import { cn } from "~/lib/cn";
 
