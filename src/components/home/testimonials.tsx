@@ -4,7 +4,7 @@ import type { Testimonial } from "sanity-studio/types";
 
 import { IconChevronLeft, IconChevronRight } from "@tabler/icons-react";
 import { useState } from "react";
-import ContentBlock from "../content-block";
+import ContentBlock from "../block-content";
 import MarkdownWrapper from "../markdown-wrapper";
 import { Button } from "../ui/button";
 
