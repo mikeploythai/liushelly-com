@@ -4,8 +4,8 @@ import type { Testimonial } from "~/lib/types";
 
 import { IconChevronLeft, IconChevronRight } from "@tabler/icons-react";
 import { useState } from "react";
-import ContentBlock from "../block-content";
-import MarkdownWrapper from "../markdown-provider";
+import BlockContent from "../block-content";
+import MarkdownProvider from "../providers/markdown";
 import { Button } from "../ui/button";
 
 export default function Testimonials({
@@ -47,12 +47,12 @@ export default function Testimonials({
         </div>
       </div>
 
-      <MarkdownWrapper
+      <MarkdownProvider
         theme="secondary"
         className="flex flex-col justify-center prose-p:m-0 md:min-h-[288px] md:p-6"
       >
-        <ContentBlock content={testimonials[index]!.quote} />
-      </MarkdownWrapper>
+        <BlockContent content={testimonials[index]!.quote} />
+      </MarkdownProvider>
     </div>
   );
 }
