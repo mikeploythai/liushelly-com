@@ -12,6 +12,7 @@ export const serverEnv = createEnv({
     RESEND_FROM: z.string().email(),
     RESEND_TO: z.string().email(),
     SANITY_REVALIDATE_SECRET: z.string().min(1),
+    SANITY_READ_TOKEN: z.string().min(1),
     BASE_URL: z.string().url(),
   },
 
@@ -25,6 +26,7 @@ export const serverEnv = createEnv({
     RESEND_FROM: process.env.RESEND_FROM,
     RESEND_TO: process.env.RESEND_TO,
     SANITY_REVALIDATE_SECRET: process.env.SANITY_REVALIDATE_SECRET,
+    SANITY_READ_TOKEN: process.env.SANITY_READ_TOKEN,
     BASE_URL: process.env.BASE_URL,
   },
   /**
