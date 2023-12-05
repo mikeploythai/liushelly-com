@@ -7,7 +7,7 @@ import { cn } from "~/lib/cn";
   TODO
   - Modify for prefers-reduced-motion later
 */
-export default async function AnnouncementBanner({
+export default function AnnouncementBanner({
   announcement,
 }: {
   announcement: Announcement;
