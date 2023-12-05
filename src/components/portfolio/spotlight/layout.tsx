@@ -8,7 +8,7 @@ import PageWrapper from "~/components/page-wrapper";
 import { buttonVariants } from "~/components/ui/button";
 import { cn } from "~/lib/cn";
 
-export default function PortfolioSpotlightLayout({ data }: { data: ListItem }) {
+export default function SpotlightLayout({ data }: { data: ListItem }) {
   if (!data) return;
 
   return (

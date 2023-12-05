@@ -4,8 +4,8 @@ import type { ListItem } from "sanity-studio/types";
 import { groq } from "next-sanity";
 import { client } from "sanity-studio/lib/client";
 import { sanityFetch } from "sanity-studio/lib/fetch";
-import { portfolioSpotlightQuery } from "sanity-studio/queries";
-import PortfolioSpotlightLayout from "~/components/portfolio/spotlight/layout";
+import { spotlightQuery } from "sanity-studio/queries";
+import SpotlightLayout from "~/components/portfolio/spotlight/layout";
 
 export async function generateMetadata({
   params,
@@ -32,16 +32,16 @@ export async function generateMetadata({
   } satisfies Metadata;
 }
 
-export default async function PortfolioSpotlightPage({
+export default async function SpotlightPage({
   params: { slug },
 }: {
   params: { slug: string };
 }) {
   const data = await sanityFetch<ListItem>({
-    query: portfolioSpotlightQuery,
+    query: spotlightQuery,
     params: { slug },
     tags: ["portfolio"],
   });
 
-  return <PortfolioSpotlightLayout data={data} />;
+  return <SpotlightLayout data={data} />;
 }
