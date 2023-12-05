@@ -1,6 +1,6 @@
 import type { Image, SanityDocument, TypedObject } from "sanity";
 
-// Sanity
+// Content Types
 export interface SanityImage extends Image {
   alt: string;
   lqip: string;
@@ -17,6 +17,17 @@ export interface ListItem extends SanityDocument {
   };
 }
 
+// Components
+export interface Announcement extends SanityDocument {
+  text: string;
+}
+
+export type Testimonial = {
+  author: string;
+  quote: TypedObject[];
+};
+
+// Home
 export interface Home extends SanityDocument {
   hero: {
     heading: string;
@@ -29,6 +40,26 @@ export interface Home extends SanityDocument {
   testimonials: Testimonial[];
   featuredInstagramPosts: SanityImage[];
 }
+
+export type HomeData = {
+  home: Home;
+  announcement: Announcement;
+  services: ListItem[];
+  instagram: { href: string };
+};
+
+// About
+export interface AboutData extends SanityDocument {
+  content: TypedObject[];
+  images: SanityImage[];
+}
+
+// Services
+export type ServicesData = {
+  mainService: ListItem;
+  otherServices: ListItem[];
+  announcement: Announcement;
+};
 
 export interface Service extends ListItem {
   cta: {
@@ -44,32 +75,3 @@ export interface Service extends ListItem {
     answer: TypedObject[];
   }[];
 }
-
-// Components
-export interface Announcement extends SanityDocument {
-  text: string;
-}
-
-export type Testimonial = {
-  author: string;
-  quote: TypedObject[];
-};
-
-// Queries
-export type HomeData = {
-  home: Home;
-  announcement: Announcement;
-  services: ListItem[];
-  instagram: { href: string };
-};
-
-export interface AboutData extends SanityDocument {
-  content: TypedObject[];
-  images: SanityImage[];
-}
-
-export type ServicesData = {
-  mainService: ListItem;
-  otherServices: ListItem[];
-  announcement: Announcement;
-};
