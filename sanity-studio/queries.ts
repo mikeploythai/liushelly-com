@@ -36,5 +36,23 @@ export const homeQuery = groq`
 export const aboutQuery = groq`
 *[_type == "aboutMe"][0] {
   ...,
-  images[] { ..., 'lqip': asset->metadata.lqip }
+  images[] { ..., 'lqip': asset->metadata.lqip },
+}`;
+
+export const portfolioSpotlightQuery = groq`
+*[_type == "portfolio" && slug.current == $slug][0] {
+  ...,
+  image {
+    ...,
+    'lqip': asset->metadata.lqip,
+  },
+  content[] {
+    ...,
+    ...select(
+      _type == "image" => {
+        ...,
+        'lqip': asset->metadata.lqip
+      },
+    ),
+  },
 }`;
