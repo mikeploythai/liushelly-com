@@ -10,7 +10,7 @@ export const orderableQuery = groq`
   },
 }`;
 
-// Fetches
+// Home
 export const homeQuery = groq`
 {
   "home": *[_type == "home"][0] {
@@ -33,12 +33,14 @@ export const homeQuery = groq`
   "instagram": *[_type == "links" && name == "Instagram"][0],
 }`;
 
+// About
 export const aboutQuery = groq`
 *[_type == "aboutMe"][0] {
   ...,
   images[] { ..., 'lqip': asset->metadata.lqip },
 }`;
 
+// Services
 export const servicesQuery = groq`
 {
   "mainService": ${orderableQuery}[0],
@@ -53,6 +55,7 @@ export const serviceQuery = groq`
   cta { text, 'href': reference->href },
 }`;
 
+// Portfolio
 export const spotlightQuery = groq`
 *[_type == "portfolio" && slug.current == $slug][0] {
   ...,
