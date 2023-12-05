@@ -1,4 +1,4 @@
-import type { ServicesData } from "sanity-studio/types";
+import type { ServicesData } from "~/lib/types";
 
 import { IconChevronRight } from "@tabler/icons-react";
 import Image from "next/image";

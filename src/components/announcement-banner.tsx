@@ -1,4 +1,4 @@
-import type { Announcement } from "sanity-studio/types";
+import type { Announcement } from "~/lib/types";
 
 import { Fragment } from "react";
 import { cn } from "~/lib/cn";

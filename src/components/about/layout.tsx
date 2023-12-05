@@ -1,4 +1,4 @@
-import type { AboutData } from "sanity-studio/types";
+import type { AboutData } from "~/lib/types";
 
 import BlockContent from "../block-content";
 import MarkdownWrapper from "../markdown-provider";

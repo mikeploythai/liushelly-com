@@ -1,4 +1,4 @@
-import type { HomeData } from "sanity-studio/types";
+import type { HomeData } from "~/lib/types";
 
 import { sanityFetch } from "sanity-studio/lib/fetch";
 import { homeQuery } from "sanity-studio/queries";

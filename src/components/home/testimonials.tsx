@@ -1,6 +1,6 @@
 "use client";
 
-import type { Testimonial } from "sanity-studio/types";
+import type { Testimonial } from "~/lib/types";
 
 import { IconChevronLeft, IconChevronRight } from "@tabler/icons-react";
 import { useState } from "react";

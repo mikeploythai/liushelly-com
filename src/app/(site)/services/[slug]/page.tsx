@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import type { Service } from "sanity-studio/types";
+import type { Service } from "~/lib/types";
 
 import { groq } from "next-sanity";
 import { client } from "sanity-studio/lib/client";

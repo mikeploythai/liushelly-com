@@ -1,4 +1,4 @@
-import type { SanityImage } from "sanity-studio/types";
+import type { SanityImage } from "~/lib/types";
 
 import Image from "next/image";
 import { forwardRef, type HTMLAttributes } from "react";

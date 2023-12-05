@@ -3,7 +3,7 @@ import type {
   PortableTextTypeComponentProps,
 } from "@portabletext/react";
 import type { SanityDocument } from "next-sanity";
-import type { SanityImage } from "sanity-studio/types";
+import type { SanityImage } from "~/lib/types";
 
 import {
   getImageDimensions,

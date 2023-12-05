@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import type { ServicesData } from "sanity-studio/types";
+import type { ServicesData } from "~/lib/types";
 
 import { sanityFetch } from "sanity-studio/lib/fetch";
 import { servicesQuery } from "sanity-studio/queries";

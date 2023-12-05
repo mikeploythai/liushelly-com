@@ -1,4 +1,4 @@
-import type { ListItem } from "sanity-studio/types";
+import type { ListItem } from "~/lib/types";
 
 import CardGrid from "../card-grid";
 import PageWrapper from "../page-wrapper";

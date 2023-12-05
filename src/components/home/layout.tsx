@@ -1,4 +1,4 @@
-import type { HomeData } from "sanity-studio/types";
+import type { HomeData } from "~/lib/types";
 
 import { IconArrowUpRight, IconChevronRight } from "@tabler/icons-react";
 import Image from "next/image";

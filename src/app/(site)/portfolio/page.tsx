@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import type { ListItem } from "sanity-studio/types";
+import type { ListItem } from "~/lib/types";
 
 import { sanityFetch } from "sanity-studio/lib/fetch";
 import { orderableQuery } from "sanity-studio/queries";

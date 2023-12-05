@@ -1,4 +1,4 @@
-import type { ListItem } from "sanity-studio/types";
+import type { ListItem } from "~/lib/types";
 
 import { IconChevronRight } from "@tabler/icons-react";
 import Image from "next/image";
