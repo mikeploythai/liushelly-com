@@ -1,4 +1,4 @@
-import type { HomeData } from "~/lib/types";
+import type { Announcement, Home, ListItem } from "~/lib/types";
 
 import { IconArrowUpRight, IconChevronRight } from "@tabler/icons-react";
 import Image from "next/image";
@@ -13,38 +13,49 @@ import PhotoGrid from "../photo-grid";
 import { buttonVariants } from "../ui/button";
 import Testimonials from "./testimonials";
 
-export default function HomeLayout({ data }: { data: HomeData }) {
-  if (!data) return;
+type HomeLayout = {
+  home: Home;
+  announcement: Announcement;
+  services: ListItem[];
+  instagramLink: { href: string };
+};
 
-  const { home, announcement, services, instagram } = data;
+export default function HomeLayout({
+  home,
+  announcement,
+  services,
+  instagramLink,
+}: HomeLayout) {
+  if (!home || !announcement || !services) return;
+  const { hero, testimonials, featuredInstagramPosts } = home;
 
   return (
     <PageWrapper>
       <section className="relative mx-auto flex max-w-screen-lg flex-col items-center gap-6 sm:flex-row sm:p-6">
         <div className="absolute bottom-0 space-y-6 p-6 sm:relative sm:p-0">
           <h1 className="font-heading text-3xl font-medium text-violet-200 sm:text-indigo-950 md:text-4xl">
-            {home.hero.heading}
+            {hero.heading}
           </h1>
 
           <ExternalLink
-            href={home.hero.cta.href}
+            href={hero.cta.href}
             className={cn(
               buttonVariants({ size: "lg" }),
               "bg-violet-200 text-indigo-950 no-underline hover:bg-indigo-100 hover:text-indigo-950 focus-visible:bg-indigo-100 focus-visible:text-indigo-950",
               "sm:bg-indigo-950 sm:text-violet-200 sm:hover:bg-indigo-900 sm:hover:text-violet-200 sm:focus-visible:bg-indigo-900 sm:focus-visible:text-violet-200",
             )}
           >
-            {home.hero.cta.text}
+            {hero.cta.text}
             <IconArrowUpRight size={20} />
           </ExternalLink>
         </div>
 
         <figure className="group relative -z-10 w-full overflow-hidden border-indigo-950 transition duration-300 ease-in-out sm:z-0 sm:mb-2 sm:mr-2 sm:max-w-fit sm:border sm:shadow-boxy md:hover:border-indigo-900 md:hover:shadow-boxy-hover md:hover:shadow-indigo-900">
           <Image
-            src={sanityImage(home.hero.image).url()}
-            alt={home.hero.image.alt}
+            src={sanityImage(hero.image).url()}
+            alt={hero.image.alt}
             placeholder="blur"
-            blurDataURL={home.hero.image.lqip}
+            blurDataURL={hero.image.lqip}
             width={288}
             height={432}
             className="h-full w-full bg-white object-cover transition duration-300 ease-in-out sm:w-72 md:group-hover:scale-105"
@@ -76,7 +87,7 @@ export default function HomeLayout({ data }: { data: HomeData }) {
       </section>
 
       <section className="bg-indigo-950">
-        <Testimonials testimonials={home.testimonials} />
+        <Testimonials testimonials={testimonials} />
       </section>
 
       <section className="mx-auto max-w-screen-xl space-y-6 p-6">
@@ -85,17 +96,13 @@ export default function HomeLayout({ data }: { data: HomeData }) {
             Follow my Instagram for free social media growth advice!
           </h2>
 
-          <ExternalLink href={instagram.href}>
+          <ExternalLink href={instagramLink.href}>
             Visit my Instagram
             <IconArrowUpRight size={18} />
           </ExternalLink>
         </div>
 
-        <PhotoGrid
-          images={home.featuredInstagramPosts}
-          width={1080}
-          height={1350}
-        />
+        <PhotoGrid images={featuredInstagramPosts} width={1080} height={1350} />
       </section>
     </PageWrapper>
   );

@@ -1,4 +1,4 @@
-import { groq, type SanityDocument } from "next-sanity";
+import type { SocialLink } from "~/lib/types";
 
 import {
   IconBrandInstagram,
@@ -11,21 +11,14 @@ import {
   IconLink,
   type TablerIconsProps,
 } from "@tabler/icons-react";
-import { sanityFetch } from "sanity-studio/lib/fetch";
-import ExternalLink from "./external-link";
-import { buttonVariants } from "./ui/button";
+import ExternalLink from "../external-link";
+import { buttonVariants } from "../ui/button";
 
-interface SocialLink extends SanityDocument {
-  name: string;
-  href: string;
-}
-
-export default async function SocialLinks() {
-  const socialLinks = await sanityFetch<SocialLink[]>({
-    query,
-    tags: ["socials"],
-  });
-
+export default function SocialLinks({
+  socialLinks,
+}: {
+  socialLinks: SocialLink[];
+}) {
   if (!socialLinks) return;
 
   return (
@@ -50,12 +43,6 @@ export default async function SocialLinks() {
     </>
   );
 }
-
-const query = groq`
-*[_type == "socials"] | order(orderRank) {
-  ...,
-  'href': reference->href
-}`;
 
 type Icons = Record<string, (props: TablerIconsProps) => JSX.Element>;
 

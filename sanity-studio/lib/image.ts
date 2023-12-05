@@ -1,5 +1,6 @@
-import createImageUrlBuilder from "@sanity/image-url";
 import type { Image } from "sanity";
+
+import createImageUrlBuilder from "@sanity/image-url";
 import { clientEnv } from "~/env/client.mjs";
 
 const imageBuilder = createImageUrlBuilder({

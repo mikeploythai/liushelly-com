@@ -13,7 +13,7 @@ export default function PreviewProvider({
   token,
 }: {
   children: React.ReactNode;
-  token?: string;
+  token: string;
 }) {
   const { client } = suspend(
     () => import("sanity-studio/lib/client"),

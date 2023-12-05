@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
-import type { AboutData } from "~/lib/types";
+import type { About } from "~/lib/types";
 
 import { sanityFetch } from "sanity-studio/lib/fetch";
 import { aboutQuery } from "sanity-studio/queries";
 import AboutLayout from "~/components/about/layout";
+import AboutLayoutPreview from "~/components/about/preview";
+import PreviewProvider from "~/components/providers/preview";
 import { serverEnv } from "~/env/server.mjs";
+import { isPreviewMode } from "~/lib/is-preview-mode";
 
 const title = "ABOUT";
 const description =
@@ -22,10 +25,18 @@ export const metadata: Metadata = {
 };
 
 export default async function AboutPage() {
-  const data = await sanityFetch<AboutData>({
+  const about = await sanityFetch<About>({
     query: aboutQuery,
     tags: ["aboutMe"],
   });
 
-  return <AboutLayout data={data} />;
+  if (isPreviewMode()) {
+    return (
+      <PreviewProvider token={serverEnv.SANITY_READ_TOKEN}>
+        <AboutLayoutPreview initAbout={about} />
+      </PreviewProvider>
+    );
+  }
+
+  return <AboutLayout about={about} />;
 }

@@ -5,8 +5,33 @@ import { groq } from "next-sanity";
 import { client } from "sanity-studio/lib/client";
 import { sanityFetch } from "sanity-studio/lib/fetch";
 import { serviceQuery } from "sanity-studio/queries";
-import ServiceLayout from "~/components/services/service/layout";
+import PreviewProvider from "~/components/providers/preview";
+import ServiceLayouts from "~/components/services/service/layout";
+import ServicePreview from "~/components/services/service/preview";
 import { serverEnv } from "~/env/server.mjs";
+import { isPreviewMode } from "~/lib/is-preview-mode";
+
+export default async function ServicePage({
+  params: { slug },
+}: {
+  params: { slug: string };
+}) {
+  const service = await sanityFetch<Service>({
+    query: serviceQuery,
+    params: { slug },
+    tags: ["services"],
+  });
+
+  if (isPreviewMode()) {
+    return (
+      <PreviewProvider token={serverEnv.SANITY_READ_TOKEN}>
+        <ServicePreview initService={service} initSlug={slug} />
+      </PreviewProvider>
+    );
+  }
+
+  return <ServiceLayouts service={service} />;
+}
 
 export async function generateMetadata({
   params,
@@ -34,18 +59,4 @@ export async function generateMetadata({
       type: "article",
     },
   } satisfies Metadata;
-}
-
-export default async function ServicePage({
-  params: { slug },
-}: {
-  params: { slug: string };
-}) {
-  const data = await sanityFetch<Service>({
-    query: serviceQuery,
-    params: { slug },
-    tags: ["services"],
-  });
-
-  return <ServiceLayout data={data} />;
 }

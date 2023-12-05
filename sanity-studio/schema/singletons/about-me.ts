@@ -14,6 +14,12 @@ export default defineType({
       readOnly: true,
     },
     {
+      name: "slug",
+      type: "slug",
+      hidden: true,
+      readOnly: true,
+    },
+    {
       name: "content",
       type: "array",
       of: [{ type: "block" }],
@@ -33,5 +39,11 @@ export default defineType({
       ],
     },
   ],
-  initialValue: { title: "About Me" },
+  initialValue: {
+    title: "About Me",
+    slug: {
+      _type: "slug",
+      current: "about",
+    },
+  },
 });

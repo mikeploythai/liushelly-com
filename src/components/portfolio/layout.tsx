@@ -3,8 +3,12 @@ import type { ListItem } from "~/lib/types";
 import CardGrid from "../card-grid";
 import PageWrapper from "../page-wrapper";
 
-export default function PortfolioLayout({ data }: { data: ListItem[] }) {
-  if (!data) return;
+export default function PortfolioLayout({
+  portfolio,
+}: {
+  portfolio: ListItem[];
+}) {
+  if (!portfolio) return;
 
   return (
     <PageWrapper className="mx-auto flex w-full max-w-screen-xl flex-col items-center justify-center gap-6 p-6">
@@ -12,7 +16,7 @@ export default function PortfolioLayout({ data }: { data: ListItem[] }) {
         Brands I&apos;ve worked with!
       </h1>
 
-      <CardGrid list={data} className="w-full md:grid-cols-3" />
+      <CardGrid list={portfolio} className="w-full md:grid-cols-3" />
     </PageWrapper>
   );
 }

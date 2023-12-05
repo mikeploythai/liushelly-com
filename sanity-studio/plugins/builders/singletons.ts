@@ -1,5 +1,6 @@
 import type { DocumentDefinition } from "sanity";
 import type { StructureBuilder } from "sanity/desk";
+
 import itemViews from "../item-views";
 
 export default function buildSingletons(

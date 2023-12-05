@@ -4,6 +4,10 @@
 
 import { visionTool } from "@sanity/vision";
 import { defineConfig } from "sanity";
+import {
+  defineUrlResolver,
+  type IframeOptions,
+} from "sanity-plugin-iframe-pane";
 import { previewUrl } from "sanity-plugin-iframe-pane/preview-url";
 import defaultDocumentNode from "sanity-studio/plugins/default-document-node";
 import structure from "sanity-studio/plugins/structure";
@@ -12,17 +16,31 @@ import { deskTool } from "sanity/desk";
 // Go to https://www.sanity.io/docs/api-versioning to learn how API versioning works
 import type { PreviewSecret } from "~/lib/types";
 
-import {
-  defineUrlResolver,
-  type IframeOptions,
-} from "sanity-plugin-iframe-pane";
+import home from "sanity-studio/schema/singletons/home";
 import { clientEnv } from "~/env/client.mjs";
 import { schema } from "./sanity-studio/schema";
 
-import home from "sanity-studio/schema/singletons/home";
+import portfolio from "sanity-studio/schema/orderables/portfolio";
+import services from "sanity-studio/schema/orderables/services";
+import socials from "sanity-studio/schema/orderables/socials";
+import aboutMe from "sanity-studio/schema/singletons/about-me";
+import announcement from "sanity-studio/schema/singletons/announcement";
 
-const previewDocs = [home.name] satisfies string[];
-const previewSlugDocs = [] satisfies typeof previewDocs;
+const previewDocs = [
+  home.name,
+  aboutMe.name,
+  announcement.name,
+  services.name,
+  portfolio.name,
+  socials.name,
+] satisfies string[];
+
+const previewSlugDocs = [
+  aboutMe.name,
+  services.name,
+  portfolio.name,
+] satisfies typeof previewDocs;
+
 const previewBasePathname = "/api/preview";
 
 const urlResolver = defineUrlResolver({

@@ -12,6 +12,8 @@ export default function AnnouncementBanner({
 }: {
   announcement: Announcement;
 }) {
+  if (!announcement) return;
+
   return (
     <section
       role="marquee"

@@ -4,7 +4,10 @@ import type { ListItem } from "~/lib/types";
 import { sanityFetch } from "sanity-studio/lib/fetch";
 import { orderableQuery } from "sanity-studio/queries";
 import PortfolioLayout from "~/components/portfolio/layout";
+import PortfolioLayoutPreview from "~/components/portfolio/preview";
+import PreviewProvider from "~/components/providers/preview";
 import { serverEnv } from "~/env/server.mjs";
+import { isPreviewMode } from "~/lib/is-preview-mode";
 
 const title = "PORTFOLIO";
 const description =
@@ -22,11 +25,19 @@ export const metadata: Metadata = {
 };
 
 export default async function PortfolioPage() {
-  const data = await sanityFetch<ListItem[]>({
+  const portfolio = await sanityFetch<ListItem[]>({
     query: orderableQuery,
     params: { type: "portfolio" },
     tags: ["portfolio"],
   });
 
-  return <PortfolioLayout data={data} />;
+  if (isPreviewMode()) {
+    return (
+      <PreviewProvider token={serverEnv.SANITY_READ_TOKEN}>
+        <PortfolioLayoutPreview initPortfolio={portfolio} />
+      </PreviewProvider>
+    );
+  }
+
+  return <PortfolioLayout portfolio={portfolio} />;
 }

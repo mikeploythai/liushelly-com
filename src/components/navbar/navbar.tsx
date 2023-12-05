@@ -17,15 +17,18 @@ import NavbarItems from "./items";
 export default function Navbar() {
   return (
     <header className="sticky top-0 z-10 border-b border-b-indigo-950 bg-violet-200">
-      <noscript>
-        <p className="w-full bg-indigo-950 p-2 text-center text-sm font-medium text-violet-200">
-          Please enable JavaScript for the best experience.
-        </p>
-      </noscript>
+      {!isPreviewMode() && (
+        <noscript>
+          <p className="w-full bg-indigo-950 p-2 text-center text-sm font-medium text-violet-200">
+            Please enable JavaScript for the best experience.
+          </p>
+        </noscript>
+      )}
 
       {isPreviewMode() && (
         <p className="w-full bg-indigo-950 p-2 text-center text-sm font-medium text-violet-200">
-          Preview mode is enabled.{" "}
+          <noscript>Please enable JavaScript for the best experience.</noscript>{" "}
+          Preview mode enabled.{" "}
           <a
             href="/api/exit-preview"
             className={cn(
@@ -33,7 +36,7 @@ export default function Navbar() {
               "p-0 hover:text-violet-50 focus-visible:text-violet-50",
             )}
           >
-            Exit preview mode
+            Click here to exit preview
           </a>
         </p>
       )}

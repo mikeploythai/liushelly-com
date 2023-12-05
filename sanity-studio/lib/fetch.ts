@@ -19,7 +19,10 @@ export async function sanityFetch<QueryResponse>({
   tags: string[];
 }): Promise<QueryResponse> {
   return client.fetch<QueryResponse>(query, params, {
-    cache: isPreviewMode() ? undefined : "force-cache",
+    cache:
+      serverEnv.NODE_ENV === "development" || isPreviewMode()
+        ? undefined
+        : "force-cache",
     ...(isPreviewMode() && {
       token: serverEnv.SANITY_READ_TOKEN,
       perspective: "previewDrafts",
