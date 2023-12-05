@@ -4,7 +4,6 @@ import Image from "next/image";
 import { forwardRef, type HTMLAttributes } from "react";
 import { sanityImage } from "sanity-studio/lib/image";
 import { cn } from "~/lib/cn";
-import ExternalLink from "./external-link";
 import { Card, CardContent } from "./ui/card";
 
 interface CardGridProps extends HTMLAttributes<HTMLDivElement> {
@@ -26,13 +25,17 @@ const PhotoGrid = forwardRef<HTMLDivElement, CardGridProps>(
         {images.map((image) => {
           function ImageWrapper({ children }: { children: React.ReactNode }) {
             if (image.href)
-              return <ExternalLink href={image.href}>{children}</ExternalLink>;
+              return (
+                <a href={image.href} target="_blank" rel="noreferrer">
+                  {children}
+                </a>
+              );
             else return children;
           }
 
           return (
             <ImageWrapper key={image._key}>
-              <Card className="group flex p-0 md:hover:border-indigo-900 md:hover:shadow-boxy-hover md:hover:!shadow-indigo-900">
+              <Card className="group flex p-0 md:hover:border-indigo-900 md:hover:text-indigo-900 md:hover:shadow-boxy-hover">
                 <CardContent className="w-full overflow-hidden">
                   <Image
                     src={sanityImage(image).url()}
