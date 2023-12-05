@@ -75,3 +75,5 @@ export interface Service extends ListItem {
     answer: TypedObject[];
   }[];
 }
+
+export type PreviewSecret = `${string}.${string}`;
