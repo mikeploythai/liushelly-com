@@ -19,13 +19,14 @@ export async function sanityFetch<QueryResponse>({
   tags: string[];
 }): Promise<QueryResponse> {
   return client.fetch<QueryResponse>(query, params, {
+    cache: isPreviewMode() ? undefined : "force-cache",
     ...(isPreviewMode() && {
       token: serverEnv.SANITY_READ_TOKEN,
       perspective: "previewDrafts",
     }),
     next: {
-      revalidate: isPreviewMode() ? 0 : false, // for simple, time-based revalidation
-      tags, // for tag-based revalidation
+      ...(isPreviewMode() && { revalidate: 30 }),
+      tags,
     },
   });
 }
