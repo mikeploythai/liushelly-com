@@ -4,8 +4,8 @@ import { IconChevronRight } from "@tabler/icons-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "~/lib/cn";
-import { buttonVariants } from "./ui/button";
-import { SheetClose } from "./ui/sheet";
+import { buttonVariants } from "../ui/button";
+import { SheetClose } from "../ui/sheet";
 
 export default function NavbarItems({ isDrawer }: { isDrawer: boolean }) {
   const pathname = usePathname();

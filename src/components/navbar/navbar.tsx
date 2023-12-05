@@ -1,8 +1,7 @@
 import { IconMenu } from "@tabler/icons-react";
 import Link from "next/link";
-import NavbarItems from "./navbar-items";
-import SocialLinks from "./social-links";
-import { Button, buttonVariants } from "./ui/button";
+import SocialLinks from "../social-links";
+import { Button, buttonVariants } from "../ui/button";
 import {
   Sheet,
   SheetContent,
@@ -10,7 +9,8 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from "./ui/sheet";
+} from "../ui/sheet";
+import NavbarItems from "./items";
 
 export default function Navbar() {
   return (
