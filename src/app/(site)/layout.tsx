@@ -6,6 +6,7 @@ import { Montserrat, Unbounded } from "next/font/google";
 import Footer from "~/components/footer";
 import Navbar from "~/components/navbar";
 import { Toaster } from "~/components/ui/toaster";
+import { serverEnv } from "~/env/server.mjs";
 import { cn } from "~/lib/cn";
 
 const unbounded = Unbounded({
@@ -18,19 +19,22 @@ const montserrat = Montserrat({
   variable: "--font-body",
 });
 
+const title =
+  "Shelly Liu | Social Media Manager, Strategist, and Content Writer";
+const description =
+  "Helping your business flourish through organic social media growth.";
+
 export const metadata: Metadata = {
   title: {
     template: "%s | Shelly Liu",
-    default:
-      "Shelly Liu | Social Media Manager, Strategist, and Content Writer",
+    default: title,
   },
-  description:
-    "Helping your business flourish through organic social media growth.",
+  description,
+  metadataBase: new URL(serverEnv.BASE_URL),
   openGraph: {
-    title: "Shelly Liu | Social Media Manager, Strategist, and Content Writer",
-    description:
-      "Helping your business flourish through organic social media growth.",
-    url: "https://liushelly.com",
+    title,
+    description,
+    url: serverEnv.BASE_URL,
     type: "website",
   },
 };

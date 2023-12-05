@@ -4,14 +4,19 @@ import type { ListItem } from "~/lib/types";
 import { sanityFetch } from "sanity-studio/lib/fetch";
 import { orderableQuery } from "sanity-studio/queries";
 import PortfolioLayout from "~/components/portfolio/layout";
+import { serverEnv } from "~/env/server.mjs";
+
+const title = "PORTFOLIO";
+const description =
+  "A showcase of the various brands Shelly Liu has worked with.";
 
 export const metadata: Metadata = {
-  title: "PORTFOLIO",
-  description: "A showcase of the various brands Shelly Liu has worked with.",
+  title,
+  description,
   openGraph: {
-    title: "PORTFOLIO | Shelly Liu",
-    description: "A showcase of the various brands Shelly Liu has worked with.",
-    url: "https://liushelly.com/portfolio",
+    title: `${title} | Shelly Liu`,
+    description,
+    url: `${serverEnv.BASE_URL}/portfolio`,
     type: "website",
   },
 };

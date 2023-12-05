@@ -6,6 +6,7 @@ import { client } from "sanity-studio/lib/client";
 import { sanityFetch } from "sanity-studio/lib/fetch";
 import { spotlightQuery } from "sanity-studio/queries";
 import SpotlightLayout from "~/components/portfolio/spotlight/layout";
+import { serverEnv } from "~/env/server.mjs";
 
 export async function generateMetadata({
   params,
@@ -20,13 +21,16 @@ export async function generateMetadata({
   const page = await client.fetch<{ name: string }>(query, params);
   if (!page) return;
 
+  const title = page.name.toUpperCase();
+  const description = `Works by Shelly Liu for ${page.name.toUpperCase()}.`;
+
   return {
-    title: page.name.toUpperCase(),
-    description: `Works by Shelly Liu for ${page.name.toUpperCase()}.`,
+    title,
+    description,
     openGraph: {
-      title: `${page.name.toUpperCase()} | Shelly Liu`,
-      description: `Works by Shelly Liu for ${page.name.toUpperCase()}.`,
-      url: `https://liushelly.com/portfolio/${params.slug}`,
+      title: `${title} | Shelly Liu`,
+      description,
+      url: `${serverEnv.BASE_URL}/portfolio/${params.slug}`,
       type: "article",
     },
   } satisfies Metadata;

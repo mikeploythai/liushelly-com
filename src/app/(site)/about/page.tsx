@@ -4,16 +4,19 @@ import type { AboutData } from "~/lib/types";
 import { sanityFetch } from "sanity-studio/lib/fetch";
 import { aboutQuery } from "sanity-studio/queries";
 import AboutLayout from "~/components/about/layout";
+import { serverEnv } from "~/env/server.mjs";
+
+const title = "ABOUT";
+const description =
+  "Shelly Liu is a freelance social media manager, strategist, and content writer based in Southern California.";
 
 export const metadata: Metadata = {
-  title: "ABOUT",
-  description:
-    "Shelly Liu is a freelance social media manager, strategist, and content writer based in Southern California.",
+  title,
+  description,
   openGraph: {
-    title: "ABOUT | Shelly Liu",
-    description:
-      "Shelly Liu is a freelance social media manager, strategist, and content writer based in Southern California.",
-    url: "https://liushelly.com/about",
+    title: `${title} | Shelly Liu`,
+    description,
+    url: `${serverEnv.BASE_URL}/about`,
     type: "website",
   },
 };

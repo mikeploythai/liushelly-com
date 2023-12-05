@@ -4,16 +4,19 @@ import type { ServicesData } from "~/lib/types";
 import { sanityFetch } from "sanity-studio/lib/fetch";
 import { servicesQuery } from "sanity-studio/queries";
 import ServicesLayout from "~/components/services/layout";
+import { serverEnv } from "~/env/server.mjs";
+
+const title = "SERVICES";
+const description =
+  "Shelly Liu provides digital marketing services focused on organic growth. Get in touch to learn how Shelly can help your business flourish online.";
 
 export const metadata: Metadata = {
-  title: "SERVICES",
-  description:
-    "Shelly Liu provides digital marketing services focused on organic growth. Get in touch to learn how Shelly can help your business flourish online.",
+  title,
+  description,
   openGraph: {
-    title: "SERVICES | Shelly Liu",
-    description:
-      "Shelly Liu provides digital marketing services focused on organic growth. Get in touch to learn how Shelly can help your business flourish online.",
-    url: "https://liushelly.com/services",
+    title: `${title} | Shelly Liu`,
+    description,
+    url: `${serverEnv.BASE_URL}/services`,
     type: "website",
   },
 };

@@ -6,6 +6,7 @@ import { client } from "sanity-studio/lib/client";
 import { sanityFetch } from "sanity-studio/lib/fetch";
 import { serviceQuery } from "sanity-studio/queries";
 import ServiceLayout from "~/components/services/service/layout";
+import { serverEnv } from "~/env/server.mjs";
 
 export async function generateMetadata({
   params,
@@ -20,13 +21,16 @@ export async function generateMetadata({
   const page = await client.fetch<{ name: string }>(query, params);
   if (!page) return;
 
+  const title = page.name.toUpperCase();
+  const description = `${page.name.toUpperCase()} from Shelly Liu, crafted to help your business organically grow its online presence.`;
+
   return {
-    title: page.name.toUpperCase(),
-    description: `${page.name.toUpperCase()} from Shelly Liu, crafted to help your business organically grow its online presence.`,
+    title,
+    description,
     openGraph: {
-      title: `${page.name.toUpperCase()} | Shelly Liu`,
-      description: `${page.name.toUpperCase()} from Shelly Liu, crafted to help your business organically grow its online presence.`,
-      url: `https://liushelly.com/services/${params.slug}`,
+      title: `${title} | Shelly Liu`,
+      description,
+      url: `${serverEnv.BASE_URL}/services/${params.slug}`,
       type: "article",
     },
   } satisfies Metadata;

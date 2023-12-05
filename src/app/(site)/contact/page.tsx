@@ -3,16 +3,19 @@ import type { Metadata } from "next";
 import ContactForm from "~/components/contact/form";
 import PageWrapper from "~/components/page-wrapper";
 import { Card, CardContent } from "~/components/ui/card";
+import { serverEnv } from "~/env/server.mjs";
+
+const title = "CONTACT";
+const description =
+  "Get in touch with Shelly Liu to inquire about her digital marketing services.";
 
 export const metadata: Metadata = {
-  title: "CONTACT",
-  description:
-    "Get in touch with Shelly Liu to inquire about her digital marketing services.",
+  title,
+  description,
   openGraph: {
-    title: "CONTACT | Shelly Liu",
-    description:
-      "Get in touch with Shelly Liu to inquire about her digital marketing services.",
-    url: "https://liushelly.com/contact",
+    title: `${title} | Shelly Liu`,
+    description,
+    url: `${serverEnv.BASE_URL}/contact`,
     type: "website",
   },
 };
