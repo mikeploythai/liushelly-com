@@ -62,3 +62,8 @@ export type HomeData = {
   services: ListItem[];
   instagram: { href: string };
 };
+
+export interface AboutData extends SanityDocument {
+  content: TypedObject[];
+  images: SanityImage[];
+}

@@ -32,3 +32,9 @@ export const homeQuery = groq`
   },
   "instagram": *[_type == "links" && name == "Instagram"][0],
 }`;
+
+export const aboutQuery = groq`
+*[_type == "aboutMe"][0] {
+  ...,
+  images[] { ..., 'lqip': asset->metadata.lqip }
+}`;
