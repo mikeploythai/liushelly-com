@@ -12,7 +12,7 @@ const ExternalLink = forwardRef<
     ref={ref}
     className={cn(
       buttonVariants({ variant: "link" }),
-      "line-clamp-1 max-w-full p-0.5",
+      "line-clamp-1 inline-flex max-w-full p-0.5",
       className,
     )}
     {...props}
