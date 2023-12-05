@@ -1,5 +1,6 @@
 import type { DocumentDefinition } from "sanity";
 import type { StructureBuilder } from "sanity/desk";
+import itemViews from "../item-views";
 
 export default function buildSingletons(
   docs: DocumentDefinition[],
@@ -12,7 +13,12 @@ export default function buildSingletons(
       S.listItem()
         .title(doc.title ?? doc.name)
         .icon(doc.icon)
-        .child(S.editor().schemaType(doc.name).documentId(doc.name)),
+        .child(
+          S.editor()
+            .schemaType(doc.name)
+            .documentId(doc.name)
+            .views(itemViews(doc.name, S)),
+        ),
     );
   }
 
