@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { sanityImage } from "sanity-studio/lib/image";
 import { cn } from "~/lib/cn";
-import Announcement from "../announcement";
+import AnnouncementBanner from "../announcement-banner";
 import CardGrid from "../card-grid";
 import ExternalLink from "../external-link";
 import PageWrapper from "../page-wrapper";
@@ -55,7 +55,7 @@ export default function HomeLayout({ data }: { data: HomeData }) {
         </figure>
       </section>
 
-      <Announcement announcement={announcement} />
+      <AnnouncementBanner announcement={announcement} />
 
       <section className="mx-auto max-w-screen-xl space-y-6 p-6">
         <div className="space-y-3 md:text-center">
