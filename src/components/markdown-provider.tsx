@@ -5,7 +5,7 @@ interface MarkdownHTMLAttributes extends React.HTMLAttributes<HTMLDivElement> {
   theme?: "default" | "secondary";
 }
 
-const MarkdownWrapper = forwardRef<HTMLDivElement, MarkdownHTMLAttributes>(
+const MarkdownProvider = forwardRef<HTMLDivElement, MarkdownHTMLAttributes>(
   ({ theme = "default", className, ...props }, ref) => (
     <div
       ref={ref}
@@ -21,6 +21,6 @@ const MarkdownWrapper = forwardRef<HTMLDivElement, MarkdownHTMLAttributes>(
     />
   ),
 );
-MarkdownWrapper.displayName = "MarkdownWrapper";
+MarkdownProvider.displayName = "MarkdownProvider";
 
-export default MarkdownWrapper;
+export default MarkdownProvider;

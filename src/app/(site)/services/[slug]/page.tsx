@@ -9,7 +9,7 @@ import { client } from "sanity-studio/lib/client";
 import { sanityFetch } from "sanity-studio/lib/fetch";
 import { sanityImage } from "sanity-studio/lib/image";
 import ContentBlock from "~/components/block-content";
-import MarkdownWrapper from "~/components/markdown-wrapper";
+import MarkdownWrapper from "~/components/markdown-provider";
 import PageWrapper from "~/components/page-wrapper";
 import {
   Accordion,

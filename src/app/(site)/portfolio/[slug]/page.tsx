@@ -7,7 +7,7 @@ import Link from "next/link";
 import { client } from "sanity-studio/lib/client";
 import { sanityFetch } from "sanity-studio/lib/fetch";
 import ContentBlock from "~/components/block-content";
-import MarkdownWrapper from "~/components/markdown-wrapper";
+import MarkdownWrapper from "~/components/markdown-provider";
 import PageWrapper from "~/components/page-wrapper";
 import { buttonVariants } from "~/components/ui/button";
 import { cn } from "~/lib/cn";

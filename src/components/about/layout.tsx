@@ -1,7 +1,7 @@
 import type { AboutData } from "sanity-studio/types";
 
 import BlockContent from "../block-content";
-import MarkdownWrapper from "../markdown-wrapper";
+import MarkdownWrapper from "../markdown-provider";
 import PageWrapper from "../page-wrapper";
 import PhotoGrid from "../photo-grid";
 
