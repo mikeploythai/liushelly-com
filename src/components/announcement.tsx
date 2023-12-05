@@ -1,25 +1,17 @@
-import type { SanityDocument } from "next-sanity";
+import type { Announcement } from "sanity-studio/types";
 
 import { Fragment } from "react";
-import { sanityFetch } from "sanity-studio/lib/fetch";
 import { cn } from "~/lib/cn";
-
-interface Announcement extends SanityDocument {
-  text: string;
-}
 
 /*
   TODO
   - Modify for prefers-reduced-motion later
 */
-export default async function Announcement() {
-  const announcement = await sanityFetch<Announcement>({
-    query: `*[_type == "announcement"][0]`,
-    tags: ["announcement"],
-  });
-
-  if (!announcement) return;
-
+export default async function Announcement({
+  announcement,
+}: {
+  announcement: Announcement;
+}) {
   return (
     <section
       role="marquee"

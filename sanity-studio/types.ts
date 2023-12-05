@@ -1,5 +1,6 @@
 import type { Image, SanityDocument, TypedObject } from "sanity";
 
+// Sanity
 export interface SanityImage extends Image {
   alt: string;
   lqip: string;
@@ -14,6 +15,19 @@ export interface ListItem extends SanityDocument {
   slug: {
     current: string;
   };
+}
+
+export interface Home extends SanityDocument {
+  hero: {
+    heading: string;
+    cta: {
+      text: string;
+      href: string;
+    };
+    image: SanityImage;
+  };
+  testimonials: Testimonial[];
+  featuredInstagramPosts: SanityImage[];
 }
 
 export interface Service extends ListItem {
@@ -31,7 +45,20 @@ export interface Service extends ListItem {
   }[];
 }
 
+// Components
+export interface Announcement extends SanityDocument {
+  text: string;
+}
+
 export type Testimonial = {
   author: string;
   quote: TypedObject[];
+};
+
+// Queries
+export type HomeData = {
+  home: Home;
+  announcement: Announcement;
+  services: ListItem[];
+  instagram: { href: string };
 };
