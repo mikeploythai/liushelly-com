@@ -1,8 +1,8 @@
 import type { StructureResolver } from "sanity/desk";
 
 import { orderables, singletons } from "sanity-studio/schema";
-import buildOrderables from "./build-orderables";
-import buildSingletons from "./build-singletons";
+import buildOrderables from "./builders/orderables";
+import buildSingletons from "./builders/singletons";
 
 let hidden: string[] = [];
 singletons.forEach(({ name }) => hidden.push(name));
