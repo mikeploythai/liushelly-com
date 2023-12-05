@@ -6,5 +6,4 @@ export const client = createClient({
   dataset: clientEnv.NEXT_PUBLIC_SANITY_DATASET,
   projectId: clientEnv.NEXT_PUBLIC_SANITY_PROJECT_ID,
   useCdn: false,
-  perspective: "published",
 });
