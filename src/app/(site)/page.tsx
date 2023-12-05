@@ -11,7 +11,7 @@ import { LiveQuery } from "next-sanity/preview/live-query";
 import { sanityFetch } from "sanity-studio/lib/fetch";
 import HomeLayout from "~/components/home/layout";
 import PreviewHomeLayout from "~/components/home/preview";
-import { isDraftMode } from "~/lib/is-draft-mode";
+import { isPreviewMode } from "~/lib/is-preview-mode";
 
 interface Home extends SanityDocument {
   hero: {
@@ -41,7 +41,7 @@ export default async function HomePage() {
 
   return (
     <LiveQuery
-      enabled={isDraftMode()}
+      enabled={isPreviewMode()}
       query={query}
       initialData={data}
       as={PreviewHomeLayout}

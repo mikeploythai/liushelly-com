@@ -9,7 +9,7 @@ import Navbar from "~/components/navbar";
 import { Toaster } from "~/components/ui/toaster";
 import { serverEnv } from "~/env/server.mjs";
 import { cn } from "~/lib/cn";
-import { isDraftMode } from "~/lib/is-draft-mode";
+import { isPreviewMode } from "~/lib/is-preview-mode";
 
 const PreviewProvider = dynamic(() => import("~/components/providers/preview"));
 
@@ -51,7 +51,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={cn(unbounded.variable, montserrat.variable)}>
       <body className="flex min-h-screen flex-col bg-violet-200 font-body text-indigo-950 antialiased [text-wrap:pretty] selection:bg-indigo-600 selection:text-white">
-        {isDraftMode() ? (
+        {isPreviewMode() ? (
           <PreviewProvider token={serverEnv.SANITY_READ_TOKEN}>
             <Navbar />
             {children}

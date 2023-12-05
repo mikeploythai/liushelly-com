@@ -3,7 +3,7 @@ import "server-only";
 import type { QueryParams } from "sanity";
 
 import { serverEnv } from "~/env/server.mjs";
-import { isDraftMode } from "~/lib/is-draft-mode";
+import { isPreviewMode } from "~/lib/is-preview-mode";
 import { client } from "./client";
 
 const DEFAULT_PARAMS = {} as QueryParams;
@@ -19,12 +19,12 @@ export async function sanityFetch<QueryResponse>({
   tags: string[];
 }): Promise<QueryResponse> {
   return client.fetch<QueryResponse>(query, params, {
-    ...(isDraftMode() && {
+    ...(isPreviewMode() && {
       token: serverEnv.SANITY_READ_TOKEN,
       perspective: "previewDrafts",
     }),
     next: {
-      revalidate: isDraftMode() ? 0 : false, // for simple, time-based revalidation
+      revalidate: isPreviewMode() ? 0 : false, // for simple, time-based revalidation
       tags, // for tag-based revalidation
     },
   });

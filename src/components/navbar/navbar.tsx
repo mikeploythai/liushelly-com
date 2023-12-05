@@ -1,7 +1,7 @@
 import { IconMenu } from "@tabler/icons-react";
 import Link from "next/link";
 import { cn } from "~/lib/cn";
-import { isDraftMode } from "~/lib/is-draft-mode";
+import { isPreviewMode } from "~/lib/is-preview-mode";
 import SocialLinks from "../social-links";
 import { Button, buttonVariants } from "../ui/button";
 import {
@@ -23,7 +23,7 @@ export default function Navbar() {
         </p>
       </noscript>
 
-      {isDraftMode() && (
+      {isPreviewMode() && (
         <p className="w-full bg-indigo-950 p-2 text-center text-sm font-medium text-violet-200">
           Preview mode is enabled.{" "}
           <a
