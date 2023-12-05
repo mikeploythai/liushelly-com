@@ -2,16 +2,12 @@ import "~/styles/globals.css";
 
 import type { Metadata } from "next";
 
-import dynamic from "next/dynamic";
 import { Montserrat, Unbounded } from "next/font/google";
 import Footer from "~/components/footer";
 import Navbar from "~/components/navbar";
 import { Toaster } from "~/components/ui/toaster";
 import { serverEnv } from "~/env/server.mjs";
 import { cn } from "~/lib/cn";
-import { isPreviewMode } from "~/lib/is-preview-mode";
-
-const PreviewProvider = dynamic(() => import("~/components/providers/preview"));
 
 const unbounded = Unbounded({
   subsets: ["latin"],
@@ -51,19 +47,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={cn(unbounded.variable, montserrat.variable)}>
       <body className="flex min-h-screen flex-col bg-violet-200 font-body text-indigo-950 antialiased [text-wrap:pretty] selection:bg-indigo-600 selection:text-white">
-        {isPreviewMode() ? (
-          <PreviewProvider token={serverEnv.SANITY_READ_TOKEN}>
-            <Navbar />
-            {children}
-            <Footer />
-          </PreviewProvider>
-        ) : (
-          <>
-            <Navbar />
-            {children}
-            <Footer />
-          </>
-        )}
+        <Navbar />
+        {children}
+        <Footer />
         <Toaster />
       </body>
     </html>

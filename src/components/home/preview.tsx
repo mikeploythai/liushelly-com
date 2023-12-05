@@ -1,8 +1,17 @@
 "use client";
 
-import dynamic from "next/dynamic";
+import type { HomeData } from "~/lib/types";
 
-// Re-exported components using next/dynamic ensures they're not bundled
-// and sent to the browser unless actually used, with draftMode().enabled.
+import { useLiveQuery } from "next-sanity/preview";
+import { homeQuery } from "sanity-studio/queries";
+import HomeLayout from "./layout";
 
-export default dynamic(() => import("./layout"));
+export default function HomeLayoutPreview({
+  initData,
+}: {
+  initData: HomeData;
+}) {
+  const [data] = useLiveQuery(initData, homeQuery);
+
+  return <HomeLayout data={data} />;
+}
