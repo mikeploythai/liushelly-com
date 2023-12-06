@@ -4,6 +4,7 @@
 
 import { visionTool } from "@sanity/vision";
 import { defineConfig } from "sanity";
+import { pexelsImageAsset } from "sanity-plugin-asset-source-pexels";
 import {
   defineUrlResolver,
   type IframeOptions,
@@ -73,6 +74,7 @@ export default defineConfig({
       urlSecretId: clientEnv.NEXT_PUBLIC_SANITY_PREVIEW_SECRET as PreviewSecret,
       matchTypes: previewDocs,
     }),
+    pexelsImageAsset({ useProxyClient: true }),
   ],
 });
 
