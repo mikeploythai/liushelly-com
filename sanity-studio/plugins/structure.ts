@@ -4,7 +4,7 @@ import { orderables, singletons } from "sanity-studio/schema";
 import buildOrderables from "./builders/orderables";
 import buildSingletons from "./builders/singletons";
 
-let hidden: string[] = [];
+let hidden: string[] = ["media.tag"];
 singletons.forEach(({ name }) => hidden.push(name));
 orderables.forEach(({ name }) => hidden.push(name));
 
