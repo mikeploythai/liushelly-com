@@ -10,9 +10,6 @@ export const orderableQuery = groq`
 }`;
 
 // Components
-export const announcementQuery = groq`
-*[_type == "announcement"][0]`;
-
 export const socialLinksQuery = groq`
 *[_type == "socials"] | order(orderRank) {
   ...,
@@ -21,37 +18,28 @@ export const socialLinksQuery = groq`
 
 // Home
 export const homeQuery = groq`
-*[_type == "home"][0] {
-  ...,
-  hero {
+{
+  "home": *[_type == "home"][0] {
     ...,
-    image {
+    hero {
       ...,
-      'lqip': asset->metadata.lqip,
+      image { ..., 'lqip': asset->metadata.lqip },
+      cta { text, 'href': reference->href },
     },
-    cta {
-      text,
-      'href': reference->href
+    featuredInstagramPosts[] {
+      ...,
+      'lqip': asset->metadata.lqip
     },
   },
-  featuredInstagramPosts[] {
+  "announcement": *[_type == "announcement"][0],
+  "services": *[_type == "services"] | order(orderRank) [0..2] {
     ...,
-    'lqip': asset->metadata.lqip,
+    image { ..., 'lqip': asset->metadata.lqip },
   },
+  "instagram": *[_type == "links" && name == "Instagram"][0],
 }`;
 
-export const slicedServicesQuery = groq`
-*[_type == $type] | order(orderRank) [0..2] {
-  ...,
-  image {
-    ...,
-    'lqip': asset->metadata.lqip,
-  },
-}`;
-
-export const instagramLinkQuery = groq`
-*[_type == "links" && name == "Instagram"][0]`;
-
+// About
 export const aboutQuery = groq`
 *[_type == "aboutMe"][0] {
   ...,
@@ -59,6 +47,14 @@ export const aboutQuery = groq`
     ...,
     'lqip': asset->metadata.lqip,
   }
+}`;
+
+// Services
+export const servicesQuery = groq`
+{
+  "mainService": ${orderableQuery}[0],
+  "otherServices": ${orderableQuery}[1..-1],
+  "announcement": *[_type == "announcement"][0],
 }`;
 
 export const serviceQuery = groq`
@@ -75,7 +71,7 @@ export const serviceQuery = groq`
 }`;
 
 // Portfolio
-export const portfolioItemQuery = groq`
+export const spotlightQuery = groq`
 *[_type == "portfolio" && slug.current == $slug][0] {
   ...,
   image {
