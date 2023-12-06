@@ -1,19 +1,19 @@
 "use client";
 
-import type { Service } from "~/lib/types";
+import type { ServiceData } from "~/lib/types";
 
 import { useLiveQuery } from "next-sanity/preview";
 import { serviceQuery } from "sanity-studio/queries";
 import ServiceLayouts from "./layout";
 
 export default function ServiceLayoutPreview({
-  initService = {} as Service,
+  initData = {} as ServiceData,
   initSlug = "",
 }: {
-  initService: Service;
+  initData: ServiceData;
   initSlug: string;
 }) {
-  const [service] = useLiveQuery(initService, serviceQuery, { slug: initSlug });
+  const [data] = useLiveQuery(initData, serviceQuery, { slug: initSlug });
 
-  return <ServiceLayouts service={service} />;
+  return <ServiceLayouts data={data} />;
 }

@@ -7,11 +7,11 @@ import { socialLinksQuery } from "sanity-studio/queries";
 import SocialLinks from "./links";
 
 export default function SocialLinksPreview({
-  initLinks = [],
+  initData = [],
 }: {
-  initLinks: SocialLink[];
+  initData: SocialLink[];
 }) {
-  const [socialLinks] = useLiveQuery(initLinks, socialLinksQuery);
+  const [data] = useLiveQuery(initData, socialLinksQuery);
 
-  return <SocialLinks socialLinks={socialLinks} />;
+  return <SocialLinks data={data} />;
 }

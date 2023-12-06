@@ -4,7 +4,7 @@ import type { ListItem } from "~/lib/types";
 import { groq } from "next-sanity";
 import { client } from "sanity-studio/lib/client";
 import { sanityFetch } from "sanity-studio/lib/fetch";
-import { portfolioItemQuery } from "sanity-studio/queries";
+import { spotlightQuery } from "sanity-studio/queries";
 import SpotlightLayout from "~/components/portfolio/spotlight/layout";
 import SpotlightLayoutPreview from "~/components/portfolio/spotlight/preview";
 import PreviewProvider from "~/components/providers/preview";
@@ -16,8 +16,8 @@ export default async function SpotlightPage({
 }: {
   params: { slug: string };
 }) {
-  const item: ListItem = await sanityFetch({
-    query: portfolioItemQuery,
+  const data: ListItem = await sanityFetch({
+    query: spotlightQuery,
     params: { slug },
     tags: ["portfolio"],
   });
@@ -25,12 +25,12 @@ export default async function SpotlightPage({
   if (isPreviewMode()) {
     return (
       <PreviewProvider token={serverEnv.SANITY_READ_TOKEN}>
-        <SpotlightLayoutPreview initItem={item} initSlug={slug} />
+        <SpotlightLayoutPreview initData={data} initSlug={slug} />
       </PreviewProvider>
     );
   }
 
-  return <SpotlightLayout item={item} />;
+  return <SpotlightLayout data={data} />;
 }
 
 export async function generateMetadata({

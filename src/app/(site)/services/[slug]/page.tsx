@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import type { Service } from "~/lib/types";
+import type { ServiceData } from "~/lib/types";
 
 import { groq } from "next-sanity";
 import { client } from "sanity-studio/lib/client";
@@ -16,7 +16,7 @@ export default async function ServicePage({
 }: {
   params: { slug: string };
 }) {
-  const service = await sanityFetch<Service>({
+  const data = await sanityFetch<ServiceData>({
     query: serviceQuery,
     params: { slug },
     tags: ["services"],
@@ -25,12 +25,12 @@ export default async function ServicePage({
   if (isPreviewMode()) {
     return (
       <PreviewProvider token={serverEnv.SANITY_READ_TOKEN}>
-        <ServiceLayoutPreview initService={service} initSlug={slug} />
+        <ServiceLayoutPreview initData={data} initSlug={slug} />
       </PreviewProvider>
     );
   }
 
-  return <ServiceLayout service={service} />;
+  return <ServiceLayout data={data} />;
 }
 
 export async function generateMetadata({

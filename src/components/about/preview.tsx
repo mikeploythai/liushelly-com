@@ -1,17 +1,17 @@
 "use client";
 
-import type { About } from "~/lib/types";
+import type { AboutData } from "~/lib/types";
 
 import { useLiveQuery } from "next-sanity/preview";
 import { aboutQuery } from "sanity-studio/queries";
 import AboutLayout from "./layout";
 
 export default function AboutLayoutPreview({
-  initAbout = {} as About,
+  initData = {} as AboutData,
 }: {
-  initAbout: About;
+  initData: AboutData;
 }) {
-  const [about] = useLiveQuery(initAbout, aboutQuery);
+  const [data] = useLiveQuery(initData, aboutQuery);
 
-  return <AboutLayout about={about} />;
+  return <AboutLayout data={data} />;
 }

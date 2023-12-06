@@ -7,13 +7,13 @@ import { orderableQuery } from "sanity-studio/queries";
 import PortfolioLayout from "./layout";
 
 export default function PortfolioLayoutPreview({
-  initPortfolio = [] as ListItem[],
+  initData = [] as ListItem[],
 }: {
-  initPortfolio: ListItem[];
+  initData: ListItem[];
 }) {
-  const [portfolio] = useLiveQuery(initPortfolio, orderableQuery, {
+  const [data] = useLiveQuery(initData, orderableQuery, {
     type: "portfolio",
   });
 
-  return <PortfolioLayout portfolio={portfolio} />;
+  return <PortfolioLayout data={data} />;
 }

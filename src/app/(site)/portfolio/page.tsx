@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 };
 
 export default async function PortfolioPage() {
-  const portfolio = await sanityFetch<ListItem[]>({
+  const data = await sanityFetch<ListItem[]>({
     query: orderableQuery,
     params: { type: "portfolio" },
     tags: ["portfolio"],
@@ -34,10 +34,10 @@ export default async function PortfolioPage() {
   if (isPreviewMode()) {
     return (
       <PreviewProvider token={serverEnv.SANITY_READ_TOKEN}>
-        <PortfolioLayoutPreview initPortfolio={portfolio} />
+        <PortfolioLayoutPreview initData={data} />
       </PreviewProvider>
     );
   }
 
-  return <PortfolioLayout portfolio={portfolio} />;
+  return <PortfolioLayout data={data} />;
 }

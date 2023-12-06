@@ -14,16 +14,12 @@ import {
 import ExternalLink from "../external-link";
 import { buttonVariants } from "../ui/button";
 
-export default function SocialLinks({
-  socialLinks,
-}: {
-  socialLinks: SocialLink[];
-}) {
-  if (!socialLinks) return;
+export default function SocialLinks({ data }: { data: SocialLink[] }) {
+  if (!data) return;
 
   return (
     <>
-      {socialLinks.map(({ name, href }) => {
+      {data.map(({ name, href }) => {
         const Icon = icons[name.toLowerCase()] ?? IconLink;
 
         return (

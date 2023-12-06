@@ -1,4 +1,4 @@
-import type { Service } from "~/lib/types";
+import type { ServiceData } from "~/lib/types";
 
 import { IconArrowUpRight, IconChevronLeft } from "@tabler/icons-react";
 import Image from "next/image";
@@ -17,9 +17,10 @@ import { buttonVariants } from "~/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "~/components/ui/tabs";
 import { cn } from "~/lib/cn";
 
-export default function ServiceLayout({ service }: { service: Service }) {
-  if (!service) return;
-  const { name, image, cta, content, tabs, faq } = service;
+export default function ServiceLayout({ data }: { data: ServiceData }) {
+  if (!data) return;
+
+  const { name, image, cta, content, tabs, faq } = data;
 
   return (
     <PageWrapper className="mx-auto max-w-screen-md space-y-6 p-6 md:p-12">
