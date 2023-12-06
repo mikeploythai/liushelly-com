@@ -20,7 +20,7 @@ import type { PreviewSecret } from "~/lib/types";
 
 import home from "sanity-studio/schema/singletons/home";
 import { clientEnv } from "~/env/client.mjs";
-import { schema } from "./sanity-studio/schema";
+import { schema, singletons } from "./sanity-studio/schema";
 
 import portfolio from "sanity-studio/schema/orderables/portfolio";
 import services from "sanity-studio/schema/orderables/services";
@@ -78,6 +78,28 @@ export default defineConfig({
     pexelsImageAsset({ useProxyClient: true }),
     media(),
   ],
+  document: {
+    newDocumentOptions: (prev, { creationContext }) => {
+      if (creationContext.type === "global") {
+        return prev.filter(
+          ({ templateId }) =>
+            !singletons.find(({ name }) => name === templateId),
+        );
+      }
+
+      return prev;
+    },
+    actions: (prev, ctx) => {
+      if (singletons.find(({ name }) => ctx.schemaType === name)) {
+        const allowedActions = ["discardChanges", "restore", "publish"];
+        return [
+          ...prev.filter(({ action }) => allowedActions.includes(action!)),
+        ];
+      }
+
+      return prev;
+    },
+  },
 });
 
 export { iframeOptions, previewDocs };
