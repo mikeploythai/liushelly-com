@@ -1,4 +1,4 @@
-import type { Announcement, ListItem } from "~/lib/types";
+import type { ServicesData } from "~/lib/types";
 
 import { IconChevronRight } from "@tabler/icons-react";
 import Image from "next/image";
@@ -12,15 +12,10 @@ import MarkdownProvider from "../providers/markdown";
 import { buttonVariants } from "../ui/button";
 import { Card, CardContent, CardFooter, CardHeader } from "../ui/card";
 
-export default function ServicesLayout({
-  services,
-  announcement,
-}: {
-  services: ListItem[];
-  announcement: Announcement;
-}) {
-  if (!services || !announcement) return;
-  const servicesList = services.slice(1, services.length);
+export default function ServicesLayout({ data }: { data: ServicesData }) {
+  if (!data) return;
+
+  const { mainService, otherServices, announcement } = data;
 
   return (
     <PageWrapper>
@@ -31,12 +26,12 @@ export default function ServicesLayout({
 
         <Card className="w-full">
           <CardHeader className="relative min-h-[208px] sm:aspect-[16/6] sm:min-h-0">
-            {services[0]?.image && (
+            {mainService.image && (
               <Image
-                src={sanityImage(services[0].image).url()}
-                alt={services[0].name ?? ""}
+                src={sanityImage(mainService.image).url()}
+                alt={mainService.name ?? ""}
                 placeholder="blur"
-                blurDataURL={services[0].image.lqip}
+                blurDataURL={mainService.image.lqip}
                 className="border border-indigo-950 bg-white object-cover"
                 fill
               />
@@ -45,15 +40,15 @@ export default function ServicesLayout({
 
           <CardContent className="border border-dashed border-indigo-950 p-3">
             <MarkdownProvider className="prose-headings:capitalize">
-              {services[0]?.content && (
-                <BlockContent content={services[0].content} />
+              {mainService.content && (
+                <BlockContent content={mainService.content} />
               )}
             </MarkdownProvider>
           </CardContent>
 
           <CardFooter>
             <Link
-              href={`/${services[0]?._type}/${services[0]?.slug.current}`}
+              href={`/${mainService._type}/${mainService.slug.current}`}
               className={buttonVariants({ class: "w-full" })}
             >
               View details
@@ -79,7 +74,7 @@ export default function ServicesLayout({
           </p>
         </hgroup>
 
-        <CardGrid list={servicesList} />
+        <CardGrid list={otherServices} />
       </section>
     </PageWrapper>
   );

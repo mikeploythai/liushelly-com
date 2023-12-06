@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import type { Announcement, ListItem } from "~/lib/types";
+import type { ServicesData } from "~/lib/types";
 
 import { sanityFetch } from "sanity-studio/lib/fetch";
-import { announcementQuery, orderableQuery } from "sanity-studio/queries";
+import { servicesQuery } from "sanity-studio/queries";
 import PreviewProvider from "~/components/providers/preview";
 import ServicesLayout from "~/components/services/layout";
 import ServicesLayoutPreview from "~/components/services/preview";
@@ -25,26 +25,19 @@ export const metadata: Metadata = {
 };
 
 export default async function ServicesPage() {
-  const services = await sanityFetch<ListItem[]>({
-    query: orderableQuery,
+  const data = await sanityFetch<ServicesData>({
+    query: servicesQuery,
     params: { type: "services" },
-    tags: ["services"],
-  });
-  const announcement = await sanityFetch<Announcement>({
-    query: announcementQuery,
-    tags: ["announcement"],
+    tags: ["services", "announcement"],
   });
 
   if (isPreviewMode()) {
     return (
       <PreviewProvider token={serverEnv.SANITY_READ_TOKEN}>
-        <ServicesLayoutPreview
-          initServices={services}
-          initAnnouncement={announcement}
-        />
+        <ServicesLayoutPreview initData={data} />
       </PreviewProvider>
     );
   }
 
-  return <ServicesLayout services={services} announcement={announcement} />;
+  return <ServicesLayout data={data} />;
 }

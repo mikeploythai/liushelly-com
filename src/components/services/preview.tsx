@@ -1,22 +1,19 @@
 "use client";
 
-import type { Announcement, ListItem } from "~/lib/types";
+import type { ServicesData } from "~/lib/types";
 
 import { useLiveQuery } from "next-sanity/preview";
-import { announcementQuery, orderableQuery } from "sanity-studio/queries";
+import { servicesQuery } from "sanity-studio/queries";
 import ServicesLayout from "./layout";
 
 export default function ServicesLayoutPreview({
-  initServices = [] as ListItem[],
-  initAnnouncement = {} as Announcement,
+  initData = {} as ServicesData,
 }: {
-  initServices: ListItem[];
-  initAnnouncement: Announcement;
+  initData: ServicesData;
 }) {
-  const [services] = useLiveQuery(initServices, orderableQuery, {
+  const [data] = useLiveQuery(initData, servicesQuery, {
     type: "services",
   });
-  const [announcement] = useLiveQuery(initAnnouncement, announcementQuery);
 
-  return <ServicesLayout services={services} announcement={announcement} />;
+  return <ServicesLayout data={data} />;
 }
