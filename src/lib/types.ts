@@ -27,28 +27,20 @@ export type Testimonial = {
   quote: TypedObject[];
 };
 
-export interface Service extends ListItem {
-  cta: {
-    text: string;
-    href: string;
-  };
-  tabs: {
-    name: string;
-    content: TypedObject[];
-  }[];
-  faq: {
-    question: string;
-    answer: TypedObject[];
-  }[];
-}
-
 export interface SocialLink extends SanityDocument {
   name: string;
   href: string;
 }
 
 // Home
-export interface Home extends SanityDocument {
+export type HomeData = {
+  home: Home;
+  announcement: Announcement;
+  services: ListItem[];
+  instagram: { href: string };
+};
+
+interface Home extends SanityDocument {
   hero: {
     heading: string;
     cta: {
@@ -62,9 +54,31 @@ export interface Home extends SanityDocument {
 }
 
 // About
-export interface About extends SanityDocument {
+export interface AboutData extends SanityDocument {
   content: TypedObject[];
   images: SanityImage[];
+}
+
+// Services
+export type ServicesData = {
+  mainService: ListItem;
+  otherServices: ListItem[];
+  announcement: Announcement;
+};
+
+export interface ServiceData extends ListItem {
+  cta: {
+    text: string;
+    href: string;
+  };
+  tabs: {
+    name: string;
+    content: TypedObject[];
+  }[];
+  faq: {
+    question: string;
+    answer: TypedObject[];
+  }[];
 }
 
 export type PreviewSecret = `${string}.${string}`;
