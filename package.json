@@ -43,6 +43,7 @@
     "sanity": "^3.21.0",
     "sanity-plugin-asset-source-pexels": "^3.0.2",
     "sanity-plugin-iframe-pane": "^2.6.1",
+    "sanity-plugin-media": "^2.2.4",
     "server-only": "^0.0.1",
     "styled-components": "^6.1.1",
     "suspend-react": "^0.1.3",

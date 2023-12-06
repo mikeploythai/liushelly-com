@@ -10,6 +10,7 @@ import {
   type IframeOptions,
 } from "sanity-plugin-iframe-pane";
 import { previewUrl } from "sanity-plugin-iframe-pane/preview-url";
+import { media } from "sanity-plugin-media";
 import defaultDocumentNode from "sanity-studio/plugins/default-document-node";
 import structure from "sanity-studio/plugins/structure";
 import { deskTool } from "sanity/desk";
@@ -75,6 +76,7 @@ export default defineConfig({
       matchTypes: previewDocs,
     }),
     pexelsImageAsset({ useProxyClient: true }),
+    media(),
   ],
 });
 
