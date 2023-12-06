@@ -1,40 +1,17 @@
 "use client";
 
-import type { Announcement, Home, ListItem } from "~/lib/types";
+import type { HomeData } from "~/lib/types";
 
 import { useLiveQuery } from "next-sanity/preview";
-import {
-  announcementQuery,
-  homeQuery,
-  instagramLinkQuery,
-  slicedServicesQuery,
-} from "sanity-studio/queries";
+import { homeQuery } from "sanity-studio/queries";
 import HomeLayout from "./layout";
 
 export default function HomeLayoutPreview({
-  initHome = {} as Home,
-  initAnnouncement = {} as Announcement,
-  initServices = [],
-  initInstagramLink = {} as { href: string },
+  initData = {} as HomeData,
 }: {
-  initHome: Home;
-  initAnnouncement: Announcement;
-  initServices: ListItem[];
-  initInstagramLink: { href: string };
+  initData: HomeData;
 }) {
-  const [home] = useLiveQuery(initHome, homeQuery);
-  const [announcement] = useLiveQuery(initAnnouncement, announcementQuery);
-  const [services] = useLiveQuery(initServices, slicedServicesQuery, {
-    type: "services",
-  });
-  const [instagramLink] = useLiveQuery(initInstagramLink, instagramLinkQuery);
+  const [data] = useLiveQuery(initData, homeQuery);
 
-  return (
-    <HomeLayout
-      home={home}
-      announcement={announcement}
-      services={services}
-      instagramLink={instagramLink}
-    />
-  );
+  return <HomeLayout data={data} />;
 }
