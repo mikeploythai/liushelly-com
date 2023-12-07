@@ -10,7 +10,7 @@ import {
   type IframeOptions,
 } from "sanity-plugin-iframe-pane";
 import { previewUrl } from "sanity-plugin-iframe-pane/preview-url";
-import { media } from "sanity-plugin-media";
+import { media, mediaAssetSource } from "sanity-plugin-media";
 import defaultDocumentNode from "sanity-studio/plugins/default-document-node";
 import structure from "sanity-studio/plugins/structure";
 import { theme } from "sanity-studio/theme";
@@ -80,6 +80,16 @@ export default defineConfig({
     pexelsImageAsset({ useProxyClient: true }),
     media(),
   ],
+  form: {
+    // Don't use this plugin when selecting files only (but allow all other enabled asset sources)
+    image: {
+      assetSources: (previousAssetSources) => {
+        return previousAssetSources.filter(
+          (assetSource) => assetSource !== mediaAssetSource,
+        );
+      },
+    },
+  },
   document: {
     newDocumentOptions: (prev, { creationContext }) => {
       if (creationContext.type === "global") {
