@@ -13,9 +13,8 @@ import { previewUrl } from "sanity-plugin-iframe-pane/preview-url";
 import { media } from "sanity-plugin-media";
 import defaultDocumentNode from "sanity-studio/plugins/default-document-node";
 import structure from "sanity-studio/plugins/structure";
+import { theme } from "sanity-studio/theme";
 import { deskTool } from "sanity/desk";
-
-// import {createTheme, hues} from 'https://themer.sanity.build/api/hues?default=ddd6fe;lightest:f8fafc;darkest:020617&primary=6366f1&transparent=64748b'
 
 // Go to https://www.sanity.io/docs/api-versioning to learn how API versioning works
 import type { PreviewSecret } from "~/lib/types";
@@ -29,7 +28,6 @@ import services from "sanity-studio/schema/orderables/services";
 import socials from "sanity-studio/schema/orderables/socials";
 import aboutMe from "sanity-studio/schema/singletons/about-me";
 import announcement from "sanity-studio/schema/singletons/announcement";
-import { theme } from "sanity-studio/theme";
 
 const previewDocs = [
   home.name,
