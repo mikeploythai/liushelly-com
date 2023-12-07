@@ -26,6 +26,7 @@ import { schema, singletons } from "./sanity-studio/schema";
 import portfolio from "sanity-studio/schema/orderables/portfolio";
 import services from "sanity-studio/schema/orderables/services";
 import socials from "sanity-studio/schema/orderables/socials";
+import testimonials from "sanity-studio/schema/orderables/testimonials";
 import aboutMe from "sanity-studio/schema/singletons/about-me";
 import announcement from "sanity-studio/schema/singletons/announcement";
 
@@ -35,6 +36,7 @@ const previewDocs = [
   announcement.name,
   services.name,
   portfolio.name,
+  testimonials.name,
   socials.name,
 ] satisfies string[];
 

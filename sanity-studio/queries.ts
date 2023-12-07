@@ -26,7 +26,7 @@ export const homeQuery = groq`
       image { ..., 'lqip': asset->metadata.lqip },
       cta { text, 'href': reference->href },
     },
-    featuredInstagramPosts[] {
+    instagramPosts[] {
       ...,
       'lqip': asset->metadata.lqip
     },
@@ -36,6 +36,7 @@ export const homeQuery = groq`
     ...,
     image { ..., 'lqip': asset->metadata.lqip },
   },
+  "testimonials": *[_type == "testimonials"] | order(orderRank),
   "instagram": *[_type == "links" && name == "Instagram"][0],
 }`;
 

@@ -11,7 +11,7 @@ import { isPreviewMode } from "~/lib/is-preview-mode";
 export default async function HomePage() {
   const data = await sanityFetch<HomeData>({
     query: homeQuery,
-    tags: ["home", "announcement", "services", "links"],
+    tags: ["home", "announcement", "services", "testimonials", "links"],
   });
 
   if (isPreviewMode()) {

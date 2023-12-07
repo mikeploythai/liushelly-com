@@ -37,6 +37,7 @@ export type HomeData = {
   home: Home;
   announcement: Announcement;
   services: ListItem[];
+  testimonials: Testimonial[];
   instagram: { href: string };
 };
 
@@ -49,8 +50,7 @@ interface Home extends SanityDocument {
     };
     image: SanityImage;
   };
-  testimonials: Testimonial[];
-  featuredInstagramPosts: SanityImage[];
+  instagramPosts: SanityImage[];
 }
 
 // About

@@ -1,4 +1,4 @@
-import { IconBlockquote, IconHome } from "@tabler/icons-react";
+import { IconHome } from "@tabler/icons-react";
 import { defineType } from "sanity";
 
 export default defineType({
@@ -49,21 +49,7 @@ export default defineType({
       ],
     },
     {
-      name: "testimonials",
-      type: "array",
-      of: [
-        {
-          type: "object",
-          icon: IconBlockquote,
-          fields: [
-            { name: "author", type: "string" },
-            { name: "quote", type: "array", of: [{ type: "block" }] },
-          ],
-        },
-      ],
-    },
-    {
-      name: "featuredInstagramPosts",
+      name: "instagramPosts",
       type: "array",
       of: [
         {

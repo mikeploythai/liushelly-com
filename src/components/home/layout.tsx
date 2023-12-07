@@ -16,7 +16,7 @@ import Testimonials from "./testimonials";
 export default function HomeLayout({ data }: { data: HomeData }) {
   if (!data) return;
 
-  const { home, announcement, services, instagram } = data;
+  const { home, announcement, services, testimonials, instagram } = data;
 
   return (
     <PageWrapper>
@@ -76,7 +76,7 @@ export default function HomeLayout({ data }: { data: HomeData }) {
       </section>
 
       <section className="bg-indigo-950">
-        <Testimonials testimonials={home.testimonials} />
+        <Testimonials testimonials={testimonials} />
       </section>
 
       <section className="mx-auto max-w-screen-xl space-y-6 p-6">
@@ -91,11 +91,7 @@ export default function HomeLayout({ data }: { data: HomeData }) {
           </ExternalLink>
         </div>
 
-        <PhotoGrid
-          images={home.featuredInstagramPosts}
-          width={1080}
-          height={1350}
-        />
+        <PhotoGrid images={home.instagramPosts} width={1080} height={1350} />
       </section>
     </PageWrapper>
   );
