@@ -17,6 +17,8 @@ import ExternalLink from "~/components/external-link";
 export const BlockImage = ({
   value,
 }: PortableTextTypeComponentProps<SanityImage>) => {
+  if (!value.asset) return;
+
   const { width, height } = getImageDimensions(value as SanityImageSource);
 
   function ImageWrapper({ children }: { children: React.ReactNode }) {
@@ -29,7 +31,7 @@ export const BlockImage = ({
     <ImageWrapper>
       <Image
         src={sanityImage(value).url()}
-        alt={value.alt}
+        alt={value.alt ?? "Placekitten"}
         placeholder="blur"
         blurDataURL={value.lqip}
         width={width}
@@ -49,7 +51,9 @@ export const BlockLink = ({
   value,
 }: PortableTextMarkComponentProps<BlockLink>) => (
   <ExternalLink href={value?.href}>
-    <span className="line-clamp-1">{children}</span>
+    <span className="line-clamp-1">
+      {children} {!value?.href && "(ADD A LINK)"}
+    </span>
     <IconArrowUpRight size={14} />
   </ExternalLink>
 );
