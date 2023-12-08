@@ -9,10 +9,8 @@ await import("./src/env/server.mjs");
 const config = {
   images: {
     remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "cdn.sanity.io",
-      },
+      { protocol: "https", hostname: "cdn.sanity.io" },
+      { protocol: "https", hostname: "placekitten.com" },
     ],
   },
 };
