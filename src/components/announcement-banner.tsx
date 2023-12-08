@@ -18,7 +18,7 @@ export default function AnnouncementBanner({
       aria-label="Scrolling banner"
       className="group bg-indigo-950 py-3 md:hover:bg-indigo-900"
     >
-      <div className="relative mx-auto flex max-w-screen-2xl overflow-x-hidden font-heading font-medium uppercase text-violet-200">
+      <div className="relative mx-auto flex w-full max-w-screen-2xl overflow-x-hidden font-heading font-medium uppercase text-violet-200">
         <AnnouncementText
           text={announcement.text ?? "Announcement"}
           type="primary"

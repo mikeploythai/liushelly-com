@@ -63,7 +63,7 @@ export default function HomeLayout({ data }: { data: HomeData }) {
 
       <AnnouncementBanner announcement={announcement} />
 
-      <section className="mx-auto max-w-screen-xl space-y-6 p-6">
+      <section className="mx-auto w-full max-w-screen-xl space-y-6 p-6">
         <div className="space-y-3 md:text-center">
           <h2 className="font-heading text-xl font-medium md:text-2xl">
             Personalized services that&apos;ll skyrocket your socials.
@@ -85,7 +85,7 @@ export default function HomeLayout({ data }: { data: HomeData }) {
         <Testimonials testimonials={testimonials} />
       </section>
 
-      <section className="mx-auto max-w-screen-xl space-y-6 p-6">
+      <section className="mx-auto w-full max-w-screen-xl space-y-6 p-6">
         <div className="space-y-3 md:text-center">
           <h2 className="font-heading text-xl font-medium md:text-2xl">
             Follow my Instagram for free social media growth advice!

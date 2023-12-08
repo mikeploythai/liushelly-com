@@ -41,7 +41,7 @@ export default function Navbar() {
         </p>
       )}
 
-      <div className="mx-auto flex max-w-screen-2xl justify-between">
+      <div className="mx-auto flex w-full max-w-screen-2xl justify-between">
         <Link
           href="/"
           className={buttonVariants({

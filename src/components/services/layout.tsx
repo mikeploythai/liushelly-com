@@ -17,7 +17,7 @@ export default function ServicesLayout({ data }: { data: ServicesData }) {
 
   return (
     <PageWrapper>
-      <section className="mx-auto flex max-w-screen-md flex-col items-center gap-6 p-6">
+      <section className="mx-auto flex w-full max-w-screen-md flex-col items-center gap-6 p-6">
         <h1 className="font-heading text-3xl font-medium md:py-6 md:text-center md:text-4xl">
           Take your brand&apos;s social media presence to the next level.
         </h1>
@@ -58,7 +58,7 @@ export default function ServicesLayout({ data }: { data: ServicesData }) {
 
       <AnnouncementBanner announcement={announcement} />
 
-      <section className="mx-auto max-w-screen-lg space-y-6 p-6">
+      <section className="mx-auto w-full max-w-screen-lg space-y-6 p-6">
         <hgroup className="space-y-3 md:text-center">
           <h2 className="font-heading text-xl font-medium md:text-2xl">
             Not ready for social media management?

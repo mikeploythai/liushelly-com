@@ -30,7 +30,7 @@ export default function Testimonials({
   }
 
   return (
-    <div className="mx-auto max-w-screen-lg space-y-6 p-6 text-violet-200">
+    <div className="mx-auto w-full max-w-screen-lg space-y-6 p-6 text-violet-200">
       <div className="flex items-center justify-between">
         <h2 className="font-heading text-xl font-medium md:text-2xl">
           What clients have to say...

@@ -14,7 +14,7 @@ export default async function Footer() {
 
   return (
     <footer>
-      <div className="mx-auto flex max-w-screen-md flex-col justify-between gap-6 p-6 sm:flex-row sm:items-center md:py-12">
+      <div className="mx-auto flex w-full  max-w-screen-md flex-col justify-between gap-6 p-6 sm:flex-row sm:items-center md:py-12">
         <div className="space-y-1.5">
           <p className="font-heading text-lg font-medium">
             &copy; Shelly Liu {year}

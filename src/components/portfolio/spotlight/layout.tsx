@@ -10,7 +10,7 @@ import { cn } from "~/lib/cn";
 
 export default function SpotlightLayout({ data }: { data: ListItem }) {
   return (
-    <PageWrapper className="mx-auto max-w-screen-md space-y-6 p-6 md:p-12">
+    <PageWrapper className="mx-auto w-full max-w-screen-md space-y-6 p-6 md:p-12">
       <Link
         href="/portfolio"
         className={cn(buttonVariants({ variant: "link", size: "sm" }), "p-0")}
