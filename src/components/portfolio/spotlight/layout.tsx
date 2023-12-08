@@ -9,8 +9,6 @@ import { buttonVariants } from "~/components/ui/button";
 import { cn } from "~/lib/cn";
 
 export default function SpotlightLayout({ data }: { data: ListItem }) {
-  if (!data) return;
-
   return (
     <PageWrapper className="mx-auto max-w-screen-md space-y-6 p-6 md:p-12">
       <Link
