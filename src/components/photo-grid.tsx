@@ -7,19 +7,29 @@ import { cn } from "~/lib/cn";
 import { Card, CardContent } from "./ui/card";
 
 interface CardGridProps extends HTMLAttributes<HTMLDivElement> {
-  images: SanityImage[];
+  images?: SanityImage[];
   width: number;
   height: number;
 }
 
 const PhotoGrid = forwardRef<HTMLDivElement, CardGridProps>(
   ({ images, width, height, className, ...props }, ref) => {
-    if (!images) return;
+    if (!images?.length) {
+      return (
+        <p className="border border-dashed border-indigo-950 p-8 md:text-center">
+          No images yet!
+        </p>
+      );
+    }
 
     return (
       <div
         ref={ref}
-        className={cn("grid grid-cols-2 gap-3 md:grid-cols-4", className)}
+        className={cn(
+          "grid grid-cols-2 gap-3",
+          images.length && "md:grid-cols-4",
+          className,
+        )}
         {...props}
       >
         {images.map((image) => {
@@ -38,9 +48,13 @@ const PhotoGrid = forwardRef<HTMLDivElement, CardGridProps>(
               <Card className="group flex p-0 md:hover:border-indigo-900 md:hover:text-indigo-900 md:hover:shadow-boxy-hover">
                 <CardContent className="w-full overflow-hidden">
                   <Image
-                    src={sanityImage(image).url()}
-                    alt={image.alt}
-                    placeholder="blur"
+                    src={
+                      image.asset
+                        ? sanityImage(image).url()
+                        : `https://placekitten.com/${width}/${height}`
+                    }
+                    alt={image.alt ?? "Placekitten"}
+                    placeholder={image.asset ? "blur" : "empty"}
                     blurDataURL={image.lqip}
                     width={width}
                     height={height}

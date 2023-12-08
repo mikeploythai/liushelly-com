@@ -2,15 +2,15 @@ import type { Image, SanityDocument, TypedObject } from "sanity";
 
 // Content Types
 export interface SanityImage extends Image {
-  alt: string;
+  alt?: string;
   lqip: string;
   href?: string;
   _key?: string;
 }
 
 export interface ListItem extends SanityDocument {
-  name: string;
-  image: SanityImage;
+  name?: string;
+  image?: SanityImage;
   content: TypedObject[];
   slug: {
     current: string;
@@ -18,14 +18,14 @@ export interface ListItem extends SanityDocument {
 }
 
 // Components
-export interface Announcement extends SanityDocument {
+export interface Announcement {
   text: string;
 }
 
-export type Testimonial = {
+export interface Testimonial extends SanityDocument {
   author: string;
   quote: TypedObject[];
-};
+}
 
 export interface SocialLink extends SanityDocument {
   name: string;
@@ -38,17 +38,17 @@ export type HomeData = {
   announcement: Announcement;
   services: ListItem[];
   testimonials: Testimonial[];
-  instagram: { href: string };
+  instagram?: { href: string };
 };
 
 interface Home extends SanityDocument {
-  hero: {
+  hero?: {
     heading: string;
-    cta: {
+    cta?: {
       text: string;
       href: string;
     };
-    image: SanityImage;
+    image?: SanityImage;
   };
   instagramPosts: SanityImage[];
 }
@@ -61,15 +61,15 @@ export interface AboutData extends SanityDocument {
 
 // Services
 export type ServicesData = {
-  mainService: ListItem;
-  otherServices: ListItem[];
+  mainService?: ListItem;
+  otherServices?: ListItem[];
   announcement: Announcement;
 };
 
 export interface ServiceData extends ListItem {
   cta: {
-    text: string;
-    href: string;
+    text?: string;
+    href?: string;
   };
   tabs: {
     name: string;

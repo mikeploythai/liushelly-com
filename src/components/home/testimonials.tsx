@@ -15,14 +15,16 @@ export default function Testimonials({
 }) {
   const [index, setIndex] = useState(0);
 
-  if (!testimonials) return;
-
   function getPrevQuote() {
+    if (!testimonials) return;
+
     if (index === 0) setIndex(testimonials.length - 1);
     else setIndex((curr) => curr - 1);
   }
 
   function getNextQuote() {
+    if (!testimonials) return;
+
     if (index === testimonials.length - 1) setIndex(0);
     else setIndex((curr) => curr + 1);
   }
@@ -35,24 +37,38 @@ export default function Testimonials({
         </h2>
 
         <div className="shrink-0 space-x-1.5">
-          <Button size="icon" onClick={getPrevQuote}>
+          <Button
+            size="icon"
+            onClick={getPrevQuote}
+            disabled={!testimonials.length}
+          >
             <IconChevronLeft />
             <span className="sr-only">Previous testimonial</span>
           </Button>
 
-          <Button size="icon" onClick={getNextQuote}>
+          <Button
+            size="icon"
+            onClick={getNextQuote}
+            disabled={!testimonials.length}
+          >
             <IconChevronRight />
             <span className="sr-only">Next testimonial</span>
           </Button>
         </div>
       </div>
 
-      <MarkdownProvider
-        theme="secondary"
-        className="flex flex-col justify-center prose-p:m-0 md:min-h-[288px] md:p-6"
-      >
-        <BlockContent content={testimonials[index]!.quote} />
-      </MarkdownProvider>
+      {testimonials ? (
+        <MarkdownProvider
+          theme="secondary"
+          className="flex flex-col justify-center prose-p:m-0 md:min-h-[288px] md:p-6"
+        >
+          <BlockContent content={testimonials[index]?.quote} />
+        </MarkdownProvider>
+      ) : (
+        <p className="border border-dashed border-violet-200 p-16 md:text-center">
+          No testimonials yet!
+        </p>
+      )}
     </div>
   );
 }

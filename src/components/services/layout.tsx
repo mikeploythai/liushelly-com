@@ -13,8 +13,6 @@ import { buttonVariants } from "../ui/button";
 import { Card, CardContent, CardFooter, CardHeader } from "../ui/card";
 
 export default function ServicesLayout({ data }: { data: ServicesData }) {
-  if (!data) return;
-
   const { mainService, otherServices, announcement } = data;
 
   return (
@@ -26,29 +24,29 @@ export default function ServicesLayout({ data }: { data: ServicesData }) {
 
         <Card className="w-full">
           <CardHeader className="relative min-h-[208px] sm:aspect-[16/6] sm:min-h-0">
-            {mainService.image && (
-              <Image
-                src={sanityImage(mainService.image).url()}
-                alt={mainService.name ?? ""}
-                placeholder="blur"
-                blurDataURL={mainService.image.lqip}
-                className="border border-indigo-950 bg-white object-cover"
-                fill
-              />
-            )}
+            <Image
+              src={
+                mainService?.image
+                  ? sanityImage(mainService?.image).url()
+                  : "https://placekitten.com/640/208"
+              }
+              alt={mainService?.name ?? "Placekitten"}
+              placeholder={mainService?.image ? "blur" : "empty"}
+              blurDataURL={mainService?.image?.lqip}
+              className="border border-indigo-950 bg-white object-cover"
+              fill
+            />
           </CardHeader>
 
           <CardContent className="border border-dashed border-indigo-950 p-3">
             <MarkdownProvider className="prose-headings:capitalize">
-              {mainService.content && (
-                <BlockContent content={mainService.content} />
-              )}
+              <BlockContent content={mainService?.content} />
             </MarkdownProvider>
           </CardContent>
 
           <CardFooter>
             <Link
-              href={`/${mainService._type}/${mainService.slug.current}`}
+              href={`/${mainService?._type}/${mainService?.slug.current}`}
               className={buttonVariants({ class: "w-full" })}
             >
               View details

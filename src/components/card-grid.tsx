@@ -10,49 +10,63 @@ import { buttonVariants } from "./ui/button";
 import { Card, CardContent, CardFooter } from "./ui/card";
 
 interface CardGridProps extends HTMLAttributes<HTMLDivElement> {
-  list: ListItem[];
+  list?: ListItem[];
 }
 
 const CardGrid = forwardRef<HTMLDivElement, CardGridProps>(
-  ({ list, className, ...props }, ref) => (
-    <div
-      ref={ref}
-      className={cn("grid gap-3 sm:grid-cols-2", className)}
-      {...props}
-    >
-      {list.map(({ name, image, slug, _type, _id }, i) => (
-        <Card
-          key={_id}
-          className={cn(
-            list.length % 2 &&
-              i === list.length - 1 &&
-              "sm:col-span-2 md:col-span-1",
-          )}
-        >
-          <CardContent className="relative h-32 sm:h-40">
-            <Image
-              src={sanityImage(image).url()}
-              alt={name}
-              placeholder="blur"
-              blurDataURL={image.lqip}
-              className="border border-indigo-950 bg-white object-cover"
-              fill
-            />
-          </CardContent>
+  ({ list, className, ...props }, ref) => {
+    if (!list?.length) {
+      return (
+        <p className="border border-dashed border-indigo-950 p-8 md:text-center">
+          No content yet!
+        </p>
+      );
+    }
 
-          <CardFooter>
-            <Link
-              href={`/${_type}/${slug.current}`}
-              className={buttonVariants({ class: "w-full" })}
-            >
-              <span className="truncate">{name}</span>
-              <IconChevronRight size={18} className="ml-auto" />
-            </Link>
-          </CardFooter>
-        </Card>
-      ))}
-    </div>
-  ),
+    return (
+      <div
+        ref={ref}
+        className={cn("grid gap-3 sm:grid-cols-2", className)}
+        {...props}
+      >
+        {list.map(({ name, image, slug, _type, _id }, i) => (
+          <Card
+            key={_id}
+            className={cn(
+              list.length % 2 &&
+                i === list.length - 1 &&
+                "sm:col-span-2 md:col-span-1",
+            )}
+          >
+            <CardContent className="relative h-32 sm:h-40">
+              <Image
+                src={
+                  image?.asset
+                    ? sanityImage(image).url()
+                    : "https://placekitten.com/160/280"
+                }
+                alt={name ?? "Placekitten"}
+                placeholder={image?.asset ? "blur" : "empty"}
+                blurDataURL={image?.lqip}
+                className="border border-indigo-950 bg-white object-cover"
+                fill
+              />
+            </CardContent>
+
+            <CardFooter>
+              <Link
+                href={`/${_type}/${slug.current}`}
+                className={buttonVariants({ class: "w-full" })}
+              >
+                <span className="truncate">{name ?? "Add a name"}</span>
+                <IconChevronRight size={18} className="ml-auto" />
+              </Link>
+            </CardFooter>
+          </Card>
+        ))}
+      </div>
+    );
+  },
 );
 CardGrid.displayName = "CardGrid";
 

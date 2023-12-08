@@ -18,12 +18,10 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "~/components/ui/tabs";
 import { cn } from "~/lib/cn";
 
 export default function ServiceLayout({ data }: { data: ServiceData }) {
-  if (!data) return;
-
   const { name, image, cta, content, tabs, faq } = data;
 
   return (
-    <PageWrapper className="mx-auto max-w-screen-md space-y-6 p-6 md:p-12">
+    <PageWrapper className="mx-auto w-full max-w-screen-md space-y-6 p-6 md:p-12">
       <Link
         href="/services"
         className={cn(buttonVariants({ variant: "link", size: "sm" }), "p-0")}
@@ -37,10 +35,14 @@ export default function ServiceLayout({ data }: { data: ServiceData }) {
       <MarkdownProvider>
         <figure className="relative min-h-[208px] sm:aspect-[16/6] sm:min-h-0">
           <Image
-            src={sanityImage(image).url()}
-            alt={name}
-            placeholder="blur"
-            blurDataURL={image.lqip}
+            src={
+              image
+                ? sanityImage(image).url()
+                : "https://placekitten.com/640/208"
+            }
+            alt={name ?? "Placekitten"}
+            placeholder={image ? "blur" : "empty"}
+            blurDataURL={image?.lqip}
             className="border border-indigo-950 bg-white object-cover"
             fill
           />
@@ -49,8 +51,15 @@ export default function ServiceLayout({ data }: { data: ServiceData }) {
         <BlockContent content={content} />
       </MarkdownProvider>
 
-      <Link href={cta.href} className={buttonVariants({ class: "w-full" })}>
-        {cta.text}
+      <Link
+        href={cta?.href ?? ""}
+        className={buttonVariants({ class: "w-full" })}
+      >
+        {!cta?.text
+          ? !cta?.href
+            ? "Add a link and label"
+            : "Add a label"
+          : cta.text}
         <IconArrowUpRight size={18} className="ml-auto" />
       </Link>
 
@@ -59,7 +68,7 @@ export default function ServiceLayout({ data }: { data: ServiceData }) {
           <TabsList className="flex">
             {tabs.map(({ name }) => (
               <TabsTrigger key={name} value={name} className="flex-1 uppercase">
-                {name}
+                {name ?? "Add a tab name"}
               </TabsTrigger>
             ))}
           </TabsList>
@@ -81,7 +90,7 @@ export default function ServiceLayout({ data }: { data: ServiceData }) {
           <Accordion type="single" className="!mt-1.5" collapsible>
             {faq.map(({ question, answer }) => (
               <AccordionItem key={question} value={question}>
-                <AccordionTrigger>{question}</AccordionTrigger>
+                <AccordionTrigger>{question ?? "Add a question"}</AccordionTrigger>
 
                 <AccordionContent>
                   <MarkdownProvider>

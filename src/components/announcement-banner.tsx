@@ -12,8 +12,6 @@ export default function AnnouncementBanner({
 }: {
   announcement: Announcement;
 }) {
-  if (!announcement) return;
-
   return (
     <section
       role="marquee"
@@ -21,8 +19,14 @@ export default function AnnouncementBanner({
       className="group bg-indigo-950 py-3 md:hover:bg-indigo-900"
     >
       <div className="relative mx-auto flex max-w-screen-2xl overflow-x-hidden font-heading font-medium uppercase text-violet-200">
-        <AnnouncementText text={announcement.text} type="primary" />
-        <AnnouncementText text={announcement.text} type="secondary" />
+        <AnnouncementText
+          text={announcement.text ?? "Announcement"}
+          type="primary"
+        />
+        <AnnouncementText
+          text={announcement.text ?? "Announcement"}
+          type="secondary"
+        />
 
         <BannerBound side="left" />
         <BannerBound side="right" />

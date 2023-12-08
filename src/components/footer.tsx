@@ -7,7 +7,7 @@ export default async function Footer() {
   const date = new Date();
   const year = date.getFullYear();
 
-  const mikeLink = await sanityFetch<{ href: string }>({
+  const mike = await sanityFetch<{ href: string } | null>({
     query: `*[_type == "links" && name == "Mike's website"][0]`,
     tags: ["links"],
   });
@@ -20,8 +20,13 @@ export default async function Footer() {
             &copy; Shelly Liu {year}
           </p>
 
-          <ExternalLink href={mikeLink.href} className="gap-0.5 text-xs">
-            Built by Mike
+          <ExternalLink
+            href={mike?.href ?? "/studio/structure/links"}
+            className="gap-0.5 text-xs"
+          >
+            {mike?.href
+              ? "Built by Mike"
+              : `Add a link called "Mike's website" in the studio!`}
             <IconArrowUpRight size={14} />
           </ExternalLink>
         </div>
