@@ -18,6 +18,14 @@ This repository showcases **version 2.1** of the website, which was rebuilt from
 - [Sanity CMS][cms]
 - [Resend][resend] + [React Email][email]
 
+### About forking (PLEASE READ)
+
+The main intent behind leaving the source code open is for curious people to take a peek, and for people learning Next.js and Sanity to have an in-production example to reference. You are free to fork this repository <b><ins>with attribution</ins></b>, but please note that no documentation will be provided directly that explains how to modify the code. Other than that, GLHF 🫡
+
+***
+
+Built by Mike ✌🏼 2023
+
 [branches]: https://github.com/mikeploythai/liushelly-com/branches
 [website]: https://liushelly.com
 [demo]: https://github.com/mikeploythai/liushelly-com/assets/110638329/0f15e040-0692-42c6-a64d-eb80b89d5251
