@@ -1,6 +1,6 @@
 "use client";
 
-import { IconChevronRight } from "@tabler/icons-react";
+import { IconArrowRight } from "@tabler/icons-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "~/lib/cn";
@@ -36,7 +36,7 @@ export default function NavbarItems({ isDrawer }: { isDrawer: boolean }) {
             )}
           >
             {route}
-            <IconChevronRight
+            <IconArrowRight
               size={20}
               className={!isDrawer ? "hidden" : "block"}
             />

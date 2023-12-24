@@ -1,6 +1,6 @@
 import type { ListItem } from "~/lib/types";
 
-import { IconChevronLeft } from "@tabler/icons-react";
+import { IconArrowLeft } from "@tabler/icons-react";
 import Link from "next/link";
 import BlockContent from "~/components/block-content";
 import PageWrapper from "~/components/page-wrapper";
@@ -15,7 +15,7 @@ export default function SpotlightLayout({ data }: { data: ListItem }) {
         href="/portfolio"
         className={cn(buttonVariants({ variant: "link", size: "sm" }), "p-0")}
       >
-        <IconChevronLeft size={12} />
+        <IconArrowLeft size={14} />
         Back to portfolio
       </Link>
 

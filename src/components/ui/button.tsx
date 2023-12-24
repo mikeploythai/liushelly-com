@@ -21,9 +21,9 @@ const buttonVariants = cva(
         link: "font-semibold underline underline-offset-4 hover:text-indigo-800 focus-visible:text-indigo-800",
       },
       size: {
-        default: "gap-1 px-4 py-2",
-        sm: "gap-0.5 px-3 text-sm",
-        lg: "gap-1.5 px-6 py-3 text-lg",
+        default: "gap-1.5 px-4 py-2",
+        sm: "gap-1 px-3 text-sm",
+        lg: "gap-2 px-6 py-3 text-lg",
         icon: "h-10 w-10",
       },
     },

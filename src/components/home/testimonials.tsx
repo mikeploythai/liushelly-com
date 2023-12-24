@@ -2,7 +2,7 @@
 
 import type { Testimonial } from "~/lib/types";
 
-import { IconChevronLeft, IconChevronRight } from "@tabler/icons-react";
+import { IconArrowLeft, IconArrowRight } from "@tabler/icons-react";
 import { useState } from "react";
 import BlockContent from "../block-content";
 import MarkdownProvider from "../providers/markdown";
@@ -36,13 +36,13 @@ export default function Testimonials({
           Client testimonials
         </h2>
 
-        <div className="shrink-0 space-x-2">
+        <div className="flex">
           <Button
             size="icon"
             onClick={getPrevQuote}
             disabled={!testimonials.length}
           >
-            <IconChevronLeft />
+            <IconArrowLeft />
             <span className="sr-only">Previous testimonial</span>
           </Button>
 
@@ -51,7 +51,7 @@ export default function Testimonials({
             onClick={getNextQuote}
             disabled={!testimonials.length}
           >
-            <IconChevronRight />
+            <IconArrowRight />
             <span className="sr-only">Next testimonial</span>
           </Button>
         </div>

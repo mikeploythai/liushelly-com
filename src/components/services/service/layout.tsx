@@ -1,6 +1,6 @@
 import type { ServiceData } from "~/lib/types";
 
-import { IconArrowUpRight, IconChevronLeft } from "@tabler/icons-react";
+import { IconArrowLeft, IconArrowUpRight } from "@tabler/icons-react";
 import Image from "next/image";
 import Link from "next/link";
 import { sanityImage } from "sanity-studio/lib/image";
@@ -26,7 +26,7 @@ export default function ServiceLayout({ data }: { data: ServiceData }) {
         href="/services"
         className={cn(buttonVariants({ variant: "link", size: "sm" }), "p-0")}
       >
-        <IconChevronLeft size={12} />
+        <IconArrowLeft size={14} />
         Back to services
       </Link>
 
@@ -60,7 +60,7 @@ export default function ServiceLayout({ data }: { data: ServiceData }) {
             ? "Add a link and label"
             : "Add a label"
           : cta.text}
-        <IconArrowUpRight size={18} className="ml-auto" />
+        <IconArrowUpRight size={16} className="ml-auto" />
       </Link>
 
       {tabs && (
@@ -90,7 +90,9 @@ export default function ServiceLayout({ data }: { data: ServiceData }) {
           <Accordion type="single" className="!mt-1.5" collapsible>
             {faq.map(({ question, answer }) => (
               <AccordionItem key={question} value={question}>
-                <AccordionTrigger>{question ?? "Add a question"}</AccordionTrigger>
+                <AccordionTrigger>
+                  {question ?? "Add a question"}
+                </AccordionTrigger>
 
                 <AccordionContent>
                   <MarkdownProvider>

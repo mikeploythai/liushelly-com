@@ -1,6 +1,6 @@
 import type { ListItem } from "~/lib/types";
 
-import { IconChevronRight } from "@tabler/icons-react";
+import { IconArrowRight } from "@tabler/icons-react";
 import Image from "next/image";
 import Link from "next/link";
 import { forwardRef, type HTMLAttributes } from "react";
@@ -59,7 +59,7 @@ const CardGrid = forwardRef<HTMLDivElement, CardGridProps>(
                 className={buttonVariants({ class: "w-full" })}
               >
                 <span className="truncate">{name ?? "Add a name"}</span>
-                <IconChevronRight size={18} className="ml-auto" />
+                <IconArrowRight size={16} className="ml-auto" />
               </Link>
             </CardFooter>
           </Card>

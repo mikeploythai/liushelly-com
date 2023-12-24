@@ -1,6 +1,6 @@
 import type { HomeData } from "~/lib/types";
 
-import { IconArrowUpRight, IconChevronRight } from "@tabler/icons-react";
+import { IconArrowRight, IconArrowUpRight } from "@tabler/icons-react";
 import Image from "next/image";
 import Link from "next/link";
 import { sanityImage } from "sanity-studio/lib/image";
@@ -47,7 +47,7 @@ export default function HomeLayout({ data }: { data: HomeData }) {
                     ? "Add a link and label"
                     : "Add a label"
                   : home.hero.cta.text}
-                <IconArrowUpRight size={20} />
+                <IconArrowUpRight size={18} />
               </ExternalLink>
             </div>
 
@@ -83,7 +83,7 @@ export default function HomeLayout({ data }: { data: HomeData }) {
             className={cn(buttonVariants({ variant: "link" }), "p-0")}
           >
             Explore services
-            <IconChevronRight size={18} />
+            <IconArrowRight size={16} />
           </Link>
         </div>
 
@@ -104,7 +104,7 @@ export default function HomeLayout({ data }: { data: HomeData }) {
             {instagram?.href
               ? "Visit my Instagram"
               : `Add a link called "Instagram" in the studio!`}
-            <IconArrowUpRight size={18} />
+            <IconArrowUpRight size={16} />
           </ExternalLink>
         </div>
 

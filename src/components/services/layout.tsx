@@ -1,6 +1,6 @@
 import type { ServicesData } from "~/lib/types";
 
-import { IconChevronRight } from "@tabler/icons-react";
+import { IconArrowRight } from "@tabler/icons-react";
 import Image from "next/image";
 import Link from "next/link";
 import { sanityImage } from "sanity-studio/lib/image";
@@ -50,7 +50,7 @@ export default function ServicesLayout({ data }: { data: ServicesData }) {
               className={buttonVariants({ className: "w-full" })}
             >
               View details
-              <IconChevronRight size={18} className="ml-auto" />
+              <IconArrowRight size={16} className="ml-auto" />
             </Link>
           </CardFooter>
         </Card>

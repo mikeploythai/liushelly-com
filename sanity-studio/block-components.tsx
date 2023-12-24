@@ -54,6 +54,6 @@ export const BlockLink = ({
     <span className="line-clamp-1">
       {children} {!value?.href && "(ADD A LINK)"}
     </span>
-    <IconArrowUpRight size={14} />
+    <IconArrowUpRight size={16} />
   </ExternalLink>
 );
