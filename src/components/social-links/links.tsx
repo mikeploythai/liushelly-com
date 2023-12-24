@@ -31,7 +31,7 @@ export default function SocialLinks({ data }: { data: SocialLink[] }) {
               size: "icon",
             })}
           >
-            <Icon size={20} />
+            <Icon />
             <span className="sr-only">Link to Shelly&apos;s {name} page</span>
           </ExternalLink>
         );
