@@ -5,14 +5,14 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "~/lib/cn";
 import { buttonVariants } from "../ui/button";
-import { SheetClose } from "../ui/sheet";
+import { DrawerClose } from "../ui/drawer";
 
 export default function NavbarItems({ isDrawer }: { isDrawer: boolean }) {
   const pathname = usePathname();
   const routes: string[] = ["about", "services", "portfolio", "contact"];
 
   function ItemWrapper({ children }: { children: React.ReactNode }) {
-    if (isDrawer) return <SheetClose asChild>{children}</SheetClose>;
+    if (isDrawer) return <DrawerClose asChild>{children}</DrawerClose>;
     else return <>{children}</>;
   }
 
@@ -31,13 +31,13 @@ export default function NavbarItems({ isDrawer }: { isDrawer: boolean }) {
             className={cn(
               buttonVariants({ size: !isDrawer ? "default" : "lg" }),
               pathname === `/${route}` && "bg-indigo-900",
-              isDrawer && "justify-start text-xl",
+              isDrawer && "justify-start",
               "rounded-none sm:first-of-type:rounded-l-sm sm:last-of-type:rounded-r-sm",
             )}
           >
             {route}
             <IconArrowRight
-              size={20}
+              size={18}
               className={!isDrawer ? "hidden" : "block"}
             />
           </Link>

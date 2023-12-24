@@ -5,13 +5,12 @@ import { isPreviewMode } from "~/lib/is-preview-mode";
 import SocialLinks from "../social-links";
 import { Button, buttonVariants } from "../ui/button";
 import {
-  Sheet,
-  SheetContent,
-  SheetFooter,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "../ui/sheet";
+  Drawer,
+  DrawerContent,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerTrigger,
+} from "../ui/drawer";
 import NavbarItems from "./items";
 
 export default function Navbar() {
@@ -55,26 +54,22 @@ export default function Navbar() {
 
         <NavbarItems isDrawer={false} />
 
-        <Sheet>
-          <SheetTrigger className="block sm:hidden" asChild>
+        <Drawer shouldScaleBackground>
+          <DrawerTrigger className="block sm:hidden" asChild>
             <Button className="rounded-none">
               <IconMenu />
               <span className="sr-only">Navigation menu</span>
             </Button>
-          </SheetTrigger>
+          </DrawerTrigger>
 
-          <SheetContent>
-            <SheetHeader>
-              <SheetTitle>Navigation</SheetTitle>
-            </SheetHeader>
-
+          <DrawerContent>
+            <DrawerHeader>Navigation</DrawerHeader>
             <NavbarItems isDrawer={true} />
-
-            <SheetFooter>
+            <DrawerFooter>
               <SocialLinks buttonProps={{ variant: "default" }} />
-            </SheetFooter>
-          </SheetContent>
-        </Sheet>
+            </DrawerFooter>
+          </DrawerContent>
+        </Drawer>
       </div>
     </header>
   );

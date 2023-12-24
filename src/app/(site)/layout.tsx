@@ -47,10 +47,12 @@ export default function RootLayout({
   return (
     <html lang="en" className={cn(unbounded.variable, montserrat.variable)}>
       <body className="flex min-h-screen flex-col text-pretty bg-violet-200 font-body text-indigo-950 antialiased selection:bg-indigo-600 selection:text-white">
-        <Navbar />
-        {children}
-        <Footer />
-        <Toaster visibleToasts={4} closeButton richColors />
+        <div vaul-drawer-wrapper="" className="bg-violet-200">
+          <Navbar />
+          {children}
+          <Footer />
+          <Toaster visibleToasts={4} closeButton richColors />
+        </div>
       </body>
     </html>
   );
