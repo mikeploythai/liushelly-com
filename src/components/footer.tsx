@@ -27,12 +27,12 @@ export default async function Footer() {
             {mike?.href
               ? "Built by Mike"
               : `Add a link called "Mike's website" in the studio!`}
-            <IconArrowUpRight size={14} />
+            <IconArrowUpRight size={12} />
           </ExternalLink>
         </div>
 
-        <div className="flex gap-1.5">
-          <SocialLinks />
+        <div className="flex">
+          <SocialLinks buttonProps={{ variant: "ghost" }} />
         </div>
       </div>
     </footer>

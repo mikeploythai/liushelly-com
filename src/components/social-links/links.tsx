@@ -12,9 +12,15 @@ import {
   type TablerIconsProps,
 } from "@tabler/icons-react";
 import ExternalLink from "../external-link";
-import { buttonVariants } from "../ui/button";
+import { buttonVariants, type ButtonProps } from "../ui/button";
 
-export default function SocialLinks({ data }: { data: SocialLink[] }) {
+export default function SocialLinks({
+  data,
+  buttonProps,
+}: {
+  data: SocialLink[];
+  buttonProps: ButtonProps;
+}) {
   if (!data) return;
 
   return (
@@ -27,7 +33,7 @@ export default function SocialLinks({ data }: { data: SocialLink[] }) {
             key={name}
             href={href}
             className={buttonVariants({
-              variant: "secondary",
+              variant: buttonProps.variant,
               size: "icon",
             })}
           >

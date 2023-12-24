@@ -1,4 +1,5 @@
 import type { SocialLink } from "~/lib/types";
+import type { ButtonProps } from "../ui/button";
 
 import { sanityFetch } from "sanity-studio/lib/fetch";
 import { socialLinksQuery } from "sanity-studio/queries";
@@ -8,7 +9,11 @@ import PreviewProvider from "../providers/preview";
 import SocialLinks from "./links";
 import SocialLinksPreview from "./preview";
 
-export default async function SocialLinksProvider() {
+export default async function SocialLinksProvider({
+  buttonProps,
+}: {
+  buttonProps: ButtonProps;
+}) {
   const data = await sanityFetch<SocialLink[]>({
     query: socialLinksQuery,
     tags: ["socials"],
@@ -22,5 +27,5 @@ export default async function SocialLinksProvider() {
     );
   }
 
-  return <SocialLinks data={data} />;
+  return <SocialLinks data={data} buttonProps={buttonProps} />;
 }

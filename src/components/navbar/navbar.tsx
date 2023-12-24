@@ -71,7 +71,7 @@ export default function Navbar() {
             <NavbarItems isDrawer={true} />
 
             <SheetFooter>
-              <SocialLinks />
+              <SocialLinks buttonProps={{ variant: "default" }} />
             </SheetFooter>
           </SheetContent>
         </Sheet>
