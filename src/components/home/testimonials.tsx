@@ -31,12 +31,12 @@ export default function Testimonials({
 
   return (
     <div className="mx-auto w-full max-w-screen-lg space-y-6 p-6 text-violet-200">
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between gap-2">
         <h2 className="font-heading text-xl font-medium md:text-2xl">
           Client testimonials
         </h2>
 
-        <div className="shrink-0 space-x-1.5">
+        <div className="shrink-0 space-x-2">
           <Button
             size="icon"
             onClick={getPrevQuote}

@@ -103,7 +103,7 @@ const SheetFooter = ({
   ...props
 }: React.HTMLAttributes<HTMLDivElement>) => (
   <div
-    className={cn("flex justify-center gap-1.5 px-6 pb-6", className)}
+    className={cn("flex justify-center gap-2 px-6 pb-6", className)}
     {...props}
   />
 );
