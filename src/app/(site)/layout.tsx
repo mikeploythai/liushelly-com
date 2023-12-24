@@ -50,7 +50,7 @@ export default function RootLayout({
         <Navbar />
         {children}
         <Footer />
-        <Toaster closeButton richColors />
+        <Toaster visibleToasts={4} closeButton richColors />
       </body>
     </html>
   );
