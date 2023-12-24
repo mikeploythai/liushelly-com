@@ -44,6 +44,7 @@ export type HomeData = {
 interface Home extends SanityDocument {
   hero?: {
     heading: string;
+    subheading: TypedObject[];
     cta?: {
       text: string;
       href: string;
