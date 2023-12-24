@@ -63,7 +63,6 @@ export default function Navbar() {
           </DrawerTrigger>
 
           <DrawerContent>
-            <DrawerHeader>Navigation</DrawerHeader>
             <NavbarItems isDrawer={true} />
             <DrawerFooter>
               <SocialLinks buttonProps={{ variant: "default" }} />
