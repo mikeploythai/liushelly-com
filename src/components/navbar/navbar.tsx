@@ -8,7 +8,6 @@ import {
   Drawer,
   DrawerContent,
   DrawerFooter,
-  DrawerHeader,
   DrawerTrigger,
 } from "../ui/drawer";
 import NavbarItems from "./items";
