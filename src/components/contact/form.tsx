@@ -3,14 +3,13 @@
 import { IconSend } from "@tabler/icons-react";
 import { useRef, type InputHTMLAttributes } from "react";
 import { useFormStatus } from "react-dom";
+import { toast } from "sonner";
 import { cn } from "~/lib/cn";
 import { contactFormSchema } from "~/lib/contact-form/schema";
 import sendMessage from "~/lib/contact-form/send-message";
 import { Button } from "../ui/button";
-import { useToast } from "../ui/use-toast";
 
 export default function ContactForm() {
-  const { toast } = useToast();
   const formRef = useRef<HTMLFormElement>(null);
 
   async function action(form: FormData) {
@@ -18,27 +17,14 @@ export default function ContactForm() {
     const parsedEntries = contactFormSchema.safeParse(entries);
 
     if (!parsedEntries.success) {
-      parsedEntries.error.issues.map((issue) =>
-        toast({
-          title: "Error!",
-          description: issue.message,
-          variant: "destructive",
-        }),
-      );
+      parsedEntries.error.issues.map((issue) => toast.error(issue.message));
       return;
     }
 
     const res = await sendMessage(parsedEntries.data);
-    if (res?.error) {
-      toast({
-        title: "Error!",
-        description: res.error,
-        variant: "destructive",
-      });
-      return;
-    }
+    if (res?.error) return toast.error(res.error);
 
-    toast({ title: "Success!", description: "Your message has been sent." });
+    toast.success("Your message has been sent.");
     formRef.current?.reset();
   }
 
@@ -57,7 +43,7 @@ function ContactFormFields({ field }: { field: FormField }) {
   const { pending } = useFormStatus();
 
   const styles = cn(
-    "border-current transition focus:ring-2 focus:ring-current",
+    "border-current transition focus:ring-2 focus:ring-current rounded-md",
     field.name === "message" && "min-h-[160px]",
   );
 

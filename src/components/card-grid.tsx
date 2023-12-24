@@ -48,7 +48,7 @@ const CardGrid = forwardRef<HTMLDivElement, CardGridProps>(
                 alt={name ?? "Placekitten"}
                 placeholder={image?.asset ? "blur" : "empty"}
                 blurDataURL={image?.lqip}
-                className="border border-indigo-950 bg-white object-cover"
+                className="rounded-md border border-indigo-950  bg-white object-cover"
                 fill
               />
             </CardContent>

@@ -22,6 +22,25 @@ export default defineType({
           type: "string",
         },
         {
+          name: "subheading",
+          type: "array",
+          of: [
+            {
+              type: "block",
+              styles: [{ title: "Normal", value: "normal" }],
+              marks: {
+                decorators: [
+                  { title: "Strong", value: "strong" },
+                  { title: "Italic", value: "em" },
+                  { title: "Underline", value: "underline" },
+                ],
+                annotations: [],
+              },
+              lists: [],
+            },
+          ],
+        },
+        {
           name: "cta",
           title: "Call to Action",
           type: "object",
