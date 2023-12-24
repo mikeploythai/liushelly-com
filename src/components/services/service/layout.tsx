@@ -53,7 +53,7 @@ export default function ServiceLayout({ data }: { data: ServiceData }) {
 
       <Link
         href={cta?.href ?? ""}
-        className={buttonVariants({ class: "w-full" })}
+        className={buttonVariants({ className: "w-full" })}
       >
         {!cta?.text
           ? !cta?.href
