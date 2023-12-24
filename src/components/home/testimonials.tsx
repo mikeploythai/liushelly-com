@@ -33,7 +33,7 @@ export default function Testimonials({
     <div className="mx-auto w-full max-w-screen-lg space-y-6 p-6 text-violet-200">
       <div className="flex items-center justify-between">
         <h2 className="font-heading text-xl font-medium md:text-2xl">
-          What clients have to say...
+          Client testimonials
         </h2>
 
         <div className="shrink-0 space-x-1.5">
