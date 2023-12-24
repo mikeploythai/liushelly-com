@@ -3,9 +3,9 @@ import "../globals.css";
 import type { Metadata } from "next";
 
 import { Montserrat, Unbounded } from "next/font/google";
+import { Toaster } from "sonner";
 import Footer from "~/components/footer";
 import Navbar from "~/components/navbar";
-import { Toaster } from "~/components/ui/toaster";
 import { serverEnv } from "~/env/server.mjs";
 import { cn } from "~/lib/cn";
 
@@ -46,11 +46,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={cn(unbounded.variable, montserrat.variable)}>
-      <body className="flex min-h-screen flex-col bg-violet-200 font-body text-indigo-950 antialiased [text-wrap:pretty] selection:bg-indigo-600 selection:text-white">
+      <body className="flex min-h-screen flex-col text-pretty bg-violet-200 font-body text-indigo-950 antialiased selection:bg-indigo-600 selection:text-white">
         <Navbar />
         {children}
         <Footer />
-        <Toaster />
+        <Toaster closeButton richColors />
       </body>
     </html>
   );
