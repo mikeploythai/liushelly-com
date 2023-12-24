@@ -13,6 +13,7 @@ import PageWrapper from "../page-wrapper";
 import PhotoGrid from "../photo-grid";
 import MarkdownProvider from "../providers/markdown";
 import { buttonVariants } from "../ui/button";
+import { Card, CardContent } from "../ui/card";
 import Testimonials from "./testimonials";
 
 export default function HomeLayout({ data }: { data: HomeData }) {
@@ -21,50 +22,52 @@ export default function HomeLayout({ data }: { data: HomeData }) {
   return (
     <PageWrapper>
       <section className="mx-auto w-full max-w-screen-lg sm:p-6">
-        <div className="grid overflow-hidden sm:grid-cols-3 sm:rounded-xl sm:border sm:border-indigo-950">
-          <div className="space-y-6 p-6 sm:col-span-2 sm:space-y-12 sm:p-12">
-            <hgroup className="space-y-2 sm:space-y-4">
-              <h1 className="font-heading text-3xl font-medium md:text-4xl">
-                {home.hero?.heading ?? "Add a heading"}
-              </h1>
+        <Card className="m-0 rounded-none border-0 p-0 shadow-none sm:mb-2 sm:mr-2 sm:rounded-xl sm:border sm:shadow-boxy">
+          <CardContent className="grid sm:grid-cols-3">
+            <div className="space-y-6 p-6 sm:col-span-2 sm:space-y-9 sm:p-9 md:space-y-12 md:p-12">
+              <hgroup className="space-y-2 sm:space-y-4">
+                <h1 className="font-heading text-3xl font-medium md:text-4xl">
+                  {home.hero?.heading ?? "Add a heading"}
+                </h1>
 
-              <MarkdownProvider>
-                <BlockContent content={home.hero?.subheading} />
-              </MarkdownProvider>
-            </hgroup>
+                <MarkdownProvider>
+                  <BlockContent content={home.hero?.subheading} />
+                </MarkdownProvider>
+              </hgroup>
 
-            <ExternalLink
-              href={home.hero?.cta?.href}
-              className={buttonVariants({
-                size: "lg",
-                className: "no-underline",
-              })}
-            >
-              {!home.hero?.cta?.text
-                ? !home.hero?.cta?.href
-                  ? "Add a link and label"
-                  : "Add a label"
-                : home.hero.cta.text}
-              <IconArrowUpRight size={20} />
-            </ExternalLink>
-          </div>
+              <ExternalLink
+                href={home.hero?.cta?.href}
+                className={buttonVariants({
+                  size: "lg",
+                  className: "no-underline",
+                })}
+              >
+                {!home.hero?.cta?.text
+                  ? !home.hero?.cta?.href
+                    ? "Add a link and label"
+                    : "Add a label"
+                  : home.hero.cta.text}
+                <IconArrowUpRight size={20} />
+              </ExternalLink>
+            </div>
 
-          <figure className="relative min-h-64 border-t border-indigo-950 bg-white sm:border-l sm:border-t-0">
-            <Image
-              src={
-                home.hero?.image
-                  ? sanityImage(home.hero.image).url()
-                  : "https://placekitten.com/288/432"
-              }
-              alt={home.hero?.image?.alt ?? "Placekitten"}
-              placeholder={home.hero?.image?.asset ? "blur" : "empty"}
-              blurDataURL={home.hero?.image?.lqip}
-              className="object-cover object-[50%_30%]"
-              priority
-              fill
-            />
-          </figure>
-        </div>
+            <figure className="relative min-h-64 overflow-hidden border-t border-indigo-950 bg-white sm:border-l sm:border-t-0">
+              <Image
+                src={
+                  home.hero?.image
+                    ? sanityImage(home.hero.image).url()
+                    : "https://placekitten.com/288/432"
+                }
+                alt={home.hero?.image?.alt ?? "Placekitten"}
+                placeholder={home.hero?.image?.asset ? "blur" : "empty"}
+                blurDataURL={home.hero?.image?.lqip}
+                className="object-cover object-[50%_30%] transition duration-300 ease-in-out md:hover:scale-105"
+                priority
+                fill
+              />
+            </figure>
+          </CardContent>
+        </Card>
       </section>
 
       <AnnouncementBanner announcement={announcement} />
