@@ -43,7 +43,7 @@ function ContactFormFields({ field }: { field: FormField }) {
   const { pending } = useFormStatus();
 
   const styles = cn(
-    "border-current transition focus:ring-2 focus:ring-current rounded-md",
+    "border-current transition focus:ring-2 focus:ring-current rounded-sm",
     field.name === "message" && "min-h-[160px]",
   );
 

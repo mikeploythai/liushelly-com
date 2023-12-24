@@ -5,7 +5,7 @@ import * as React from "react";
 import { cn } from "src/lib/cn";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center rounded-md font-medium uppercase ring-offset-transparent transition duration-300 ease-in-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 focus-visible:ring-offset-1 disabled:pointer-events-none disabled:opacity-50",
+  "inline-flex items-center justify-center rounded-sm font-medium uppercase ring-offset-transparent transition duration-300 ease-in-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 focus-visible:ring-offset-1 disabled:pointer-events-none disabled:opacity-50",
   {
     variants: {
       variant: {

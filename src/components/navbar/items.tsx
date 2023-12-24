@@ -32,7 +32,7 @@ export default function NavbarItems({ isDrawer }: { isDrawer: boolean }) {
               buttonVariants({ size: !isDrawer ? "default" : "lg" }),
               pathname === `/${route}` && "bg-indigo-900",
               isDrawer && "justify-start text-xl",
-              "rounded-none sm:first-of-type:rounded-l-md sm:last-of-type:rounded-r-md",
+              "rounded-none sm:first-of-type:rounded-l-sm sm:last-of-type:rounded-r-sm",
             )}
           >
             {route}

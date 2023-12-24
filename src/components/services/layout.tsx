@@ -33,12 +33,12 @@ export default function ServicesLayout({ data }: { data: ServicesData }) {
               alt={mainService?.name ?? "Placekitten"}
               placeholder={mainService?.image ? "blur" : "empty"}
               blurDataURL={mainService?.image?.lqip}
-              className="rounded-md border border-indigo-950 bg-white object-cover"
+              className="rounded-sm border border-indigo-950 bg-white object-cover"
               fill
             />
           </CardHeader>
 
-          <CardContent className="rounded-md border border-dashed border-indigo-950 p-3">
+          <CardContent className="rounded-sm border border-dashed border-indigo-950 p-3">
             <MarkdownProvider className="prose-headings:capitalize">
               <BlockContent content={mainService?.content} />
             </MarkdownProvider>

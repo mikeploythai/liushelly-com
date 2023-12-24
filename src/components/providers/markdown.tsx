@@ -10,7 +10,7 @@ const MarkdownProvider = forwardRef<HTMLDivElement, MarkdownHTMLAttributes>(
     <div
       ref={ref}
       className={cn(
-        "prose prose-sm max-w-none md:prose-base prose-headings:font-heading prose-headings:font-medium prose-a:normal-case prose-blockquote:border-none prose-blockquote:p-0 prose-blockquote:font-normal prose-strong:text-current prose-img:rounded-md",
+        "prose prose-sm max-w-none md:prose-base prose-headings:font-heading prose-headings:font-medium prose-a:normal-case prose-blockquote:border-none prose-blockquote:p-0 prose-blockquote:font-normal prose-strong:text-current prose-img:rounded-sm",
         theme === "default" &&
           "text-indigo-950 marker:text-indigo-950 prose-headings:text-indigo-950 prose-a:text-indigo-950 prose-blockquote:text-indigo-950",
         theme === "secondary" &&

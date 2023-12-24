@@ -22,7 +22,7 @@ export default function HomeLayout({ data }: { data: HomeData }) {
   return (
     <PageWrapper>
       <section className="mx-auto w-full max-w-screen-lg sm:p-6">
-        <Card className="m-0 rounded-none border-0 p-0 shadow-none sm:mb-2 sm:mr-2 sm:rounded-xl sm:border sm:shadow-boxy">
+        <Card className="m-0 rounded-none border-0 p-0 shadow-none sm:mb-2 sm:mr-2 sm:rounded sm:border sm:shadow-boxy">
           <CardContent className="grid sm:grid-cols-3">
             <div className="space-y-6 p-6 sm:col-span-2 sm:space-y-9 sm:p-9 md:space-y-12 md:p-12">
               <hgroup className="space-y-2 sm:space-y-4">
