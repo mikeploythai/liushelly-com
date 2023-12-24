@@ -33,12 +33,12 @@ export default function ServicesLayout({ data }: { data: ServicesData }) {
               alt={mainService?.name ?? "Placekitten"}
               placeholder={mainService?.image ? "blur" : "empty"}
               blurDataURL={mainService?.image?.lqip}
-              className="border border-indigo-950 bg-white object-cover"
+              className="rounded-md border border-indigo-950 bg-white object-cover"
               fill
             />
           </CardHeader>
 
-          <CardContent className="border border-dashed border-indigo-950 p-3">
+          <CardContent className="rounded-md border border-dashed border-indigo-950 p-3">
             <MarkdownProvider className="prose-headings:capitalize">
               <BlockContent content={mainService?.content} />
             </MarkdownProvider>
@@ -47,7 +47,7 @@ export default function ServicesLayout({ data }: { data: ServicesData }) {
           <CardFooter>
             <Link
               href={`/${mainService?._type}/${mainService?.slug.current}`}
-              className={buttonVariants({ class: "w-full" })}
+              className={buttonVariants({ className: "w-full" })}
             >
               View details
               <IconChevronRight size={18} className="ml-auto" />

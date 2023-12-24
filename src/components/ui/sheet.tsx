@@ -85,7 +85,12 @@ const SheetHeader = ({
     {...props}
   >
     {children}
-    <SheetPrimitive.Close className={buttonVariants({ variant: "secondary" })}>
+    <SheetPrimitive.Close
+      className={buttonVariants({
+        variant: "secondary",
+        className: "rounded-none",
+      })}
+    >
       <IconX />
       <span className="sr-only">Close</span>
     </SheetPrimitive.Close>

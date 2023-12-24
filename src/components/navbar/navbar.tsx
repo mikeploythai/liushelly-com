@@ -47,7 +47,7 @@ export default function Navbar() {
           className={buttonVariants({
             size: "lg",
             variant: "ghost",
-            class: "font-heading capitalize",
+            className: "rounded-none font-heading capitalize",
           })}
         >
           Shelly Liu
@@ -57,7 +57,7 @@ export default function Navbar() {
 
         <Sheet>
           <SheetTrigger className="block sm:hidden" asChild>
-            <Button>
+            <Button className="rounded-none">
               <IconMenu />
               <span className="sr-only">Navigation menu</span>
             </Button>
