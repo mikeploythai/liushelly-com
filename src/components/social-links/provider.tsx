@@ -22,7 +22,7 @@ export default async function SocialLinksProvider({
   if (isPreviewMode()) {
     return (
       <PreviewProvider token={serverEnv.SANITY_READ_TOKEN}>
-        <SocialLinksPreview initData={data} />
+        <SocialLinksPreview initData={data} buttonProps={buttonProps} />
       </PreviewProvider>
     );
   }
