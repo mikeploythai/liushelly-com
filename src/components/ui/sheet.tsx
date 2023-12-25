@@ -6,6 +6,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import * as React from "react";
 
 import { cn } from "src/lib/cn";
+import defaultTheme from "tailwindcss/defaultTheme";
 import { buttonVariants } from "./button";
 
 const Sheet = SheetPrimitive.Root;
@@ -76,26 +77,43 @@ const SheetHeader = ({
   children,
   className,
   ...props
-}: React.HTMLAttributes<HTMLDivElement>) => (
-  <div
-    className={cn(
-      "flex justify-between border-b border-b-violet-200",
-      className,
-    )}
-    {...props}
-  >
-    {children}
-    <SheetPrimitive.Close
-      className={buttonVariants({
-        variant: "secondary",
-        className: "rounded-none",
-      })}
+}: React.HTMLAttributes<HTMLDivElement>) => {
+  const [windowWidth, setWindowWidth] = React.useState(0);
+  const ref = React.useRef<HTMLButtonElement>(null);
+
+  React.useEffect(() => {
+    function updateWindowWidth() {
+      setWindowWidth(window.innerWidth);
+    }
+
+    window.addEventListener("resize", updateWindowWidth);
+    return () => window.removeEventListener("resize", updateWindowWidth);
+  }, []);
+
+  if (windowWidth >= parseInt(defaultTheme.screens.sm)) ref.current?.click();
+
+  return (
+    <div
+      className={cn(
+        "flex justify-between border-b border-b-violet-200",
+        className,
+      )}
+      {...props}
     >
-      <IconX />
-      <span className="sr-only">Close</span>
-    </SheetPrimitive.Close>
-  </div>
-);
+      {children}
+      <SheetPrimitive.Close
+        ref={ref}
+        className={buttonVariants({
+          variant: "secondary",
+          className: "rounded-none",
+        })}
+      >
+        <IconX />
+        <span className="sr-only">Close</span>
+      </SheetPrimitive.Close>
+    </div>
+  );
+};
 SheetHeader.displayName = "SheetHeader";
 
 const SheetFooter = ({
