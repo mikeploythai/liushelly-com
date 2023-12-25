@@ -5,14 +5,14 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "~/lib/cn";
 import { buttonVariants } from "../ui/button";
-import { DrawerClose } from "../ui/drawer";
+import { SheetClose } from "../ui/sheet";
 
 export default function NavbarItems({ isDrawer }: { isDrawer: boolean }) {
   const pathname = usePathname();
   const routes: string[] = ["about", "services", "portfolio", "contact"];
 
   function ItemWrapper({ children }: { children: React.ReactNode }) {
-    if (isDrawer) return <DrawerClose asChild>{children}</DrawerClose>;
+    if (isDrawer) return <SheetClose asChild>{children}</SheetClose>;
     else return <>{children}</>;
   }
 
@@ -21,7 +21,7 @@ export default function NavbarItems({ isDrawer }: { isDrawer: boolean }) {
       className={cn(
         "my-auto",
         !isDrawer && "hidden pr-1.5 sm:block",
-        isDrawer && "mt-4 flex flex-col",
+        isDrawer && "flex flex-col",
       )}
     >
       {routes.map((route) => (
@@ -31,7 +31,7 @@ export default function NavbarItems({ isDrawer }: { isDrawer: boolean }) {
             className={cn(
               buttonVariants({ size: !isDrawer ? "default" : "lg" }),
               pathname === `/${route}` && "bg-indigo-900",
-              isDrawer && "justify-start",
+              isDrawer && "justify-start text-xl",
               "rounded-none sm:first-of-type:rounded-l-sm sm:last-of-type:rounded-r-sm",
             )}
           >

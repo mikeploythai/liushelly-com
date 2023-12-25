@@ -5,17 +5,18 @@ import { isPreviewMode } from "~/lib/is-preview-mode";
 import SocialLinks from "../social-links";
 import { Button, buttonVariants } from "../ui/button";
 import {
-  Drawer,
-  DrawerContent,
-  DrawerFooter,
-  DrawerTrigger,
-} from "../ui/drawer";
-import AutoCloseDrawer from "./auto-close-drawer";
+  Sheet,
+  SheetContent,
+  SheetFooter,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "../ui/sheet";
 import NavbarItems from "./items";
 
 export default function Navbar() {
   return (
-    <header className="fixed top-0 z-10 w-full border-b border-b-indigo-950 bg-violet-200">
+    <header className="sticky top-0 z-10 border-b border-b-indigo-950 bg-violet-200">
       {!isPreviewMode() && (
         <noscript>
           <p className="w-full bg-indigo-950 p-2 text-center text-sm font-medium text-violet-200">
@@ -54,24 +55,26 @@ export default function Navbar() {
 
         <NavbarItems isDrawer={false} />
 
-        <Drawer>
-          <DrawerTrigger className="block sm:hidden" asChild>
+        <Sheet>
+          <SheetTrigger className="block sm:hidden" asChild>
             <Button className="rounded-none">
               <IconMenu />
               <span className="sr-only">Navigation menu</span>
             </Button>
-          </DrawerTrigger>
+          </SheetTrigger>
 
-          <DrawerContent>
+          <SheetContent>
+            <SheetHeader>
+              <SheetTitle>Navigation</SheetTitle>
+            </SheetHeader>
+
             <NavbarItems isDrawer={true} />
 
-            <DrawerFooter>
+            <SheetFooter>
               <SocialLinks buttonProps={{ variant: "default" }} />
-            </DrawerFooter>
-
-            <AutoCloseDrawer />
-          </DrawerContent>
-        </Drawer>
+            </SheetFooter>
+          </SheetContent>
+        </Sheet>
       </div>
     </header>
   );
