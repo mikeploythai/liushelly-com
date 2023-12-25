@@ -12,6 +12,8 @@ export const clientEnv = createEnv({
     NEXT_PUBLIC_SANITY_PROJECT_ID: z.string().min(1),
     NEXT_PUBLIC_SANITY_DATASET: z.string().min(1),
     NEXT_PUBLIC_SANITY_PREVIEW_SECRET: z.string().regex(/\w{7}\.\w{6}/),
+    NEXT_PUBLIC_UMAMI_SRC: z.string().url(),
+    NEXT_PUBLIC_UMAMI_WEBSITE_ID: z.string(),
   },
 
   /**
@@ -24,6 +26,8 @@ export const clientEnv = createEnv({
     NEXT_PUBLIC_SANITY_DATASET: process.env.NEXT_PUBLIC_SANITY_DATASET,
     NEXT_PUBLIC_SANITY_PREVIEW_SECRET:
       process.env.NEXT_PUBLIC_SANITY_PREVIEW_SECRET,
+    NEXT_PUBLIC_UMAMI_SRC: process.env.NEXT_PUBLIC_UMAMI_SRC,
+    NEXT_PUBLIC_UMAMI_WEBSITE_ID: process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID,
   },
   /**
    * Run `build` or `dev` with `SKIP_ENV_VALIDATION` to skip env validation.

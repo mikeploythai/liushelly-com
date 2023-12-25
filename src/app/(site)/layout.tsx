@@ -3,9 +3,11 @@ import "../globals.css";
 import type { Metadata } from "next";
 
 import { Montserrat, Unbounded } from "next/font/google";
+import Script from "next/script";
 import { Toaster } from "sonner";
 import Footer from "~/components/footer";
 import Navbar from "~/components/navbar";
+import { clientEnv } from "~/env/client.mjs";
 import { serverEnv } from "~/env/server.mjs";
 import { cn } from "~/lib/cn";
 
@@ -51,6 +53,11 @@ export default function RootLayout({
         {children}
         <Footer />
         <Toaster visibleToasts={4} closeButton richColors />
+        <Script
+          src={clientEnv.NEXT_PUBLIC_UMAMI_SRC}
+          data-website-id={clientEnv.NEXT_PUBLIC_UMAMI_WEBSITE_ID}
+          strategy="lazyOnload"
+        />
       </body>
     </html>
   );
