@@ -8,7 +8,7 @@ const PageWrapper = forwardRef<
   <main
     ref={ref}
     className={cn(
-      "flex-1 duration-500 ease-in-out animate-in fade-in-0 slide-in-from-bottom-6",
+      "mt-[52px] flex-1 duration-500 ease-in-out animate-in fade-in-0 slide-in-from-bottom-6",
       className,
     )}
     {...props}
