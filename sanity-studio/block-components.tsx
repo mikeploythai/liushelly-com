@@ -9,7 +9,6 @@ import {
   getImageDimensions,
   type SanityImageSource,
 } from "@sanity/asset-utils";
-import { IconArrowUpRight } from "@tabler/icons-react";
 import Image from "next/image";
 import { sanityImage } from "sanity-studio/lib/image";
 import ExternalLink from "~/components/external-link";
@@ -51,9 +50,6 @@ export const BlockLink = ({
   value,
 }: PortableTextMarkComponentProps<BlockLink>) => (
   <ExternalLink href={value?.href}>
-    <span className="line-clamp-1">
-      {children} {!value?.href && "(ADD A LINK)"}
-    </span>
-    <IconArrowUpRight size={16} />
+    {children} {!value?.href && "(ADD A LINK)"}
   </ExternalLink>
 );

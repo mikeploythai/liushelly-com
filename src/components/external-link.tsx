@@ -10,11 +10,7 @@ const ExternalLink = forwardRef<
     target="_blank"
     rel="noreferrer"
     ref={ref}
-    className={cn(
-      buttonVariants({ variant: "link" }),
-      "line-clamp-1 inline-flex max-w-full p-px",
-      className,
-    )}
+    className={cn(buttonVariants({ variant: "link" }), "p-0", className)}
     {...props}
   />
 ));
