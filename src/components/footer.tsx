@@ -1,14 +1,17 @@
 import { IconArrowUpRight } from "@tabler/icons-react";
 import Link from "next/link";
+import { serverEnv } from "~/env/server.mjs";
 import { cn } from "~/lib/cn";
 import { routes } from "~/lib/routes";
 import ExternalLink from "./external-link";
 import SocialLinks from "./social-links";
 import { buttonVariants } from "./ui/button";
 
-export default function Footer() {
-  const date = new Date();
-  const year = date.getFullYear();
+export default async function Footer() {
+  const res = await fetch(`${serverEnv.BASE_URL}/api/get-year`, {
+    next: { tags: ["year"] },
+  });
+  const year = await res.json();
   const navRoutes = ["home", ...routes];
 
   return (

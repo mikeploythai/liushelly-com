@@ -14,6 +14,7 @@ export const serverEnv = createEnv({
     SANITY_REVALIDATE_SECRET: z.string().min(1),
     SANITY_READ_TOKEN: z.string().min(1),
     BASE_URL: z.string().url(),
+    CRON_SECRET: z.string(),
   },
 
   /**
@@ -28,6 +29,7 @@ export const serverEnv = createEnv({
     SANITY_REVALIDATE_SECRET: process.env.SANITY_REVALIDATE_SECRET,
     SANITY_READ_TOKEN: process.env.SANITY_READ_TOKEN,
     BASE_URL: process.env.BASE_URL,
+    CRON_SECRET: process.env.CRON_SECRET,
   },
   /**
    * Run `build` or `dev` with `SKIP_ENV_VALIDATION` to skip env validation.
