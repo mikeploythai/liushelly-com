@@ -8,8 +8,7 @@ export function GET(req: NextRequest) {
   if (authHeader !== `Bearer ${serverEnv.CRON_SECRET}`)
     return new Response("Unauthorized", { status: 401 });
 
-  const date = new Date();
-  const year = date.getFullYear();
+  const year = new Date().getFullYear();
 
   revalidateTag("year");
   return new Response(year.toString(), { status: 200 });
