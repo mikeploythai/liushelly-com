@@ -11,7 +11,7 @@ export default async function Footer() {
   const res = await fetch(`${serverEnv.BASE_URL}/api/get-year`, {
     next: { tags: ["year"] },
   });
-  const year = (await res.json()) as string;
+  const year = await res.text();
   const navRoutes = ["home", ...routes];
 
   return (
