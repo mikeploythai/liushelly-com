@@ -22,7 +22,7 @@ export default async function Footer() {
 
           <ExternalLink
             href={mike?.href ?? "/studio/structure/links"}
-            className="gap-0.5 text-xs"
+            className="text-xs"
           >
             {mike?.href
               ? "Built by Mike"
