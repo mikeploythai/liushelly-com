@@ -6,7 +6,7 @@ import ExternalLink from "./external-link";
 import SocialLinks from "./social-links";
 import { buttonVariants } from "./ui/button";
 
-export default async function Footer() {
+export default function Footer() {
   const date = new Date();
   const year = date.getFullYear();
   const navRoutes = ["home", ...routes];
