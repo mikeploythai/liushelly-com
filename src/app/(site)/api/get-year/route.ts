@@ -2,7 +2,7 @@ import { revalidateTag } from "next/cache";
 import { type NextRequest } from "next/server";
 import { serverEnv } from "~/env/server.mjs";
 
-export async function GET(req: NextRequest) {
+export function GET(req: NextRequest) {
   const authHeader = req.headers.get("authorization");
 
   if (authHeader !== `Bearer ${serverEnv.CRON_SECRET}`)
