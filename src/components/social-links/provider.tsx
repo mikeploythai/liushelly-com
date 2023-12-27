@@ -10,9 +10,11 @@ import SocialLinks from "./links";
 import SocialLinksPreview from "./preview";
 
 export default async function SocialLinksProvider({
-  buttonProps,
+  buttonProps = { variant: "default" },
+  withLabel,
 }: {
-  buttonProps: ButtonProps;
+  buttonProps?: ButtonProps;
+  withLabel?: boolean;
 }) {
   const data = await sanityFetch<SocialLink[]>({
     query: socialLinksQuery,
@@ -22,10 +24,16 @@ export default async function SocialLinksProvider({
   if (isPreviewMode()) {
     return (
       <PreviewProvider token={serverEnv.SANITY_READ_TOKEN}>
-        <SocialLinksPreview initData={data} buttonProps={buttonProps} />
+        <SocialLinksPreview
+          initData={data}
+          buttonProps={buttonProps}
+          withLabel={withLabel}
+        />
       </PreviewProvider>
     );
   }
 
-  return <SocialLinks data={data} buttonProps={buttonProps} />;
+  return (
+    <SocialLinks data={data} buttonProps={buttonProps} withLabel={withLabel} />
+  );
 }

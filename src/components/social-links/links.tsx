@@ -11,15 +11,18 @@ import {
   IconLink,
   type TablerIconsProps,
 } from "@tabler/icons-react";
+import { cn } from "~/lib/cn";
 import ExternalLink from "../external-link";
 import { buttonVariants, type ButtonProps } from "../ui/button";
 
 export default function SocialLinks({
   data,
   buttonProps,
+  withLabel,
 }: {
   data: SocialLink[];
-  buttonProps: ButtonProps;
+  buttonProps?: ButtonProps;
+  withLabel?: boolean;
 }) {
   if (!data) return;
 
@@ -32,13 +35,16 @@ export default function SocialLinks({
           <ExternalLink
             key={name}
             href={href}
-            className={buttonVariants({
-              variant: buttonProps.variant,
-              size: "icon",
-            })}
+            className={cn(
+              buttonVariants({
+                variant: buttonProps?.variant,
+                size: !withLabel ? "icon" : "default",
+              }),
+              withLabel && "p-0",
+            )}
           >
-            <Icon />
-            <span className="sr-only">Link to Shelly&apos;s {name} page</span>
+            <Icon size={!withLabel ? 24 : 16} />
+            <span className={cn(!withLabel && "sr-only")}>{name}</span>
           </ExternalLink>
         );
       })}

@@ -10,11 +10,15 @@ import SocialLinks from "./links";
 export default function SocialLinksPreview({
   initData = [],
   buttonProps,
+  withLabel,
 }: {
   initData: SocialLink[];
-  buttonProps: ButtonProps;
+  buttonProps?: ButtonProps;
+  withLabel?: boolean;
 }) {
   const [data] = useLiveQuery(initData, socialLinksQuery);
 
-  return <SocialLinks data={data} buttonProps={buttonProps} />;
+  return (
+    <SocialLinks data={data} buttonProps={buttonProps} withLabel={withLabel} />
+  );
 }
