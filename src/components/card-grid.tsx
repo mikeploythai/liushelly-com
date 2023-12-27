@@ -59,7 +59,7 @@ const CardGrid = forwardRef<HTMLDivElement, CardGridProps>(
                 className={buttonVariants({ class: "w-full" })}
               >
                 <span className="truncate">{name ?? "Add a name"}</span>
-                <IconArrowRight size={16} className="ml-auto" />
+                <IconArrowRight size={18} className="ml-auto" />
               </Link>
             </CardFooter>
           </Card>

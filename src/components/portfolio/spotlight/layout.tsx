@@ -15,7 +15,7 @@ export default function SpotlightLayout({ data }: { data: ListItem }) {
         href="/portfolio"
         className={cn(buttonVariants({ variant: "link", size: "sm" }), "p-0")}
       >
-        <IconArrowLeft size={14} />
+        <IconArrowLeft size={16} />
         Back to portfolio
       </Link>
 

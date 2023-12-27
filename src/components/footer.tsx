@@ -27,7 +27,7 @@ export default async function Footer() {
             {mike?.href
               ? "Built by Mike"
               : `Add a link called "Mike's website" in the studio!`}
-            <IconArrowUpRight size={12} />
+            <IconArrowUpRight size={14} />
           </ExternalLink>
         </div>
 

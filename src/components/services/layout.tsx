@@ -50,7 +50,7 @@ export default function ServicesLayout({ data }: { data: ServicesData }) {
               className={buttonVariants({ className: "w-full" })}
             >
               View details
-              <IconArrowRight size={16} className="ml-auto" />
+              <IconArrowRight size={18} className="ml-auto" />
             </Link>
           </CardFooter>
         </Card>

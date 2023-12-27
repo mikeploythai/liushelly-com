@@ -26,7 +26,7 @@ export default function ServiceLayout({ data }: { data: ServiceData }) {
         href="/services"
         className={cn(buttonVariants({ variant: "link", size: "sm" }), "p-0")}
       >
-        <IconArrowLeft size={14} />
+        <IconArrowLeft size={16} />
         Back to services
       </Link>
 
@@ -60,7 +60,7 @@ export default function ServiceLayout({ data }: { data: ServiceData }) {
             ? "Add a link and label"
             : "Add a label"
           : cta.text}
-        <IconArrowUpRight size={16} className="ml-auto" />
+        <IconArrowUpRight size={18} className="ml-auto" />
       </Link>
 
       {tabs && (

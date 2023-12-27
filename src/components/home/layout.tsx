@@ -47,7 +47,7 @@ export default function HomeLayout({ data }: { data: HomeData }) {
                     ? "Add a link and label"
                     : "Add a label"
                   : home.hero.cta.text}
-                <IconArrowUpRight size={18} />
+                <IconArrowUpRight size={20} />
               </ExternalLink>
             </div>
 
@@ -83,7 +83,7 @@ export default function HomeLayout({ data }: { data: HomeData }) {
             className={cn(buttonVariants({ variant: "link" }), "p-0")}
           >
             Explore services
-            <IconArrowRight size={16} />
+            <IconArrowRight size={18} />
           </Link>
         </div>
 
@@ -104,7 +104,7 @@ export default function HomeLayout({ data }: { data: HomeData }) {
             {instagram?.href
               ? "Visit my Instagram"
               : `Add a link called "Instagram" in the studio!`}
-            <IconArrowUpRight size={16} />
+            <IconArrowUpRight size={18} />
           </ExternalLink>
         </div>
 
