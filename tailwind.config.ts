@@ -26,6 +26,9 @@ export default {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
+      fontSize: {
+        "3xl": ["1.75rem", "2.125rem"],
+      },
       fontFamily: {
         heading: ["var(--font-heading)"],
         body: ["var(--font-body)"],
@@ -36,6 +39,16 @@ export default {
       },
       animationDuration: {
         "60s": "60s",
+      },
+      typography: {
+        sm: {
+          css: {
+            h1: {
+              fontSize: "1.75rem",
+              lineHeight: "2.125rem",
+            },
+          },
+        },
       },
     },
   },
