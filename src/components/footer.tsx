@@ -12,7 +12,7 @@ export default async function Footer() {
     next: { tags: ["year"] },
   });
   const year =
-    serverEnv.NODE_ENV !== "production"
+    process.env.VERCEL_ENV !== "production"
       ? new Date().getFullYear()
       : await res.text();
   const navRoutes = ["home", ...routes];
