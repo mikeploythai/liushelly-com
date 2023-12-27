@@ -26,7 +26,7 @@ export default function HomeLayout({ data }: { data: HomeData }) {
           <CardContent className="grid sm:grid-cols-3">
             <div className="space-y-6 p-6 sm:col-span-2 sm:space-y-9 sm:p-9 md:space-y-12 md:p-12">
               <hgroup className="space-y-2 sm:space-y-4">
-                <h1 className="font-heading text-3xl font-medium md:text-4xl">
+                <h1 className="hyphens-auto font-heading text-3xl font-medium sm:hyphens-none md:text-4xl text-balance">
                   {home.hero?.heading ?? "Add a heading"}
                 </h1>
 
