@@ -8,8 +8,9 @@ import testimonials from "./orderables/testimonials";
 import aboutMe from "./singletons/about-me";
 import announcement from "./singletons/announcement";
 import home from "./singletons/home";
+import seo from "./singletons/seo";
 
-export const singletons = [home, aboutMe, announcement];
+export const singletons = [home, aboutMe, announcement, seo];
 export const orderables = [services, portfolio, testimonials, socials];
 const documents = [links];
 

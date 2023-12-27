@@ -1,36 +1,19 @@
 import { IconArrowUpRight } from "@tabler/icons-react";
 import Link from "next/link";
-import { serverEnv } from "~/env/server.mjs";
 import { cn } from "~/lib/cn";
 import { routes } from "~/lib/routes";
-import ExternalLink from "./external-link";
-import SocialLinks from "./social-links";
-import { buttonVariants } from "./ui/button";
+import ExternalLink from "../external-link";
+import SocialLinks from "../social-links";
+import { buttonVariants } from "../ui/button";
+import Copyright from "./copyright";
 
 export default async function Footer() {
-  const res = await fetch(`${serverEnv.BASE_URL}/api/get-year`, {
-    next: { tags: ["year"] },
-  });
-  const year =
-    process.env.NEXT_PUBLIC_VERCEL_ENV !== "production"
-      ? new Date().getFullYear()
-      : await res.text();
   const navRoutes = ["home", ...routes];
 
   return (
     <footer className="bg-indigo-950 text-violet-200">
       <section className="mx-auto grid w-full max-w-screen-lg grid-cols-2 gap-y-6 p-6 text-sm *:flex *:flex-col *:items-start *:gap-3 sm:flex sm:gap-6 sm:py-12">
-        <hgroup className="col-span-2 sm:mr-auto sm:w-1/2">
-          <h2 className="font-heading text-lg font-medium">
-            &copy; Shelly Liu {year}
-          </h2>
-
-          <p>
-            Shelly Liu is a SoCal-based freelance digital marketing expert
-            specialized in helping diverse businesses flourish on social media
-            through organic growth and personalized strategy.
-          </p>
-        </hgroup>
+        <Copyright />
 
         <div>
           <h3 className="font-heading font-medium">Explore</h3>

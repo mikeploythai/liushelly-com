@@ -32,6 +32,11 @@ export interface SocialLink extends SanityDocument {
   href: string;
 }
 
+// SEO
+export interface SEO extends SanityDocument {
+  description: string;
+}
+
 // Home
 export type HomeData = {
   home: Home;

@@ -89,3 +89,7 @@ export const spotlightQuery = groq`
     )
   }
 }`;
+
+// SEO
+export const seoQuery = groq`
+*[_type == "seo"][0]`;

@@ -29,6 +29,7 @@ import socials from "sanity-studio/schema/orderables/socials";
 import testimonials from "sanity-studio/schema/orderables/testimonials";
 import aboutMe from "sanity-studio/schema/singletons/about-me";
 import announcement from "sanity-studio/schema/singletons/announcement";
+import seo from "sanity-studio/schema/singletons/seo";
 
 const previewDocs = [
   home.name,
@@ -38,6 +39,7 @@ const previewDocs = [
   portfolio.name,
   testimonials.name,
   socials.name,
+  seo.name,
 ] satisfies string[];
 
 const previewSlugDocs = [
