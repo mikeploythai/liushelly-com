@@ -31,10 +31,7 @@ export default function Navbar() {
           Preview mode enabled.{" "}
           <a
             href="/api/exit-preview"
-            className={cn(
-              buttonVariants({ variant: "link" }),
-              "p-0 hover:text-violet-50 focus-visible:text-violet-50",
-            )}
+            className={cn(buttonVariants({ variant: "secondary-link" }), "p-0")}
           >
             Click here to exit preview
           </a>
