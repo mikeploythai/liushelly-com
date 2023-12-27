@@ -7,7 +7,7 @@ import SocialLinks from "../social-links";
 import { buttonVariants } from "../ui/button";
 import Copyright from "./copyright";
 
-export default async function Footer() {
+export default function Footer() {
   const navRoutes = ["home", ...routes];
 
   return (
