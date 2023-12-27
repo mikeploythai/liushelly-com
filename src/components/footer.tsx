@@ -1,40 +1,68 @@
 import { IconArrowUpRight } from "@tabler/icons-react";
-import { sanityFetch } from "sanity-studio/lib/fetch";
+import Link from "next/link";
+import { cn } from "~/lib/cn";
+import { routes } from "~/lib/routes";
 import ExternalLink from "./external-link";
 import SocialLinks from "./social-links";
+import { buttonVariants } from "./ui/button";
 
 export default async function Footer() {
   const date = new Date();
   const year = date.getFullYear();
-
-  const mike = await sanityFetch<{ href: string } | null>({
-    query: `*[_type == "links" && name == "Mike's website"][0]`,
-    tags: ["links"],
-  });
+  const navRoutes = ["home", ...routes];
 
   return (
     <footer>
-      <div className="mx-auto flex w-full max-w-screen-md flex-col justify-between gap-6 p-6 sm:flex-row sm:items-center md:py-12">
-        <div className="space-y-1.5">
-          <p className="font-heading text-lg font-medium">
+      <section className="mx-auto grid w-full max-w-screen-lg grid-cols-2 gap-y-6 p-6 text-sm *:flex *:flex-col *:items-start *:gap-3 sm:flex sm:gap-6 sm:py-12">
+        <hgroup className="col-span-2 sm:mr-auto sm:w-1/2">
+          <h2 className="font-heading text-lg font-medium">
             &copy; Shelly Liu {year}
-          </p>
+          </h2>
 
+          <p>
+            Shelly Liu is a SoCal-based freelance digital marketing expert
+            specialized in helping diverse businesses flourish on social media
+            through organic growth and personalized strategy.
+          </p>
+        </hgroup>
+
+        <div>
+          <h3 className="font-heading font-medium">Explore</h3>
+          <nav className="flex flex-col items-start gap-1.5">
+            {navRoutes.map((route) => (
+              <Link
+                key={route}
+                href={route !== "home" ? `/${route}` : "/"}
+                className={cn(
+                  buttonVariants({ variant: "link", size: "sm" }),
+                  "p-0",
+                )}
+              >
+                {route}
+              </Link>
+            ))}
+          </nav>
+        </div>
+
+        <div>
+          <h3 className="font-heading font-medium">Connect</h3>
+          <div className="flex flex-col items-start gap-1.5">
+            <SocialLinks buttonProps={{ variant: "link" }} withLabel />
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-indigo-950">
+        <div className="mx-auto w-full max-w-screen-lg px-6 py-1">
           <ExternalLink
-            href={mike?.href ?? "/studio/structure/links"}
-            className="text-xs"
+            href="https://mikeploythai.com"
+            className="text-xs text-violet-200 no-underline hover:text-violet-50 focus-visible:text-violet-50"
           >
-            {mike?.href
-              ? "Built by Mike"
-              : `Add a link called "Mike's website" in the studio!`}
+            Built by Mike
             <IconArrowUpRight size={14} />
           </ExternalLink>
         </div>
-
-        <div className="flex">
-          <SocialLinks buttonProps={{ variant: "ghost" }} />
-        </div>
-      </div>
+      </section>
     </footer>
   );
 }
