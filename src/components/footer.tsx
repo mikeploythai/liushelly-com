@@ -18,7 +18,7 @@ export default async function Footer() {
   const navRoutes = ["home", ...routes];
 
   return (
-    <footer>
+    <footer className="bg-indigo-950 text-violet-200">
       <section className="mx-auto grid w-full max-w-screen-lg grid-cols-2 gap-y-6 p-6 text-sm *:flex *:flex-col *:items-start *:gap-3 sm:flex sm:gap-6 sm:py-12">
         <hgroup className="col-span-2 sm:mr-auto sm:w-1/2">
           <h2 className="font-heading text-lg font-medium">
@@ -40,7 +40,7 @@ export default async function Footer() {
                 key={route}
                 href={route !== "home" ? `/${route}` : "/"}
                 className={cn(
-                  buttonVariants({ variant: "link", size: "sm" }),
+                  buttonVariants({ variant: "secondary-link", size: "sm" }),
                   "p-0",
                 )}
               >
@@ -53,16 +53,20 @@ export default async function Footer() {
         <div>
           <h3 className="font-heading font-medium">Connect</h3>
           <div className="flex flex-col items-start gap-1.5">
-            <SocialLinks buttonProps={{ variant: "link" }} withLabel />
+            <SocialLinks
+              buttonProps={{ variant: "secondary-link" }}
+              withLabel
+            />
           </div>
         </div>
       </section>
 
-      <section className="bg-indigo-950">
-        <div className="mx-auto w-full max-w-screen-lg px-6 py-1">
+      <section className="border-t border-indigo-900">
+        <div className="mx-auto w-full max-w-screen-lg px-6 py-2">
           <ExternalLink
             href="https://mikeploythai.com"
-            className="text-xs text-violet-200 no-underline hover:text-violet-50 focus-visible:text-violet-50"
+            buttonProps={{ variant: "secondary-link" }}
+            className="text-xs no-underline"
           >
             Built by Mike
             <IconArrowUpRight size={14} />
