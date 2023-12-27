@@ -4,12 +4,12 @@ import { IconArrowRight } from "@tabler/icons-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "~/lib/cn";
+import { routes } from "~/lib/routes";
 import { buttonVariants } from "../ui/button";
 import { SheetClose } from "../ui/sheet";
 
 export default function NavbarItems({ isDrawer }: { isDrawer: boolean }) {
   const pathname = usePathname();
-  const routes: string[] = ["about", "services", "portfolio", "contact"];
 
   function ItemWrapper({ children }: { children: React.ReactNode }) {
     if (isDrawer) return <SheetClose asChild>{children}</SheetClose>;
