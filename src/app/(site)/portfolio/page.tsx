@@ -33,7 +33,7 @@ export default async function PortfolioPage() {
 
   if (isPreviewMode()) {
     return (
-      <PreviewProvider token={serverEnv.SANITY_READ_TOKEN}>
+      <PreviewProvider token={serverEnv.SANITY_API_READ_TOKEN}>
         <PortfolioLayoutPreview initData={data} />
       </PreviewProvider>
     );

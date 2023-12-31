@@ -1,10 +1,7 @@
-import type { PreviewSecret } from "~/lib/types";
-
 import { draftMode } from "next/headers";
 import { redirect } from "next/navigation";
 import { isValidSecret } from "sanity-plugin-iframe-pane/is-valid-secret";
 import { client } from "sanity-studio/lib/client";
-import { clientEnv } from "~/env/client.mjs";
 import { serverEnv } from "~/env/server.mjs";
 
 const routesWithSlugs = ["services", "portfolio"];
@@ -18,12 +15,12 @@ export async function GET(req: Request) {
   if (!secret) return new Response("Invalid Secret.", { status: 401 });
 
   const authenticatedClient = client.withConfig({
-    token: serverEnv.SANITY_READ_TOKEN,
+    token: serverEnv.SANITY_API_READ_TOKEN,
   });
 
   const validSecret = await isValidSecret(
     authenticatedClient,
-    clientEnv.NEXT_PUBLIC_SANITY_PREVIEW_SECRET as PreviewSecret,
+    "preview.secret",
     secret,
   );
 

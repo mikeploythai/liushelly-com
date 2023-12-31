@@ -24,7 +24,7 @@ export async function sanityFetch<QueryResponse>({
         ? undefined
         : "force-cache",
     ...(isPreviewMode() && {
-      token: serverEnv.SANITY_READ_TOKEN,
+      token: serverEnv.SANITY_API_READ_TOKEN,
       perspective: "previewDrafts",
     }),
     next: {

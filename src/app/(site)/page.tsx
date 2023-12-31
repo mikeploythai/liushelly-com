@@ -16,7 +16,7 @@ export default async function HomePage() {
 
   if (isPreviewMode()) {
     return (
-      <PreviewProvider token={serverEnv.SANITY_READ_TOKEN}>
+      <PreviewProvider token={serverEnv.SANITY_API_READ_TOKEN}>
         <HomeLayoutPreview initData={data} />
       </PreviewProvider>
     );

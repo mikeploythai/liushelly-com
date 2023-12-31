@@ -20,7 +20,7 @@ export default async function CopyrightProvider() {
 
   if (isPreviewMode()) {
     return (
-      <PreviewProvider token={serverEnv.SANITY_READ_TOKEN}>
+      <PreviewProvider token={serverEnv.SANITY_API_READ_TOKEN}>
         <CopyrightPreview initData={data} year={year} />
       </PreviewProvider>
     );

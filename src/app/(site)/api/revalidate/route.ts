@@ -7,7 +7,7 @@ export async function POST(req: NextRequest) {
   try {
     const { isValidSignature, body } = await parseBody<{ _type: string }>(
       req,
-      serverEnv.SANITY_REVALIDATE_SECRET,
+      serverEnv.SANITY_API_REVALIDATE_SECRET,
     );
 
     if (!isValidSignature) {

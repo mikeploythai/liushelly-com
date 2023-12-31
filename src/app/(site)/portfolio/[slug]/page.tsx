@@ -24,7 +24,7 @@ export default async function SpotlightPage({
 
   if (isPreviewMode()) {
     return (
-      <PreviewProvider token={serverEnv.SANITY_READ_TOKEN}>
+      <PreviewProvider token={serverEnv.SANITY_API_READ_TOKEN}>
         <SpotlightLayoutPreview initData={data} initSlug={slug} />
       </PreviewProvider>
     );

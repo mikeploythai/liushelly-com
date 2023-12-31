@@ -86,5 +86,3 @@ export interface ServiceData extends ListItem {
     answer: TypedObject[];
   }[];
 }
-
-export type PreviewSecret = `${string}.${string}`;

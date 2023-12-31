@@ -17,7 +17,6 @@ import { theme } from "sanity-studio/theme";
 import { deskTool } from "sanity/desk";
 
 // Go to https://www.sanity.io/docs/api-versioning to learn how API versioning works
-import type { PreviewSecret } from "~/lib/types";
 
 import home from "sanity-studio/schema/singletons/home";
 import { clientEnv } from "~/env/client.mjs";
@@ -57,7 +56,7 @@ const urlResolver = defineUrlResolver({
 
 const iframeOptions: IframeOptions = {
   url: urlResolver,
-  urlSecretId: clientEnv.NEXT_PUBLIC_SANITY_PREVIEW_SECRET as PreviewSecret,
+  urlSecretId: "preview.secret",
   loader: "Loading preview...",
   reload: { button: true },
 };
@@ -74,11 +73,11 @@ export default defineConfig({
     deskTool({ structure, defaultDocumentNode }),
     // Vision is a tool that lets you query your content with GROQ in the studio
     // https://www.sanity.io/docs/the-vision-plugin
-    visionTool({ defaultApiVersion: clientEnv.NEXT_PUBLIC_SANITY_API_VERSION }),
+    visionTool({ defaultApiVersion: "2023-11-18" }),
     previewUrl({
       base: previewBasePathname,
       requiresSlug: previewSlugDocs,
-      urlSecretId: clientEnv.NEXT_PUBLIC_SANITY_PREVIEW_SECRET as PreviewSecret,
+      urlSecretId: "preview.secret",
       matchTypes: previewDocs,
     }),
     pexelsImageAsset({ useProxyClient: true }),
