@@ -2,6 +2,7 @@
 const config = {
   plugins: ["prettier-plugin-tailwindcss"],
   tailwindFunctions: ["cva"],
+  tailwindAttributes: ["tw"],
 };
 
 export default config;
