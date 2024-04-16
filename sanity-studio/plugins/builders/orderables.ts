@@ -1,6 +1,9 @@
 import type { ComponentType } from "react";
 import type { DocumentDefinition } from "sanity";
-import type { StructureBuilder, StructureResolverContext } from "sanity/desk";
+import type {
+  StructureBuilder,
+  StructureResolverContext,
+} from "sanity/structure";
 
 import { orderableDocumentListDeskItem } from "@sanity/orderable-document-list";
 

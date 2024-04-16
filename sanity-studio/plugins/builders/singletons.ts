@@ -1,5 +1,5 @@
 import type { DocumentDefinition } from "sanity";
-import type { StructureBuilder } from "sanity/desk";
+import type { StructureBuilder } from "sanity/structure";
 
 import itemViews from "../item-views";
 

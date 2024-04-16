@@ -1,4 +1,4 @@
-import type { DefaultDocumentNodeResolver } from "sanity/desk";
+import type { DefaultDocumentNodeResolver } from "sanity/structure";
 import itemViews from "./item-views";
 
 const defaultDocumentNode: DefaultDocumentNodeResolver = (S, { schemaType }) =>

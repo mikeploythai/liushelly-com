@@ -14,7 +14,7 @@ import { media, mediaAssetSource } from "sanity-plugin-media";
 import defaultDocumentNode from "sanity-studio/plugins/default-document-node";
 import structure from "sanity-studio/plugins/structure";
 import { theme } from "sanity-studio/theme";
-import { deskTool } from "sanity/desk";
+import { structureTool } from "sanity/structure";
 
 // Go to https://www.sanity.io/docs/api-versioning to learn how API versioning works
 
@@ -70,7 +70,7 @@ export default defineConfig({
   schema,
   theme,
   plugins: [
-    deskTool({ structure, defaultDocumentNode }),
+    structureTool({ structure, defaultDocumentNode }),
     // Vision is a tool that lets you query your content with GROQ in the studio
     // https://www.sanity.io/docs/the-vision-plugin
     visionTool({ defaultApiVersion: "2023-11-18" }),

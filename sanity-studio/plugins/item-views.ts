@@ -1,4 +1,4 @@
-import type { StructureBuilder } from "sanity/desk";
+import type { StructureBuilder } from "sanity/structure";
 
 import Iframe, { type IframeOptions } from "sanity-plugin-iframe-pane";
 import { iframeOptions, previewDocs } from "sanity.config";
